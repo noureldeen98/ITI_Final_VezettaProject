@@ -1,8 +1,10 @@
 
 
-const Doctorcard = () => {
-  // Display the result on the page
 
+const Doctorcard = () => {
+
+      
+    // Display the result on the page
   return (
     <div className="card mb-3">
       <div className="row g-0">

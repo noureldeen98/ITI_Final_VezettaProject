@@ -5,16 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
-// import store from '../src/ReactRedux/Store/store'
-// import {Provider} from 'react-redux'
+import myStore from '../src/ReactRedux/Store/myStore'
+import {Provider} from 'react-redux'
 
 
 
 ReactDOM.render(
-  // <Provider store={store}>
+  <Provider store={myStore}>
     <App />
-    /* </Provider> */
+  </Provider> 
   ,
   document.getElementById('root')
 );

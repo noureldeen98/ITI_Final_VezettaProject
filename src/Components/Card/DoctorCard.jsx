@@ -41,7 +41,7 @@ const Doctorcard=()=>{
                         <div className="card-body">
                           <h5 className="card-title">{eachDoctor.Name}</h5>
                           <p className="card-text">{eachDoctor.Title}</p>
-                          <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                          
                         </div>
                       </div>
                     </div>

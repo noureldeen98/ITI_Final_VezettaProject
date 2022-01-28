@@ -1,11 +1,7 @@
 
-// const initialState = {
-//     depts: []
-// }
-
 function deptsReducer (state = [], action) {
     switch(action.type) {
-        case 'get-departments' : 
+        case 'get-departments': 
             return action.payload;
             
         default: 

@@ -1,0 +1,22 @@
+.row {
+    width: 100%;
+    overflow: hidden;
+}
+.carousel {
+    margin-top: -1.8%;
+}
+.carousel-item {
+    opacity: 0.2;
+}
+.carousel-inner {
+    position: relative;
+}
+
+.sliderContent {
+    position: absolute;
+    padding: 0% 5%;
+}
+
+.top {
+    color: #6f7072;
+}

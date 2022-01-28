@@ -3,8 +3,10 @@ const getDepts = () => {
     return (dispatch) => {
         db.collection('Departments').get()
         .then(data => {
+            let allData = []
             data.forEach(depts => {
-                dispatch({type: 'get-departments', payload: depts.data()})
+                allData.push(depts.data());
+                dispatch({type: 'get-departments', payload: allData})
             })
         })
         .catch(err => {

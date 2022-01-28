@@ -1,0 +1,38 @@
+.nav {
+    background-color: #0070cd;
+    height: 10%;
+}
+.navbar-toggler {
+    color: white;
+}
+
+.nav-item a {
+    color: white;
+}
+.nav-item a:hover {
+    color: white;
+    text-decoration: underline;
+}
+.nav-item:last-child {
+    border: 1px solid white;
+
+}
+.nav-item:last-child a:hover {
+    background-color: white;
+    text-decoration: none;
+    color: #0070cd !important;
+
+}
+
+#navbarNavDropdown {
+    padding: 0.5% 0% 0.5% 30%;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    #navbarNavDropdown {
+        padding: 0%;
+    }
+}

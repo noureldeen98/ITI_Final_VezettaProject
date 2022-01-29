@@ -12,12 +12,13 @@ export default function BigTab() {
     //normal redux
     const dpts = useSelector(state => state.dptReduxReducer.depts);
     const [allDepts, setAllDepts] = useState([dpts]);
+    // const allDepts = [dpts]
     const [commonDepts, setCommonDepts] = useState([]);
     const [otherDepts, setOtherDepts] = useState([]);
     const [counter, setCounter] = useState(1);
     const getCommonDpts = () => {
         allDepts.map(dpt => {
-            if(dpt.common) {
+            if( dpt && dpt.common) {
                 setCommonDepts(oldArr => [...oldArr, dpt]);
                 // if(counter == 1) {
                 //     setCommonDepts(oldArr => oldArr.slice(0,9))
@@ -34,7 +35,7 @@ export default function BigTab() {
     }
     const getOtherDpts = () => {
         allDepts.map(dpt => {
-            if(dpt.other) {
+            if( dpt && dpt.other) {
                 setOtherDepts(oldArr => [...oldArr, dpt]);
             }
         })
@@ -46,14 +47,14 @@ export default function BigTab() {
     const [otherCities, setOtherCities] = useState([]);
     const getCommonCities = () => {
         allCities.map(city => {
-            if(city.common) {
+            if(city && city.common) {
                 setCommonCities(oldArr => [...oldArr, city]);
             }
         })
     }
     const getOtherCities = () => {
         allCities.map(city => {
-            if(city.other) {
+            if(city && city.other) {
                 setOtherCities(oldArr => [...oldArr, city]);
             }
         })
@@ -66,14 +67,14 @@ export default function BigTab() {
     const [otherAreas, setOtherAreas] = useState([]);
     const getCommonAreas = () => {
         allAreas.map(area => {
-            if(area.common) {
+            if(area && area.common) {
                 setCommonAreas(oldArr => [...oldArr, area]);
             }
         })
     }
     const getOtherAreas = () => {
         allAreas.map(area => {
-            if(area.other) {
+            if(area && area.other) {
                 setOtherAreas(oldArr => [...oldArr, area]);
             }
         })
@@ -83,6 +84,7 @@ export default function BigTab() {
         // dispatch(getDepts());
         dispatch(getAllDepts());
         setAllDepts(oldDept => oldDept[0]);
+        // setAllDepts(dpts)
         //cities
         dispatch(getAllCities());
         setAllCities(oldArr => oldArr[0]);

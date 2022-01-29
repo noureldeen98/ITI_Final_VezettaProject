@@ -6,8 +6,7 @@ import NavbarComponent from './Components/home/header/NavbarComponent';
 import HomeSlider from './Components/home/homeSlider/HomeSlider';
 import SmallPharmacy from './Components/home/part2/sPharmacy/SmallPharmacy';
 import Corona from './Components/home/part3/corona/Corona';
-import BigTab from './Components/home/tabToggle/BigTab';
-import TabToggle from './Components/home/tabToggle/TabToggle';
+import DeptSlider from './Components/home/part4/DeptSlider';
 
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
         <HomeSlider />
         <SmallPharmacy />
         <Corona />
+        <DeptSlider />
       {/* <TabToggle /> */}
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>

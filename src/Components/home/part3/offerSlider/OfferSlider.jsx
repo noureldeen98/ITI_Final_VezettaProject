@@ -36,17 +36,12 @@ export default function OfferSlider() {
     ]
     const [firstSliderState, setFirstSliderState] = useState(firstSlider);
     const [secSliderState, setSecSliderState] = useState(secondSlider)
-    const [activeClass, setActiveClass] = useState(true);
-    const toggleClass = (e) => {
-        e.preventDefault();
-        setActiveClass(!activeClass);
-    }
     return <>
         <OfferTitle />
         {/* hena l slider */}
         <div className="row justify-content-center">
             <div className="col-11 col-md-11 col-lg-8 position-relative">
-                <div id={`carouselExampleControls`} className={`carousel slide`} 
+                <div id="carouselExampleControls" className={`carousel slide`} 
                 data-bs-ride="carousel">
                     <div className={`carousel-inner position-relative`}  
                     id={style.carousel}>
@@ -66,7 +61,7 @@ export default function OfferSlider() {
                         </div>
                     </div>
                     {/* hena l offer btn */}
-                    <OfferBtn />
+                    <OfferBtn id="carouselExampleControls"/>
                     
                 </div>
             </div>

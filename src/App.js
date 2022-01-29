@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import Doctorcard from './Components/Card/DoctorCard'
+import Footer from './Components/home/footer/Footer';
 import NavbarComponent from './Components/home/header/NavbarComponent';
 import HomeSlider from './Components/home/homeSlider/HomeSlider';
 import SmallPharmacy from './Components/home/part2/sPharmacy/SmallPharmacy';
@@ -20,6 +21,7 @@ function App() {
         <DeptSlider />
         <Part5 />
         <Part6 />
+        <Footer />
       {/* <TabToggle /> */}
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>

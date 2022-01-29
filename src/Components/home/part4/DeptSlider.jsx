@@ -30,7 +30,7 @@ export default function DeptSlider() {
     const [secSliderState, setSecSliderState] = useState(secSlider);
 
     return <>
-    <div className={style.part4} style={{'width': '100%', 'overflow': 'hidden'}}>
+    <div className={`${style.part4} py-5`} style={{'width': '100%', 'overflow': 'hidden'}}>
         <DeptSliderTitle />
         <div className="row justify-content-center">
             <div className="col-11 col-md-11 col-lg-8 position-relative">

@@ -15,4 +15,37 @@ const getDepts = () => {
     }
 }
 
-export default getDepts;
+// const getCommonDept = () => {
+//     return (dispatch) => {
+//         db.collection('Departments').where('common', '==', true).get()
+//         .then(data => {
+//             let allData = []
+//             data.forEach(depts => {
+//                 allData.push(depts.data().name);
+//                 dispatch({type: 'get-common-dept', payload: allData})
+//             })
+//             console.log('from action', allData);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         })
+//     }
+// }
+
+// const getOtherDept = () => {
+//     return (dispatch) => {
+//         db.collection('Departments').where('common', '==', false).get()
+//         .then(data => {
+//             let allData = []
+//             data.forEach(depts => {
+//                 allData.push(depts.data().name);
+//                 dispatch({type: 'get-common-dept', payload: allData})
+//             })
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         })
+//     }
+// }
+
+export { getDepts};

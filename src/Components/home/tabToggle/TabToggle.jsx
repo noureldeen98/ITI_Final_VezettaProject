@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import getDepts from '../../../ReactRedux/Actions/DeparmentsAction';
+import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
 export default function TabToggle() {
     const dispatch = useDispatch();
     const depts = useSelector((state) => state.deptRed);

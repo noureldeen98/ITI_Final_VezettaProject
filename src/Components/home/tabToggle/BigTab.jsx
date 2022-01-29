@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
 import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
+import {getAllCities} from '../../../ReactRedux/Actions/CitiesActionRedux';
+import {getAllAreas} from '../../../ReactRedux/Actions/AreasActionRedux'
 import style from './bigTab.module.css';
 export default function BigTab() {
     // tab-pane fade in active 
@@ -38,15 +40,71 @@ export default function BigTab() {
         })
     }
     //cities
+    const cities = useSelector(state => state.citiesReduxReducer.cities);
+    const [allCities, setAllCities] = useState([cities]);
+    const [commonCities, setCommonCities] = useState([]);
+    const [otherCities, setOtherCities] = useState([]);
+    const getCommonCities = () => {
+        allCities.map(city => {
+            if(city.common) {
+                setCommonCities(oldArr => [...oldArr, city]);
+            }
+        })
+    }
+    const getOtherCities = () => {
+        allCities.map(city => {
+            if(city.other) {
+                setOtherCities(oldArr => [...oldArr, city]);
+            }
+        })
+    }
+
+    //areas
+    const areas = useSelector(state => state.areasReduxReducer.areas);
+    const [allAreas, setAllAreas] = useState([areas]);
+    const [commonAreas, setCommonAreas] = useState([]);
+    const [otherAreas, setOtherAreas] = useState([]);
+    const getCommonAreas = () => {
+        allAreas.map(area => {
+            if(area.common) {
+                setCommonAreas(oldArr => [...oldArr, area]);
+            }
+        })
+    }
+    const getOtherAreas = () => {
+        allAreas.map(area => {
+            if(area.other) {
+                setOtherAreas(oldArr => [...oldArr, area]);
+            }
+        })
+    }
+    //useEfect
     useEffect(() => {
         // dispatch(getDepts());
         dispatch(getAllDepts());
         setAllDepts(oldDept => oldDept[0]);
+        //cities
+        dispatch(getAllCities());
+        setAllCities(oldArr => oldArr[0]);
+        //Areas
+        dispatch(getAllAreas());
+        setAllAreas(oldArr => oldArr[0]);
     }, []);
+    //deots
     useEffect(() => {
         getCommonDpts();
         getOtherDpts();
     }, [allDepts])
+    //cities
+    useEffect(() => {
+        getCommonCities();
+        getOtherCities();
+    }, [allCities])
+    //areas
+    useEffect(() => {
+        getCommonAreas();
+        getOtherAreas();
+    }, [allAreas])
     // 0-9 ==== 10-18 === 19-length
     const nextDept = () => {
         if(counter == 3) {
@@ -122,20 +180,40 @@ export default function BigTab() {
                         <span className="deptTitle">اختار المحافظة</span>
                     </h3>
                 </button>
-                <ul className={`dropdown-menu ${style.deptMenu}`}
+                <ul className={`dropdown-menu ${style.deptMenu2}`}
                 aria-labelledby="dropdownMenuButton1">
                     <div className={style.ulContainer} id="cities">
                         <div className="right">
-                            <li>
-                                الاكثر اختيارا
+                            <span>
+                                <li>
+                                    الاكثر اختيارا
+                                </li>
+                            </span>
+                            {commonCities.map(el => (
+                                <li key={el.name}>
+                                <a className={`dropdown-item ${style.common}`} 
+                                href="#" style={{'color': '#0070cd'}}>
+                                    {el.name} 
+                                </a>
                             </li>
+                            ))}
                             {/* here */}
                         </div>
                         <div className="left">
-                            <li>
-                                محاففظات اخري
-                            </li>
+                            <span>
+                                <li>
+                                    محاففظات اخري
+                                </li>
+                            </span>
                             {/* here */}
+                            {otherCities.map(el => (
+                                <li key={el.name}>
+                                <a className={`dropdown-item ${style.common}`} 
+                                href="#" style={{'color': '#0070cd'}}>
+                                    {el.name} 
+                                </a>
+                            </li>
+                            ))}
                         </div>
                     </div>
                     {/* <!-- <div className="footer" style="padding: 0em 2em; ">
@@ -157,19 +235,39 @@ export default function BigTab() {
                 aria-labelledby="dropdownMenuButton1">
                     <div className={style.ulContainer} id="areas">
                         <div className="right">
-                            <li id="commonAreas" style={{"display": "block"}}>
-                                الاكثر اختيارا
-                            </li>
-                            <span id="commonSpan">
-
+                            <span>
+                                <li id="commonAreas" style={{"display": "block"}}>
+                                    الاكثر اختيارا
+                                </li>
                             </span>
+                            {/* <span id="commonSpan">
+
+                            </span> */}
+                            {commonAreas.map(el => (
+                                <li key={el.name}>
+                                <a className={`dropdown-item ${style.common}`} 
+                                href="#" style={{'color': '#0070cd'}}>
+                                    {el.name} 
+                                </a>
+                            </li>
+                            ))}
                         </div>
                         <div className="left">
-                            <li id="otherAreas" style={{"display": "block"}}>
-                                مناطق اخري
-                            </li>
-                            <span id='otherSpan'>
+                            <span>
+                                <li id="otherAreas" style={{"display": "block"}}>
+                                    مناطق اخري
+                                </li>
                             </span>
+                            {otherAreas.map(el => (
+                                <li key={el.name}>
+                                <a className={`dropdown-item ${style.common}`} 
+                                href="#" style={{'color': '#0070cd'}}>
+                                    {el.name} 
+                                </a>
+                            </li>
+                            ))}
+                            {/* <span id='otherSpan'>
+                            </span> */}
                         </div>
                     </div>
                     {/* <!-- <div className="footer" style="padding: 0em 2em; ">

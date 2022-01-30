@@ -1,0 +1,15 @@
+.row {
+    --bs-gutter-x: 0!important;
+  }
+  
+  .second {
+    background-color: #e2e6ea;
+    width:100%;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::after {
+    float: right;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: var(--bs-breadcrumb-divider, "/");
+  }

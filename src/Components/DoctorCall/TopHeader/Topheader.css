@@ -1,0 +1,115 @@
+@media screen and (min-width: 769px) {
+    #img1 {
+      background: url(./../headerImg/header1.jpg);
+      height: 180px;
+      padding-right: 4em;
+      padding-top: 1em;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    #img1 {
+        background: url(./../headerImg/header2.jpg);
+        height: 89.5px;
+      background-size: cover;
+      width: 100%;
+    }
+  
+    #aside1 {
+      display: none;
+    }
+  }
+  #btnGroupDrop1 {
+    border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+    width: 30em;
+    height: 5em;
+    background-color: #ffffff;
+    border: none;
+    color: #0070cd;
+  }
+  #btnGroupDrop1 span {
+    margin-right: 10px;
+  }
+  #btnGroupDrop1:focus {
+    background-color: #dbe8f6;
+    transition-duration: 1s;
+  }
+  
+  #search {
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+    width: 12em;
+    height: 5em;
+    background-color: #ef0f0f;
+  }
+  
+  #btnGroupDrop1::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    font-size: 2em;
+    color: #aeaeac;
+    margin-right: 7em;
+  }
+  
+  .ulContainer {
+    display: flex;
+    text-align: initial;
+    padding: 2em;
+  }
+  
+  .ulContainer .right li:first-child, .ulContainer .left li:first-child {
+    font-weight: bolder;
+    color: #6f7072;
+  }
+  
+  .ulContainer .right li, .ulContainer .left li {
+    padding: 0.2em;
+  }
+  
+  .ulContainer .right li a, .ulContainer .left li a {
+    color: #0070cd;
+    font-size: 1.2em;
+  }
+  
+  .ulContainer .right li a:hover, .ulContainer .left li a:hover {
+    text-decoration: none;
+  }
+  
+  #alert {
+    background-color: #0170ce;
+    color: white;
+    margin-right: -3.5em;
+    height: 7em;
+    width: 12em;
+    text-align: center;
+    border: none;
+    z-index: 1200;
+  }
+  
+  .row {
+    --bs-gutter-x: 0!important;
+  }
+  
+  .second {
+    background-color: #e2e6ea;
+  }
+  
+  .breadcrumb-item + .breadcrumb-item::after {
+    float: right;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: var(--bs-breadcrumb-divider, "/");
+  }
+  

@@ -2,6 +2,7 @@ import React from 'react';
 import style from './corona.module.css';
 import coronaLogo from '../../../../Images/part3/part3logo.png';
 import OfferSlider from '../offerSlider/OfferSlider';
+import { Link } from 'react-router-dom';
 export default function Corona() {
     return <>
     <div className={style.part3} style={{'width': '100%', 'overflow': 'hidden'}}>
@@ -25,9 +26,9 @@ export default function Corona() {
                     </h3>
                 </div>
                 <div className="col-1 d-none d-md-block">
-                    <a href="./Covid.html" className="" style={{'fontSize': '5em'}}>
+                    <Link to="/covid" className="" style={{'fontSize': '5em'}}>
                         <span><i className={`fas fa-caret-left ${style.arr}`}></i></span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

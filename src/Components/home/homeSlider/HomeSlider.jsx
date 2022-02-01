@@ -19,6 +19,16 @@ export default function HomeSlider() {
         setBigTab(false);
         setSmallTab(true);
     }
+    const [tab, setTab] = useState(1);
+    const toggleToClinic = () => {
+        setTab((s) => 1);
+    };
+    const toggleToMedicine = () => {
+        setTab((s) => 2);
+    };
+    const toggleToCall = () => {
+        setTab((s) => 3);
+    };
     return <>
         <div id="carouselExampleSlidesOnly" 
         className={`${style['carousel']} slide ${style['row']}`}
@@ -86,26 +96,26 @@ export default function HomeSlider() {
             style={{"borderRadius": '10px'}}>
                 <div className="col-12 ">
                     <div className={`${style.firstMob} col-12 row nav nav-tabs`}>
-                        <a className="clinic active col-4 d-flex flex-column 
-                            align-items-center"
+                        <a className={`${style.clinic} active col-4 d-flex flex-column 
+                            align-items-center`}
                             data-toggle="tab" href="#clinic">
                             <h4><i className="fas fa-clinic-medical"></i></h4>
-                            <h4>كشف عيادة</h4>
+                            <h4 onClick={() =>toggleToClinic()}>كشف عيادة</h4>
                         </a>
-                        <a className="drug col-4 d-flex flex-column align-items-center"
-                        data-toggle="tab" href="#drug">
+                        <a className={`${style.drug} col-4 d-flex flex-column align-items-center`}
+                        data-toggle="tab" href="#drug" onClick={toggleToMedicine}>
                             <h4><i className="fas fa-pills"></i></h4>
                             <h4> اطلب ادوية</h4>
                         </a>
-                        <a className="calldoc col-4 d-flex flex-column align-items-center"
-                        data-toggle="tab" href="#calldoc">
+                        <a className={`${style.calldoc} col-4 d-flex flex-column align-items-center`}
+                        data-toggle="tab" href="#calldoc" onClick={toggleToCall}>
                             <h4><i className="fas fa-phone"></i></h4>
                             <h4> مكالمة دكتور</h4>
                         </a>
                     </div>
                     <div className={`${style.secondMob} row tab-content`}>
-                        <div className={`clinic1 col-12 d-flex align-items-center
-                        tab-pane fade in`} id={style.clinic}>
+                        {tab == 1 && ( 
+                        <div className={`col-12 d-flex align-items-center`} id={style.clinic}>
                             <div className="col-12">
                                 <div>
                                     <div className="mb-3">
@@ -123,8 +133,10 @@ export default function HomeSlider() {
                                 <h4>او اتصل علي <a>16676</a></h4>
                             </div>
                         </div>
-                        <div className={`drug1 col-12 d-flex flex-column align-items-center
-                        tab-pane fade`} id={style.drug}>
+                        )}
+                        {tab ==2 && (
+                        <div className={`col-12 d-flex flex-column align-items-center
+                        `} id={style.drug}>
                             <div className="input-group flex-nowrap position-relative"
                             style={{"border":"1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" className="form-control" 
@@ -135,10 +147,11 @@ export default function HomeSlider() {
                                     "right": "0.5em"}}></i> */}
                                 </input>
                             </div>
-                            <h4>او اتصل علي <a>16676</a></h4>
+                            <h4 className='my-3'>او اتصل علي <a>16676</a></h4>
                         </div>
-                        <div className={`${style.calldoc1} col-12 d-flex flex-column align-items-center
-                        tab-pane fade`} id={style.calldoc}>
+                        )}
+                        {tab == 3 && ( 
+                        <div className={`col-12 d-flex flex-column align-items-center`} id={style.calldoc}>
                             <div className="mb-3"
                                 style={{"width": "inherit", "border": "1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" 
@@ -148,6 +161,7 @@ export default function HomeSlider() {
                             <button type="submit" className="btn btn-danger mb-3" style={{"width": "inherit"}}>ابحث عن دكتور</button>
                             <h4>او اتصل علي <a>16676</a></h4>
                         </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import CitiesListComponent from '../../ui/CitiesListComponent';
 
 // https://github.com/noureldeen98/ITI_Final_VezettaProject/tree/master/src
 export default function NavbarComponent() {
-return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row'>
+return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'>
     <nav className={`navbar navbar-expand-lg ${style.nav}`} >
         <div className="container" id="navBar">
             <button className={`navbar-toggler ${style['navbar-toggler']}`} 

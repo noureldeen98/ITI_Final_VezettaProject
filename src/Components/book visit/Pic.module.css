@@ -1,0 +1,21 @@
+.left {
+    background-color: #0070cd;
+    padding: 2em;
+    border-bottom-right-radius: 5em;
+}
+.left div {
+    padding: 1em;
+    color: white;
+}
+.left div:first-child {
+    text-align: end;
+}
+.left div:nth-child(2) {
+    text-align: center;
+}
+.left div:nth-child(2) h5 {
+        padding: 0.8em;
+}
+.left div:nth-child(3) {
+    text-align: center;
+}

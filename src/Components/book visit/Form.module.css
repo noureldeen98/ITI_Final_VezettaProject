@@ -1,0 +1,28 @@
+* {
+    padding: 0%;
+    margin: 0;
+    direction: rtl;
+    box-sizing: border-box;
+}
+form {
+    background-color: #f4f7fa;
+    padding: 2em;
+    margin: 4em;
+    color: #6f7072;
+    border-bottom-left-radius: 5em;
+}
+form .dropdown div {
+    background-color: white;
+    width: 100%;
+}
+form .dropdown div button::after {
+    margin-right: 18em;
+}
+form > button {
+    width: 100%;
+}
+.header {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+

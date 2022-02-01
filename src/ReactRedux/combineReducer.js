@@ -10,10 +10,10 @@ const combineReducer = combineReducers({
     citiesReduxReducer: allCitiesReducer,
     areasReduxReducer: allAreasReducer
 
-import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
-const combineReducer = combineReducers({
-    deptRed: deptReducer,
-    doctorCollectionReducer :doctorCollectionReducer,
+// import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
+// const combineReducer = combineReducers({
+//     deptRed: deptReducer,
+//     doctorCollectionReducer :doctorCollectionReducer,
 
 })
 

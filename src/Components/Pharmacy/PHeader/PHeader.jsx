@@ -4,6 +4,7 @@ import Logo from '../../../Images/pharmacy/logo'
 
 export default function PHeader() {
     return <>
+        (
         <header className="row">
             <nav className="navbar navbar-expand-md navbar-dark header1">
                 <div className="container-fluid">
@@ -40,12 +41,12 @@ export default function PHeader() {
                                     </button>
                                     <a className="nav-link active nav-element can-show" data-bs-target="#exampleModal"
                                         data-bs-toggle="modal" aria-current="page" href="/">دخول</a>
-                                    <div className="modal fade" id="exampleModal" tabindex="-1"
+                                    <div className="modal fade" id="exampleModal" tabIndex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div className="modal-dialog">
                                             <div className="modal-content mcs">
                                                 <div className="modal-header ">
-                                                    <h5 style={{ marginLeft: "40%;" }} className="modal-title text-dark modal-h"
+                                                    <h5 className="modal-title text-dark modal-h"
                                                         id="exampleModalLabel">تسجيل
                                                         الدخول</h5>
                                                     <button type="button" className="btn-close" data-bs-dismiss="modal"
@@ -61,5 +62,5 @@ export default function PHeader() {
                 </div>
             </nav>
         </header>
-    </>;
+        )   </>;
 }

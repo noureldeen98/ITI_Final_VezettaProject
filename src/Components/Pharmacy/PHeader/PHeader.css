@@ -11,8 +11,8 @@
   display: none;
 }
 .can-hide {
-    display: none;
-  }
+  display: none;
+}
 
 .header-title {
   display: flex;
@@ -41,7 +41,7 @@ sup {
   padding: 60px;
   width: 750px;
   height: 375px;
-  margin-top: 20% !important;
+  /* margin-top: 20% !important; */
 }
 
 .modal-btn {

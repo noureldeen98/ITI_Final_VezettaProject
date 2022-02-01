@@ -5,6 +5,7 @@ import Doctorcard from '../Card/DoctorCard'
 // import styleCovid from "./Covid.Module.css"
 import NavbarComponent from '../home/header/NavbarComponent'
 import './CovidStyle.css'
+import Footer from '../home/footer/Footer';
 
 
 
@@ -157,6 +158,7 @@ const CovidPage = () =>{
         </div>
     </div>
 </div>
+<Footer/>
    </>
   )
   

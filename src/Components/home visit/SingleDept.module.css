@@ -1,0 +1,12 @@
+.modalContent {
+    padding: 0.7em;
+}
+.modalContent img {
+    width: 2em;
+    height: 2em;
+    margin-left: 0.5em;
+}
+.modalContent a {
+    color: #6f7072;
+    text-decoration: none;
+}

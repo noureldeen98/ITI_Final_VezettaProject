@@ -1,8 +1,8 @@
-import{getAllDoctorAction} from './../../../ReactRedux/Actions/DoctorCallAction'
+import{getAllDoctorAction} from '../../../ReactRedux/Actions/DoctorCallAction'
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect } from "react";
-
-const DoctorCard=(props)=>{
+import { Link } from "react-router-dom";
+const DoctorCards=(props)=>{
   
 let doctors=props
 
@@ -73,7 +73,7 @@ let doctors=props
                           <img src={doc.Image} className="card-img rounded   rounded-circle  mt-5 me-2 " alt="image" />
                         </div>
                         <div className="card-text col-lg-5 col-md-9 col-sm-8 me-4">
-                          <span className="text-primary fs-5">دكتور <a href="./Doctor.html" className="fs-3 text-decoration-none"> {doc.name} </a> </span><i className="fas fa-phone-alt text-primary fs-5 mx-2"></i><i className="fas fa-video text-primary fs-5 mx-2"></i>
+                          <span className="text-primary fs-5">دكتور  <Link to={`/MergeDoctor/${doc.name}`}className="fs-3 text-decoration-none"> {doc.name} </Link> </span><i className="fas fa-phone-alt text-primary fs-5 mx-2"></i><i className="fas fa-video text-primary fs-5 mx-2"></i>
                           <p>{doc.Department}  </p>
                           <i className="fas fa-star text-warning"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i>
                           <p>التقييم العام من {doc.Rate} زاروا الدكتور</p>
@@ -125,4 +125,4 @@ let doctors=props
     )
 
 }
-export default DoctorCard;
+export default DoctorCards;

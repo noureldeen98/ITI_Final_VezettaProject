@@ -81,7 +81,6 @@
 }  
 
 
-
 .bottomMob {
     margin: -6em auto;
 }
@@ -111,14 +110,13 @@
 }
 
 #drug {
-    margin-top: -12em;
 }
 #drug a {
     text-decoration: underline;
     color: #0070cd;
 }
 #calldoc {
-    margin-top: -12em;
+    /* margin-top: -12em; */
 }
 #calldoc a {
     text-decoration: underline;

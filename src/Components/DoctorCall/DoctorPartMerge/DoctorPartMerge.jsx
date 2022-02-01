@@ -1,5 +1,5 @@
 import './DoctorpartMerge.css'
-import DoctorCard from '../DoctorCard/DoctorCard';
+import DoctorCards from '../DoctorCards/DoctorCards';
 import AsideFilter from '../AsideFilter/AsideFilter';
 import { useState, useEffect } from "react";
 import sanaa from './../headerImg/sanaa.jpg'
@@ -69,7 +69,7 @@ return(
       </div>
     <div className='row' style={{'backgroundColor':'#e2e6ea'}}>
       <AsideFilter/>
-      <DoctorCard docData={doctor}/>
+      <DoctorCards docData={doctor}/>
     </div>
     </>
 )

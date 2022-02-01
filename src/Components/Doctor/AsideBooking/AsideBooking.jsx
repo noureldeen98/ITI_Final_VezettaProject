@@ -1,7 +1,9 @@
 
-
-const AsideBooking=()=>{
-
+import { useState } from "react";
+const AsideBooking=(prc)=>{
+  let [cash]=useState(prc.mony)
+  let docPrice=cash[0].Price
+console.log(cash[0].Price)
 return(
     <>
     <div className="col-md-4 me-4  "  id="money">
@@ -10,7 +12,7 @@ return(
             <div className="row">
               <div className="text-center">
              <p><i className="fas fa-money-bill-wave-alt text-primary border-bottom border-danger fs-3 "></i></p>
-              <span>الكشف :<span id="dPrice"></span> جنيه</span>
+              <span>الكشف : {docPrice}<span id="dPrice"></span> جنيه</span>
                 </div>
                 <hr/>
                 <p  className="text-center fs-4 fw-bold">احجز كشف عبر مكالمة</p>

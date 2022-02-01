@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './CallVisitLink.module.css';
 export default function CallVisitLink(props) {
-    console.log("data",props.data);
+    const link = props.data.id == 2 ? '/visiting' : '/DoctorCall' ;     
     return <>
-        <div className={`col-lg-4 col-md-6 ${style.smDIV}`}>
+        <div className={`col-lg-4 col-md-6 col-sm-6 ${style.smDIV}`}>
             <div className={`card ${style.part2bCard} flex-sm-column flex-md-row`}>
                 <div>
                     <img src={props.data.img} className="card-img" alt="..."
@@ -14,11 +15,11 @@ export default function CallVisitLink(props) {
                     <p className="card-text">
                         {props.data.body}
                     </p>
-                    <a href="./DoctorCall.html" style={{'textDecoration': 'none', 'color':'#0070cd'}}
+                    <Link to={link} style={{'textDecoration': 'none', 'color':'#0070cd'}}
                         className="fs-1s">
                         <span>احجز الان </span>
                         <span><i className="fas fa-caret-left text-danger"></i></span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

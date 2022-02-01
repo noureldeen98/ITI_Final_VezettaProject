@@ -39,7 +39,7 @@ export default function OfferSlider() {
     return <>
         <OfferTitle />
         {/* hena l slider */}
-        <div className="row justify-content-center">
+        <div className="row justify-content-center my-5">
             <div className="col-11 col-md-11 col-lg-8 position-relative">
                 <div id="carouselExampleControls" className={`carousel slide`} 
                 data-bs-ride="carousel">

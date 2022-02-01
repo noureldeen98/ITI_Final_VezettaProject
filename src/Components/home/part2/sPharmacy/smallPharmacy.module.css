@@ -1,0 +1,58 @@
+.part2Card {
+    background-image: url("../../../../Images/part2/part2BG.png");
+    background-repeat: round;
+    color: white;
+    padding: 0.5em;
+}
+.part2Card p {
+    font-size: 1.5em;
+}
+.part2Card a {
+    color: #0070cd;
+}
+.part2Card a:hover {
+    color: #0070cd;
+}
+
+.part2Head {
+    font-size: 3em;
+    color: #6f7072;
+    padding: .8em;
+}
+
+.p {
+    background-color: #e2e6ea;
+    padding-bottom: 2em;
+    width: 100%;
+}
+
+@media all and (min-width: 375px) and (max-width: 767px) {
+    .part2Head {
+        width: max-content;
+    }
+    .part2Card {
+        background-image: none;
+        flex-direction: row;
+    }
+    .part2Card div:first-child {
+        color: #0070cd;
+        background-image: url("../../../../Images/part2/part2BGSM.png");
+        width: 7em;
+        background-repeat-y: no-repeat;
+    }
+    .part2Card div:nth-child(2) {
+        color: #6f7072;
+    }
+    .part2Card div:nth-child(2) a {
+        background-color: #e5f1ff;
+        color: #0070cd;
+        /* width: 100px; */
+    }
+    .part2 div:first-child {
+        margin-top: 5em;
+        font-size: 0.8em;
+    }
+}
+@media all and (min-width: 768px) {
+    
+}

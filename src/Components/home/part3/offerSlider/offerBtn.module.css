@@ -1,0 +1,22 @@
+#sliderBtn, #sliderBtn2 {
+    width: 3em;
+    height: 3em;
+    border: 1px solid #6f7072;
+    border-radius: 7px;
+}
+
+#sliderBtn {
+    top: 8em;
+    left: -4em;
+}
+#sliderBtn i {
+    color: #6f7072;
+}
+
+#sliderBtn2 {
+    top: 8em;
+    right: -4em;
+}
+#sliderBtn2 i {
+    color: #6f7072;
+}

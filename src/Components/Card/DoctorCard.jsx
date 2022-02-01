@@ -131,7 +131,10 @@ const Doctorcard = (props) => {
     })
     }
 </>
-  );
-};
-
+  )
+}
 export default Doctorcard;
+
+
+
+

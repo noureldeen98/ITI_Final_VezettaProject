@@ -8,14 +8,17 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 // import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import myStore from '../src/ReactRedux/Store/myStore'
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
+import {BrowserRouter} from 'react-router-dom';
 
 
 
 ReactDOM.render(
+  <BrowserRouter>
   <Provider store={myStore}>
     <App />
   </Provider> 
+  </BrowserRouter>
   ,
   document.getElementById('root')
 );

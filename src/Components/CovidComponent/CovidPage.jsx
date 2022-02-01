@@ -1,6 +1,4 @@
-import Card from '../Card/DoctorCard'
-import { useDispatch , useSelector } from 'react-redux'
-import getCollectionOfDoctors from '../../ReactRedux/Actions/FetchinCollectionsFromFireStoreAction'
+
 import { useEffect, useState } from 'react';
 // import ReducerOfFetchingCollectionsofDoctors from '../../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 import Doctorcard from '../Card/DoctorCard'

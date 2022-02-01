@@ -11,6 +11,7 @@ import DeptSlider from './Components/home/part4/DeptSlider';
 import Part5 from './Components/home/part5/Part5';
 import Part6 from './Components/home/part6/Part6';
 import DoctorCallPage from './Components/DoctorCall/DoctorCallPage'
+import MergeDoctor from './Components/Doctor/MergeDoctor'
 function App() {
   return (
     <React.Fragment>
@@ -22,7 +23,8 @@ function App() {
         <Part5 />
         <Part6 />
         <Footer />
-        {/* <DoctorCallPage/> */}
+        <DoctorCallPage/>
+        <MergeDoctor/>
       {/* <TabToggle /> */}
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>

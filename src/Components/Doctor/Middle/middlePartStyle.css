@@ -1,0 +1,27 @@
+
+* {
+    padding: 0%;
+    margin: 0;
+    direction: rtl;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+    font-size: 14px;
+  }
+  
+
+@media screen and (max-width: 768px) {
+    #img1 {
+      display: none;
+    }
+  
+    #brcrumb {
+      display: none;
+    }
+  }
+  .row {
+    --bs-gutter-x: 0 !important;
+  }
+
+  .second {
+    background-color: #e2e6ea;
+  }

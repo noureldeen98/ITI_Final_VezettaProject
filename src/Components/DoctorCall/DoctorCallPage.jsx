@@ -5,8 +5,9 @@ import Accordion from './Accordion/Accordion'
 import './DoctorcallPage.css'
 import DoctorPartMerge from './DoctorPartMerge/DoctorPartMerge'
 
-const DoctorCallPage=()=>{
 
+const DoctorCallPage=()=>{
+  
 
 return(
     <>

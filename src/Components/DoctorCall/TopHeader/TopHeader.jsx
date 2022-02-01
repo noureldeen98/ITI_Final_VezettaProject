@@ -99,7 +99,7 @@ return(
           </ul> */}
           <ul className={`dropdown-menu ${style.deptMenu}`}
                 aria-labelledby="dropdownMenuButton1">
-                    <div className={style.ulContainer}>
+                    <div className={style.ulContainer} style={{'width': '400px'}}>
                         <div className="right">
                             <span>
                                 <li>
@@ -109,7 +109,7 @@ return(
                             {commonDepts.slice(0,9).map(el => (
                                 <li key={el.name}>
                                 <a className={`dropdown-item ${style.common}`} 
-                                href="#" style={{'color': '#0070cd'}}>
+                                href="#" style={{'color': '#0070cd','fontSize':'17px','width':'180px'}}>
                                     {el.name} 
                                 </a>
                             </li>
@@ -125,7 +125,7 @@ return(
                         {otherDepts.slice(0,9).map(el => (
                                 <li key={el.name}>
                                 <a className={`dropdown-item ${style.common}`} 
-                                href="#" style={{'color': '#0070cd'}}>
+                                href="#" style={{'color': '#0070cd','fontSize':'17px','width':'180px'}}>
                                     {el.name} 
                                 </a>
                             </li>

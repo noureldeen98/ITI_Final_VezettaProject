@@ -112,4 +112,12 @@
     color: #6c757d;
     content: var(--bs-breadcrumb-divider, "/");
   }
-  
+  .deptMenu {
+    width: auto;
+}
+.deptMenu2 {
+    width: max-content;
+}
+.common {
+    color: #0070cd;
+}

@@ -9,12 +9,13 @@ const combineReducer = combineReducers({
     dptReduxReducer: allDeptsReducer,
     citiesReduxReducer: allCitiesReducer,
     areasReduxReducer: allAreasReducer
-
-import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
-const combineReducer = combineReducers({
-    deptRed: deptReducer,
-    doctorCollectionReducer :doctorCollectionReducer,
-
 })
+
+// import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
+// const combineReducer = combineReducers({
+//     deptRed: deptReducer,
+//     doctorCollectionReducer :doctorCollectionReducer,
+
+// })
 
 export default combineReducer;

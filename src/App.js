@@ -6,8 +6,15 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import HomePage from './pages/homePage';
 import ModalPage from './pages/ModalPage';
 import NotFound from './Components/ui/NotFound.jsx'
+
+import ContactUS from './Components/Contact/Contactus/Contactus';
+import Signup from './Components/Contact/Signup/signup';
+import Signin from './Components/Contact/Signin/signin';
+
+
 import BookVisitPage from './pages/BookVisitPage';
 import CovidPage from './Components/CovidComponent/CovidPage'
+
 function App() {
   return (
     <React.Fragment>
@@ -17,8 +24,14 @@ function App() {
         </Route>
         <Route path='/home' component={HomePage}/>
         <Route path='/visiting' component={ModalPage} />
+
+        <Route path='/Contactus' component={ContactUS}/>
+        <Route path='/Signup' component={Signup}/>
+        <Route path='/Signin' component={Signin}/>
+
         <Route path='/bookvisit' component={BookVisitPage} />
         <Route path='/covid' component={CovidPage}/>
+
         <Route path='**' component={NotFound} />
       </Switch>
 

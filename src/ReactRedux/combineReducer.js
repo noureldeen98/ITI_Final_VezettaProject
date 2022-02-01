@@ -4,6 +4,7 @@ import { allCitiesReducer } from "./Reducers/CitiesReducerRedux";
 import deptReducer from "./Reducers/DepartmentsReducer";
 import { allDeptsReducer } from "./Reducers/DeptsReducerRedux";
 
+
 // const combineReducer = combineReducers({
 //     deptRed: deptReducer,
 //     dptReduxReducer: allDeptsReducer,
@@ -11,10 +12,12 @@ import { allDeptsReducer } from "./Reducers/DeptsReducerRedux";
 //     areasReduxReducer: allAreasReducer
 // })
 
+
 // import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 // const combineReducer = combineReducers({
 //     deptRed: deptReducer,
 //     doctorCollectionReducer :doctorCollectionReducer,
+
 
 // })
 
@@ -25,6 +28,7 @@ const combineReducer = combineReducers({
   citiesReduxReducer: allCitiesReducer,
   areasReduxReducer: allAreasReducer,
 });
+
 
 
 export default combineReducer;

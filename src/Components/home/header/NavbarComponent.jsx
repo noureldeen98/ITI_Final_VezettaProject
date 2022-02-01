@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import style from './navbar.module.css';
 import egyptPic from '../../../Images/cities/Egypt.jpg';
 import logoPic from '../../../Images/cities/logo.jpg';
@@ -29,19 +30,19 @@ return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'
                     <CitiesListComponent />
                 </li>
                 <li className={`${style['nav-item']}`}>
-                    <a className="nav-link" href="#"> English &nbsp; |</a>
+                    <Link className="nav-link" to="#"> English &nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
-                    <a className="nav-link" href="./اتصل بنا1.html">اتصل بينا&nbsp; |</a>
+                    <Link className="nav-link" to="/Contactus">اتصل بينا&nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
-                    <a className="nav-link" href="#">فيزيتا للاطباء &nbsp; |</a>
+                    <Link className="nav-link" to="#">فيزيتا للاطباء &nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
-                    <a className="nav-link" href="./دخول.html">دخول &nbsp; |</a>
+                    <Link className="nav-link" to="/Signin">دخول &nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
-                    <a className="nav-link active" href="./انضم لنا.html">انضم الان</a>
+                    <Link className="nav-link active" to="/Signup">انضم الان</Link>
                 </li>
             </ul>
         </div>

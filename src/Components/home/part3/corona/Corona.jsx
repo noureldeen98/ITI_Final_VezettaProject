@@ -5,7 +5,7 @@ import OfferSlider from '../offerSlider/OfferSlider';
 export default function Corona() {
     return <>
     <div className={style.part3} style={{'width': '100%', 'overflow': 'hidden'}}>
-        <div className="row justify-content-center py-5">
+        <div className="row justify-content-center py-5 g-0">
             <div className="col-lg-9 row justify-content-center" id={style.p3}>
                 <div className={`${style.part3logo} col-1 align-self-center`}>
                     <img src={coronaLogo} 

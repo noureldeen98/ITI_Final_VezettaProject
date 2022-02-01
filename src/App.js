@@ -1,3 +1,13 @@
+import React from "react";
+import "./App.css";
+import Pharmacy from "./Components/Pharmacy/Pharmacy";
+
+
+
+function App() {
+  return (
+    <React.Fragment>
+      <Pharmacy />
 
 import React from 'react';
 import './App.css';
@@ -22,8 +32,9 @@ function App() {
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>
     <Doctorcard/> */}
+
     </React.Fragment>
-  )
+  );
 }
 
 export default App;

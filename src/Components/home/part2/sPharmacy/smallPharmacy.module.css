@@ -46,7 +46,7 @@
     .part2Card div:nth-child(2) a {
         background-color: #e5f1ff;
         color: #0070cd;
-        width: 100px;
+        /* width: 100px; */
     }
     .part2 div:first-child {
         margin-top: 5em;

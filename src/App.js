@@ -15,6 +15,7 @@ import {Switch, Route, Redirect} from 'react-router-dom';
 import HomePage from './pages/homePage';
 import ModalPage from './pages/ModalPage';
 import NotFound from './Components/ui/NotFound.jsx'
+import BookVisitPage from './pages/BookVisitPage';
 function App() {
   return (
     <React.Fragment>
@@ -24,6 +25,7 @@ function App() {
         </Route>
         <Route path='/home' component={HomePage}/>
         <Route path='/visiting' component={ModalPage} />
+        <Route path='/bookvisit' component={BookVisitPage} />
         <Route path='**' component={NotFound} />
       </Switch>
       {/* <TabToggle /> */}

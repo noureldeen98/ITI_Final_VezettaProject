@@ -11,7 +11,7 @@ export default function SmallPharmacy() {
         body: 'اختار التخصص والدكتور هيجيلك البيت', img: pic2}
     ]
     return <>
-        <div className={`${style.p} row`}>
+        <div className={`${style.p} row g-0`}>
             <div className={`row ${style.part2} justify-content-center mx-0 my-4`}>
                 <div className={`col-lg-9 col-md-12 col-sm-12`}>
                     <h1 className={`py-4 ${style.part2Head}`}>حلول جديدة لرعاية أفضل ليك</h1>

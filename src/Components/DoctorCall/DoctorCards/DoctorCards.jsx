@@ -28,7 +28,7 @@ let doctors=props
   //console.log(...selector.Price)
     return(
         <>
-        <div className="col-md-9" >
+        <div className="col-md-8" >
         <span className="fs-4 text-secondary fw-bold"> كل التخصصات</span>
        <span className="fs-5 text-secondary fw-light">	&nbsp;1664 دكتور</span>
        <div className="fs-4 text-secondary fw-light float-start "> ترتيب:

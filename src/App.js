@@ -15,11 +15,17 @@ import Signin from './Components/Contact/Signin/signin';
 import BookVisitPage from './pages/BookVisitPage';
 import CovidPage from './Components/CovidComponent/CovidPage'
 
+import DoctorCallPage from './Components/DoctorCall/DoctorCallPage'
+import MergeDoctor from './Components/Doctor/MergeDoctor'
+
+
 function App() {
   return (
+    // <React.Fragment>
+    //   <Pharmacy />
     <React.Fragment>
       <Switch>
-        <Route path='/' exact>
+      <Route path='/' exact>
           <Redirect to='/home'/>
         </Route>
         <Route path='/home' component={HomePage}/>
@@ -32,6 +38,9 @@ function App() {
         <Route path='/bookvisit' component={BookVisitPage} />
         <Route path='/covid' component={CovidPage}/>
 
+        <Route path='/DoctorCall' component={DoctorCallPage}/>
+        <Route path='/MergeDoctor/:name' component={MergeDoctor}/>
+        
         <Route path='**' component={NotFound} />
       </Switch>
 
@@ -39,7 +48,6 @@ function App() {
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>
     <Doctorcard/> */}
-
     </React.Fragment>
   );
 }

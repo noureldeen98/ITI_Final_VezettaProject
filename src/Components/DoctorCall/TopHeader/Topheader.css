@@ -18,7 +18,7 @@
       display: none;
     }
   }
-  #btnGroupDrop1 {
+  #btnGroupDrop7 {
     border-radius: 0 10px 10px 0;
     -webkit-border-radius: 0 10px 10px 0;
     -moz-border-radius: 0 10px 10px 0;
@@ -30,10 +30,10 @@
     border: none;
     color: #0070cd;
   }
-  #btnGroupDrop1 span {
+  #btnGroupDrop7 span {
     margin-right: 10px;
   }
-  #btnGroupDrop1:focus {
+  #btnGroupDrop7:focus {
     background-color: #dbe8f6;
     transition-duration: 1s;
   }

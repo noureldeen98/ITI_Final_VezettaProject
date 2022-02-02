@@ -48,7 +48,6 @@ function App() {
     {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>
     <Doctorcard/> */}
-
     </React.Fragment>
   );
 }

@@ -1,7 +1,7 @@
 
 import './search.css'
 const AsideFilter=()=>{
-
+console.log("AsideFilter")
     return(
         <>
          {/* <!---------------------asideSearch ------------------> */}

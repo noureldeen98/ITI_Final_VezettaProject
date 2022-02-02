@@ -70,10 +70,10 @@ return(
         الاستشارات الهاتفية للمتابعة فقط و ليست للكشف
       </div>
       <p className="text-secondary fs-4"> احجز اونلاين او كلم &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; ١٦٦٧٦</p>
-      <div className="btn-group float-start ms-5  mt-0 d-none d-sm-none d-sm-none d-md-block " role="group" aria-label="Button group with nested dropdown" >                
+      <div className="btn-group float-start ms-5  mt-0 d-none d-sm-none d-sm-none d-md-block" role="group" aria-label="Button group with nested dropdown" >                
         <div className="btn-group shadow-sm  bg-body rounded-3 " role="group">
           <div>
-          <button id="btnGroupDrop1" type="button" className="btn btn-dark dropdown-toggle fw-bold text-end " data-bs-toggle="dropdown" aria-expanded="false">
+          <button id="btnGroupDrop7" type="button" className="btn btn-dark dropdown-toggle fw-bold text-end " data-bs-toggle="dropdown" aria-expanded="false">
             <p className="fw-light text-secondary ">انا ابحث عن دكتور</p>
             <span>
                 <i className="fas fa-stethoscope fs-4 fw-light "></i>

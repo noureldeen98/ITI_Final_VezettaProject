@@ -47,10 +47,10 @@ return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'
             </ul>
         </div>
         {/* style="{{margin-left: -8em;}}" */}
-        <a className={`${style['navbar-brand']}`} href="#" >
+        <Link className={`${style['navbar-brand']}`} to="/home" >
             <img src={logoPic} className="img-fluid" 
             alt="vezeeta logo"/>
-        </a>
+        </Link>
     </div>
 </nav>
 </div>;

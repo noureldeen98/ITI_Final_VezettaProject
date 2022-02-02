@@ -65,7 +65,7 @@ const Doctorcard = (props) => {
                             style={{flexBasis:"50% ", display: "inline"}}>
                             <div className="d-flex mt-3 me-5">
         
-                                <div className="col-md-4 d-md-flex mainDivOfTimeTable">
+                                  <div className="col-md-4 d-md-flex mainDivOfTimeTable">
                                     <div className="cols-md-1 timeTable">
                                         <p style={{color: "white",backgroundColor: "blue"}}>اليوم</p>
                                         <p style={{color: "black"}}>٨:٠٠ ص</p>

@@ -114,7 +114,7 @@ const CovidPage = () =>{
 
 
 <div className="col container" style={{width: "100%"}}>
-    <div className="row " style={{textAlign: "center" ,width: "100%;"}}>
+    <div className="row " style={{textAlign: "center" ,width: "100%"}}>
 
         <div className="divOfDoctorsCards" id="divOfDoctorsCards">
             <nav style={{width:"100%"}} className="d-md-flex justify-content-center">

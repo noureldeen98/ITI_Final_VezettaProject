@@ -1,0 +1,92 @@
+.search-container {
+  width: 100%;
+  max-width: 873px;
+  margin: 60px 0 25px;
+}
+
+.internal-search-container {
+  position: relative;
+}
+
+.search-container input[type="search"] {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 18px;
+  direction: rtl;
+  text-indent: 30px;
+  padding: 15px;
+}
+
+#search-close {
+  border: 0;
+  display: none;
+}
+
+.section2-icons {
+  width: 60%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
+.icon-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-size: 22px;
+  color: rgb(0, 112, 205);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.icon-holder {
+  border: 1px solid rgb(0, 112, 205);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85px;
+  width: 85px;
+  position: relative;
+}
+
+.icon-holder + div {
+  text-align: center;
+  width: 70%;
+  font-weight: 700;
+}
+
+.fa-phone-alt {
+  font-size: 40px;
+  color: rgb(0, 112, 205);
+}
+
+[type="file"] {
+  width: 10px;
+  height: 10px;
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.section2 {
+  padding: 25px 0px;
+}
+
+.section2 h2 {
+  font-size: 20px;
+}
+
+.section2 label div {
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.section2-icons {
+  width: 90%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}

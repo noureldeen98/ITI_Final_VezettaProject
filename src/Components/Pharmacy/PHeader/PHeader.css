@@ -1,0 +1,78 @@
+.header1 {
+  background-color: rgb(1, 112, 206);
+}
+.offcanvas-style {
+  background-color: rgb(1, 112, 206);
+  color: red;
+  width: 290px;
+}
+
+.can-show {
+  display: none;
+}
+.can-hide {
+  display: none;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75% 3.75%;
+}
+
+.login {
+  color: rgb(0, 112, 205);
+  font-size: 15px;
+  width: 80px;
+  height: 35px;
+  font-weight: 500;
+}
+
+sup {
+  color: red;
+}
+
+.modal-backdrop {
+  z-index: 0;
+}
+
+.mcs {
+  padding: 60px;
+  width: 750px;
+  height: 375px;
+  /* margin-top: 20% !important; */
+}
+
+.modal-btn {
+  width: 350px;
+}
+
+.header2 {
+  position: relative;
+  background-color: rgb(1, 114, 203);
+  box-shadow: 0px 0px 3px hsla(0, 0%, 0%, 0.3);
+  border: 0;
+  text-align: center;
+}
+
+.header2 p {
+  color: rgb(229, 229, 229);
+  font-size: 20px;
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.header2 button {
+  color: rgb(229, 229, 229);
+  font-size: 30px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  height: 20px;
+  width: 20px;
+}

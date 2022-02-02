@@ -6,7 +6,7 @@ export default function PFooter() {
     return (
         <>
 
-            <footer className="footer row">
+            <footer className="footer row pt-1 pb-1 ps-5 pe-5">
                 <div className="footer-container">
                     <div className="footer-right can-hide">
                         <img src={Logo2} alt="logo" />
@@ -41,7 +41,7 @@ export default function PFooter() {
                         </a>
                     </div>
                 </div>
-            </footer> 
+            </footer>
         </>
     );
 }

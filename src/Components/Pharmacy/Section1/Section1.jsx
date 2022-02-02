@@ -15,8 +15,8 @@ export default function Section1() {
                 <img alt="icon" src="/src/Images/pharmacy/delivery.png" className="can-show" />
                 <h1>طلب و متابعة شهرية لأدويتك بأسهل طريقة</h1>
             </Row>
-            <Row className="main-banner">
-                <Col className="main-banner-icons">
+            <Row className="main-banner pe-5 ps-5">
+                <Col className="main-banner-icons me-5">
                     <img alt="icon" src={bolt} />
                     <div>توصيل فورى</div>
                 </Col>
@@ -24,7 +24,7 @@ export default function Section1() {
                     <img alt="icon" src={calender} />
                     <div>تذكرة بمواعيد تجديد الدواء</div>
                 </Col>
-                <Col className="main-banner-icons">
+                <Col className="main-banner-icons ms-5">
                     <img alt="icon" src={doctor} />
                     <div>تواصل مع صيدلي</div>
                 </Col>

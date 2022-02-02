@@ -1,14 +1,17 @@
-.search-container {
+.internal-search-container {
+  max-width: 875px;
+  position: relative;
   width: 100%;
-  max-width: 873px;
-  margin: 60px 0 25px;
+  display: flex;
+  justify-content: center;
 }
 
-.internal-search-container {
+.search-input {
+  width: 75%;
   position: relative;
 }
 
-.search-container input[type="search"] {
+.internal-search-container input[type="search"] {
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px;
   border: 1px solid rgb(224, 224, 224);
@@ -16,11 +19,24 @@
   direction: rtl;
   text-indent: 30px;
   padding: 15px;
+  margin-top: 35px;
+  position: relative;
 }
 
-#search-close {
-  border: 0;
-  display: none;
+.fa-search {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 20px;
+  color: rgb(128, 129, 132);
+}
+
+.fa-times-circle {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-size: 20px;
+  color: rgb(128, 129, 132);
 }
 
 .section2-icons {
@@ -36,12 +52,8 @@
   align-items: center;
   cursor: pointer;
   font-size: 22px;
-  color: rgb(0, 112, 205);
   text-align: center;
   margin-top: 20px;
-}
-
-.icon-holder {
   border: 1px solid rgb(0, 112, 205);
   border-radius: 50%;
   display: flex;
@@ -54,8 +66,11 @@
 
 .icon-holder + div {
   text-align: center;
-  width: 70%;
+  width: 30%;
   font-weight: 700;
+  color: rgb(0, 112, 205);
+  font-size: 20px;
+  margin-top: 20px;
 }
 
 .fa-phone-alt {
@@ -79,13 +94,8 @@
   font-size: 20px;
 }
 
-.section2 label div {
-  font-size: 15px;
-  margin-top: 20px;
-}
-
 .section2-icons {
-  width: 90%;
+  width: 50%;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;

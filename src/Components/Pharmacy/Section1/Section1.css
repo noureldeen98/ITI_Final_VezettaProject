@@ -1,5 +1,4 @@
 .main-banner {
-  width: 60%;
   display: flex;
   justify-content: space-between;
 }
@@ -37,9 +36,10 @@
 }
 
 .section1 h1 {
-  font-size: 42px;
+  font-size: 45px;
   font-weight: 700;
   color: rgb(0, 92, 184);
   margin-bottom: 60px;
   line-height: 1.25;
+  text-align: center;
 }

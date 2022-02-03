@@ -1,72 +1,62 @@
-// import React from 'react';
+import React, { useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import bills from '../../../Images/pharmacy/bills'
+import write from '../../../Images/pharmacy/write'
+import './Section2.css';
+import CallModal from './CallModal';
 
-// export default function Section2() {
-//     return <div>
-//         <section className="section2 row">
-//             <h2>اطلب ادويتك و كل اللي تحتاجه من الصيدلية</h2>
-//             <div className="search-container">
-//                 <div className="internal-search-container">
-//                     <button style="outline: 0;" type="button" id="search-close" onclick="close_search()">
-//                         <i className="fas fa-times-circle"></i>
-//                     </button>
-//                     <button style="outline: 0;" type="button" className="btn search-start" onclick="TestQuery()">
-//                         <i className="fas fa-search"></i>
-//                     </button>
-//                     <input type="search" id="input-text" placeholder="ابحث عن طلبك">
-//                 </div>
-//                 <div id="search-box" className="result-search-box">
-//                     <ul style="list-style: none;" className="m-0 p-0">
-//                     </ul>
-//                 </div>
-//             </div>
 
-//             <div className="section2-icons">
-//                 <label>
-//                     <div className="icon-holder">
-//                         <img src="/Images/pharmacy/write">
-//                             <input type="file" accept="image/*">
-//                             </div>
-//                             <div>الطلب بالروشتة</div>
-//                         </label>
+export default function Section2() {
+    const style = {
+        'fontSize': '36px',
+        'fontWeight': '700',
+        'textAlign': 'center',
+        'paddingTop': '40px',
+    }
 
-//                         <label>
-//                             <div className="icon-holder">
-//                                 <img style="margin-left: 10px;" src="/Images/pharmacy/bills">
-//                                     <input type="file" accept="image/*">
-//                                     </div>
-//                                     <div>الطلب بصورة المنتج</div>
-//                                 </label>
+    const [call, setCall] = useState(false);
 
-//                                 <label>
-//                                     <div className="icon-holder">
-//                                         <button type="button" className="btn btn-mod" data-bs-toggle="modal"
-//                                             data-bs-target="#staticBackdrop">
-//                                             <i className="fas fa-phone-alt"></i>
-//                                         </button>
-//                                     </div>
-//                                     <div>تواصل مع صيدلي</div>
-//                                     <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-//                                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-//                                         <div className="modal-dialog">
-//                                             <div className="modal-style shadow modal-content">
-//                                                 <div className="modal-header">
-//                                                     <h5 className="modal-title text-dark modal-h" id="staticBackdropLabel">
-//                                                         تواصل
-//                                                         مع صيدلي</h5>
-//                                                     <button type="button" className="btn-close" data-bs-dismiss="modal"
-//                                                         aria-label="Close"></button>
-//                                                 </div>
-//                                                 <div className="modal-body">
-//                                                     <div className="shadow p-3 d-flex justify-content-end flex-row mb-5 rounded">
-//                                                         <a className="me-3 modal-a" href="http://16676">اتصل بنا 16676</a>
-//                                                         <i className="fas fa-phone"></i>
-//                                                     </div>
-//                                                 </div>
-//                                             </div>
-//                                         </div>
-//                                     </div>
-//                                 </label>
-//                             </div>
-//                         </section>
-//                     </div>;
-// }
+    return (
+        <>
+            <Row className="section2">
+                <h2 style={style}>اطلب ادويتك و كل اللي تحتاجه من الصيدلية</h2>
+                <div className="internal-search-container">
+                    <div className="search-input">
+                        <input type="search" id="input-text" placeholder="ابحث عن طلبك" />
+                        <i className="fas fa-search"></i>
+                        <i className="fas fa-times-circle"></i>
+                    </div>
+                </div>
+                <div id="search-box" className="result-search-box">
+                    <ul style={{ listStyle: "none" }} className="m-0 p-0">
+                    </ul>
+                </div>
+                <div className="section2-icons">
+                    <Col className="d-flex flex-column align-items-start mt-4">
+                        <div className="icon-holder me-4">
+                            <button className="callBtn" onClick={() => setCall(!call)} >
+                                <i className="fas fa-phone-alt"></i>
+                            </button>
+                        </div>
+                        <div>تواصل مع صيدلي</div>
+                        <CallModal call={call} />
+                    </Col>
+                    <Col className="d-flex flex-column align-items-center mt-4">
+                        <div className="icon-holder">
+                            <img alt="icon" src={bills} />
+                            <input type="file" accept="image/*" />
+                        </div>
+                        <div>الطلب بصورة المنتج</div>
+                    </Col>
+                    <Col className="d-flex flex-column align-items-end mt-4">
+                        <div className="icon-holder ms-4">
+                            <img alt="icon" src={write} />
+                            <input type="file" accept="image/*" />
+                        </div>
+                        <div>الطلب بالروشتة</div>
+                    </Col>
+                </div>
+            </Row >
+        </>
+    );
+}

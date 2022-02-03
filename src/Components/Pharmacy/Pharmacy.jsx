@@ -11,7 +11,7 @@ export default function Pharmacy() {
         <PHeader />
         <Section1 />
         <Section2 />
-        {/* <Map /> */}
+        <Map />
         <Section4 />
         <PFooter />
     </div>;

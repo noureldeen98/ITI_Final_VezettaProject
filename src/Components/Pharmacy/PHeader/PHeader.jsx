@@ -5,76 +5,32 @@ import {
     Navbar,
     Nav,
     Button,
-    Dropdown,
-    Modal,
 } from "react-bootstrap";
 import PAlert from "./PAlert"
-import SideNavbar from './SideNavbar';
+import SigninModal from './SigninModal';
 
 export default function PHeader() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const style = {
-        'backgroundColor': 'rgb(1, 114, 203)',
-    }
+    const [btn, setBtn] = useState(false);
+
     return (
         <>
-            <Navbar style={style} expand="lg" className="d-flex flex-row-reverse">
-                <Navbar.Brand href="#home"><img src={Logo} alt="" /></Navbar.Brand>
+            <Navbar style={{ backgroundColor: 'rgb(1, 114, 203)' }} expand="lg" className="d-flex flex-row-reverse pt-3 pb-3">
+                <div className="justify-content-end ms-5 ps-4">
+                    <Navbar.Brand href="#home"><img src={Logo} alt="" /></Navbar.Brand>
+                </div>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto d-flex flex-row-reverse ">
-                        <Nav.Link href="#home">ِEnglish</Nav.Link>
-                        <Dropdown.Divider />
-                        <Nav.Link href="#link">اتصل بنا:16676</Nav.Link>
-                        <Nav.Link href="#link">اتصل الآن :16676</Nav.Link>
-                        <Dropdown.Divider />
-                        <Button variant="light" onClick={handleShow}>دخول</Button>
-                    </Nav>
+                    <div className="justify-content-start me-5 pe-4">
+                        <Nav className="me-auto d-flex flex-row-reverse ">
+                            <Nav.Link className="me-3 text-light fs-6">اتصل بنا: 16676</Nav.Link>
+                            <Nav.Link className="me-5 text-light fs-6">English</Nav.Link>
+                            <Button style={{ color: 'rgb(1, 114, 203)' }} variant="light" onClick={() => setBtn(!btn)}>دخول</Button>
+                        </Nav>
+                    </div>
                 </Navbar.Collapse>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={handleClose}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </Navbar>
+            <SigninModal btn={btn} />
             <PAlert message="جميع الأدوية يتم صرفها من صيدليات مرخصة من وزارة الصحة بجمهورية مصر العربية" />
-            {/* <SideNavbar /> */}
         </>
     );
 }
-
-{/* <button type="button" className="btn login btn-light can-hide" data-bs-toggle="modal"
-data-bs-target="#exampleModal">
-دخول
-</button>
-<a className="nav-link active nav-element can-show" data-bs-target="#exampleModal"
-data-bs-toggle="modal" aria-current="page" href="/">دخول</a>
-<div className="modal fade" id="exampleModal" tabIndex="-1"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div className="modal-dialog">
-    <div className="modal-content mcs">
-        <div className="modal-header ">
-            <h5 className="modal-title text-dark modal-h"
-                id="exampleModalLabel">تسجيل
-                الدخول</h5>
-            <button type="button" className="btn-close" data-bs-dismiss="modal"
-                aria-label="Close"></button>
-        </div>
-    </div>
-</div>
-</div>
-</li>
-</ul>
-</div>
-</div> */}

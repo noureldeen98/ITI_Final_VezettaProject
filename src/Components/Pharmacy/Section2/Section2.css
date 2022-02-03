@@ -100,3 +100,11 @@
   flex-direction: row-reverse;
   justify-content: space-around;
 }
+.callBtn {
+  border: 0px;
+  outline: 0px;
+  background-color: transparent;
+}
+.modal-title {
+  margin-right: 25%;
+}

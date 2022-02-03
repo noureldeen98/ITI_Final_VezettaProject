@@ -76,3 +76,30 @@ sup {
   height: 20px;
   width: 20px;
 }
+.formStyle {
+  background-color: #fff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: black !important;
+}
+.modal-header {
+  border-bottom: 0 !important;
+}
+.modal-content {
+  width: 750px !important;
+  height: auto !important;
+  margin-right: -30% !important;
+  margin-top: 20% !important;
+  padding: 0px 30px;
+}
+.form-control {
+  height: 50px !important;
+}
+
+.btn-close {
+  color: rgb(255, 255, 255) !important;
+  font-size: 15px !important;
+  position: absolute;
+  top: 10px !important;
+  right: 15px !important;
+}

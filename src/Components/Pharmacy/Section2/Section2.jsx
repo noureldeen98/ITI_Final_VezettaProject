@@ -1,8 +1,9 @@
-import React from 'react';
-import './Section2.css';
+import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import bills from '../../../Images/pharmacy/bills'
 import write from '../../../Images/pharmacy/write'
+import './Section2.css';
+import CallModal from './CallModal';
 
 
 export default function Section2() {
@@ -12,12 +13,15 @@ export default function Section2() {
         'textAlign': 'center',
         'paddingTop': '40px',
     }
+
+    const [call, setCall] = useState(false);
+
     return (
         <>
             <Row className="section2">
                 <h2 style={style}>اطلب ادويتك و كل اللي تحتاجه من الصيدلية</h2>
                 <div className="internal-search-container">
-                    <div class="search-input">
+                    <div className="search-input">
                         <input type="search" id="input-text" placeholder="ابحث عن طلبك" />
                         <i className="fas fa-search"></i>
                         <i className="fas fa-times-circle"></i>
@@ -30,12 +34,12 @@ export default function Section2() {
                 <div className="section2-icons">
                     <Col className="d-flex flex-column align-items-start mt-4">
                         <div className="icon-holder me-4">
-                            <button type="button" className="btn btn-mod" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
+                            <button className="callBtn" onClick={() => setCall(!call)} >
                                 <i className="fas fa-phone-alt"></i>
                             </button>
                         </div>
                         <div>تواصل مع صيدلي</div>
+                        <CallModal call={call} />
                     </Col>
                     <Col className="d-flex flex-column align-items-center mt-4">
                         <div className="icon-holder">

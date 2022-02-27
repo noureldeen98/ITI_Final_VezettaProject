@@ -5,6 +5,8 @@ import deptReducer from "./Reducers/DepartmentsReducer";
 import { allDeptsReducer } from "./Reducers/DeptsReducerRedux";
 import {getAllDoctor} from './Reducers/DoctorCallReducer'
 
+import doctorCollectionReducer from './Reducers/ReducerOfFetchingCollections'
+
 
 
 const combineReducer = combineReducers({
@@ -12,8 +14,8 @@ const combineReducer = combineReducers({
     dptReduxReducer: allDeptsReducer,
     citiesReduxReducer: allCitiesReducer,
     areasReduxReducer: allAreasReducer,
-    getDoctors :getAllDoctor
-
+    getDoctors :getAllDoctor,
+    doctorCollectionReducer: doctorCollectionReducer,
 // import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 // const combineReducer = combineReducers({
 //     deptRed: deptReducer,

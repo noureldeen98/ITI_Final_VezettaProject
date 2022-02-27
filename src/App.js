@@ -16,10 +16,12 @@ import CovidPage from "./Components/CovidComponent/CovidPage";
 
 import DoctorCallPage from "./Components/DoctorCall/DoctorCallPage";
 import MergeDoctor from "./Components/Doctor/MergeDoctor";
+import { Provider } from "react-redux";
+import store from '../src/ReactRedux/Store/myStore'
 
 function App() {
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />
@@ -45,7 +47,7 @@ function App() {
       {/* <h1>Vezeeta website</h1>
     <button className='btn btn-danger'>HI</button>
     <Doctorcard/> */}
-    </React.Fragment>
+    </Provider>
   );
 }
 

@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState  } from 'react';
 // import ReducerOfFetchingCollectionsofDoctors from '../../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 import Doctorcard from '../Card/DoctorCard'
 // import styleCovid from "./Covid.Module.css"
@@ -11,6 +11,12 @@ import Peter from '../../Images/Doctors/peter.jpg'
 import Eslam from '../../Images/Doctors/Islam.jpg'
 import Mostafa from '../../Images/Doctors/Mostafa.jpg'
 
+import { useSelector,useDispatch } from 'react-redux';
+import FetchinCollectionsFromFireStoreAction from '../../ReactRedux/Actions/FetchinCollectionsFromFireStoreAction'
+
+
+
+
 
 
 const CovidPage = () => {
@@ -21,18 +27,23 @@ const CovidPage = () => {
         { id: 3, Name: "اسلام", Image: Eslam },
         { id: 4, Name: "مصطفى جمال", Image: Mostafa },
     ]
-    // const collectionsOfDoctors = useSelector((state)=>state.doctorCollectionReducer)// get data from reducer
-    // console.log(collectionsOfDoctors);
-    // const  dispatch = useDispatch();//dispatch to fire the action
+    const collectionsOfDoctors = useSelector((state)=>state.doctorCollectionReducer)// get data from reducer
+    console.log(collectionsOfDoctors);
+    const  dispatch = useDispatch();//dispatch to fire the action
 
     /* to Update the changes */
     // useEffect(()=>{
     //   dispatch(getCollectionOfDoctors())
     // },[])
 
+
+    useEffect(()=>{
+        dispatch(FetchinCollectionsFromFireStoreAction())
+      },[])
+
     /************/
 
-    const [Data] = useState(theDataAboutDoctors) // to store the data as we use the functional component "useState"
+    // const [Data] = useState(theDataAboutDoctors) // to store the data as we use the functional component "useState"
 
     return (
         <>
@@ -154,8 +165,10 @@ const CovidPage = () => {
                             </ul>
                         </div>
 
-                        <Doctorcard doctorData={Data} />
-
+                        {/* <Doctorcard doctorData={Data} /> */}
+                        
+                        <Doctorcard doctorData={ collectionsOfDoctors} />
+                       
 
                     </div>
                 </div>

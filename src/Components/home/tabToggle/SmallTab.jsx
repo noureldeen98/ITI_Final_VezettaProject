@@ -5,6 +5,8 @@ import { getAreas, getCities, getCommonCity, getOtherCities } from '../../../Rea
 import {getCommonDept, getDepts, getOtherDept} from '../../../ReactRedux/Actions/DeparmentsAction';
 import {useHistory} from 'react-router-dom'
 import style from './smallTab.module.css';
+import { useContext } from 'react';
+import { langContext } from '../../../Context/LangContext';
 
 
 export default function SmallTab() {
@@ -16,6 +18,8 @@ export default function SmallTab() {
     const [selectedDoctor, setSelectedDoctor] = useState('');
     //query param
     const history = useHistory();
+    //for localization
+    const {lang, setLang} = useContext(langContext);
     useEffect(() => {
         //da ll depts
         dispatch(getDepts());
@@ -56,11 +60,15 @@ export default function SmallTab() {
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" 
                 aria-expanded="false">
-                    <h5>انا ابحث عن دكتور</h5>
+                    <h5>
+                    {lang=='en'? 'انا ابحث عن دكتور ' :'Browse doctors'}
+                    </h5>
                     <h3>
                         <i className="fas fa-stethoscope"></i>
                         <span className="deptTitle">
-                        {selectedDpts==''?  'اختار التخصص' : selectedDpts}
+                        {selectedDpts==''?  (
+                            lang=='en'? 'اختار التخصص' :'select a specialty'
+                        ) : selectedDpts}
                         </span>
                     </h3>
                 </button>
@@ -70,7 +78,7 @@ export default function SmallTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-2' disabled>
-                                    الاكثر اختيارا
+                                    {lang=='en'? 'الاكثر اختيارا' :'Most Popular'}
                                 </li>
                             </span>
                             {
@@ -78,7 +86,7 @@ export default function SmallTab() {
                                 <li key={el.name} onClick={(e) => setDpts(e)}>
                                     <a className={`dropdown-item ${style.common}`} 
                                     href="#" style={{'color': '#0070cd'}}>
-                                        {el.nameAR} 
+                                        {lang=='en'? el.nameAR : el.name} 
                                     </a>
                                 </li>
                                 ))
@@ -89,7 +97,7 @@ export default function SmallTab() {
                         <div className="left">
                             <span>
                             <li className='mx-3' style={{width: 'max-content'}}>
-                                تخصصات اخري
+                                {lang=='en'? 'تخصصات اخري' :'Other specialties'}
                             </li>
                         </span>
                         {
@@ -97,7 +105,7 @@ export default function SmallTab() {
                             <li key={el.name} onClick={(e) => setDpts(e)}>
                                 <a className={`dropdown-item ${style.common}`} 
                                 href="#" style={{'color': '#0070cd'}}>
-                                    {el.nameAR} 
+                                {lang=='en'? el.nameAR : el.name}
                                 </a>
                             </li>
                             ))
@@ -110,7 +118,7 @@ export default function SmallTab() {
                         onClick={(e) => prevDpts(e)}>
                             <i className='fas fa-arrow-right mx-2'></i>
                         </button>
-                        <span>صفحة {count}\3</span>
+                        <span>{lang=='en'? 'صفحة' :'Page'} {count}\3</span>
                         <button className={style.sliderBtn} 
                         onClick={(e) => nextDpts(e)}>
                             <i className='fas fa-arrow-left mx-2'></i>
@@ -123,7 +131,7 @@ export default function SmallTab() {
             <div className="text-light d-flex">
                 <button className='btn btn-danger' id={style.btn1} onClick={goToDoctorPage}>
                     {/* <i className="fas fa-search"></i> */}
-                    ابحث
+                    {lang=='en'? 'ابحث' :'Search'}
                 </button>
             </div>
         </div>

@@ -5,6 +5,8 @@ import { getAreas, getCities, getCommonCity, getOtherCities } from '../../../Rea
 import {getCommonDept, getDepts, getOtherDept} from '../../../ReactRedux/Actions/DeparmentsAction';
 import style from './bigTab.module.css';
 import {useHistory} from 'react-router-dom'
+import { useContext } from 'react';
+import { langContext } from '../../../Context/LangContext';
 export default function BigTab() {
     // tab-pane fade in active 
     const dispatch = useDispatch();
@@ -17,6 +19,8 @@ export default function BigTab() {
     const [selectedDoctor, setSelectedDoctor] = useState('');
     //query param
     const history = useHistory();
+    //for localizrion
+    const {lang, setLang} = useContext(langContext);
     //to get areas for specific doc when click
     //id allcities as default
     const [docID, setDocID] = useState('xMmi45pdpT6O3gxorKAC'); 
@@ -78,11 +82,13 @@ export default function BigTab() {
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" 
                 aria-expanded="false">
-                    <h5>انا ابحث عن دكتور</h5>
+                    <h5>
+                        {lang=='en'? 'انا ابحث عن دكتور' : 'Select a specialty '}
+                    </h5>
                     <h3>
                         <i className="fas fa-stethoscope"></i>
                         <span className="deptTitle">
-                        {selectedDpts==''?  'اختار التخصص' : selectedDpts}
+                        {selectedDpts==''?  (lang=='en'? 'اختار التخصص ' : 'Choose specialty') : selectedDpts}
                         </span>
                     </h3>
                 </button>
@@ -92,7 +98,7 @@ export default function BigTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-2' disabled>
-                                    الاكثر اختيارا
+                                    {lang=='en'? 'الاكثر اختيارا' : 'Most popular '}
                                 </li>
                             </span>
                             {
@@ -100,7 +106,7 @@ export default function BigTab() {
                                 <li key={el.name} onClick={(e) => setDpts(e)}>
                                     <a className={`dropdown-item ${style.common}`} 
                                     href="#" style={{'color': '#0070cd'}}>
-                                        {el.nameAR} 
+                                    {lang=='en'? el.nameAR : el.name}
                                     </a>
                                 </li>
                                 ))
@@ -111,7 +117,7 @@ export default function BigTab() {
                         <div className="left">
                             <span>
                             <li className='mx-3' style={{width: 'max-content'}}>
-                                تخصصات اخري
+                            {lang=='en'? 'تخصصات اخري ' : 'Other specialties '}
                             </li>
                         </span>
                         {
@@ -119,7 +125,7 @@ export default function BigTab() {
                             <li key={el.name} onClick={(e) => setDpts(e)}>
                                 <a className={`dropdown-item ${style.common}`} 
                                 href="#" style={{'color': '#0070cd'}}>
-                                    {el.nameAR} 
+                                    {lang=='en'? el.nameAR : el.name} 
                                 </a>
                             </li>
                             ))
@@ -132,7 +138,7 @@ export default function BigTab() {
                         onClick={(e) => prevDpts(e)}>
                             <i className='fas fa-arrow-right mx-2'></i>
                         </button>
-                        <span>صفحة {count}\3</span>
+                        <span>{lang=='en'? 'صفحه' : 'Page '} {count}\3</span>
                         <button className={style.sliderBtn} 
                         onClick={(e) => nextDpts(e)}>
                             <i className='fas fa-arrow-left mx-2'></i>
@@ -144,11 +150,11 @@ export default function BigTab() {
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                    <h5>في محافظة</h5>
+                    <h5>{lang=='en'? ' في محافظة' : 'In this city '}</h5>
                     <h3>
                         <i className="fas fa-map-marker-alt"></i>
                         <span className="deptTitle">
-                        {selectedCity==''?  'اختار المحافظة' : selectedCity}
+                        {selectedCity==''? (lang=='en'? ' اختار المحافظة' : 'Choose city ') : selectedCity}
                         </span>
                     </h3>
                 </button>
@@ -158,7 +164,7 @@ export default function BigTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-3'>
-                                    الاكثر اختيارا
+                                {lang=='en'? ' الاكثر اختيارا' : 'Most Popular '}
                                 </li>
                             </span>
                             {
@@ -166,7 +172,7 @@ export default function BigTab() {
                                 <li key={el.id} onClick={(e, id) => setCity(e, el.id)}>
                                     <a className={`dropdown-item ${style.common}`} 
                                     href="#" style={{'color': '#0070cd'}}>
-                                        {el.nameAR} 
+                                        {lang=='en'? el.nameAR : el.name} 
                                     </a>
                                 </li>
                                 ))
@@ -176,7 +182,7 @@ export default function BigTab() {
                         <div className="left">
                             <span>
                                 <li  style={{width: 'max-content'}} className="mx-3">
-                                    محافظات اخري
+                                {lang=='en'? 'محافظات اخري' : 'Other cities '}
                                 </li>
                             </span>
                             {
@@ -184,26 +190,23 @@ export default function BigTab() {
                                 <li key={el.name} onClick={(e, id) => setCity(e, el.id)}>
                                     <a className={`dropdown-item ${style.common}`} 
                                     href="#" style={{'color': '#0070cd'}}>
-                                        {el.nameAR} 
+                                        {lang=='en'? el.nameAR : el.name}
                                     </a>
                                 </li>
                                 ))
                             } 
                         </div>
                     </div>
-                    {/* <!-- <div className="footer" style="padding: 0em 2em; ">
-                        <p>صفحة 1\2</p>
-                    </div> --> */}
                 </ul>
             </div>
             <div className="dropdown">
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <h5>في منطقة</h5>
+                    <h5>{lang=='en'? 'في منطقة' :'in this area'}</h5>
                     <h3>
                         <i className="fas fa-map-marker-alt"></i>
                         <span className="deptTitle">
-                            {selectedArea==''?  'اختار المنطقة' : selectedArea}
+                            {selectedArea==''?  (lang=='en'? 'اختار المنطقة ' :'Choose area') : selectedArea}
                         </span>
                         {/* <!--here--> */}
                     </h3>
@@ -212,7 +215,8 @@ export default function BigTab() {
                 aria-labelledby="dropdownMenuButton1">
                     <div className={style.ulContainer} id="areas">
                         <div className="right">
-                        { areas && areas.areasAR &&
+                        {lang=='en'? (
+                            areas && areas.areasAR &&
                         areas.areasAR.map(el => (
                             <li key={el} onClick={(e) => setArea(e)}>
                                 <a className={`dropdown-item ${style.common}`} 
@@ -221,17 +225,31 @@ export default function BigTab() {
                                 </a>
                             </li>
                             ))
-                            } 
+                        ) : (
+                            areas && areas.areas &&
+                        areas.areas.map(el => (
+                            <li key={el} onClick={(e) => setArea(e)}>
+                                <a className={`dropdown-item ${style.common}`} 
+                                href="#" style={{'color': '#0070cd'}}>
+                                    {el} 
+                                </a>
+                            </li>
+                            ))
+                        )}
+                        
                         </div>
                     </div>
                 </ul>
             </div>
             <div className={style.doc}>
-                <h5>او اكتب اسم الدكتور</h5>
+                <h5>
+                    {lang=='en'? 'او اكتب اسم الدكتور': 'Or search by name'}
+                </h5>
                 <h3>
                     <i className="fas fa-user-md"></i>
                     {/* <span> الدكتور او المستشفى</span> */}
-                    <input type="text" placeholder='الدكتور او المستشفي'
+                    <input type="text" placeholder={lang=='en'? 'الدكتور او المستشفي' :
+                    'Doctor name or hospital'}
                     className={style.docInp} value={selectedDoctor} 
                     onChange={(e) => setDoctorName(e)} />
                 </h3>
@@ -239,7 +257,7 @@ export default function BigTab() {
             <div className="text-light  d-flex">
                 <button className='btn btn-danger' id={style.btn1} onClick={goToDoctorPage}>
                     {/* <i className="fas fa-search"></i> */}
-                    ابحث
+                    {lang=='en'? 'ابحث ' :'Search'}
                 </button>
             </div>
         </div>

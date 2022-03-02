@@ -1,6 +1,9 @@
 import React from 'react';
+import { useContext } from 'react';
+import { langContext } from '../../../Context/LangContext';
 import style from './SingleDept.module.css';
 export default function SingleDept(props) {
+    const {lang, setLang} = useContext(langContext);
     return <>
     <div className="col-6 col-md-3 ">
         <div className="card position-relative" >
@@ -9,7 +12,9 @@ export default function SingleDept(props) {
                 className="card-img-top" alt="..."/>
             </a>
             <div className="card-body">
-                <h5 className={style.cT}> {props.data.title}</h5>
+                <h2 className={style.cT} > 
+                {lang=='en'? props.data.titleAR : props.data.title}
+                </h2>
             </div>
         </div>
     </div>

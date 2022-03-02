@@ -4,6 +4,7 @@
 }
 .cT {
     font-size: 1.3em !important;
+    color: #0070cd;
 }
 @media all and (min-width: 375px) and (max-width: 767px) { 
     .c {

@@ -21,11 +21,14 @@ import store from '../src/ReactRedux/Store/myStore'
 import { LangProvider } from "./Context/LangContext";
 
 function App() {
-  const [lang, setLang] = useState("EN");
+  const [lang, setLang] = useState("en");
+
+  //change lang handler 
+  document.getElementsByTagName('html')[0].setAttribute('lang', lang);
   return (
     <Provider store={store}>
     <LangProvider value={{lang, setLang}}>
-      <Switch>
+      <Switch >
         <Route path="/" exact>
           <Redirect to="/home" />
         </Route>

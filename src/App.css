@@ -1,7 +1,48 @@
 * {
   margin: 0%;
   padding: 0%;
-  direction: rtl;
+  /* direction: rtl; */
   box-sizing: border-box;
   font-family: "Tajawal", sans-serif;
+}
+
+/* lang handler */
+*:lang(en) {
+  direction: rtl;
+  text-align: right;
+}
+*:lang(ar) {
+  direction: ltr;
+  text-align: left;
+}
+
+  .dropdown-toggle:lang(ar)::after {
+    margin-left: 7em;
+  }
+#pCard:lang(ar) {
+  margin-left: 45em;
+}
+#pTxt:lang(ar) {
+  width: auto !important;
+}
+
+#cTxt:lang(ar) {
+  width: auto !important;
+  font-size: 1.3em;
+}
+/* #cIcon:lang(ar)::before {
+  position: relative !important;
+    top: -3em !important;
+    right: -18em !important;
+    font-size: 2.2em !important;
+} */
+#oSpan:lang(ar) {
+  float: right;
+  font-size: 1em;
+}
+#oSpan2:lang(ar) {
+  font-size: 1.3em;
+}
+#dHead:lang(ar){
+  font-size: 2.5em !important;
 }

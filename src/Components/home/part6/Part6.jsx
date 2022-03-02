@@ -17,8 +17,10 @@ export default function Part6() {
                     'الدقهلية', 'عرض المزيد...'];
     const cities = ['Cairo', 'Giza', 'Alexandria', 'North Coast', 'Qalyubia',
                     'Gharbia', 'Menoufia', 'Fayoum', 'El-Dakahlia', 'View More ...']
-    const [docsState, setDocsState] = useState(lang==='en'?docsAR:docs);
-    const [citiesState, setCitiesState] = useState(lang==='en'?citiesAR:cities);
+    const [docsStateAR, setDocsStateAR] = useState(docsAR);
+    const [citiesStateAR, setCitiesStateAR] = useState(citiesAR);
+    const [docsState, setDocsState] = useState(docs);
+    const [citiesState, setCitiesState] = useState(cities);
 
     return <>
     <div className={style.part6} style={{'width': '100%', 'overflow':'hidden'}}>
@@ -31,10 +33,16 @@ export default function Part6() {
                             'Choose and book from top specialties'}
                         </h3>
                         <div>
-                            {/* hena l buttons bta3 l doc */}
-                            {docsState.map((data, index) => (
+                            {lang=='en'? 
+                            docsStateAR.map((data, index) => (
+                                <SmallBtn key={index} data={data} />
+                            ))
+                            :
+                            docsState.map((data, index) => (
                                 <SmallBtn key={index} data={data} />
                             ))}
+                            {/* hena l buttons bta3 l doc */}
+                            
                         </div>
                     </div>
                     <div className="col-md-6 col-12">
@@ -44,7 +52,12 @@ export default function Part6() {
                         </h3>
                         <div id={style.citiesSpan}>
                             {/* hena l buttons bta3 l doc */}
-                            {citiesState.map((data, index) => (
+                            {lang=='en'? 
+                            citiesStateAR.map((data, index) => (
+                                <SmallBtn key={index} data={data} />
+                            ))
+                            : 
+                            citiesState.map((data, index) => (
                                 <SmallBtn key={index} data={data} />
                             ))}
                         </div>

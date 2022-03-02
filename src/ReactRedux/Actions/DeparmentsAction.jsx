@@ -72,19 +72,8 @@ const getOtherDept = (count) => {
             console.log(err);
         })
     }
-    // return (dispatch) => {
-    //     db.collection('Deparments').where('common', '!=', true).get()
-    //     .then(data => {
-    //         let allData = []
-    //         data.forEach(depts => {
-    //             allData.push(depts.data());
-    //         });
-    //         dispatch({type: 'getOtherDpts', payload: allData})
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //     })
-    // }
+    
 }
+
 
 export { getDepts, getCommonDept, getOtherDept};

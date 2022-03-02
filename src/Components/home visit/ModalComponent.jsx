@@ -17,20 +17,22 @@ import SingleDept from './SingleDept';
 import NavbarComponent from '../home/header/NavbarComponent';
 import Footer from '../home/footer/Footer';
 import $ from 'jquery';
+import { useContext } from 'react';
+import { langContext } from '../../Context/LangContext';
 export default function ModalComponent() {
     const deptName = [
-        {name: 'جلدية', pic: pic1},
-        {name: 'نفسي', pic: pic2},
-        {name: 'اطفال وحديثي الولادة', pic: pic3},
-        {name: 'مخ واعصاب', pic: pic4},
-        {name: 'عظام', pic: pic5},
-        {name: 'انف واذن وحنجرة', pic: pic6},
-        {name: 'قلب واوعية دموية', pic: pic7},
-        {name: 'باطنة', pic: pic8},
-        {name: 'جراحة واوعية دموية', pic: pic9},
-        {name: 'جراحة عامة', pic: pic10},
-        {name: 'صدر وجهاز تنفسي', pic: pic11},
-        {name: 'علاج طبيعي واصابات ملاعب', pic: pic12},
+        {nameAR: 'جلدية', name: 'Dermatology', pic: pic1},
+        {nameAR: 'نفسي', name:'Psychiatry', pic: pic2},
+        {nameAR: 'اطفال و حديثي الولادة', name:'Pediatrics and New Born', pic: pic3},
+        {nameAR: 'مخ واعصاب', name:'Neurology', pic: pic4},
+        {nameAR: 'عظام', name: 'Orthopedics', pic: pic5},
+        {nameAR: 'انف واذن وحنجرة', name:'Ear, Nose and Throat', pic: pic6},
+        {nameAR: 'قلب واوعية دموية', name:' Cardiology and Vascular Disease', pic: pic7},
+        {nameAR: 'باطنة', name: 'Internal Medicine', pic: pic8},
+        {nameAR: 'جراحة و اوعية دموية', name: 'Vascular Surgery', pic: pic9},
+        {nameAR: 'جراحة عامة', name: 'General Surgery', pic: pic10},
+        {nameAR: 'صدر وجهاز تنفسي',name: 'Chest and Respiratory', pic: pic11},
+        {nameAR: 'علاج طبيعي واصابات ملاعب',name: 'Physiotherapy and Sport Injuries', pic: pic12},
 
     ]
     const [deptState, setDeptState] = useState(deptName);
@@ -41,23 +43,25 @@ export default function ModalComponent() {
     //     $('#staticBackdrop').modal('show');
     //     // window.$
     // }, [])
+    const {lang, setLang} = useContext(langContext);
     return <>
     
     <NavbarComponent />
     <div className={`${style.content}`} style={{'width': '100%', 
-        'backgroundImage': `url(${bg})`, 'marginTop': '-2%'}}>
+        'backgroundImage': `url(${bg})`, 'marginTop': '-7%', 'height': '31.5rem'}}>
             {/* <!-- Modal --> */}
             <div className={`${style.staticBackdrop}`} id="staticBackdrop" 
             // data-bs-backdrop="static"
                 data-bs-keyboard="false" tabIndex="-1">
-                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div className="modal-content my-5">
+                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                id={style.mod}>
+                    <div className="modal-content my-5 px-0" style={{'alignSelf': 'baseline'}}>
                         <div className="modal-header" id={style.modalHeader}>
                             <h5 className="modal-title">
-                                اختار التخصص
+                                {lang=='en'? 'اختار التخصص': 'Search by specialty'}
                             </h5>
                         </div>
-                        <div className="modal-body" id={style.modalBody}>
+                        <div className="modal-body " id={style.modalBody}>
                             {/* <!-- hena l dynamic code --> */}
                             <div className="modal-body" id={style.modalBody}>
                             {deptState.map((el, index) => (

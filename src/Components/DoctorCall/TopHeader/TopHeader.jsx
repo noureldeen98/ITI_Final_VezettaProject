@@ -1,8 +1,8 @@
 import './Topheader.css'
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
-import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
+// import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
+// import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
 import style from './../../home/tabToggle/bigTab.module.css';
 
 const TopHeader=()=>{
@@ -41,7 +41,7 @@ const TopHeader=()=>{
 
   useEffect(() => {
     // dispatch(getDepts());
-    dispatch(getAllDepts());
+    // dispatch(getAllDepts());
     setAllDepts(oldDept => oldDept[0]);
     // setAllDepts(dpts)
 }, []);

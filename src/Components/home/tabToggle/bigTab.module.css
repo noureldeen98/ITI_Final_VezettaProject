@@ -74,3 +74,24 @@
 .common {
     color: #0070cd;
 }
+
+/* edit */
+.docInp {
+    border: none;
+}
+.docInp:focus {
+    border: none;
+}
+#btn1 {
+    border-radius: 1em;
+    height: 5em
+}
+.footer {
+    padding: 0em 2em; 
+}
+.sliderBtn {
+    border: none;
+    width: auto !important;
+    color: #0070cd;
+    margin: 0.5em;
+}

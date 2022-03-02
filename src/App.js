@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -18,10 +18,13 @@ import DoctorCallPage from "./Components/DoctorCall/DoctorCallPage";
 import MergeDoctor from "./Components/Doctor/MergeDoctor";
 import { Provider } from "react-redux";
 import store from '../src/ReactRedux/Store/myStore'
+import { LangProvider } from "./Context/LangContext";
 
 function App() {
+  const [lang, setLang] = useState("EN");
   return (
     <Provider store={store}>
+    <LangProvider value={{lang, setLang}}>
       <Switch>
         <Route path="/" exact>
           <Redirect to="/home" />
@@ -42,6 +45,7 @@ function App() {
 
         <Route path="**" component={NotFound} />
       </Switch>
+      </LangProvider>
 
       {/* <TabToggle /> */}
       {/* <h1>Vezeeta website</h1>

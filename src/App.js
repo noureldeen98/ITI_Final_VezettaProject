@@ -21,10 +21,12 @@ import store from '../src/ReactRedux/Store/myStore'
 import { LangProvider } from "./Context/LangContext";
 
 function App() {
-  const [lang, setLang] = useState("en");
+  const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang'): 'en';
+  const [lang, setLang] = useState(myLang);
 
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
+  localStorage.setItem('lang', lang);
   return (
     <Provider store={store}>
     <LangProvider value={{lang, setLang}}>

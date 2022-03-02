@@ -77,7 +77,7 @@ export default function SmallTab() {
                     <div className={style.ulContainer}>
                         <div className="right">
                             <span>
-                                <li className='mx-2' disabled>
+                                <li className='mx-2' disabled id="sItem">
                                     {lang=='en'? 'الاكثر اختيارا' :'Most Popular'}
                                 </li>
                             </span>

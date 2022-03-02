@@ -5,14 +5,24 @@ import FooterMenu from './FooterMenu';
 import ContactMenu from './ContactMenu';
 import CitiesListComponent from '../../ui/CitiesListComponent';
 import pic from '../../../Images/cities/Egypt.jpg';
+import { useContext } from 'react';
+import { langContext } from '../../../Context/LangContext';
 export default function Footer() {
-    const [secMenu, setSecMenu] = useState([
+    const [secMenuAR, setSecMenuAR] = useState([
         'التخصص', 'المنطقة', 'التامين', 'المستشفي', 'المركز'
-    ])
-    const [thirdMenu, setThirdMenu] = useState(['انضم الي اطباء فيزيتا'])
-    const [fourthMenu, setFourthMenu] = useState([
+    ]);
+    const [secMenu, setSecMenu] = useState([
+        'Speciality', 'Area', 'Insurance', 'Hospital', 'Center'
+    ]);
+    const [thirdMenuAR, setThirdMenuAR] = useState(['انضم الي اطباء فيزيتا']);
+    const [thirdMenu, setThirdMenu] = useState(['Join Vezeeta Doctors']);
+    const [fourthMenuAR, setFourthMenuAR] = useState([
         'اتصل بينا', 'شروط الاستحدام', 'اتفاقية الخصوصية', 'اتفاقية الخصوصية للاطباء'
     ]); 
+    const [fourthMenu, setFourthMenu] = useState([
+        'Contact Us', 'Terms Of Use', 'Privacy Policy', 'Doctors Privacy Policy'
+    ]);
+    const {lang , setLang} = useContext(langContext);
     return <>
     <div className={style.part7} style={{'width': '100%', 'overflow': 'hidden'}}>
         <div className="row justify-content-center">
@@ -22,14 +32,17 @@ export default function Footer() {
                     <FirstMenu />
                     {/* hena h7od l 3 menus de l ola l col=col2 w data=secMenu 
                     w title= ab7s 3n tare2*/}
-                    <FooterMenu col="col2" data={secMenu} title="ابحث عن طريق"/>
+                    <FooterMenu col="col2" data={secMenu} 
+                    title= {lang=='en'? 'ابحث عن طريق' : 'Search By'}/>
                     {/* hena h7od l 3 menus de l ola l col=col3 w data=thirdMenu 
                     w title= hl nta 6beb*/}
-                    <FooterMenu col="col3" data={thirdMenu} title="هل انت طبيب؟"/>
+                    <FooterMenu col="col3" data={thirdMenu} 
+                    title= {lang=="en"?"هل انت طبيب؟": "Are You A Doctor ?"}/>
 
                     {/* hena h7od l 3 menus de l ola l col=col4 w data=fourthMenu 
                     w title= t7tag ll mosa3da*/}
-                    <FooterMenu col="col4" data={fourthMenu} title=" تحتاج للمساعدة؟"/>
+                    <FooterMenu col="col4" data={fourthMenu} 
+                    title={lang=='en'? " تحتاج للمساعدة؟":  "Need Help?"}/>
                     {/* hena l contactMenu */}
                     <ContactMenu />
                     

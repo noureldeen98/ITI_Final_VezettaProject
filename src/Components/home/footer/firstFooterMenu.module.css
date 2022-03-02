@@ -2,7 +2,12 @@
     display: flex;
     flex-direction: column;
     padding: 0em;
+}
+.col1:lang(en) img {
     margin-left: 2em;
+}
+.col1:lang(ar) img {
+    margin-left: 0;
 }
 .col1 a {
     padding: 0.2em;

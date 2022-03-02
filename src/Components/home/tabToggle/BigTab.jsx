@@ -97,7 +97,7 @@ export default function BigTab() {
                     <div className={style.ulContainer}>
                         <div className="right">
                             <span>
-                                <li className='mx-2' disabled>
+                                <li className='mx-2' disabled id="sItem">
                                     {lang=='en'? 'الاكثر اختيارا' : 'Most popular '}
                                 </li>
                             </span>
@@ -163,7 +163,7 @@ export default function BigTab() {
                     <div className={style.ulContainer} id="cities">
                         <div className="right">
                             <span>
-                                <li className='mx-3'>
+                                <li className='mx-3' id='sItem'>
                                 {lang=='en'? ' الاكثر اختيارا' : 'Most Popular '}
                                 </li>
                             </span>

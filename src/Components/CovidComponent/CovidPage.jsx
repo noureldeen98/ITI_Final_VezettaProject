@@ -36,7 +36,7 @@ const CovidPage = () =>{
 <>
 <NavbarComponent/>
 <div className="row afterNav">
-        <div className="col-12 container" id="img1" style={{textAlign: "start"}}>
+        <div className="col-12 container" id="img2" style={{textAlign: "start"}}>
 
             <p className="text-secondary fs-3 fw-bold container mt-2">
                 احجز مكالمة دكتور مع افضل دكاترة في مصر

@@ -15,24 +15,32 @@ import OfferBtn from './OfferBtn';
  
 export default function OfferSlider() {
     let firstSlider = [
-        {pic: pic1, discount: '75%', title: 'تنظيف اسنان',
-        oldPrice: 400, newPrice: 100, offer:772},
-        {pic: pic2, discount: '46%', title: ' تنظيف البشرة',
-        oldPrice: 150, newPrice: 81, offer:488},
-        {pic: pic3, discount: '50%', title: 'تركيب التقويم المعدنى',
-        oldPrice: 6400, newPrice: 3200, offer:44},
-        {pic: pic4, discount: '46%', title: 'تقشير الوجه',
-        oldPrice: 150, newPrice: 81, offer:86}
+        {pic: pic1, discount: '75%', titleAR: 'تنظيف اسنان',
+        oldPrice: 400, newPrice: 100, offer:772
+        ,title: 'Teath Cleaning'},
+        {pic: pic2, discount: '46%', titleAR: ' تنظيف البشرة',
+        oldPrice: 150, newPrice: 81, offer:488,
+        title: 'Facial Cleansing'},
+        {pic: pic3, discount: '50%', titleAR: 'تركيب التقويم المعدنى',
+        oldPrice: 6400, newPrice: 3200, offer:44,
+        title: 'Metal Braces'},
+        {pic: pic4, discount: '46%', titleAR: 'تقشير الوجه',
+        oldPrice: 150, newPrice: 81, offer:86,
+        title: 'Face peeling'}
     ]
     let secondSlider = [
-        {pic: pic5, discount: '74%', title: 'فيتامين-د',
-        oldPrice: 777, newPrice: 202, offer:2},
-        {pic: pic6, discount: '59%', title: 'ازالة الشعر بالليزر',
-        oldPrice: 2000, newPrice: 820, offer:199},
-        {pic: pic7, discount: '58%', title: 'انقاص الوزن',
-        oldPrice: 1800, newPrice: 756, offer:79},
-        {pic: pic8, discount: '60%', title: 'تصحيح النظر',
-        oldPrice: 6000, newPrice: 2400, offer:151}
+        {pic: pic5, discount: '74%', titleAR: 'فيتامين-د',
+        oldPrice: 777, newPrice: 202, offer:2,
+        title: 'Vitamin D'},
+        {pic: pic6, discount: '59%', titleAR: 'ازالة الشعر بالليزر',
+        oldPrice: 2000, newPrice: 820, offer:199,
+        title: 'Laser Hair Removal'},
+        {pic: pic7, discount: '58%', titleAR: 'انقاص الوزن',
+        oldPrice: 1800, newPrice: 756, offer:79,
+        title: 'Weight Loss'},
+        {pic: pic8, discount: '60%', titleAR: 'تصحيح النظر',
+        oldPrice: 6000, newPrice: 2400, offer:151,
+        title: 'Vision Correction'}
     ]
     const [firstSliderState, setFirstSliderState] = useState(firstSlider);
     const [secSliderState, setSecSliderState] = useState(secondSlider)

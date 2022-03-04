@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -18,11 +18,20 @@ import DoctorCallPage from "./Components/DoctorCall/DoctorCallPage";
 import MergeDoctor from "./Components/Doctor/MergeDoctor";
 import { Provider } from "react-redux";
 import store from '../src/ReactRedux/Store/myStore'
+import { LangProvider } from "./Context/LangContext";
+import Success from "./Components/Success/Success";
 
 function App() {
+  const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang'): 'en';
+  const [lang, setLang] = useState(myLang);
+
+  //change lang handler 
+  document.getElementsByTagName('html')[0].setAttribute('lang', lang);
+  localStorage.setItem('lang', lang);
   return (
     <Provider store={store}>
-      <Switch>
+    <LangProvider value={{lang, setLang}}>
+      <Switch >
         <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
@@ -40,8 +49,10 @@ function App() {
         <Route path="/DoctorCall" component={DoctorCallPage} />
         <Route path="/MergeDoctor/:name" component={MergeDoctor} />
 
+        <Route  path="/done" component={Success}/>
         <Route path="**" component={NotFound} />
       </Switch>
+      </LangProvider>
 
       {/* <TabToggle /> */}
       {/* <h1>Vezeeta website</h1>

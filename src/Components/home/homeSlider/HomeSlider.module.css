@@ -21,6 +21,10 @@
 .bottom {
     margin-top: 8%;
     width: 85em;
+    margin-right: 5em !important;
+}
+.bottom:lang(ar) {
+    margin-left: 5.2em
 }
 
 .second {

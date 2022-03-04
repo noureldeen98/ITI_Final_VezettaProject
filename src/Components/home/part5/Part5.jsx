@@ -9,10 +9,22 @@ import SingleItem from './SingleItem';
 
 export default function Part5() {
     let arr = [
-        {pic: pic1, title:'كل احتياجاتك على فيزيتا', body:'ابحث و احجز كشف مع دكتور في عيادة، مستشفى، زيارة منزلية، أو عبر مكالمة. ممكن كمان تطلب أدوية، أو تحجز خدمة أو عملية بأحسن سعر.'}
-        ,{pic: pic2, title: 'تقييمات حقيقية من المرضى' , body: 'تقييمات الدكاترة من مرضى حجزوا على فيزيتا و زاروا الدكتور بالفعل.'},
-        {pic: pic3, title: 'حجزك مؤكد مع الدكتور', body: 'حجزك مؤكد بمجرد اختيارك من المواعيد المتاحة للدكتور.'},
-        {pic: pic4, title: 'احجز مجاناً، و ادفع في العيادة', body: 'سعر الكشف على فيزيتا نفس سعر الكشف في العيادة، بدون أي مصاريف إضافية.'}
+        {pic: pic1, 
+            titleAR:'كل احتياجاتك على فيزيتا', bodyAR:'ابحث و احجز كشف مع دكتور في عيادة، مستشفى، زيارة منزلية، أو عبر مكالمة. ممكن كمان تطلب أدوية، أو تحجز خدمة أو عملية بأحسن سعر.',
+        title: 'All your healthcare needs', 
+        body:'Search and book a clinic visit, home visit, or a teleconsultation. Order your medicine and book a service or operation.'}
+        ,{pic: pic2, 
+            titleAR: 'تقييمات حقيقية من المرضى' , title: 'Verified patient reviews',
+            bodyAR: 'تقييمات الدكاترة من مرضى حجزوا على فيزيتا و زاروا الدكتور بالفعل.',
+            body:'Doctor ratings are from patients who booked and visited the doctor through Vezeeta.'},
+        {pic: pic3, 
+            titleAR: 'حجزك مؤكد مع الدكتور', title: 'Your booking is confirmed',
+            bodyAR: 'حجزك مؤكد بمجرد اختيارك من المواعيد المتاحة للدكتور.',
+            body:'Your booking is automatically confirmed, as the doctor specifies his working hours and is notified of the booking details.'},
+        {pic: pic4, 
+            titleAR: 'احجز مجاناً، و ادفع في العيادة', title: 'Book for free, and pay in the clinic',
+            bodyAR: 'سعر الكشف على فيزيتا نفس سعر الكشف في العيادة، بدون أي مصاريف إضافية.',
+            body: "The consultation fees stated on Vezeeta are the actual doctor's fees with no extra charges."}
     ]
     const [info, setInfo] = useState(arr);
     return <>

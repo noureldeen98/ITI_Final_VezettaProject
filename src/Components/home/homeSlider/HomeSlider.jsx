@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import style from './HomeSlider.module.css';
 import slider1Pic from '../../../Images/homeslider/slider1.jpg';
 import slider2Pic from '../../../Images/homeslider/slider2.jpg';
 import slider3Pic from '../../../Images/homeslider/slider3.jpg';
 import BigTab from '../tabToggle/BigTab';
 import SmallTab from '../tabToggle/SmallTab';
+import { langContext } from '../../../Context/LangContext';
 
 export default function HomeSlider() {
     const [bigTab, setBigTab] = useState(true);
     const [smallTab, setSmallTab] = useState(false);
+    const {lang, setLang} = useContext(langContext);
 
     const toggleBigTab = () => {
         setSmallTab(false);
@@ -50,9 +52,13 @@ export default function HomeSlider() {
             <div className={`${style['sliderContent']}`}>
                 <div className= {`${style['top']} row justify-content-end my-5`}>
                     <div className="col-lg-11 col-lg-12">
-                        <h1>رعاية صحيه لحياه افضل ليك</h1>
-                        <h2 className="d-none d-md-flex"> احجز اونلاين او كلم <span> 
-                            <i className="fas fa-phone text-danger"></i></span> 16676</h2>
+                        <h1>
+                        {lang=='en'? 'رعاية صحية لحياة افضل' : 'Better Healthcare for a Better Life'}
+                        </h1>
+                        <h2 className="d-none d-md-flex">
+                            {lang=='en'? ' احجز اونلاين او  كلم' : 'Book online or call '}
+                        <span> 
+                            <i className="fas fa-phone text-danger"> </i></span> 16676</h2>
                     </div>
                 </div>
                 <div 
@@ -66,16 +72,17 @@ export default function HomeSlider() {
                                 onClick={toggleBigTab}>
                                 <div><i className="far fa-calendar-check"></i></div>
                                 <div>
-                                    <h1>احجز دكتور</h1>
-                                    <h4>الفحص او الاجراء</h4>
+                                    <h1>{lang==='en'? ' احجز دكتور' : 'Book a doctor '}</h1>
+                                    <h4> {lang==='en'? 'الفحص او الاجراء' : 'Examination or procedure '}</h4>
                                 </div>
                             </a>
                             <a className={`${style.call} ${smallTab ? style.activeCall: style.x} col-6 d-flex align-items-center`}
                             data-toggle="tab" href="#call" onClick={toggleSmallTab}>
                                 <div> <i className="fas fa-headphones"></i></div>
                                 <div>
-                                    <h1> مكالمة دكتور</h1>
-                                    <h4> المتابعة عبر مكالمة مع الدكتور </h4>
+                                    <h1> {lang=='en'? 'مكالمة دكتور' : 'Telehealth'}</h1>
+                                    <h4> {lang=='en'? 'المتابعة عبر مكالمة مع الدكتور' :
+                                    'call consultaion with doctor  '} </h4>
                                 </div>
                             </a>
                         </div>
@@ -100,17 +107,23 @@ export default function HomeSlider() {
                             align-items-center`}
                             data-toggle="tab" href="#clinic">
                             <h4><i className="fas fa-clinic-medical"></i></h4>
-                            <h4 onClick={() =>toggleToClinic()}>كشف عيادة</h4>
+                            <h4 onClick={() =>toggleToClinic()}>
+                            {lang=='en'? 'كشف عيادة' : 'Clinic Visit '}
+                            </h4>
                         </a>
                         <a className={`${style.drug} col-4 d-flex flex-column align-items-center`}
                         data-toggle="tab" href="#drug" onClick={toggleToMedicine}>
                             <h4><i className="fas fa-pills"></i></h4>
-                            <h4> اطلب ادوية</h4>
+                            <h4> 
+                                {lang=='en'? 'اطلب ادوية' : 'Order Medicine'}
+                            </h4>
                         </a>
                         <a className={`${style.calldoc} col-4 d-flex flex-column align-items-center`}
                         data-toggle="tab" href="#calldoc" onClick={toggleToCall}>
                             <h4><i className="fas fa-phone"></i></h4>
-                            <h4> مكالمة دكتور</h4>
+                            <h4> 
+                            {lang=='en'? ' مكالمة دكتور  ' : 'Doctor Call'}
+                            </h4>
                         </a>
                     </div>
                     <div className={`${style.secondMob} row tab-content`}>
@@ -121,16 +134,19 @@ export default function HomeSlider() {
                                     <div className="mb-3">
                                         <input type="text" 
                                         className="form-control" 
-                                        placeholder="ابحث بالتخصص, اسم الدكتور او المستشفى"/>
+                                        placeholder={
+                                            lang=='en'? '  ابحث بالتخصص , اسم الدكتور او المستشفي  ' 
+                                            : 'Search for specialty, doctor, hospital or illness'}/>
                                     </div>
                                     <div className="mb-3">
                                         <input type="text" 
-                                        className="form-control" placeholder="اختار المنطقة"/>
+                                        className="form-control" placeholder={lang=='en'? 'اختار المنطقة' : 'Choose the area '}/>
                                     </div>
                                 </div>
                                 <button type="submit" className="btn btn-danger mb-3"
-                                style={{"width": "inherit"}}>ابحث عن دكتور</button>
-                                <h4>او اتصل علي <a>16676</a></h4>
+                                style={{"width": "inherit"}}>
+                                {lang=='en'? ' ابحث عن دكتور' : 'Browse Doctors '}</button>
+                                <h4>{lang=='en'? ' او اتصل علي' : 'Or call '} <a>16676</a></h4>
                             </div>
                         </div>
                         )}
@@ -140,14 +156,11 @@ export default function HomeSlider() {
                             <div className="input-group flex-nowrap position-relative"
                             style={{"border":"1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" className="form-control" 
-                                placeholder="ابحث عن طلبك      ">
-                                    {/* <i className="fas fa-search position-absolute" 
-                                    style={{"top": "0.8em",
-                                    "zIndex": "100",
-                                    "right": "0.5em"}}></i> */}
+                                placeholder={lang=='en'? ' ابحث عن طلبك' : 'Search for a product'}>
+                
                                 </input>
                             </div>
-                            <h4 className='my-3'>او اتصل علي <a>16676</a></h4>
+                            <h4 className='my-3'>{lang=='en'? 'او اتصل علي' : 'Or call '} <a>16676</a></h4>
                         </div>
                         )}
                         {tab == 3 && ( 
@@ -156,10 +169,13 @@ export default function HomeSlider() {
                                 style={{"width": "inherit", "border": "1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" 
                                 className="form-control" 
-                                placeholder="ابحث بالتخصص, اسم الدكتور او المستشفى"/>
+                                placeholder={
+                                            lang=='en'? '  ابحث بالتخصص , اسم الدكتور او المستشفي  ' 
+                                            : 'Search for specialty, doctor, hospital or illness'}/>
                             </div>
-                            <button type="submit" className="btn btn-danger mb-3" style={{"width": "inherit"}}>ابحث عن دكتور</button>
-                            <h4>او اتصل علي <a>16676</a></h4>
+                            <button type="submit" className="btn btn-danger mb-3" style={{"width": "inherit"}}>
+                            {lang=='en'? ' ابحث عن دكتور' : 'Browse Doctors '}</button>
+                            <h4>{lang=='en'? ' او اتصل علي' : 'Or call '} <a>16676</a></h4>
                         </div>
                         )}
                     </div>

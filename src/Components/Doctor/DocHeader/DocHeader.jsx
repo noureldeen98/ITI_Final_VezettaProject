@@ -1,9 +1,9 @@
 import './docHeaderStyle.css'
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
-import {getAllCities} from '../../../ReactRedux/Actions/CitiesActionRedux';
-import {getAllAreas} from '../../../ReactRedux/Actions/AreasActionRedux'
+// import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
+// import {getAllCities} from '../../../ReactRedux/Actions/CitiesActionRedux';
+// import {getAllAreas} from '../../../ReactRedux/Actions/AreasActionRedux'
 import style from './../../home/tabToggle/bigTab.module.css'
 
 const DocHeader=()=>{
@@ -83,14 +83,14 @@ const DocHeader=()=>{
     //useEfect
     useEffect(() => {
         // dispatch(getDepts());
-        dispatch(getAllDepts());
+        // dispatch(getAllDepts());
         setAllDepts(oldDept => oldDept[0]);
         // setAllDepts(dpts)
         //cities
-        dispatch(getAllCities());
+        // dispatch(getAllCities());
         setAllCities(oldArr => oldArr[0]);
         //Areas
-        dispatch(getAllAreas());
+        // dispatch(getAllAreas());
         setAllAreas(oldArr => oldArr[0]);
     }, []);
     //deots

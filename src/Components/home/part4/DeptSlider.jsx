@@ -15,16 +15,16 @@ import OfferBtn from '../part3/offerSlider/OfferBtn';
 
 export default function DeptSlider() {
     const firstSlider = [
-        {pic: pic1, title: 'جلدية'},
-        {pic: pic2, title: 'اسنان'},
-        {pic: pic3, title: 'نفسي'},
-        {pic: pic4, title: 'اطفال وحديثي الولادة'},
+        {pic: pic1, titleAR: 'جلدية', title:'Skin'},
+        {pic: pic2, titleAR: 'اسنان', title:'Teath'},
+        {pic: pic3, titleAR: 'نفسي', title: 'Behavioral'},
+        {pic: pic4, titleAR: 'اطفال وحديثي الولادة', title:'Child'},
     ];
     const secSlider = [
-        {pic: pic5, title: 'مخ واعصاب'},
-        {pic: pic6, title: 'عظام'},
-        {pic: pic7, title: 'نساء وتوليد'},
-        {pic: pic8, title: '  انف واذن حنجرة'},
+        {pic: pic5, titleAR: 'مخ واعصاب',title: 'Brain & Nerves'},
+        {pic: pic6, titleAR: 'عظام', title: 'Bones'},
+        {pic: pic7, titleAR: 'نساء وتوليد', title: ' Gynaecology and Infertility'},
+        {pic: pic8, titleAR: '  انف واذن حنجرة', title: 'Ear, Nose and Throat'},
     ];
     const [firstSliderState, setFirstSliderState] = useState(firstSlider);
     const [secSliderState, setSecSliderState] = useState(secSlider);

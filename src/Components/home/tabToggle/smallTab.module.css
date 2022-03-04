@@ -1,37 +1,92 @@
-.call1 {
-    position: absolute;
-    border: 1px solid black;
-    margin: 1% 25%;
-    border-radius: 13px;
+
+#reserve, .reserveID {
+    display: flex;
+    justify-content: start;
+    border: 1px solid #6f7072;
+    border-radius: 15px;
+    margin-top: 1em;
+    justify-content: center;
+    width: 35em;
+    margin: 1.5em auto;
 }
-.call1 .c1 h5 {
+#reserve div {
+    flex: 1;
+}
+#reserve button {
+    width: -webkit-fill-available;
+}
+#reserve button h5 {
+    text-align: justify;
     color: #6f7072;
 }
-.call1 .c1 h3 {
+#reserve button h3 {
+    display: inline-block;
     color: #0070cd;
+    margin-right: -3em;
+    margin-left: 1em;
+    font-size: large;
 }
-.call1 .c2 {
-    border-left: none;
-    padding: 1.8%;
-    margin: -1.1%;
-    border-radius: 12px;
-    color: white;
-    text-align: center;
-}
-.call1 .c2 h3 {
-    color: white;
-    font-size: 2rem;
-    padding: 1%;
-}
-.call1 .c2 h3:hover {
-    cursor: pointer;
+#reserve button h3::after {
+    color: #6f7072;
 }
 
-.call1 {
-    margin-top: -8em;
-    padding: 0em 1em 0em 0em;
-    top: 110%;
+
+.ulContainer {
+    display: flex;
+    text-align: initial;
+    padding: 1em;
 }
-.call1 .c2 {
-    margin-left: 0em;
+.ulContainer .right li:first-child, .ulContainer .left li:first-child {
+    font-weight: bolder;
+    color: #6f7072;
+}
+.ulContainer .right li, .ulContainer .left li {
+    padding: 0.2em;
+}
+.ulContainer .right li a, .ulContainer .left li a {
+    color: #0070cd;
+    font-size: 1.2em;
+}
+.ulContainer .right li a:hover, .ulContainer .left li a:hover {
+    text-decoration: none;
+}
+
+.reserveID h3 span {
+    margin: 5%;
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+    #reserve button h3 {
+        font-size: 1.3em;
+        margin-right: 0em;
+    }
+}
+
+.deptMenu {
+    width: auto;
+}
+.common {
+    color: #0070cd;
+}
+
+
+/* edit */
+.docInp {
+    border: none;
+}
+.docInp:focus {
+    border: none;
+}
+#btn1 {
+    border-radius: 1em;
+    height: 5em
+}
+.footer {
+    padding: 0em 2em; 
+}
+.sliderBtn {
+    border: none;
+    width: auto !important;
+    color: #0070cd;
+    margin: 0.5em;
 }

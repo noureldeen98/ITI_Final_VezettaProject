@@ -36,13 +36,6 @@ export default function ModalComponent() {
 
     ]
     const [deptState, setDeptState] = useState(deptName);
-    // useEffect(() => {
-    //     // $(document).(function() {
-    //     //     $("#staticBackdrop").modal('show');
-    //     // });
-    //     $('#staticBackdrop').modal('show');
-    //     // window.$
-    // }, [])
     const {lang, setLang} = useContext(langContext);
     return <>
     

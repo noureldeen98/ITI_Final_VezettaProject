@@ -4,14 +4,14 @@ import {allDeptsReducer} from "./Reducers/DeptsReducerRedux.jsx";
 import {getAllDoctor} from './Reducers/DoctorCallReducer'
 
 import doctorCollectionReducer from './Reducers/ReducerOfFetchingCollections'
-
-
+import {bookAppointmentReducer } from './Reducers/HomeVisitReducer.jsx'
 
 const combineReducer = combineReducers({
     deptReducer: allDeptsReducer,
     citiesReducer: allCitiesReducer,
     getDoctors :getAllDoctor,
     doctorCollectionReducer: doctorCollectionReducer,
+    bookVisitReducer: bookAppointmentReducer
 // import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 // const combineReducer = combineReducers({
 //     deptRed: deptReducer,

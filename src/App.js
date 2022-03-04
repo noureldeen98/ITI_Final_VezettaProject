@@ -19,6 +19,7 @@ import MergeDoctor from "./Components/Doctor/MergeDoctor";
 import { Provider } from "react-redux";
 import store from '../src/ReactRedux/Store/myStore'
 import { LangProvider } from "./Context/LangContext";
+import Success from "./Components/Success/Success";
 
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang'): 'en';
@@ -48,6 +49,7 @@ function App() {
         <Route path="/DoctorCall" component={DoctorCallPage} />
         <Route path="/MergeDoctor/:name" component={MergeDoctor} />
 
+        <Route  path="/done" component={Success}/>
         <Route path="**" component={NotFound} />
       </Switch>
       </LangProvider>

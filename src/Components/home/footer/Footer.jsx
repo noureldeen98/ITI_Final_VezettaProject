@@ -32,16 +32,16 @@ export default function Footer() {
                     <FirstMenu />
                     {/* hena h7od l 3 menus de l ola l col=col2 w data=secMenu 
                     w title= ab7s 3n tare2*/}
-                    <FooterMenu col="col2" data={secMenu} 
+                    <FooterMenu col="col2" data={lang=="en"?secMenuAR :secMenu} 
                     title= {lang=='en'? 'ابحث عن طريق' : 'Search By'}/>
                     {/* hena h7od l 3 menus de l ola l col=col3 w data=thirdMenu 
                     w title= hl nta 6beb*/}
-                    <FooterMenu col="col3" data={thirdMenu} 
+                    <FooterMenu col="col3" data={lang=='en'?thirdMenuAR: thirdMenu} 
                     title= {lang=="en"?"هل انت طبيب؟": "Are You A Doctor ?"}/>
 
                     {/* hena h7od l 3 menus de l ola l col=col4 w data=fourthMenu 
                     w title= t7tag ll mosa3da*/}
-                    <FooterMenu col="col4" data={fourthMenu} 
+                    <FooterMenu col="col4" data={lang=='en'? fourthMenuAR: fourthMenu} 
                     title={lang=='en'? " تحتاج للمساعدة؟":  "Need Help?"}/>
                     {/* hena l contactMenu */}
                     <ContactMenu />

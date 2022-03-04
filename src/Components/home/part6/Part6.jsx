@@ -16,13 +16,14 @@ export default function Part6() {
                     'الغربية', 'المنوفية', 'الفيوم', 
                     'الدقهلية', 'عرض المزيد...'];
     const cities = ['Cairo', 'Giza', 'Alexandria', 'North Coast', 'Qalyubia',
-                    'Gharbia', 'Menoufia', 'Fayoum', 'El-Dakahlia', 'View More ...']
+                    'Gharbia', 'Menoufia', 'Fayoum', 'El-Dakahlia', 'View More ...'];
     const [docsStateAR, setDocsStateAR] = useState(docsAR);
     const [citiesStateAR, setCitiesStateAR] = useState(citiesAR);
     const [docsState, setDocsState] = useState(docs);
     const [citiesState, setCitiesState] = useState(cities);
 
     return <>
+    
     <div className={style.part6} style={{'width': '100%', 'overflow':'hidden'}}>
         <div className="row justify-content-center">
             <div className="col-lg-8">

@@ -3,13 +3,19 @@ import { Row } from 'react-bootstrap';
 import './Section4.css';
 import AppStoreLogo from '../../../Images/pharmacy/app-store'
 import GooglePlayLogo from '../../../Images/pharmacy/google-play'
+import { useTranslation } from 'react-i18next';
 
 export default function Section4() {
+    const { t } = useTranslation();
     return (
         <>
             <Row className="section4">
-                <h3>نزل تطبيق فيزيتا</h3>
-                <p>هتقدر تتابع طلبك و اعادة طلب المنتجات السابقة بسهولة و البحث عن المنتجات المختلفة و اكتر</p>
+                <h3>
+                    {t('Section4_Title')}
+                </h3>
+                <p>
+                    {t('Section4_SubTitle')}
+                </p>
                 <div>
                     <a href="https://itunes.apple.com/eg/app/vezeeta/id1010281314?" rel="noreferrer" target="_blank">
                         <img src={AppStoreLogo} alt="icon" />

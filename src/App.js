@@ -14,28 +14,6 @@ import DoctorCallPage from "./Components/DoctorCall/DoctorCallPage";
 import MergeDoctor from "./Components/Doctor/MergeDoctor";
 import { Provider } from "react-redux";
 import store from '../src/ReactRedux/Store/myStore';
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import HttpApi from 'i18next-http-backend';
-
-i18n
-  .use(initReactI18next)
-  .use(LanguageDetector)
-  .use(HttpApi)
-  .init({
-    supportedLngs: ['ar', 'en'],
-    fallbackLng: "en",
-    detection: {
-      order: ['htmlTag', 'querystring', 'cookie', 'path', 'subdomain'],
-      caches: ['cookie'],
-      backend: {
-        loadPath: '../public/assets/locales/{{lng}}/translation.json',
-      },
-      react: {
-      }
-    }
-  });
 
 function App() {
   return (

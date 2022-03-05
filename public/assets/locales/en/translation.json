@@ -5,10 +5,37 @@
     "NavBar_Lang":"عربي",
     "NavBar_Call":"Call Us: 16676",
 
+    "Modal_Title":"Login",
+    "Form_Label1":"Mobile Number",
+    "Form_Feedback1":"Please add mobile number",
+    "Form_Label2":"Full Name",
+    "Form_Placeholder2":"Enter Your Full Name",
+    "Form_Feedback2":"Please add full name",
+    "Modal_Button":"Verify your mobile number",
+
     "Section1_Title": "The easiest way to order and follow up with your monthly medications",
     "Section1_Element1": "Instant Delivery",
     "Section1_Element2": "Medicine Refill Reminder",
     "Section1_Element3": "Consult a Pharmacits",
 
-    "Section2_Title":"Order your medicines and all your pharmacy needs"
+    "Section2_Title":"Order your medicines and all your pharmacy needs",
+    "Section2_SearchInput":"Search for your order",
+    "Section2_Element1": "Pharmacist Assistance",
+    "Section2_Element2": "Product Picture",
+    "Section2_Element3": " Prescription or Claim",
+
+    "Modal_Call_Title":"Pharmacist Assistance",
+    "Modal_Call_SubTitle":"Call Us 16676",
+
+
+    "Section4_Title": "Download Vezeeta Application",
+    "Section4_SubTitle": "Easily follow up with your order, reorder previously ordered items, search for new ones and more",
+
+    "Footer_Title": "Terms and conditions apply",
+    "Footer_SubTitle": "We are pleased to receive your inquiries and suggestions",
+
+    "Footer_Element1":"About Us",
+    "Footer_Element2":"Our Team",
+    "Footer_Element3":"Careers",
+    "Footer_Element4":"Press"
 }

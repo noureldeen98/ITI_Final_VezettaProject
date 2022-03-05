@@ -5,10 +5,37 @@
     "NavBar_Lang":"English",
     "NavBar_Call":"اتصل بنا: 16676",
 
+    "Modal_Title":"تسجيل الدخول",
+    "Form_Label1":"رقم الموبايل",
+    "Form_Feedback1":"برجاء إدخال رقم الموبايل",
+    "Form_Label2":"الإسم بالكامل",
+    "Form_Placeholder2":"أدخل اسمك بالكامل",
+    "Form_Feedback2":"برجاء إدخال الاسم بالكامل",
+    "Modal_Button":"تحقق من رقم هاتفك",
+
     "Section1_Title": "طلب و متابعة شهرية لأدويتك بأسهل طريقة",
     "Section1_Element1": "توصيل فورى",
     "Section1_Element2": "تذكرة بمواعيد تجديد الدواء",
     "Section1_Element3": "تواصل مع صيدلي",
 
-    "Section2_Title":"اطلب ادويتك و كل اللي تحتاجه من الصيدلية"
+    "Section2_Title":"اطلب ادويتك و كل اللي تحتاجه من الصيدلية",
+    "Section2_SearchInput":"ابحث عن طلبك",
+    "Section2_Element1": "الطلب بالروشتة",
+    "Section2_Element2": "الطلب بصورة المنتج",
+    "Section2_Element3": "تواصل مع صيدلي",
+
+    "Modal_Call_Title":"تواصل مع الصيدلي",
+    "Modal_Call_SubTitle":"اتصل بنا 16676",
+
+    "Section4_Title": "نزل تطبيق فيزيتا",
+    "Section4_SubTitle": "هتقدر تتابع طلبك و اعادة طلب المنتجات السابقة بسهولة و البحث عن المنتجات المختلفة و اكتر",
+
+    "Footer_Title": "تطبق الشروط والاحكام",
+    "Footer_SubTitle": "سعداء لتلقي استفساراتكم واقتراحاتكم",
+
+    "Footer_Element1":"من نحن",
+    "Footer_Element2":"فريق فيزيتا",
+    "Footer_Element3":"وظائف",
+    "Footer_Element4":"الصحافة"
+
 }

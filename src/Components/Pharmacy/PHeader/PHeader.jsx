@@ -23,11 +23,6 @@ export default function PHeader() {
 
     const { t } = useTranslation();
 
-    const [toggle, setToggle] = useState(false);
-    const toggleFunc = () => {
-        setToggle(!toggle)
-    }
-
     useEffect(() => {
         document.body.dir = currentLang.dir || 'rtl';
     }, [currentLang])
@@ -50,7 +45,7 @@ export default function PHeader() {
                                 {t('NavBar_Call')}
                             </Nav.Link>
                             <Nav.Link className="me-5 text-light fs-6"
-                                onClick={() => i18next.changeLanguage(toggleFunc ? "en" : "ar")}>
+                                onClick={() => i18next.changeLanguage(Languages.code == "ar" ? "en" : "ar")}>
                                 {t('NavBar_Lang')}
                             </Nav.Link>
                             <Button style={{ color: 'rgb(1, 114, 203)' }} variant="light" onClick={() => setBtn(!btn)}>

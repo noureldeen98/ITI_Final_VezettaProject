@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Row, Col, Button, InputGroup, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import './PHeader.css';
+import './SigninModal.css';
 
 export default function SigninModal(props) {
     const [validated, setValidated] = useState(false);
@@ -28,7 +28,7 @@ export default function SigninModal(props) {
                 <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>
-                    <Modal.Title className="text-center fs-3">
+                    <Modal.Title className="fw-bold">
                         {t('Modal_Title')}
                     </Modal.Title>
                     <Form noValidate validated={validated} onSubmit={handleSubmit} className="formStyle">
@@ -71,7 +71,7 @@ export default function SigninModal(props) {
                             </Form.Group>
                         </Row>
                         <Row className="d-flex justify-content-center">
-                            <Button className="mb-5 mt-3 d-flex justify-content-center" style={{ width: "60%" }} type="submit">
+                            <Button className="mb-5 mt-3 d-flex justify-content-center" style={{ width: "60%", background: '#0071CD' }} type="submit">
                                 {t('Modal_Button')}
                             </Button>
                         </Row>

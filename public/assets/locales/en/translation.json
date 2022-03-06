@@ -1,5 +1,5 @@
 {
-    "Header_Msg":"All medicines are dispensed from pharmacies licensed by the Egyptian ministry of health.",
+    "Header_Msg":"All medicines are dispensed from pharmacies licensed by the Egyptian ministry of health",
 
     "NavBar_Enter":"Login",
     "NavBar_Lang":"عربي",
@@ -32,10 +32,5 @@
     "Section4_SubTitle": "Easily follow up with your order, reorder previously ordered items, search for new ones and more",
 
     "Footer_Title": "Terms and conditions apply",
-    "Footer_SubTitle": "We are pleased to receive your inquiries and suggestions",
-
-    "Footer_Element1":"About Us",
-    "Footer_Element2":"Our Team",
-    "Footer_Element3":"Careers",
-    "Footer_Element4":"Press"
+    "Footer_SubTitle": "We are pleased to receive your inquiries and suggestions"
 }

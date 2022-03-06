@@ -19,7 +19,7 @@ import "./App.css";
 
 
 function App() {
-  const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang'): 'en';
+  const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
   const [lang, setLang] = useState(myLang);
 
   //change lang handler 
@@ -27,26 +27,25 @@ function App() {
   localStorage.setItem('lang', lang);
   return (
     <Provider store={store}>
-    <LangProvider value={{lang, setLang}}>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/home" component={HomePage} />
-        <Route path="/visiting" component={ModalPage} />
-        <Route path="/pharmacy" component={Pharmacy} />
-        <Route path="/Contactus" component={ContactUS} />
-        <Route path="/Signup" component={Signup} />
-        <Route path="/Signin" component={Signin} />
-        <Route path="/bookvisit" component={BookVisitPage} />
-        <Route path="/covid" component={CovidPage} />
-        <Route path="/DoctorCall" component={DoctorCallPage} />
-        <Route path="/MergeDoctor/:name" component={MergeDoctor} />
-        <Route  path="/done" component={Success}/>
-        <Route path="**" component={NotFound} />
-      </Switch>
+      <LangProvider value={{ lang, setLang }}>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home" component={HomePage} />
+          <Route path="/visiting" component={ModalPage} />
+          <Route path="/pharmacy" component={Pharmacy} />
+          <Route path="/Contactus" component={ContactUS} />
+          <Route path="/Signup" component={Signup} />
+          <Route path="/Signin" component={Signin} />
+          <Route path="/bookvisit" component={BookVisitPage} />
+          <Route path="/covid" component={CovidPage} />
+          <Route path="/DoctorCall" component={DoctorCallPage} />
+          <Route path="/MergeDoctor/:name" component={MergeDoctor} />
+          <Route path="/done" component={Success} />
+          <Route path="**" component={NotFound} />
+        </Switch>
       </LangProvider>
-        <Route path="**" component={NotFound} />
     </Provider>
   );
 }

@@ -1,0 +1,59 @@
+.formStyle {
+  background-color: #fff !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: black !important;
+}
+
+.form-control {
+  height: 50px !important;
+}
+
+.modal-content {
+  border-radius: 15px !important;
+  box-shadow: 5px 10px 20px hsla(0, 0%, 0%, 0.5);
+}
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header {
+  border-bottom: 0 !important;
+}
+
+.modal-header > .btn-close {
+  font-size: 15px !important;
+  top: 15px !important;
+  right: 20px !important;
+}
+
+.modal-title {
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-weight: bolder;
+}
+
+sup {
+  color: red;
+}
+
+@media only screen and (min-device-width: 600px) {
+  .modal-dialog {
+    width: 750px !important;
+    height: auto !important;
+    max-width: 750px !important;
+  }
+  .modal-content {
+    padding: 15px 50px !important;
+  }
+
+  .modal-header > .btn-close {
+    position: absolute !important;
+    top: 30px !important;
+    right: 60px !important;
+  }
+}

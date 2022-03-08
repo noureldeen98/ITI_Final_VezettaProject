@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Row, Col, Button, InputGroup, Modal } from 'react-bootstrap';
+import { Form, Row, Button, InputGroup, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import './SigninModal.css';
 

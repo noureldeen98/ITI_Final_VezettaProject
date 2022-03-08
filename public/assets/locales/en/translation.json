@@ -23,14 +23,31 @@
     "Section2_Element1": "Pharmacist Assistance",
     "Section2_Element2": "Product Picture",
     "Section2_Element3": " Prescription or Claim",
+    "add_btn":"+ Add",
+    "currency":"EGP",
+    "molarity1":"gm",
+    "molarity2":"ml",
+    "size1":"tablets",
+    "size2":"mg",
+
 
     "Modal_Call_Title":"Pharmacist Assistance",
     "Modal_Call_SubTitle":"Call Us 16676",
 
 
-    "Section4_Title": "Download Vezeeta Application",
-    "Section4_SubTitle": "Easily follow up with your order, reorder previously ordered items, search for new ones and more",
+    "Section3_Title": "Download Vezeeta Application",
+    "Section3_SubTitle": "Easily follow up with your order, reorder previously ordered items, search for new ones and more",
 
     "Footer_Title": "Terms and conditions apply",
-    "Footer_SubTitle": "We are pleased to receive your inquiries and suggestions"
+    "Footer_SubTitle": "We are pleased to receive your inquiries and suggestions",
+    "cart_header":"Order List",
+    "cart_items_number":"Number Of Items",
+    "cart_btn":"continue",
+
+    "Payment_Modal_Title":"Order Total",
+    "Payment_Modal_Row1":"Items",
+    "Payment_Modal_Row2":"Delivery charge",
+    "Payment_Modal_Row3":"Order Total",
+    "Payment_Modal_Btn":"Confirm",
+    "item":"item"
 }

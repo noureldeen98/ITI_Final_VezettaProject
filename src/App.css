@@ -9,16 +9,16 @@
 /* lang handler */
 *:lang(en) {
   direction: rtl;
-  text-align: right;
+  /* text-align: right; */
 }
 *:lang(ar) {
   direction: ltr;
-  text-align: left;
+  /* text-align: left; */
 }
 
-  .dropdown-toggle:lang(ar)::after {
-    margin-left: 7em;
-  }
+.dropdown-toggle:lang(ar)::after {
+  margin-left: 7em;
+}
 #pCard:lang(ar) {
   margin-left: 45em;
 }
@@ -43,7 +43,7 @@
 #oSpan2:lang(ar) {
   font-size: 1.3em;
 }
-#dHead:lang(ar){
+#dHead:lang(ar) {
   font-size: 2.5em !important;
 }
 #sItem:lang(ar) {

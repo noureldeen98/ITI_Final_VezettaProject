@@ -4,6 +4,7 @@ import HomePage from "./pages/homePage";
 import ModalPage from "./pages/ModalPage";
 import NotFound from "./Components/ui/NotFound.jsx";
 import Pharmacy from "./Components/Pharmacy/Pharmacy";
+import Cart from "./Components/Pharmacy/Cart/Cart";
 import ContactUS from "./Components/Contact/Contactus/Contactus";
 import Signup from "./Components/Contact/Signup/signup";
 import Signin from "./Components/Contact/Signin/signin";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/home" component={HomePage} />
           <Route path="/visiting" component={ModalPage} />
           <Route path="/pharmacy" component={Pharmacy} />
+          <Route path="/cart" component={Cart} />
           <Route path="/Contactus" component={ContactUS} />
           <Route path="/Signup" component={Signup} />
           <Route path="/Signin" component={Signin} />

@@ -32,7 +32,7 @@ export default function PHeader() {
         <>
             <Navbar
                 className="d-flex flex-row-reverse justify-content-between"
-                style={{ background: 'rgb(1, 114, 203)' }}
+                style={{ background: 'rgb(1, 114, 203)', direction: 'rtl' }}
                 expand="md"
             >
 
@@ -40,12 +40,12 @@ export default function PHeader() {
                     <img src={Logo} alt="logo" />
                 </Navbar.Brand>
 
-                <Nav className="nav pe-5">
+                <Nav style={{ direction: 'rtl' }} className="nav pe-5">
                     <Nav.Link className="me-3 text-light fs-6">
                         {t('NavBar_Call')}
                     </Nav.Link>
                     <Nav.Link className="me-5 text-light fs-6"
-                        onClick={() => i18next.changeLanguage(Languages.code === "ar" ? "en" : "ar")}>
+                        onClick={() => i18next.changeLanguage(currentLang.code === "ar" ? "en" : "ar")}>
                         {t('NavBar_Lang')}
                     </Nav.Link>
                     <Button className="btn-login" onClick={() => setBtn(!btn)}>

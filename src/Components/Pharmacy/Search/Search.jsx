@@ -1,25 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from "react-i18next";
-import { db } from "../../../FireBaseConfiguration/FirebaseConfiguration";
 import Result from './Result';
 import CartPanel from './CartPanel';
+import { connect } from 'react-redux';
 import './Search.css';
 
-export default function Search() {
-    const ref = db.collection('Pharmacy');
-    const [data, setData] = useState([])
-    const getData = () => {
-        ref.onSnapshot((data) => {
-            const items = [];
-            data.forEach(element => {
-                items.push(element.data())
-            });
-            setData(items);
-        })
-    }
-    useEffect(() => {
-        getData()
-    }, [])
+const Search = ({ data }) => {
     const [results, setResults] = useState([])
     const handleSearch = event => {
         const searched = data.filter(
@@ -27,6 +13,7 @@ export default function Search() {
         );
         setResults(searched);
     };
+
     const [expanded, setExpanded] = useState(false);
     function close() {
         setExpanded(false);
@@ -35,6 +22,7 @@ export default function Search() {
         setExpanded(true);
     }
     const { t } = useTranslation();
+
     return (
         <>
             <div className="search">
@@ -51,7 +39,14 @@ export default function Search() {
                     {expanded && results.length > 0 && <Result data={results} />}
                 </div>
             </div>
-            <CartPanel />
         </>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.medicine.data,
+    }
+}
+
+export default connect(mapStateToProps)(Search);

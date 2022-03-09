@@ -10,6 +10,10 @@ export default function PaymentModal(props) {
     }, [props.btn])
 
     const { t } = useTranslation();
+    const [totalPayment, setTotalPayment] = useState(props.totalPrice)
+    useEffect(() => {
+        setTotalPayment(props.totalPrice)
+    }, [props.totalPrice])
 
     return (
         <>
@@ -20,31 +24,32 @@ export default function PaymentModal(props) {
                     <Modal.Title className="fw-bold fs-1 mb-5">
                         {t('Payment_Modal_Title')}
                     </Modal.Title>
-                    <div className="" style={{ backgroundColor: ' #f5f5f5' }}>
+                    <div className="d-flex justify-content-between p-3" style={{ backgroundColor: ' #f5f5f5' }}>
                         <div className='fs-4'>
                             {t('Payment_Modal_Row1')}
                         </div>
-                        <div>
+                        <div className='fs-4'>
+                            {props.totalPrice} {t('currency')}
                         </div>
                     </div>
-
-                    <div className="">
+                    <div className="d-flex justify-content-between p-3">
                         <div className='fs-4'>
                             {t('Payment_Modal_Row2')}
                         </div>
-                        <div>
+                        <div className='fs-4'>
+                            10 {t('currency')}
                         </div>
-
                     </div>
-                    <div className="d-flex justify-content-between" style={{ backgroundColor: ' #f5f5f5' }}>
+                    <div className="d-flex justify-content-between p-3" style={{ backgroundColor: ' #f5f5f5' }}>
                         <div className='fw-bold fs-4'>
                             {t('Payment_Modal_Row3')}
                         </div>
-                        <div>
+                        <div className='fw-bold fs-4'>
+                            {totalPayment} {t('currency')}
                         </div>
                     </div>
                     <div className="d-flex justify-content-center mt-5">
-                        <button className="payment-confirm-btn">
+                        <button className="payment-confirm-btn" onClick={() => setShow(!show)}>
                             {t('Payment_Modal_Btn')}
                         </button>
                     </div>

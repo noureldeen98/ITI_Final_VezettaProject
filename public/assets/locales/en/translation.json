@@ -49,5 +49,9 @@
     "Payment_Modal_Row2":"Delivery charge",
     "Payment_Modal_Row3":"Order Total",
     "Payment_Modal_Btn":"Confirm",
-    "item":"item"
+    "item":"item",
+
+    "Medicine_Details":"Vezeeta Pharmacy's main goal is to provide customers with accurate and reliable information. All information presented here is copied from the pamphlet of the medicine provided by the manufacturer, hence the accuracy of the information is the responsibility of the manufacturer only. Accordingly, please consult your doctor and discuss with him all inquiries related to any disease or medication. We aim to provide help, not replace the doctor-patient relationship. Vezeeta Pharmacy is a legally registered pharmacy management company designed to manage licensed pharmacies within the Arab Republic of Egypt. 100% of our medicines are sourced and distributed from licensed pharmacies under the regulations of the Egyptian Ministry of Health and Population. We do not and will not distribute medicines from warehouses. We are and will continue to abide by the law regarding obtaining medicines from licensed pharmacies. All of our pharmacy websites are available on the Internet, and they are all owned and operated by licensed pharmacists within the Arab Republic of Egypt. All invoices are issued by licensed pharmacies inside the Arab Republic of Egypt",
+    "Disclaimer":"Disclaimer"
+
 }

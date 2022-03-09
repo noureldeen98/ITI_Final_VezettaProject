@@ -1,20 +1,45 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import PHeader from '../PHeader/PHeader';
+import { connect } from 'react-redux';
+import CartPanel from '../Search/CartPanel';
 import './SingleItem.css';
 
-export default function SingleItem() {
+const SingleItem = ({ currentItem }) => {
+    const { t } = useTranslation();
     return (
         <>
+            <PHeader />
             <div>
-                <div>
-                    Medicine
+                <div className="item-container">
+                    <div className="row item">
+                        <div className="col-4 d-flex justify-content-center align-items-center">
+                            <img src={currentItem.url} width="250" height="auto" alt="medicineIMG" />
+                        </div>
+                        <div className="col-5 d-flex justify-content-center align-items-center fs-3 ">
+                            {currentItem.nameAR} - {currentItem.nameEN}
+                        </div>
+                        <div className="col-2 d-flex justify-content-center align-items-center fs-2 fw-bold" style={{ color: 'rgb(1, 112, 206)' }}>
+                            {currentItem.price} {t("currency")}
+                        </div>
+                    </div>
+                    <div className='details'>
+                        <h1>
+                            {t('Disclaimer')}
+                        </h1>
+                        {t('Medicine_Details')}
+                    </div>
                 </div>
-                <div>
-                    هدف صيدلية فيزيتا الرئيسي هو حصول العملاء علي المعلومات الدقيقة و الموثوق بها. جميع المعلومات المعروضة هنا منقولة من النشرة الخاصة بالدواء و يكون مصنع الدواء وحده مسئولا عن دقتها. و بناء عليه يرجي استشارة طبيبك و مناقشة كافة الاستفسارات المتعلقة بأي مرض او دواء. نحن نهدف الي المساعدة و ليس استبدال علاقة الطبيب بالمريض
-                    صيدلية فيزيتا هي شركة إدارة صيدليات مسجلة قانونًا وهي مصممة فقط لإدارة الصيدليات المرخصة داخل جمهورية مصر العربية.يتم الحصول على 100٪ من أدويتنا وتوزيعها من الصيدليات المرخصة وفقًا للوائح وزارة الصحة والسكان المصرية.نحن لا ولن نقوم بتوزيع الأدوية من المخازن. كما اننا ملتزمون وسنواصل الالتزام بالقانون و ذلك بخصوص الحصول على الأدوية من الصيدليات المرخصة.جميع مواقع الصيدليات الخاصة بنا متاحة على الإنترنت ، وكلها مملوكة ومدارة من قبل صيادلة مرخصين داخل جمهورية مصر العربية. كما ان جميع الفواتير صادرة من قبل صيدليات مرخصة داخل جمهورية مصر العربية
-                </div>
+                <CartPanel />
             </div>
-            <p>
-            </p>
         </>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        currentItem: state.medicine.currentItem
+    }
+}
+
+export default connect(mapStateToProps)(SingleItem);

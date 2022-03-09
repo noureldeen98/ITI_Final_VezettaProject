@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+import { addToCart } from '../Redux/medicine/medicineActions'
 import './Search.css';
 
-export default function Result({ data }) {
+const Result = ({ data, addToCart }) => {
     const { t } = useTranslation();
+
     return (
         data.map(result => {
             return (
@@ -37,7 +40,7 @@ export default function Result({ data }) {
                             {result.price} {t('currency')}
                         </div>
                         <div className="d-flex align-items-center">
-                            <button type="button" className="add-btn">
+                            <button type="button" className="add-btn" onClick={() => addToCart(result.id)}>
                                 {t('add_btn')}
                             </button>
                         </div>
@@ -47,3 +50,10 @@ export default function Result({ data }) {
         })
     )
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        addToCart: (id) => dispatch(addToCart(id))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Result);

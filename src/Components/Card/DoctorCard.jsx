@@ -1,4 +1,7 @@
+
 import { Link } from "react-router-dom";
+
+import StarRating from '../StarRating/StarRatingCompo'
 
 const Doctorcard = (props) => {
   // Display the result on the page
@@ -41,7 +44,7 @@ console.log(props.doctorData);
                           <br />
                           {theDoct.Title}{" "}
                         </p>
-                        <ul className="mt-0 listOfStars">
+                        {/* <ul className="mt-0 listOfStars">
                           <li style={{ color: "orange" }}>
                             <i className="fas fa-star"></i>
                           </li>
@@ -57,7 +60,9 @@ console.log(props.doctorData);
                           <li style={{ color: "orange" }}>
                             <i className="fas fa-star"></i>
                           </li>
-                        </ul>
+                        </ul> */}
+
+                        <StarRating/>
                         <p className=" d-inline">
                           التقيم العام ٢٥ زاروا الدكتور
                         </p>

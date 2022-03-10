@@ -7,6 +7,9 @@
 #modalHeader h5 {
     margin: 0em auto;
 }
+#mod {
+    margin: 7em auto;
+}
 
 .staticBackdrop {
     height: 28em;

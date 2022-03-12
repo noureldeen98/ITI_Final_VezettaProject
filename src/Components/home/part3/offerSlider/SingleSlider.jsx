@@ -3,6 +3,7 @@ import { langContext } from '../../../../Context/LangContext';
 import style from './SingleSlider.module.css';
 export default function SingleSlider(props) {
     const {lang, setLang} = useContext(langContext);
+
     return <>
     <div className="col-6 col-md-3 ">
         <div className="card position-relative" >
@@ -12,7 +13,7 @@ export default function SingleSlider(props) {
             </a>
             <div className="card-body">
                 <h5 className={style.cT}>
-                    {lang=='en'? props.data.titleAR: props.data.title} 
+                    {props.data.title} 
                 </h5>
                 <p>
                     <span> {props.data.oldPrice} {lang=='en'? 'جنيه' : 'EGP'}</span>

@@ -23,14 +23,7 @@ export default function SmallPharmacy() {
             body: t('part2.body2'), img: pic2,
         }
     ];
-    const data2 = t('new', { returnObjects: true });
-    console.log(typeof (data2),  "and", data2);
     return <>
-    <div>
-        {data2.map((x, index) => (
-            <p key={index}> {x}</p>
-        ))}
-    </div>
         <div className={`${style.p} row g-0`}>
             <div className={`row ${style.part2} justify-content-center mx-0 my-4`}>
                 <div className={`col-lg-9 col-md-12 col-sm-12`}>

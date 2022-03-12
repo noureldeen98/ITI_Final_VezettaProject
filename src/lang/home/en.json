@@ -113,6 +113,21 @@
                 {"discount": "60%", "title": "Vision Correction", "oldPrice": 6000,
                     "newPrice": 2400, "offer": 151}
             ]
+        },
+        "offer2" : {
+            "title" : "Choose from top offers",
+            "offer" : "All Offers"
         }
+    }, 
+    "part4": {
+        "firstSlider" : [
+            {"title": "Skin"}, {"title": "Teath"},
+            {"title": "Behavioral"}, {"title": "Child"} 
+        ],
+        "secSlider":  [
+            {"title": "Brain & Nerves"}, {"title": "Bones"},
+            {"title": "Gynaecology and Infertility"}, {"title": "Ear, Nose and Throat"} 
+        ],
+        "book": "Book from top specialties"
     }
 }

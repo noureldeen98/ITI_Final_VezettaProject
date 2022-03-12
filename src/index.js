@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './i18next';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,7 +11,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import myStore from '../src/ReactRedux/Store/myStore'
 import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import {langContext} from './Context/LangContext';
 ReactDOM.render(
   <BrowserRouter>
   <Provider store={myStore}>

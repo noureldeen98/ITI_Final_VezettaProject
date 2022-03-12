@@ -15,10 +15,10 @@ export default function CallVisitLink(props) {
                 </div>
                 <div className="card-body col-8" >
                     <h2 className="card-title"> 
-                    {lang=='en'? props.data.titleAR : props.data.title}
+                    {props.data.title}
                     </h2> 
                     <p className="card-text" id="pTxt">
-                        {lang=='en'? props.data.bodyAR : props.data.body}
+                        {props.data.body}
                     </p>
                     <Link to={link} style={{'textDecoration': 'none', 'color':'#0070cd'}}
                         className="fs-1s">

@@ -6,32 +6,36 @@ import CallVisitLink from '../call-visit-link/CallVisitLink';
 import { Link } from 'react-router-dom';
 import Pharmacy from '../../../Pharmacy/Pharmacy';
 import { langContext } from '../../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
+import { type } from '@testing-library/user-event/dist/type';
 
 
 export default function SmallPharmacy() {
-    const {lang, setLang} = useContext(langContext)
+    const {lang, setLang} = useContext(langContext);
+    const [t, i18n] = useTranslation();
     let data = [
         {
-            titleAR: 'مكالمة دكتور', id: 1,
-            bodyAR: 'للمتابعه عبر مكالمة صوتية او فيديو', img: pic1,
-            title: 'Teleconsultation',
-            body: 'Schedule a voice or video call with a specialized doctor.'
-            
+            title: t('part2.title1'), id: 1,
+            body: t('part2.body1'), img: pic1,
         },
         {
-            titleAR: 'زيارة منزلية', id: 2,
-            bodyAR: 'اختار التخصص والدكتور هيجيلك البيت', img: pic2,
-            title: 'Home Visit',
-            body: 'Choose the specialty, and the doctor will visit you at home.'
+            title: t('part2.title2'), id: 2,
+            body: t('part2.body2'), img: pic2,
         }
-    ]
+    ];
+    const data2 = t('new', { returnObjects: true });
+    console.log(typeof (data2),  "and", data2);
     return <>
+    <div>
+        {data2.map((x, index) => (
+            <p key={index}> {x}</p>
+        ))}
+    </div>
         <div className={`${style.p} row g-0`}>
             <div className={`row ${style.part2} justify-content-center mx-0 my-4`}>
                 <div className={`col-lg-9 col-md-12 col-sm-12`}>
                     <h1 className={`py-4 ${style.part2Head}`}>
-                        {lang=='en'? 'حلول جديدة لرعاية افضل اليك' : 
-                        'New services for better healthcare'}
+                        {t('part2.sol')}
                     </h1>
                     <div className={`card ${style.part2Card} flex-sm-row`}>
                         <div className="d-md-none">
@@ -39,15 +43,14 @@ export default function SmallPharmacy() {
                         </div>
                         <div className="card-body" id="pCard">
                             <h2 className={`card-title ${style.cT}`}>
-                            {lang=='en'? 'صيدلية': 'Pharmacy'}
+                                {t('part2.pharmacy')}
                             </h2>
                             <p className="card-text">
-                                {lang=='en'? ' اطلب ادويتك وكل اللى تحتاجه من الصيدلية'
-                                : 'Get your medicine and all your pharmacy needs'}
+                                {t('part2.needs')}
                             </p>
                             <Link to='/pharmacy'
                                 className={`btn btn-light px-5`}> 
-                                {lang=='en'? 'اطلب الان' : 'Place Order'}
+                                    {t('part2.order')}
                             </Link>
                         </div>
                     </div>
@@ -59,6 +62,10 @@ export default function SmallPharmacy() {
                 {data.map(d => (
                     <CallVisitLink data={d} key={d.id} />
                 ))}
+            </div>
+
+            <div>
+                
             </div>
         </div>
     </>

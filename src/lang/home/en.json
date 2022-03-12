@@ -1,0 +1,118 @@
+{
+    "citiesUI" : {
+        "saudi": "Saudi Arabia",
+        "egypt": "Egypt",
+        "jordan": "Jordan",
+        "lebanon": "Lebanon",
+        "nigeria": "Nigeria",
+        "kenya": "Kenya"
+    },
+    "notFound": {
+        "title1": "the requested url",
+        "title2": "was not found",
+        "back": "Back to the homepage"
+    },
+    "header": {
+        "country": "Egypt",
+        "contact":"Contact us",
+        "vezeeta": "vezeeta for doctor",
+        "login": "login",
+        "sign": "sign up"
+    },
+    "footer": {
+        "firstFooter": {
+            "one": "About Us",
+            "two": "Our Team",
+            "three": "Careers",
+            "four": "Press"
+        }, 
+        "secMenu":{
+            "one": "Speciality",
+            "two": "Area",
+            "three": "Insurance",
+            "four": "Hospital",
+            "five": "Center" 
+        },
+        "thirdMenu": "Join Vezeeta Doctors",
+        "fourthMenu": {
+            "one": "Contact Us",
+            "two": "Terms Of Use",
+            "three": "Privacy Policy",
+            "four": "Doctors Privacy Policy"
+        },
+        "search":"Search By",
+        "doctor": "Are You A Doctor ?",
+        "help": "Need Help?"
+    },
+    "homeSlider" : {
+        "sliderContent": {
+            "life": "Better Healthcare for a Better Life",
+            "book": "Book online or call",
+            "book2": "Book a doctor",
+            "examination": "Examination or procedure",
+            "telehealth": "Telehealth",
+            "consultaion": "call consultaion with doctor"
+        },
+        "mobile": {
+            "clinic": "Clinic Visit",
+            "order": "Order Medicine",
+            "call": "Doctor Call",
+            "tab1": {
+                "search": "Search for specialty, doctor, hospital or illness",
+                "area": "Choose the area",
+                "browse": "Browse Doctors",
+                "call" :"Or call"
+            }, 
+            "tab2": {
+                "search": "Search for a product",
+                "call": "Or call"
+            },
+            "tab3" : {
+                "call": "Or call",
+                "search": "Search for specialty, doctor, hospital or illness",
+                "browse": "Browse Doctors"
+            }
+        }
+    },
+    "part2": {
+        "title1": "Teleconsultation",
+        "body1": "Schedule a voice or video call with a specialized doctor.",
+        "title2": "Home Visit",
+        "body2": "Choose the specialty, and the doctor will visit you at home.",
+        "sol": "New services for better healthcare",
+        "pharmacy": "Pharmacy",
+        "needs": "Get your medicine and all your pharmacy needs",
+        "order": "Place Order"
+    },
+    "part3": {
+        "corona" : {
+            "corona": "Corona Symptoms?",
+            "details": "You can ask and consult an internist about corona symptoms through a free call, sponsored by the Ministry of Health and Population, from 8 am to 12 am.",
+            "call": "Call Doctor for free"
+        }, 
+        "offer": {
+            "firstSlider": [
+                {"discount": "75%", "title": "Teath Cleaning", "oldPrice": 400,
+                    "newPrice": 100, "offer": 772}, 
+                {"discount": "46%", "title": "Facial Cleansing", "oldPrice": 150,
+                    "newPrice": 81, "offer": 488
+                }, 
+                {"discount": "50%", "title": "Metal Braces", "oldPrice": 6400,
+                    "newPrice": 3200, "offer": 44}, 
+                {"discount": "46%", "title": "Face peeling", "oldPrice": 150,
+                    "newPrice": 81, "offer": 86}
+            ], 
+            "secSlider": [
+                {"discount": "74%", "title": "Vitamin D", "oldPrice": 777,
+                    "newPrice": 202, "offer": 2}, 
+                {"discount": "59%", "title": "Laser Hair Removal", "oldPrice": 2000,
+                    "newPrice": 820, "offer": 199
+                }, 
+                {"discount": "58%", "title": "Weight Loss", "oldPrice": 1800,
+                    "newPrice": 756, "offer": 79}, 
+                {"discount": "60%", "title": "Vision Correction", "oldPrice": 6000,
+                    "newPrice": 2400, "offer": 151}
+            ]
+        }
+    }
+}

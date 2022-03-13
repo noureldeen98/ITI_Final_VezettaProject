@@ -10,11 +10,6 @@ export default function FooterMenu(props) {
         {props.data.map((item, index) => (
             <FooterItem key={index} item={item}/>
         ))}
-        {/* <a href="#"> التخصص</a>
-        <a href="#">المنطقة</a>
-        <a href="#"> التامين</a>
-        <a href="#"> المستشفي</a>
-        <a href="#">المركز</a> */}
     </div>
     </>;
 }

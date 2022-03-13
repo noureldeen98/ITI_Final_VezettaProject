@@ -1,0 +1,184 @@
+{
+    "citiesUI" : {
+        "saudi": "Saudi Arabia",
+        "egypt": "Egypt",
+        "jordan": "Jordan",
+        "lebanon": "Lebanon",
+        "nigeria": "Nigeria",
+        "kenya": "Kenya"
+    },
+    "notFound": {
+        "title1": "the requested url",
+        "title2": "was not found",
+        "back": "Back to the homepage"
+    },
+    "header": {
+        "country": "Egypt",
+        "contact":"Contact us",
+        "vezeeta": "vezeeta for doctor",
+        "login": "login",
+        "sign": "sign up"
+    },
+    "footer": {
+        "firstFooter": {
+            "one": "About Us",
+            "two": "Our Team",
+            "three": "Careers",
+            "four": "Press"
+        }, 
+        "secMenu":{
+            "one": "Speciality",
+            "two": "Area",
+            "three": "Insurance",
+            "four": "Hospital",
+            "five": "Center" 
+        },
+        "thirdMenu": "Join Vezeeta Doctors",
+        "fourthMenu": {
+            "one": "Contact Us",
+            "two": "Terms Of Use",
+            "three": "Privacy Policy",
+            "four": "Doctors Privacy Policy"
+        },
+        "search":"Search By",
+        "doctor": "Are You A Doctor ?",
+        "help": "Need Help?"
+    },
+    "homeSlider" : {
+        "sliderContent": {
+            "life": "Better Healthcare for a Better Life",
+            "book": "Book online or call",
+            "book2": "Book a doctor",
+            "examination": "Examination or procedure",
+            "telehealth": "Telehealth",
+            "consultaion": "call consultaion with doctor"
+        },
+        "mobile": {
+            "clinic": "Clinic Visit",
+            "order": "Order Medicine",
+            "call": "Doctor Call",
+            "tab1": {
+                "search": "Search for specialty, doctor, hospital or illness",
+                "area": "Choose the area",
+                "browse": "Browse Doctors",
+                "call" :"Or call"
+            }, 
+            "tab2": {
+                "search": "Search for a product",
+                "call": "Or call"
+            },
+            "tab3" : {
+                "call": "Or call",
+                "search": "Search for specialty, doctor, hospital or illness",
+                "browse": "Browse Doctors"
+            }
+        }
+    },
+    "part2": {
+        "title1": "Teleconsultation",
+        "body1": "Schedule a voice or video call with a specialized doctor.",
+        "title2": "Home Visit",
+        "body2": "Choose the specialty, and the doctor will visit you at home.",
+        "sol": "New services for better healthcare",
+        "pharmacy": "Pharmacy",
+        "needs": "Get your medicine and all your pharmacy needs",
+        "order": "Place Order"
+    },
+    "part3": {
+        "corona" : {
+            "corona": "Corona Symptoms?",
+            "details": "You can ask and consult an internist about corona symptoms through a free call, sponsored by the Ministry of Health and Population, from 8 am to 12 am.",
+            "call": "Call Doctor for free"
+        }, 
+        "offer": {
+            "firstSlider": [
+                {"discount": "75%", "title": "Teath Cleaning", "oldPrice": 400,
+                    "newPrice": 100, "offer": 772}, 
+                {"discount": "46%", "title": "Facial Cleansing", "oldPrice": 150,
+                    "newPrice": 81, "offer": 488
+                }, 
+                {"discount": "50%", "title": "Metal Braces", "oldPrice": 6400,
+                    "newPrice": 3200, "offer": 44}, 
+                {"discount": "46%", "title": "Face peeling", "oldPrice": 150,
+                    "newPrice": 81, "offer": 86}
+            ], 
+            "secSlider": [
+                {"discount": "74%", "title": "Vitamin D", "oldPrice": 777,
+                    "newPrice": 202, "offer": 2}, 
+                {"discount": "59%", "title": "Laser Hair Removal", "oldPrice": 2000,
+                    "newPrice": 820, "offer": 199
+                }, 
+                {"discount": "58%", "title": "Weight Loss", "oldPrice": 1800,
+                    "newPrice": 756, "offer": 79}, 
+                {"discount": "60%", "title": "Vision Correction", "oldPrice": 6000,
+                    "newPrice": 2400, "offer": 151}
+            ]
+        },
+        "offer2" : {
+            "title" : "Choose from top offers",
+            "offer" : "All Offers"
+        }
+    }, 
+    "part4": {
+        "firstSlider" : [
+            {"title": "Skin"}, {"title": "Teath"},
+            {"title": "Behavioral"}, {"title": "Child"} 
+        ],
+        "secSlider":  [
+            {"title": "Brain & Nerves"}, {"title": "Bones"},
+            {"title": "Gynaecology and Infertility"}, {"title": "Ear, Nose and Throat"} 
+        ],
+        "book": "Book from top specialties"
+    },
+    "part5": {
+        "arr": [
+            {"title": "All your healthcare needs",
+                "body": "Search and book a clinic visit, home visit, or a teleconsultation. Order your medicine and book a service or operation."
+            }, {
+                "title": "Verified patient reviews", 
+                "body": "Doctor ratings are from patients who booked and visited the doctor through Vezeeta."
+            }, {
+                "title": "Your booking is confirmed",
+                "body": "Your booking is automatically confirmed, as the doctor specifies his working hours and is notified of the booking details."
+            }, {
+                "title": "Book for free, and pay in the clinic",
+                "body": "The consultation fees stated on Vezeeta are the actual doctor's fees with no extra charges."
+            }
+        ], 
+        "download": "Download the Application",
+        "text": "Compare, choose, and book. Track your appointments with ease, rate your doctor's visit, and order your medicine online."
+    }, 
+    "part6": {
+        "docs": ["Dermatologist", "Dentist", "Psychiatrist", "Pediatrician",
+            "Neurologist", "Orthopedist", "Gynecologist", "ENT Doctor",
+            "Cardiologist", "View More ..."],
+        "cities" : ["Cairo", "Giza", "Alexandria", "North Coast", "Qalyubia",
+                    "Gharbia", "Menoufia", "Fayoum", "El-Dakahlia", "View More ..."],
+        "book": "Choose and book from top specialties",
+        "book2": "Choose and book from top cities"
+    },
+    "part7": {
+        "specialty": "Select a specialty",
+        "specialty2": "Choose specialty",
+        "popular": "Most popular",
+        "other": "Other specialties",
+        "page": "Page",
+        "city": "In this city",
+        "city2": "Choose city",
+        "other2": "Other cities ",
+        "area": "in this area",
+        "area2": "Choose area",
+        "search": "Or search by name",
+        "doctor": "Doctor name or hospital",
+        "search2": "Search",
+        "browse": "Browse doctors",
+        "doctor2": "Book a doctor",
+        "examination": "Examination or procedure",
+        "doctor3": "Telehealth",
+        "doctor4": "Call consultation with doctor"
+    }, 
+    "modal": [{"title":"Dermatology"},{"title": "Psychiatry"},{"title": "Pediatrics and New Born"},{"title":
+    "Neurology"},{"title": "Orthopedics"},{"title": "Ear,Nose and Throat"},{"title": "Cardiology and Vascular Disease"},{"title":
+    "Internal Medicine"},{"title": "Vascular Surgery"},{"title": "General Surgery"},{"title":
+    "Chest and Respiratory"},{"title": "Physiotherapy and Sport Injuries"}]
+}

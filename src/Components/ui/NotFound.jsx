@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { langContext } from '../../Context/LangContext';
 import pic from '../../Images/2456051.jpg'
 export default function NotFound(props) {
     const {lang, setLang} = useContext(langContext);
+
     return <>
     <div className="container">
         <div className="row">

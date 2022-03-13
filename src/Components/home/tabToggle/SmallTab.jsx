@@ -7,10 +7,11 @@ import {useHistory} from 'react-router-dom'
 import style from './smallTab.module.css';
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 
 
 export default function SmallTab() {
-
+    const [t, i18n] = useTranslation();
     const dispatch = useDispatch();
     const depts = useSelector((state) => state.deptReducer);
     const [count, setCount] = useState(1);
@@ -61,13 +62,13 @@ export default function SmallTab() {
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" 
                 aria-expanded="false">
                     <h5>
-                    {lang=='en'? 'انا ابحث عن دكتور ' :'Browse doctors'}
+                    {t('part7.browse')}
                     </h5>
                     <h3>
                         <i className="fas fa-stethoscope"></i>
                         <span className="deptTitle">
                         {selectedDpts==''?  (
-                            lang=='en'? 'اختار التخصص' :'select a specialty'
+                            t('part7.specialty2')
                         ) : selectedDpts}
                         </span>
                     </h3>
@@ -78,7 +79,7 @@ export default function SmallTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-2' disabled id="sItem">
-                                    {lang=='en'? 'الاكثر اختيارا' :'Most Popular'}
+                                    {t('part7.popular')}
                                 </li>
                             </span>
                             {
@@ -97,7 +98,7 @@ export default function SmallTab() {
                         <div className="left">
                             <span>
                             <li className='mx-3' style={{width: 'max-content'}}>
-                                {lang=='en'? 'تخصصات اخري' :'Other specialties'}
+                                {t('part7.other')}
                             </li>
                         </span>
                         {
@@ -118,7 +119,7 @@ export default function SmallTab() {
                         onClick={(e) => prevDpts(e)}>
                             <i className='fas fa-arrow-right mx-2'></i>
                         </button>
-                        <span>{lang=='en'? 'صفحة' :'Page'} {count}\3</span>
+                        <span>{t('part7.page')} {count}\3</span>
                         <button className={style.sliderBtn} 
                         onClick={(e) => nextDpts(e)}>
                             <i className='fas fa-arrow-left mx-2'></i>
@@ -131,7 +132,7 @@ export default function SmallTab() {
             <div className="text-light d-flex">
                 <button className='btn btn-danger' id={style.btn1} onClick={goToDoctorPage}>
                     {/* <i className="fas fa-search"></i> */}
-                    {lang=='en'? 'ابحث' :'Search'}
+                    {t('part7.search2')}
                 </button>
             </div>
         </div>

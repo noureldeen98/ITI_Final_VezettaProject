@@ -25,23 +25,7 @@ export default function ModalComponent() {
     const pics = [pic1, pic2, pic3, pic4, pic5, pic6, pic7,
         pic8, pic9, pic10, pic11, pic12];
     const dpts = t('modal', {returnObjects: true });
-    // const deptName = [
-    //     {nameAR: 'جلدية', name: 'Dermatology', pic: pic1},
-    //     {nameAR: 'نفسي', name:'Psychiatry', pic: pic2},
-    //     {nameAR: 'اطفال و حديثي الولادة', name:'Pediatrics and New Born', pic: pic3},
-    //     {nameAR: 'مخ واعصاب', name:'Neurology', pic: pic4},
-    //     {nameAR: 'عظام', name: 'Orthopedics', pic: pic5},
-    //     {nameAR: 'انف واذن وحنجرة', name:'Ear, Nose and Throat', pic: pic6},
-    //     {nameAR: 'قلب واوعية دموية', name:' Cardiology and Vascular Disease', pic: pic7},
-    //     {nameAR: 'باطنة', name: 'Internal Medicine', pic: pic8},
-    //     {nameAR: 'جراحة و اوعية دموية', name: 'Vascular Surgery', pic: pic9},
-    //     {nameAR: 'جراحة عامة', name: 'General Surgery', pic: pic10},
-    //     {nameAR: 'صدر وجهاز تنفسي',name: 'Chest and Respiratory', pic: pic11},
-    //     {nameAR: 'علاج طبيعي واصابات ملاعب',name: 'Physiotherapy and Sport Injuries', pic: pic12},
-
-    // ]
-    // const [deptState, setDeptState] = useState(deptName);
-    const {lang, setLang} = useContext(langContext);
+   
     return <>
     
     <NavbarComponent />

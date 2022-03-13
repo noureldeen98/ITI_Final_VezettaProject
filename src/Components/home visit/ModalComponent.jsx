@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import pic1 from '../../Images/Modal/1.png';
 import pic2 from '../../Images/Modal/2.png';
 import pic3 from '../../Images/Modal/3.png';
@@ -16,9 +16,6 @@ import style from './Modal.module.css';
 import SingleDept from './SingleDept';
 import NavbarComponent from '../home/header/NavbarComponent';
 import Footer from '../home/footer/Footer';
-import $ from 'jquery';
-import { useContext } from 'react';
-import { langContext } from '../../Context/LangContext';
 import { useTranslation } from 'react-i18next';
 export default function ModalComponent() {
     const [t, i18n] = useTranslation();

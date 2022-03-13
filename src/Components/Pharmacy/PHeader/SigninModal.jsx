@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Row, Col, Button, InputGroup, Modal } from 'react-bootstrap';
-import './PHeader.css';
+import { useTranslation } from 'react-i18next';
+import './SigninModal.css';
 
 export default function SigninModal(props) {
     const [validated, setValidated] = useState(false);
@@ -19,17 +20,24 @@ export default function SigninModal(props) {
         setShow(props.btn)
     }, [props.btn])
 
+    const { t } = useTranslation();
+
     return (
         <>
             <Modal show={show} onHide={setShow}>
                 <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>
-                    <Modal.Title className="text-center fs-3">تسجيل الدخول</Modal.Title>
+                    <Modal.Title className="fw-bold">
+                        {t('Modal_Title')}
+                    </Modal.Title>
                     <Form noValidate validated={validated} onSubmit={handleSubmit} className="formStyle">
                         <Row className="mb-3">
                             <Form.Group controlId="validationCustomUsername">
-                                <Form.Label className="fs-4">رقم الموبايل<sup> *</sup></Form.Label>
+                                <Form.Label className="fs-4">
+                                    {t('Form_Label1')}
+                                    <sup> *</sup>
+                                </Form.Label>
                                 <InputGroup hasValidation style={{ direction: "ltr" }}>
                                     <InputGroup.Text id="inputGroupPrepend">+20</InputGroup.Text>
                                     <Form.Control
@@ -40,7 +48,7 @@ export default function SigninModal(props) {
                                         required
                                     />
                                     <Form.Control.Feedback type="invalid">
-                                        برجاء إدخال رقم الموبايل
+                                        {t('Form_Feedback1')}
                                     </Form.Control.Feedback>
                                 </InputGroup>
                             </Form.Group>
@@ -48,17 +56,24 @@ export default function SigninModal(props) {
 
                         <Row className="mb-3">
                             <Form.Group controlId="validationCustom01">
-                                <Form.Label className="fs-4">الإسم بالكامل<sup> *</sup></Form.Label>
+                                <Form.Label className="fs-4">
+                                    {t('Form_Label2')}
+                                    <sup> *</sup>
+                                </Form.Label>
                                 <Form.Control
                                     required
                                     type="text"
-                                    placeholder="أدخل اسمك بالكامل"
+                                    placeholder={t('Form_Placeholder2')}
                                 />
-                                <Form.Control.Feedback type="invalid">برجاء إدخال الاسم بالكامل</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    {t('Form_Feedback2')}
+                                </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
                         <Row className="d-flex justify-content-center">
-                            <Button className="mb-5 mt-3 d-flex justify-content-center" style={{ width: "60%" }} type="submit">تحقق من رقم هاتفك</Button>
+                            <Button className="mb-5 mt-3 d-flex justify-content-center" style={{ width: "60%", background: '#0071CD' }} type="submit">
+                                {t('Modal_Button')}
+                            </Button>
                         </Row>
                     </Form>
                 </Modal.Body>

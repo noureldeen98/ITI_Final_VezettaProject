@@ -39,7 +39,8 @@ console.log(props.doctorData);
                         >
                           دكتور{" "}
                           <span style={{ fontWeight: "bolder", color: "blue" }}>
-                          <Link to={`/MergeDoctor/${theDoct.Name}`}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link>
+                          {/* <Link to={`/MergeDoctor/${theDoct.Name}`}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link> */}
+                          <Link to={{pathname:`/MergeDoctor/${theDoct.Name}`, state: { fromCovid: true}}}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link>
                           </span>
                           <br />
                           {theDoct.Title}{" "}

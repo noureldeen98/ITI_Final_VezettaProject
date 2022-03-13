@@ -1,5 +1,5 @@
 import {db} from '../../FireBaseConfiguration/FirebaseConfiguration.js';
-import {query, collection, orderBy, limit, getDocs, startAfter, where} from 'firebase/firestore';
+import {query, collection, getDocs, where} from 'firebase/firestore';
 import { changeLoader } from './loaderAction'
 export const getAllDoctorAction=()=>{
 
@@ -19,7 +19,7 @@ export const getAllDoctorAction=()=>{
     }
 }
 
-export const getSpecificDoc=(name)=>{
+export const getSpecificDoc=(name,covid)=>{
 
     // return (dispatch)=>{
     //     db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').get()
@@ -30,7 +30,8 @@ export const getSpecificDoc=(name)=>{
     //         dispatch({type: 'getSpecificDoctor', payload: querySnapshot});
     //     })
     // }
-    return async (dispatch)=>{
+    if(covid===false)
+    {return async (dispatch)=>{
         const doct=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
         where('Name','==',name));
 
@@ -73,5 +74,23 @@ export const getSpecificDoc=(name)=>{
     //             .catch(err => {
     //                 console.log(err);
     //             })
+     }}
+
+     else{
+
+        return async (dispatch)=>{
+            const doct=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/General_internal_medicine_specialist'),
+            where('Name','==',name));
+    
+            // console.log(doct)
+           const details =await getDocs(doct)
+    
+           details.forEach((doc)=>{
+            console.log(doc.id, " => ", doc.data());
+            // console.log(doc.data())
+            dispatch({type: 'getSpecificDoctor', payload: doc.data()});
+            dispatch(changeLoader(false));
+           })
+         }
      }
 }

@@ -12,6 +12,7 @@
         height: 89.5px;
       background-size: cover;
       width: 100%;
+      overflow-y: hidden;
     }
   
     #aside1 {

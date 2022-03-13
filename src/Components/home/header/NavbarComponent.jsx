@@ -30,7 +30,7 @@ return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'
                     id="navbarDropdownMenuLink" role="button" 
                     data-bs-toggle="dropdown">
                         <img src={egyptPic} className="img-fluid" alt=""/>
-                        <span>{lang=='en'? 'مصر' : 'Egypt'}</span>    
+                        <span>{lang==='en'? 'مصر' : 'Egypt'}</span>    
                     </a>
                     <CitiesListComponent />
                 </li>
@@ -39,19 +39,19 @@ return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'
                 </li>
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link" to="/Contactus">
-                    {lang=='en'? 'اتصل بينا' : 'Contact us'}&nbsp; |</Link>
+                    {lang==='en'? 'اتصل بينا' : 'Contact us'}&nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link" to="#">
-                    {lang=='en'? 'فيزيتا للاطباء' : 'vezeeta for doctor'} &nbsp; |</Link>
+                    {lang==='en'? 'فيزيتا للاطباء' : 'vezeeta for doctor'} &nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link" to="/Signin">
-                    {lang=='en'? 'دخول' : 'login'} &nbsp; |</Link>
+                    {lang==='en'? 'دخول' : 'login'} &nbsp; |</Link>
                 </li>
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link active" to="/Signup"> 
-                    {lang=='en'? 'انضم الان' : 'sign up'}
+                    {lang==='en'? 'انضم الان' : 'sign up'}
                     </Link>
                 </li>
             </ul>

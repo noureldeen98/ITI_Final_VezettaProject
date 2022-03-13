@@ -8,6 +8,7 @@ import style from './../../home/tabToggle/bigTab.module.css';
 import {useHistory} from 'react-router-dom'
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
+import { useTranslation } from "react-i18next";
 
 const TopHeader=()=>{
   const dispatch = useDispatch();
@@ -41,74 +42,22 @@ const prevDpts = (e) => {
 const setDpts = (e) => {
   setSelectedDpts(e.target.outerText)
 } 
-//   const dpts = useSelector(state => state.dptReduxReducer.depts);
-//   const [allDepts, setAllDepts] = useState([dpts]);
-//   // const allDepts = [dpts]
-//   const [commonDepts, setCommonDepts] = useState([]);
-//   const [otherDepts, setOtherDepts] = useState([]);
-//   const [counter, setCounter] = useState(1);
-//   const getCommonDpts = () => {
-//       allDepts.map(dpt => {
-//           if( dpt && dpt.common) {
-//               setCommonDepts(oldArr => [...oldArr, dpt]);
-              // if(counter == 1) {
-              //     setCommonDepts(oldArr => oldArr.slice(0,9))
-              // };
-              // if(counter == 2) {
-              //     setCommonDepts(oldArr => oldArr.slice(10,19))
-              // }
-              // if(counter == 3) {
-              //     setCommonDepts(oldArr => oldArr.slice(20,commonDepts.length-1))
-              // }
-              
-//           }
-//       })
+const { t } = useTranslation();
 
-//   }
-//   const getOtherDpts = () => {
-//       allDepts.map(dpt => {
-//           if( dpt && dpt.other) {
-//               setOtherDepts(oldArr => [...oldArr, dpt]);
-//           }
-//       })
-//   }
-
-//   useEffect(() => {
-//     // dispatch(getDepts());
-//     // dispatch(getAllDepts());
-//     setAllDepts(oldDept => oldDept[0]);
-//     // setAllDepts(dpts)
-// }, []);
-
- //deots
-//  useEffect(() => {
-//   getCommonDpts();
-//   getOtherDpts();
-// }, [allDepts])
-
- // 0-9 ==== 10-18 === 19-length
-//  const nextDept = () => {
-//   if(counter == 3) {
-//       setCounter(counter);
-//   }
-//   else {
-//       setCounter(++counter)
-//   }
-// }
 return(
     <>
       <div className="col-12">
       <div className="img-fluid"  id="img11" >
-      <p  className="text-secondary fs-3 fw-bold">احجز مكالمة دكتور مع افضل دكاترة في مصر</p>
+      <p  className="text-secondary fs-3 fw-bold">{t('Book_Call')}</p>
       <div className="alert alert-primary position-fixed fw-bold fs-5 rounded-3" role="alert" id="alert">
-        الاستشارات الهاتفية للمتابعة فقط و ليست للكشف
+      {t('alert')}
       </div>
-      <p className="text-secondary fs-4"> احجز اونلاين او كلم &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; ١٦٦٧٦</p>
+      <p className="text-secondary fs-4">{t('Book_online')}  &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; {t('No')}</p>
       <div className="btn-group float-start ms-5  mt-0 d-none d-sm-none d-sm-none d-md-block" role="group" aria-label="Button group with nested dropdown" >                
         <div className="btn-group shadow-sm  bg-body rounded-3 " role="group">
           <div>
           <button id="btnGroupDrop7" type="button" className="btn btn-dark dropdown-toggle fw-bold text-end " data-bs-toggle="dropdown" aria-expanded="false">
-            <p className="fw-light text-secondary ">انا ابحث عن دكتور</p>
+            <p className="fw-light text-secondary "> {lang=='en'? 'انا ابحث عن دكتور' : 'Select a specialty '}</p>
             <span>
                 <i className="fas fa-stethoscope fs-4 fw-light "></i>
                 <span className="deptTitle">
@@ -188,7 +137,7 @@ return(
           </ul> */}
          
         </div>
-         <button type="button" className="btn btn-danger fw-bold " id="search"><p className="fs-3"> ابحث</p></button>
+         <button type="button" className="btn btn-danger fw-bold " id="search"><p className="fs-3"> {lang=='en'? 'ابحث ' :'Search'}</p></button>
       </div>
     </div></div>
         </div>

@@ -7,11 +7,11 @@ import { getCommonDept, getDepts, getOtherDept } from '../../../ReactRedux/Actio
 import { useHistory, useParams } from 'react-router-dom'
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
-
+import { useTranslation } from 'react-i18next'
 
 const DocHeader = () => {
     const params = useParams();
-    console.log(params.name)
+    //console.log(params.name)
     const dispatch = useDispatch();
     const depts = useSelector((state) => state.deptReducer);
     const cities = useSelector((state) => state.citiesReducer);
@@ -78,123 +78,16 @@ const DocHeader = () => {
         dispatch(getAreas(docID))
     }, [docID])
 
-    // const depts = useSelector((state) => state.deptRed);
-    //normal redux
-    // const dpts = useSelector(state => state.dptReduxReducer.depts);
-    // const [allDepts, setAllDepts] = useState([dpts]);
-    // // const allDepts = [dpts]
-    // const [commonDepts, setCommonDepts] = useState([]);
-    // const [otherDepts, setOtherDepts] = useState([]);
-    // const [counter, setCounter] = useState(1);
-    // const getCommonDpts = () => {
-    //     allDepts.map(dpt => {
-    //         if( dpt && dpt.common) {
-    //             setCommonDepts(oldArr => [...oldArr, dpt]);
-    //             // if(counter == 1) {
-    //             //     setCommonDepts(oldArr => oldArr.slice(0,9))
-    //             // };
-    //             // if(counter == 2) {
-    //             //     setCommonDepts(oldArr => oldArr.slice(10,19))
-    //             // }
-    //             // if(counter == 3) {
-    //             //     setCommonDepts(oldArr => oldArr.slice(20,commonDepts.length-1))
-    //             // }
-
-    //         }
-    //     })
-    // }
-    // const getOtherDpts = () => {
-    //     allDepts.map(dpt => {
-    //         if( dpt && dpt.other) {
-    //             setOtherDepts(oldArr => [...oldArr, dpt]);
-    //         }
-    //     })
-    // }
-    // //cities
-    // const cities = useSelector(state => state.citiesReduxReducer.cities);
-    // const [allCities, setAllCities] = useState([cities]);
-    // const [commonCities, setCommonCities] = useState([]);
-    // const [otherCities, setOtherCities] = useState([]);
-    // const getCommonCities = () => {
-    //     allCities.map(city => {
-    //         if(city && city.common) {
-    //             setCommonCities(oldArr => [...oldArr, city]);
-    //         }
-    //     })
-    // }
-    // const getOtherCities = () => {
-    //     allCities.map(city => {
-    //         if(city && city.other) {
-    //             setOtherCities(oldArr => [...oldArr, city]);
-    //         }
-    //     })
-    // }
-
-    // //areas
-    // const areas = useSelector(state => state.areasReduxReducer.areas);
-    // const [allAreas, setAllAreas] = useState([areas]);
-    // const [commonAreas, setCommonAreas] = useState([]);
-    // const [otherAreas, setOtherAreas] = useState([]);
-    // const getCommonAreas = () => {
-    //     allAreas.map(area => {
-    //         if(area && area.common) {
-    //             setCommonAreas(oldArr => [...oldArr, area]);
-    //         }
-    //     })
-    // }
-    // const getOtherAreas = () => {
-    //     allAreas.map(area => {
-    //         if(area && area.other) {
-    //             setOtherAreas(oldArr => [...oldArr, area]);
-    //         }
-    //     })
-    // }
-    // //useEfect
-    // useEffect(() => {
-    //     // dispatch(getDepts());
-    //     // dispatch(getAllDepts());
-    //     setAllDepts(oldDept => oldDept[0]);
-    //     // setAllDepts(dpts)
-    //     //cities
-    //     // dispatch(getAllCities());
-    //     setAllCities(oldArr => oldArr[0]);
-    //     //Areas
-    //     // dispatch(getAllAreas());
-    //     setAllAreas(oldArr => oldArr[0]);
-    // }, []);
-    // //deots
-    // useEffect(() => {
-    //     getCommonDpts();
-    //     getOtherDpts();
-    // }, [allDepts])
-    // //cities
-    // useEffect(() => {
-    //     getCommonCities();
-    //     getOtherCities();
-    // }, [allCities])
-    // //areas
-    // useEffect(() => {
-    //     getCommonAreas();
-    //     getOtherAreas();
-    // }, [allAreas])
-    // // 0-9 ==== 10-18 === 19-length
-    // const nextDept = () => {
-    //     if(counter == 3) {
-    //         setCounter(counter);
-    //     }
-    //     else {
-    //         setCounter(++counter)
-    //     }
-    // }
+    const { t } = useTranslation();
 
     return (
         <>
             <div className="row">
                 <div className="col-12">
                     <div className="img-fluid " id="img1" >
-                        <p className="text-secondary fs-4 fw-bold">احجز الآن مع دكتور {params.name}</p>
-                        <p className="text-secondary fs-4"> احجز اونلاين او كلم &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; ١٦٦٧٦</p>
-                        <p className="text-secondary fs-5">١٥٠٠٠ دكتور -٩٠٠٠ استاذ واستشاري - اكثر من ٤٠ تخصص</p>
+                        <p className="text-secondary fs-4 fw-bold">{t('Book_With_Doc')} {params.name}</p>
+                        <p className="text-secondary fs-4"> {t('Book_online')} &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; {t('No')}</p>
+                        <p className="text-secondary fs-5">{t('NO_DOC')}</p>
                         <div className="btn-group float-start ms-5  mt-0 mb-0 d-none d-sm-none d-sm-none d-md-block "
                             role="group" aria-label="Button group with nested dropdown">
                             <div className="btn-group shadow-sm  bg-body rounded-3 mt-0" role="group">
@@ -202,7 +95,7 @@ const DocHeader = () => {
                                     <button id="btnGroupDrop1" type="button"
                                         className="btn btn-dark dropdown-toggle fw-bold text-end "
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <p className="fw-light text-secondary ">انا ابحث عن دكتور</p>
+                                        <p className="fw-light text-secondary "> {lang=='en'? 'انا ابحث عن دكتور' : 'Select a specialty '}</p>
                                         <span>
                                             <i className="fas fa-stethoscope fs-4 fw-light "></i>
                                             <span className="deptTitle">
@@ -268,7 +161,7 @@ const DocHeader = () => {
                                     <button id="btnGroupDrop1" type="button"
                                         className="btn btn-dark dropdown-toggle fw-bold text-end "
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <p className="fw-light text-secondary ">في محافظه</p>
+                                        <p className="fw-light text-secondary ">{lang=='en'? ' في محافظة' : 'In this city '}</p>
                                         <span>
                                             <i className="fas fa-map-marker-alt fs-4 fw-light"></i>
                                             <span className="deptTitle">
@@ -321,7 +214,7 @@ const DocHeader = () => {
                                     <button id="btnGroupDrop1" type="button"
                                         className="btn btn-dark dropdown-toggle fw-bold text-end "
                                         data-bs-toggle="dropdown" aria-expanded="false">
-                                        <p className="fw-light text-secondary ">في منطقه</p>
+                                        <p className="fw-light text-secondary ">{lang=='en'? 'في منطقة' :'in this area'}</p>
                                         <span>
                                             <i className="fas fa-map-marker-alt fs-4 fw-light"></i>
                                             <span className="deptTitle">
@@ -391,7 +284,7 @@ const DocHeader = () => {
                                     </div> */}
                                 <div className=" text-primary ms-3  fw-bold text-end "
                                 >
-                                    <p className="fw-light text-secondary ">او اكتب اسم</p>
+                                    <p className="fw-light text-secondary "> {lang=='en'? 'او اكتب اسم الدكتور': 'Or search by name'}</p>
                                     {/* <span> */}
                                     {/* <span className="fw-normal fs-5">اسم الدكتور</span> */}
                                     {/* <h3> */}
@@ -407,7 +300,7 @@ const DocHeader = () => {
 
 
                                 <button type="button" className="btn btn-danger fw-bold " id="search" onClick={goToDoctorPage}>
-                                    <p className="fs-3"> ابحث</p>
+                                    <p className="fs-3">  {lang=='en'? 'ابحث ' :'Search'}</p>
                                 </button>
                             </div>
                         </div>

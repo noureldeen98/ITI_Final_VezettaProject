@@ -5,12 +5,12 @@ import slider2Pic from '../../../Images/homeslider/slider2.jpg';
 import slider3Pic from '../../../Images/homeslider/slider3.jpg';
 import BigTab from '../tabToggle/BigTab';
 import SmallTab from '../tabToggle/SmallTab';
-import { langContext } from '../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 
 export default function HomeSlider() {
     const [bigTab, setBigTab] = useState(true);
     const [smallTab, setSmallTab] = useState(false);
-    const {lang, setLang} = useContext(langContext);
+    const [t, i18n] = useTranslation();
 
     const toggleBigTab = () => {
         setSmallTab(false);
@@ -53,10 +53,10 @@ export default function HomeSlider() {
                 <div className= {`${style['top']} row justify-content-end my-5`}>
                     <div className="col-lg-11 col-lg-12">
                         <h1>
-                        {lang=='en'? 'رعاية صحية لحياة افضل' : 'Better Healthcare for a Better Life'}
+                            {t('homeSlider.sliderContent.life')}
                         </h1>
                         <h2 className="d-none d-md-flex">
-                            {lang=='en'? ' احجز اونلاين او  كلم' : 'Book online or call '}
+                            {t('homeSlider.sliderContent.book')}
                         <span> 
                             <i className="fas fa-phone text-danger"> </i></span> 16676</h2>
                     </div>
@@ -72,17 +72,16 @@ export default function HomeSlider() {
                                 onClick={toggleBigTab}>
                                 <div><i className="far fa-calendar-check"></i></div>
                                 <div>
-                                    <h1>{lang==='en'? ' احجز دكتور' : 'Book a doctor '}</h1>
-                                    <h4> {lang==='en'? 'الفحص او الاجراء' : 'Examination or procedure '}</h4>
+                                    <h1>{t('homeSlider.sliderContent.book2')}</h1>
+                                    <h4> {t('homeSlider.sliderContent.examination')}</h4>
                                 </div>
                             </a>
                             <a className={`${style.call} ${smallTab ? style.activeCall: style.x} col-6 d-flex align-items-center`}
                             data-toggle="tab" href="#call" onClick={toggleSmallTab}>
                                 <div> <i className="fas fa-headphones"></i></div>
                                 <div>
-                                    <h1> {lang=='en'? 'مكالمة دكتور' : 'Telehealth'}</h1>
-                                    <h4> {lang=='en'? 'المتابعة عبر مكالمة مع الدكتور' :
-                                    'call consultaion with doctor  '} </h4>
+                                    <h1> {t('homeSlider.sliderContent.telehealth')} </h1>
+                                    <h4>  {t('homeSlider.sliderContent.consultaion')} </h4>
                                 </div>
                             </a>
                         </div>
@@ -108,21 +107,21 @@ export default function HomeSlider() {
                             data-toggle="tab" href="#clinic">
                             <h4><i className="fas fa-clinic-medical"></i></h4>
                             <h4 onClick={() =>toggleToClinic()}>
-                            {lang=='en'? 'كشف عيادة' : 'Clinic Visit '}
+                                {t('homeSlider.mobile.clinic')}
                             </h4>
                         </a>
                         <a className={`${style.drug} col-4 d-flex flex-column align-items-center`}
                         data-toggle="tab" href="#drug" onClick={toggleToMedicine}>
                             <h4><i className="fas fa-pills"></i></h4>
                             <h4> 
-                                {lang=='en'? 'اطلب ادوية' : 'Order Medicine'}
+                                {t('homeSlider.mobile.order')}
                             </h4>
                         </a>
                         <a className={`${style.calldoc} col-4 d-flex flex-column align-items-center`}
                         data-toggle="tab" href="#calldoc" onClick={toggleToCall}>
                             <h4><i className="fas fa-phone"></i></h4>
                             <h4> 
-                            {lang=='en'? ' مكالمة دكتور  ' : 'Doctor Call'}
+                            {t('homeSlider.mobile.call')}
                             </h4>
                         </a>
                     </div>
@@ -134,19 +133,18 @@ export default function HomeSlider() {
                                     <div className="mb-3">
                                         <input type="text" 
                                         className="form-control" 
-                                        placeholder={
-                                            lang=='en'? '  ابحث بالتخصص , اسم الدكتور او المستشفي  ' 
-                                            : 'Search for specialty, doctor, hospital or illness'}/>
+                                        placeholder={t('homeSlider.mobile.tab1.search')}/>
                                     </div>
                                     <div className="mb-3">
                                         <input type="text" 
-                                        className="form-control" placeholder={lang=='en'? 'اختار المنطقة' : 'Choose the area '}/>
+                                        className="form-control" 
+                                        placeholder={t('homeSlider.mobile.tab1.area')}/>
                                     </div>
                                 </div>
                                 <button type="submit" className="btn btn-danger mb-3"
                                 style={{"width": "inherit"}}>
-                                {lang=='en'? ' ابحث عن دكتور' : 'Browse Doctors '}</button>
-                                <h4>{lang=='en'? ' او اتصل علي' : 'Or call '} <a>16676</a></h4>
+                                    {t('homeSlider.mobile.tab1.browse')}</button>
+                                <h4>{t('homeSlider.mobile.tab1.call')} <a>16676</a></h4>
                             </div>
                         </div>
                         )}
@@ -156,11 +154,11 @@ export default function HomeSlider() {
                             <div className="input-group flex-nowrap position-relative"
                             style={{"border":"1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" className="form-control" 
-                                placeholder={lang=='en'? ' ابحث عن طلبك' : 'Search for a product'}>
+                                placeholder={t('homeSlider.mobile.tab2.search')}>
                 
                                 </input>
                             </div>
-                            <h4 className='my-3'>{lang=='en'? 'او اتصل علي' : 'Or call '} <a>16676</a></h4>
+                            <h4 className='my-3'>{t('homeSlider.mobile.tab2.call')} <a>16676</a></h4>
                         </div>
                         )}
                         {tab == 3 && ( 
@@ -169,13 +167,11 @@ export default function HomeSlider() {
                                 style={{"width": "inherit", "border": "1px solid rgb(0, 112, 205)"}}>
                                 <input type="text" 
                                 className="form-control" 
-                                placeholder={
-                                            lang=='en'? '  ابحث بالتخصص , اسم الدكتور او المستشفي  ' 
-                                            : 'Search for specialty, doctor, hospital or illness'}/>
+                                placeholder={t('homeSlider.mobile.tab3.search')}/>
                             </div>
                             <button type="submit" className="btn btn-danger mb-3" style={{"width": "inherit"}}>
-                            {lang=='en'? ' ابحث عن دكتور' : 'Browse Doctors '}</button>
-                            <h4>{lang=='en'? ' او اتصل علي' : 'Or call '} <a>16676</a></h4>
+                                {t('homeSlider.mobile.tab3.browse')}</button>
+                            <h4>{t('homeSlider.mobile.tab3.call')} <a>16676</a></h4>
                         </div>
                         )}
                     </div>

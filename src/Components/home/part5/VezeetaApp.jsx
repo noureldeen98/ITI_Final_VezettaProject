@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import style from './VezettaApp.module.css';
 import pic1 from '../../../Images/part5/part5p5.png';
 import { langContext } from '../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 export default function VezeetaApp() {
     const {lang, setLang} = useContext(langContext);
+    const [t, i18n] = useTranslation();
+
   return <>
     <div className={`row justify-content-center my-5 ${style.part5b}`}>
         <div className="col-12 col-md-12 col-lg-8">
@@ -14,13 +17,11 @@ export default function VezeetaApp() {
                 </div>
                 <div className="col-6">
                     <h1>
-                    {lang=='en'? 'حمّل تطبيق فيزيتا' : 'Download the Application'}
+                        {t('part5.download')}
                         
                     </h1>
                     <p>
-                        {lang=='en'? `قارن، اختار، و احجز. تابع مواعيدك بكل سهولة،
-                        قيّم زيارتك للدكتور
-                        ، واطلب أدويتك دلوقتي.` : `Compare, choose, and book. Track your appointments with ease, rate your doctor's visit, and order your medicine online.`}
+                        {t('part5.text')}
                         
                     </p>
                     <p className='d-flex justify-content-center'>

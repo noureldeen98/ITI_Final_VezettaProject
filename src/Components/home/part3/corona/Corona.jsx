@@ -4,8 +4,10 @@ import coronaLogo from '../../../../Images/part3/part3logo.png';
 import OfferSlider from '../offerSlider/OfferSlider';
 import { Link } from 'react-router-dom';
 import { langContext } from '../../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 export default function Corona() {
     const {lang, setLang} = useContext(langContext);
+    const [t, i18n] = useTranslation();
     return <>
     <div className={style.part3} style={{'width': '100%', 'overflow': 'hidden'}}>
         <div className="row justify-content-center py-5 g-0">
@@ -16,17 +18,15 @@ export default function Corona() {
                 </div>
                 <div className="col-9 mx-3">
                     <h2>
-                        {lang=='en'? 'عندك اعراض كورونا؟': 'Corona Symptoms?'}
+                        {t('part3.corona.corona')}
                     </h2>
                     <p id='cTxt'>
-                    {lang=='en'? `تقدر تسال وتستفسر عن فيروس كورونا بمكالمة مجانية مع دكتور 
-                        باطنة برعاية وزارة الصحة والسكان, من الساعة 8ص ل 12ص.`: 
-                        `You can ask and consult an internist about corona symptoms through a free call, sponsored by the Ministry of Health and Population, from 8 am to 12 am.`}
+                        {t('part3.corona.details')}
                     </p>
                     <h3 className="d-block d-md-none">
                         <a href="./Covid.html" className="fs-2">
                             <span> 
-                                {lang=='en'? 'كلم دكتور مجانا' : 'Call Doctor for free'}
+                                {t('part3.corona.call')}
                             </span>
                             {lang==='en'?
                                 <span><i className="fas fa-caret-left text-danger" id="cIcon"></i></span>

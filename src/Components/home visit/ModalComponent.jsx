@@ -19,23 +19,28 @@ import Footer from '../home/footer/Footer';
 import $ from 'jquery';
 import { useContext } from 'react';
 import { langContext } from '../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 export default function ModalComponent() {
-    const deptName = [
-        {nameAR: 'جلدية', name: 'Dermatology', pic: pic1},
-        {nameAR: 'نفسي', name:'Psychiatry', pic: pic2},
-        {nameAR: 'اطفال و حديثي الولادة', name:'Pediatrics and New Born', pic: pic3},
-        {nameAR: 'مخ واعصاب', name:'Neurology', pic: pic4},
-        {nameAR: 'عظام', name: 'Orthopedics', pic: pic5},
-        {nameAR: 'انف واذن وحنجرة', name:'Ear, Nose and Throat', pic: pic6},
-        {nameAR: 'قلب واوعية دموية', name:' Cardiology and Vascular Disease', pic: pic7},
-        {nameAR: 'باطنة', name: 'Internal Medicine', pic: pic8},
-        {nameAR: 'جراحة و اوعية دموية', name: 'Vascular Surgery', pic: pic9},
-        {nameAR: 'جراحة عامة', name: 'General Surgery', pic: pic10},
-        {nameAR: 'صدر وجهاز تنفسي',name: 'Chest and Respiratory', pic: pic11},
-        {nameAR: 'علاج طبيعي واصابات ملاعب',name: 'Physiotherapy and Sport Injuries', pic: pic12},
+    const [t, i18n] = useTranslation();
+    const pics = [pic1, pic2, pic3, pic4, pic5, pic6, pic7,
+        pic8, pic9, pic10, pic11, pic12];
+    const dpts = t('modal', {returnObjects: true });
+    // const deptName = [
+    //     {nameAR: 'جلدية', name: 'Dermatology', pic: pic1},
+    //     {nameAR: 'نفسي', name:'Psychiatry', pic: pic2},
+    //     {nameAR: 'اطفال و حديثي الولادة', name:'Pediatrics and New Born', pic: pic3},
+    //     {nameAR: 'مخ واعصاب', name:'Neurology', pic: pic4},
+    //     {nameAR: 'عظام', name: 'Orthopedics', pic: pic5},
+    //     {nameAR: 'انف واذن وحنجرة', name:'Ear, Nose and Throat', pic: pic6},
+    //     {nameAR: 'قلب واوعية دموية', name:' Cardiology and Vascular Disease', pic: pic7},
+    //     {nameAR: 'باطنة', name: 'Internal Medicine', pic: pic8},
+    //     {nameAR: 'جراحة و اوعية دموية', name: 'Vascular Surgery', pic: pic9},
+    //     {nameAR: 'جراحة عامة', name: 'General Surgery', pic: pic10},
+    //     {nameAR: 'صدر وجهاز تنفسي',name: 'Chest and Respiratory', pic: pic11},
+    //     {nameAR: 'علاج طبيعي واصابات ملاعب',name: 'Physiotherapy and Sport Injuries', pic: pic12},
 
-    ]
-    const [deptState, setDeptState] = useState(deptName);
+    // ]
+    // const [deptState, setDeptState] = useState(deptName);
     const {lang, setLang} = useContext(langContext);
     return <>
     
@@ -51,14 +56,14 @@ export default function ModalComponent() {
                     <div className="modal-content my-5 px-0" style={{'alignSelf': 'baseline'}}>
                         <div className="modal-header" id={style.modalHeader}>
                             <h5 className="modal-title">
-                                {lang=='en'? 'اختار التخصص': 'Search by specialty'}
+                                {t('part7.specialty2')}
                             </h5>
                         </div>
                         <div className="modal-body " id={style.modalBody}>
                             {/* <!-- hena l dynamic code --> */}
                             <div className="modal-body" id={style.modalBody}>
-                            {deptState.map((el, index) => (
-                                <SingleDept key={index} data={el} />
+                            {dpts.map((el, index) => (
+                                <SingleDept key={index} data={{...el, pic: pics[index]}} />
                             ))}
                         </div>
                         </div>

@@ -129,5 +129,56 @@
             {"title": "Gynaecology and Infertility"}, {"title": "Ear, Nose and Throat"} 
         ],
         "book": "Book from top specialties"
-    }
+    },
+    "part5": {
+        "arr": [
+            {"title": "All your healthcare needs",
+                "body": "Search and book a clinic visit, home visit, or a teleconsultation. Order your medicine and book a service or operation."
+            }, {
+                "title": "Verified patient reviews", 
+                "body": "Doctor ratings are from patients who booked and visited the doctor through Vezeeta."
+            }, {
+                "title": "Your booking is confirmed",
+                "body": "Your booking is automatically confirmed, as the doctor specifies his working hours and is notified of the booking details."
+            }, {
+                "title": "Book for free, and pay in the clinic",
+                "body": "The consultation fees stated on Vezeeta are the actual doctor's fees with no extra charges."
+            }
+        ], 
+        "download": "Download the Application",
+        "text": "Compare, choose, and book. Track your appointments with ease, rate your doctor's visit, and order your medicine online."
+    }, 
+    "part6": {
+        "docs": ["Dermatologist", "Dentist", "Psychiatrist", "Pediatrician",
+            "Neurologist", "Orthopedist", "Gynecologist", "ENT Doctor",
+            "Cardiologist", "View More ..."],
+        "cities" : ["Cairo", "Giza", "Alexandria", "North Coast", "Qalyubia",
+                    "Gharbia", "Menoufia", "Fayoum", "El-Dakahlia", "View More ..."],
+        "book": "Choose and book from top specialties",
+        "book2": "Choose and book from top cities"
+    },
+    "part7": {
+        "specialty": "Select a specialty",
+        "specialty2": "Choose specialty",
+        "popular": "Most popular",
+        "other": "Other specialties",
+        "page": "Page",
+        "city": "In this city",
+        "city2": "Choose city",
+        "other2": "Other cities ",
+        "area": "in this area",
+        "area2": "Choose area",
+        "search": "Or search by name",
+        "doctor": "Doctor name or hospital",
+        "search2": "Search",
+        "browse": "Browse doctors",
+        "doctor2": "Book a doctor",
+        "examination": "Examination or procedure",
+        "doctor3": "Telehealth",
+        "doctor4": "Call consultation with doctor"
+    }, 
+    "modal": [{"title":"Dermatology"},{"title": "Psychiatry"},{"title": "Pediatrics and New Born"},{"title":
+    "Neurology"},{"title": "Orthopedics"},{"title": "Ear,Nose and Throat"},{"title": "Cardiology and Vascular Disease"},{"title":
+    "Internal Medicine"},{"title": "Vascular Surgery"},{"title": "General Surgery"},{"title":
+    "Chest and Respiratory"},{"title": "Physiotherapy and Sport Injuries"}]
 }

@@ -29,7 +29,7 @@ export default function PaymentModal(props) {
                             {t('Payment_Modal_Row1')}
                         </div>
                         <div className='fs-4'>
-                            {props.totalPrice} {t('currency')}
+                            {props.totalPrice - 10} {t('currency')}
                         </div>
                     </div>
                     <div className="d-flex justify-content-between p-3">

@@ -7,13 +7,13 @@ db.collection("Pharmacy")
     .get()
     .then((data) => {
         data.forEach((element) => {
-            medicines.push(element.data())
+            medicines.push(element.data());
         });
     });
 
 const INITIAL_STATE = {
     data: medicines,
-    cart: [],
+    cart: JSON.parse(localStorage.getItem("cart")) || [],
     currentItem: null,
 };
 
@@ -32,8 +32,9 @@ const medicineReducer = (state = INITIAL_STATE, action) => {
                             ? { ...item, qty: item.qty + 1 }
                             : item
                     )
-                    : [...state.cart, { ...item, qty: 1 }],
-            };
+                    : [...state.cart, { ...item, qty: 1 }]
+            }
+
         case actionTypes.REMOVE_FROM_CART:
             return {
                 ...state,

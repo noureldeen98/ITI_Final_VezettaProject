@@ -1,0 +1,29 @@
+.deliveryinfo-container {
+  padding: 20px 70px;
+}
+.data-container {
+  border-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  margin: 0px 15px 20px;
+  border: 1px solid rgb(106, 207, 128);
+  box-shadow: rgb(0 0 0 / 10%) 0px 2px 10px 0px;
+  width: 60%;
+}
+.header {
+  border-bottom: 0.5px solid #67686a;
+  display: flex;
+  justify-content: space-between;
+}
+.data-container span {
+  margin: 0 5px;
+  color: #67686a;
+  font-weight: 600;
+}
+.data-container i {
+  margin: 0 5px;
+  color: #67686a;
+}
+.body div {
+  margin: 10px 0;
+}

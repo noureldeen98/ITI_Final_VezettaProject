@@ -21,7 +21,7 @@ i18n
     supportedLngs: ['ar', 'en'],
     fallbackLng: "en",
     detection: {
-      order: ['cookie', 'querystring', 'htmlTag', 'path', 'subdomain'],
+      order: ['path', 'cookie', 'querystring', 'htmlTag', 'subdomain'],
       caches: ['cookie'],
     },
     backend: {

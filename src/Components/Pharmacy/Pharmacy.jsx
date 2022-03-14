@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PHeader from "./PHeader/PHeader";
+import PAlert from './PHeader/PAlert';
 import Section1 from "./Section1/Section1";
 import Section2 from "./Section2/Section2";
 import Section3 from "./Section3/Section3";
@@ -8,6 +9,9 @@ import PFooter from './PFooter/PFooter';
 import CartPanel from './Search/CartPanel';
 import { connect, Provider } from 'react-redux';
 import storePharmacy from './Redux/store';
+import { useTranslation } from 'react-i18next';
+
+// import DeliveryInfo from './CheckOut/DeliveryInfo'
 
 const Pharmacy = ({ cart }) => {
     const [showPanel, setShowPanel] = useState(0)
@@ -16,10 +20,17 @@ const Pharmacy = ({ cart }) => {
         setShowPanel(length)
     }, [cart])
 
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }, [cart])
+
+    const { t } = useTranslation();
+
     return (
         <>
             <Provider store={storePharmacy}>
                 <PHeader />
+                <PAlert message={t('Header_Msg')} />
                 <Section1 />
                 <Section2 />
                 <Map />
@@ -36,7 +47,7 @@ const Pharmacy = ({ cart }) => {
 const mapStateToProps = (state) => {
     return {
         data: state.medicine.data,
-        cart: state.medicine.cart
+        cart: state.medicine.cart,
     }
 }
 

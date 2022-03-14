@@ -1,19 +1,16 @@
 * {
   margin: 0%;
   padding: 0%;
-  /* direction: rtl; */
+  direction: rtl;
   box-sizing: border-box;
   font-family: "Tajawal", sans-serif;
 }
 
-/* lang handler */
 *:lang(en) {
   direction: rtl;
-  /* text-align: right; */
 }
 *:lang(ar) {
   direction: ltr;
-  /* text-align: left; */
 }
 
 .dropdown-toggle:lang(ar)::after {

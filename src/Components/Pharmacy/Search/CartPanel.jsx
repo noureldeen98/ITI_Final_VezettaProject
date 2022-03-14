@@ -10,13 +10,11 @@ const CartPanel = ({ cart }) => {
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        let count = 0;
         let price = 0;
         cart.forEach((item) => {
-            count += item.qty;
-            price = (item.qty * item.price);
+            price += item.qty * item.price;
         })
-        setCartCount(count)
+        setCartCount(cart.length)
         setTotalPrice(price)
     }, [cart, cartCount, totalPrice, setCartCount, setTotalPrice])
 

@@ -2,6 +2,9 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
+import { getAuth } from 'firebase/auth';
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyACcqVbcyts0Yzwdo_-6LeN_Pw_U_LA8Ng",
   authDomain: "vezeeta-website-db.firebaseapp.com",
@@ -23,3 +26,5 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 const auth = firebase.auth();
 export { db, auth };
+
+export const pharmacyAuth = getAuth(firebase.initializeApp(firebaseConfig));

@@ -26,7 +26,7 @@
   background-color: whitesmoke;
 }
 .result-style {
-  height: 20vh;
+  height: 15vh;
   padding: 5px;
   background-color: white;
 }
@@ -78,5 +78,10 @@
   .fa-search {
     right: 7%;
     bottom: 25%;
+  }
+  .result-style {
+    height: 20vh;
+    padding: 5px;
+    background-color: white;
   }
 }

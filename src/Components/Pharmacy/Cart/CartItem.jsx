@@ -2,25 +2,33 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 import "./CartItem.css";
-import { removeFromCart, adjustQty, loadCurrentItems } from "../Redux/medicine/medicineActions";
+import {
+    removeFromCart,
+    adjustQty,
+    loadCurrentItems,
+} from "../Redux/medicine/medicineActions";
 import { Link } from "react-router-dom";
 
-const CartItem = ({ cart, item, removeFromCart, adjustQty, loadCurrentItems }) => {
+const CartItem = ({ item, removeFromCart, adjustQty, loadCurrentItems }) => {
     const { t } = useTranslation();
 
-    const [qty, setQty] = useState(item.qty)
+    const [qty, setQty] = useState(item.qty);
+
     const qtyChange = (e) => {
-        setQty(e.target.value);
-        adjustQty(item.id, e.target.value)
+        setQty(e.target.value)
     }
 
+    useEffect(() => {
+        adjustQty(item.id, qty);
+    }, [adjustQty, item.id, qty])
+
     const increase = () => {
-        setQty(() => qty + 1);
+        setQty(qty + 1);
     };
 
     const decrease = () => {
         if (qty > 0) {
-            setQty(() => qty - 1);
+            setQty(qty - 1);
         }
     };
 
@@ -30,19 +38,31 @@ const CartItem = ({ cart, item, removeFromCart, adjustQty, loadCurrentItems }) =
                 <div className="row cart-item">
                     <div className="col-1 d-flex justify-content-center align-items-center">
                         <Link to={`/item/${item.id}`}>
-                            <img src={item.url} width="80" height="auto" alt="medicineIMG" onClick={() => loadCurrentItems(item)} />
+                            <img
+                                src={item.url}
+                                width="60"
+                                height="auto"
+                                alt="medicineIMG"
+                                onClick={() => loadCurrentItems(item)}
+                            />
                         </Link>
                     </div>
-                    <div className="col-6 justify-content-start align-items-center me-3 fs-3 ">
-                        {item.nameAR} - {item.nameEN}
+                    <div className="col-6 d-flex flex-column justify-content-between align-items-start">
+                        <div className="fs-4">
+                            {item.nameAR} - {item.nameEN}
+                        </div>
+                        <div className="fs-5">{item.category}</div>
                     </div>
-                    <div className="col-2 d-flex justify-content-center align-items-center fs-2">
+                    <div className="col-2 d-flex justify-content-center align-items-center fs-4">
                         {item.price} {t("currency")}
                     </div>
                     <div className="col-2 d-flex justify-content-end align-items-center">
                         <div className="btn-container">
                             {qty === 1 ? (
-                                <button className="control-btn" onClick={() => removeFromCart(item.id)}>
+                                <button
+                                    className="control-btn"
+                                    onClick={() => removeFromCart(item.id)}
+                                >
                                     <i className="fas fa-trash"></i>
                                 </button>
                             ) : (
@@ -50,7 +70,12 @@ const CartItem = ({ cart, item, removeFromCart, adjustQty, loadCurrentItems }) =
                                     <i className="fas fa-minus"></i>
                                 </button>
                             )}
-                            <input className="counter-output" onChange={qtyChange} value={qty} />
+                            <input
+                                className="counter-output"
+                                readOnly
+                                onChange={qtyChange}
+                                value={qty}
+                            />
                             <button className="control-btn" onClick={increase}>
                                 <i className="fas fa-plus"></i>
                             </button>

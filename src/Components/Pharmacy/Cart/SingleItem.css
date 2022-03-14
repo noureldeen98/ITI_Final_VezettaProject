@@ -10,13 +10,15 @@
   background-color: white;
   width: 70%;
   border-radius: 10px;
-  padding: 20px;
   box-shadow: 0px 0px 1px 0px hsla(0, 0%, 0%, 0.5);
   font-size: 15px;
   font-weight: 400;
   color: rgb(88, 89, 91);
   margin-bottom: 20px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .details {
   background-color: white;
@@ -27,4 +29,13 @@
   font-size: 15px;
   font-weight: 400;
   color: rgb(88, 89, 91);
+}
+
+@media only screen and (min-device-width: 600px) {
+  .item {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }

@@ -40,6 +40,45 @@
 sup {
   color: red;
 }
+.phone-number {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+}
+.otp-modal {
+  height: 375px;
+}
+.otp-input {
+  width: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.otp-input input {
+  border: 0;
+  border-bottom: 2px solid rgb(88, 89, 91);
+  outline: 0;
+  font-size: 40px;
+}
+.otp-input span {
+  font-size: 20px;
+}
+.otp-modal div {
+  font-size: 20px;
+}
+.otp-footer {
+  color: rgb(88, 89, 91);
+  font-size: 13px !important;
+}
+.otp-btn {
+  width: 400px;
+}
+.change-phone {
+  color: #2e88e2;
+  font-weight: 900;
+  margin-right: 10px;
+  cursor: pointer;
+}
 
 @media only screen and (min-device-width: 600px) {
   .modal-dialog {

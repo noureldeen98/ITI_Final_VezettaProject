@@ -1,42 +1,42 @@
-.section4 {
+.section3 {
   display: flex;
   flex-direction: column;
   padding: 20px;
   background-color: rgb(245, 245, 245);
 }
 
-.section4 h3 {
-  margin: 20px;
+.section3 h3 {
+  margin: 20px 0px;
   font-weight: 700;
   font-size: 25px;
   text-align: center;
 }
 
-.section4 p {
+.section3 p {
   color: rgb(128, 129, 132);
   font-size: 12px;
   text-align: center;
 }
 
-.section4 div {
+.section3 div {
   display: flex;
   justify-content: center;
   margin-top: 10px;
 }
 
-.section4 div img {
+.section3 div img {
   margin-top: 0px;
   margin-right: 20px;
 }
 
 @media only screen and (min-device-width: 600px) {
-  .section4 {
+  .section3 {
     padding: 60px 0px;
   }
-  .section4 h3 {
+  .section3 h3 {
     font-size: 35px;
   }
-  .section4 p {
+  .section3 p {
     font-size: 15px;
   }
 }

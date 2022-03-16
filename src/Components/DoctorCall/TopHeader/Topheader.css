@@ -1,23 +1,56 @@
 @media screen and (min-width: 769px) {
-    #img1 {
+    #img11 {
       background: url(./../headerImg/header1.jpg);
       height: 180px;
       padding-right: 4em;
       padding-top: 1em;
+      overflow: hidden;
     }
+
+    #img11:lang(ar){
+      background: url(./../headerImg/header1\ -\ mirror.jpg);
+      height: 180px;
+      padding-left: 4em;
+      padding-top: 1em;
+}
   }
   @media screen and (max-width: 768px) {
-    #img1 {
+    #img11 {
         background: url(./../headerImg/header2.jpg);
         height: 89.5px;
       background-size: cover;
       width: 100%;
+      overflow-y: hidden;
     }
   
     #aside1 {
       display: none;
     }
   }
+  .btnTogle
+  {
+    background-color: aqua;
+    /* margin-left: 7%; */
+    border-radius:10px 10px  10px 10px;
+    -webkit-border-radius:10px 10px  10px 10px;
+    -moz-border-radius:10px 10px  10px 10px;
+    -ms-border-radius:10px 10px  10px 10px;
+    -o-border-radius:10px 10px  10px 10px;
+}
+.btnTogle:lang(ar)
+  {
+    background-color: aqua;
+    /* margin-left: 30rem; */
+    /* margin-right: 7%; */
+    /* right:0px !important;
+    float: right; */
+    border-radius:10px 10px  10px 10px;
+    -webkit-border-radius:10px 10px  10px 10px;
+    -moz-border-radius:10px 10px  10px 10px;
+    -ms-border-radius:10px 10px  10px 10px;
+    -o-border-radius:10px 10px  10px 10px;
+}
+
   #btnGroupDrop7 {
     border-radius: 0 10px 10px 0;
     -webkit-border-radius: 0 10px 10px 0;
@@ -30,6 +63,19 @@
     border: none;
     color: #0070cd;
   }
+  #btnGroupDrop7:lang(ar) {
+    border-radius:10px 0 0 10px ;
+    -webkit-border-radius:10px 0 0 10px ;
+    -moz-border-radius:10px 0 0 10px ;
+    -ms-border-radius:10px 0 0 10px ;
+    -o-border-radius:10px 0 0 10px ;
+    width: 30em;
+    height: 5em;
+    background-color: #ffffff;
+    border: none;
+    color: #0070cd;
+    right: 0px;
+}
   #btnGroupDrop7 span {
     margin-right: 10px;
   }
@@ -47,8 +93,17 @@
     width: 12em;
     height: 5em;
     background-color: #ef0f0f;
-  }
-  
+}
+  #search:lang(ar) {
+    border-radius:0 10px  10px 0;
+    -webkit-border-radius:0 10px  10px 0;
+    -moz-border-radius:0 10px  10px 0;
+    -ms-border-radius:0 10px  10px 0;
+    -o-border-radius:0 10px  10px 0;
+    width: 12em;
+    height: 5em;
+    background-color: #ef0f0f;
+}
   #btnGroupDrop1::after {
     display: inline-block;
     margin-left: 0.255em;
@@ -60,7 +115,7 @@
     border-left: 0.3em solid transparent;
     font-size: 2em;
     color: #aeaeac;
-    margin-right: 7em;
+    margin-right: 0.1em;
   }
   
   .ulContainer {
@@ -96,6 +151,17 @@
     text-align: center;
     border: none;
     z-index: 1200;
+  }
+  #alert:lang(ar){
+    background-color: #0170ce;
+    color: white;
+    margin-right: -3.5em;
+    height: 7em;
+    width: 12em;
+    text-align: center;
+    border: none;
+    z-index: 1200;
+    right: 53px;
   }
   
   .row {

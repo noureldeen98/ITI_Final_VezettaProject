@@ -31,10 +31,35 @@ const CovidPage = () => {
     console.log(collectionsOfDoctors);
     const  dispatch = useDispatch();//dispatch to fire the action
 
+
+
+//   const [Data]=useState(theDataAboutDoctors) // to store the data as we use the functional component "useState"
+
+//   return(
+// <>
+// <NavbarComponent/>
+// <div className="row afterNav">
+//         <div className="col-12 container" id="img2" style={{textAlign: "start"}}>
+
+//             <p className="text-secondary fs-3 fw-bold container mt-2">
+//                 احجز مكالمة دكتور مع افضل دكاترة في مصر
+//             </p>
+//             <p className="text-secondary fs-4 container">
+//                 احجز اونلاين او كلم &nbsp;
+//                 <i className="fas fa-phone text-danger fs-5">
+//                 </i>
+//                 "&nbsp;16676"
+//             </p>
+
+//             <p className="text-secondary fs-4  container">
+//                 ١٥٠٠٠ دكتور -٩٠٠٠ استاذ واستشاري - اكثر من ٤٠ تخصص
+//             </p>
+
     /* to Update the changes */
     // useEffect(()=>{
     //   dispatch(getCollectionOfDoctors())
     // },[])
+
 
 
     useEffect(()=>{

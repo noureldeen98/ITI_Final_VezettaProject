@@ -5,13 +5,15 @@ import {getAllDoctor} from './Reducers/DoctorCallReducer'
 
 import doctorCollectionReducer from './Reducers/ReducerOfFetchingCollections'
 import {bookAppointmentReducer } from './Reducers/HomeVisitReducer.jsx'
+import {loaderReducer} from './Reducers/LoaderReducer'
 
 const combineReducer = combineReducers({
     deptReducer: allDeptsReducer,
     citiesReducer: allCitiesReducer,
     getDoctors :getAllDoctor,
     doctorCollectionReducer: doctorCollectionReducer,
-    bookVisitReducer: bookAppointmentReducer
+    bookVisitReducer: bookAppointmentReducer,
+    loader:loaderReducer,
 // import doctorCollectionReducer from '../ReactRedux/Reducers/ReducerOfFetchingCollectionsofDoctors'
 // const combineReducer = combineReducers({
 //     deptRed: deptReducer,

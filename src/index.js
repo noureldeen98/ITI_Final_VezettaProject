@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import myStore from '../src/ReactRedux/Store/myStore'
 import App from './App';
-import { langContext } from './Context/LangContext';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -21,7 +20,7 @@ i18n
     supportedLngs: ['ar', 'en'],
     fallbackLng: "en",
     detection: {
-      order: ['htmlTag', 'querystring', 'cookie', 'path', 'subdomain'],
+      order: ['path', 'cookie', 'querystring', 'htmlTag', 'subdomain'],
       caches: ['cookie'],
     },
     backend: {

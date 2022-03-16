@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarComponent from '../../home/header/NavbarComponent';
 import Footer from '../../home/footer/Footer';
 import BigTab from '../../home/tabToggle/BigTab';
-import style from "../style/style.css";
+import "../style/style.css";
 import { Link } from 'react-router-dom';
 
 //اتصل بنا 
@@ -10,18 +10,18 @@ export default function ContactUS() {
     return (
         <>
             <NavbarComponent />
-            {/* <BigTab /> */}
-            <div className="container-fluid" style={{ backgroundColor: " rgb(226, 230, 234);" }}>
+            <BigTab />
+            <div className="container-fluid">
                 <div className="row my-4" id="thirdDiv">
                     <div className="container col-lg-6 col-sm-12 my-3">
-                        <h2 style={{ color: "#0d6efd;" }}>اتصل بنا</h2>
+                        <h2 style={{ color: "#0d6efd" }}>اتصل بنا</h2>
                         <p> نحن سعداء لتلقي استفساراتكم واقتراحاتكم.</p>
-                        <form className="needs-validation" novalidate>
+                        <form className="needs-validation" noValidate>
                             {/* first colome */}
 
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label for="validationCustom01">الاسم</label>
+                                    <label htmlFor="validationCustom01">الاسم</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
 
@@ -34,7 +34,7 @@ export default function ContactUS() {
 
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label for="validationCustom01">رقم الموبايل</label>
+                                    <label htmlFor="validationCustom01">رقم الموبايل</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
 
@@ -46,7 +46,7 @@ export default function ContactUS() {
                             </div>
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label for="validationCustomUsername">البريدالالكتروني</label>
+                                    <label htmlFor="validationCustomUsername">البريدالالكتروني</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
                                 <div className="col-lg-9">
@@ -59,7 +59,7 @@ export default function ContactUS() {
                             </div>
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label for="validationCustom05" className="form-label">تعليقات</label>
+                                    <label htmlFor="validationCustom05" className="form-label">تعليقات</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
                                 <div className="col-lg-9">
@@ -69,7 +69,9 @@ export default function ContactUS() {
                                         يرجى كتابه تعليق
                                     </div>
 
-                                    <button className="btn btn-danger my-2 " type="submit"> ارسال </button>
+                                    <Link to={"/home"}>
+                                        <button className="btn btn-danger my-2 " type="submit"> ارسال </button>
+                                    </Link>
                                 </div>
                             </div>
                         </form>
@@ -78,7 +80,7 @@ export default function ContactUS() {
                     <div className="col-lg-5 col-sm-12 my-3">
                         <div className="container" id="sec-col">
                             <div className="row">
-                                <h2 style={{ color: "#0d6efd;" }}>اتصل بنا</h2>
+                                <h2 style={{ color: "#0d6efd" }}>اتصل بنا</h2>
                                 <p>١٦٦٧٦ سعر مكالمة عادية</p>
                             </div>
                             <div className="row">
@@ -86,23 +88,23 @@ export default function ContactUS() {
                                 <p> +2 02 259 83 999</p>
                             </div>
                             <div className="row">
-                                <h3 style={{ color: "#0d6efd;" }}>العنوان</h3>
+                                <h3 style={{ color: "#0d6efd" }}>العنوان</h3>
                                 <p>١٢٤ شارع عثمان بن عفان خلف الكليه الحربيه - مصر الجديدة</p>
                             </div>
                             <div>
-                                <h4 style={{ color: "#0d6efd;" }}>راسلنا على</h4>
+                                <h3 style={{ color: "#0d6efd" }}>راسلنا على</h3>
                                 <p>customercare@vezeeta.com</p>
                                 <ul>
                                     <li className="col itemSec">
-                                        <a href="https://www.facebook.com/Vezeeta/"><i className="fab fa-facebook-f"></i></a>
+                                        <Link to="https://www.facebook.com/Vezeeta/"><i className="fab fa-facebook-f"></i></Link>
                                     </li>
                                     <li className="col itemSec ">
-                                        <a href="https://www.instagram.com/vezeeta/">
+                                        <Link to="https://www.instagram.com/vezeeta/">
                                             <i className="fab fa-instagram"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="col itemSec">
-                                        <a href="https://twitter.com/VEZEETA_Egypt"><i className="fab fa-twitter"></i></a>
+                                        <Link to="https://twitter.com/VEZEETA_Egypt"><i className="fab fa-twitter"></i></Link>
                                     </li>
                                 </ul>
                             </div>

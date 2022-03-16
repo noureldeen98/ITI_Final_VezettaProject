@@ -1,0 +1,56 @@
+.modal-content {
+  border-radius: 15px !important;
+  box-shadow: 5px 10px 20px hsla(0, 0%, 0%, 0.5);
+  padding: 0px !important;
+}
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header {
+  border-bottom: 0 !important;
+}
+
+.modal-header > .btn-close {
+  font-size: 15px !important;
+  top: 15px !important;
+  right: 20px !important;
+}
+
+.modal-title {
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  font-weight: bolder;
+}
+
+.payment-confirm-btn {
+  width: 300px;
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: rgb(1, 112, 206);
+  color: white;
+  outline: none;
+  padding: 10px;
+  border: none;
+}
+
+@media only screen and (min-device-width: 600px) {
+  .modal-dialog {
+    width: 750px !important;
+    height: auto !important;
+    max-width: 750px !important;
+  }
+  .modal-content {
+    padding: 0px !important;
+  }
+
+  .modal-header > .btn-close {
+    position: absolute !important;
+    top: 30px !important;
+    right: 60px !important;
+  }
+}

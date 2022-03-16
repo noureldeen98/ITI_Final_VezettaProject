@@ -1,20 +1,20 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
-import './Section4.css';
+import './Section3.css';
 import AppStoreLogo from '../../../Images/pharmacy/app-store'
 import GooglePlayLogo from '../../../Images/pharmacy/google-play'
 import { useTranslation } from 'react-i18next';
 
-export default function Section4() {
+export default function Section3() {
     const { t } = useTranslation();
     return (
         <>
-            <Row className="section4">
+            <Row className="section3">
                 <h3>
-                    {t('Section4_Title')}
+                    {t('Section3_Title')}
                 </h3>
                 <p>
-                    {t('Section4_SubTitle')}
+                    {t('Section3_SubTitle')}
                 </p>
                 <div>
                     <a href="https://itunes.apple.com/eg/app/vezeeta/id1010281314?" rel="noreferrer" target="_blank">

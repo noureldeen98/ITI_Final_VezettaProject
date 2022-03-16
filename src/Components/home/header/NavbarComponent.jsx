@@ -19,6 +19,7 @@ export default function NavbarComponent() {
         setLang(newLang)
     }
     //localiation
+
 return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'>
     <nav className={`navbar navbar-expand-lg ${style.nav}`} >
         <div className="container" id="navBar">

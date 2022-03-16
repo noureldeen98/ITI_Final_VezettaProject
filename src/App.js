@@ -41,7 +41,20 @@ function App() {
           </Route>
           <Route path="/home" component={HomePage} />
           <Route path="/visiting" component={ModalPage} />
+          <Route path="/Contactus" component={ContactUS} />
+          <Route path="/Signup" component={Signup} />
+          <Route path="/Signin" component={Signin} />
+          <Route path="/bookvisit" component={BookVisitPage} />
+          <Route path="/covid" component={CovidPage} />
+          <Route path="/DoctorCall" component={DoctorCallPage} />
+          <Route path="/MergeDoctor/:name" component={MergeDoctor} />
+          <Route path="/done" component={Success} />
+          <Route path='/Profile'>
+          {login ? <Profile/> : <Redirect to='/Signin'/>}
+        </Route>
+          
           <Provider store={storePharmacy}>
+            
             <PayPalScriptProvider
               options={{
                 "client-id": "AfdOFt0aEuh0tM5PgZvbsXc_GVpgPxORYmFgiSe8ST2WyvpmSTa5UZnOo7T7sCiaS_it2FK7Gja1kurk",
@@ -54,17 +67,6 @@ function App() {
               <Route path="/checkout" component={CheckOut} />
             </PayPalScriptProvider>
           </Provider>
-          <Route path="/Contactus" component={ContactUS} />
-          <Route path="/Signup" component={Signup} />
-          <Route path="/Signin" component={Signin} />
-          <Route path="/bookvisit" component={BookVisitPage} />
-          <Route path="/covid" component={CovidPage} />
-          <Route path="/DoctorCall" component={DoctorCallPage} />
-          <Route path="/MergeDoctor/:name" component={MergeDoctor} />
-          <Route path="/done" component={Success} />
-          <Route path='/Profile'>
-          {login ? <Profile/> : <Redirect to='/Signin'/>}
-        </Route>
           <Route path="**" component={NotFound} />
         </Switch>
       </LangProvider>

@@ -13,7 +13,7 @@ export default function SingleDept(props) {
             </a>
             <div className="card-body">
                 <h2 className={style.cT} > 
-                {lang=='en'? props.data.titleAR : props.data.title}
+                {props.data.title}
                 </h2>
             </div>
         </div>

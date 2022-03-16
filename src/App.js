@@ -19,14 +19,15 @@ import store from '../src/ReactRedux/Store/myStore';
 import storePharmacy from './Components/Pharmacy/Redux/store'
 import { LangProvider } from "./Context/LangContext";
 import Success from "./Components/Success/Success";
-import "./App.css";
 import DeliveryInfo from "./Components/Pharmacy/CheckOut/DeliveryInfo";
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
+import Profile from './Components/Profile/Profile'
+import "./App.css";
 
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
   const [lang, setLang] = useState(myLang);
-
+  let [login, setLogin] = useState(true);
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
   localStorage.setItem('lang', lang);
@@ -61,6 +62,9 @@ function App() {
           <Route path="/DoctorCall" component={DoctorCallPage} />
           <Route path="/MergeDoctor/:name" component={MergeDoctor} />
           <Route path="/done" component={Success} />
+          <Route path='/Profile'>
+          {login ? <Profile/> : <Redirect to='/Signin'/>}
+        </Route>
           <Route path="**" component={NotFound} />
         </Switch>
       </LangProvider>

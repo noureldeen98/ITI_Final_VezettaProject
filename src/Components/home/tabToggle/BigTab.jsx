@@ -7,7 +7,9 @@ import style from './bigTab.module.css';
 import {useHistory} from 'react-router-dom'
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
+import { useTranslation } from 'react-i18next';
 export default function BigTab() {
+    const [t, i18n] = useTranslation();
     // tab-pane fade in active 
     const dispatch = useDispatch();
     const depts = useSelector((state) => state.deptReducer);
@@ -83,12 +85,12 @@ export default function BigTab() {
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" 
                 aria-expanded="false">
                     <h5>
-                        {lang=='en'? 'انا ابحث عن دكتور' : 'Select a specialty '}
+                        {t('part7.specialty')}
                     </h5>
                     <h3>
                         <i className="fas fa-stethoscope"></i>
                         <span className="deptTitle">
-                        {selectedDpts==''?  (lang=='en'? 'اختار التخصص ' : 'Choose specialty') : selectedDpts}
+                        {selectedDpts==''?  (t('part7.specialty2')) : selectedDpts}
                         </span>
                     </h3>
                 </button>
@@ -98,7 +100,7 @@ export default function BigTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-2' disabled id="sItem">
-                                    {lang=='en'? 'الاكثر اختيارا' : 'Most popular '}
+                                    {t('part7.popular')}
                                 </li>
                             </span>
                             {
@@ -117,7 +119,7 @@ export default function BigTab() {
                         <div className="left">
                             <span>
                             <li className='mx-3' style={{width: 'max-content'}}>
-                            {lang=='en'? 'تخصصات اخري ' : 'Other specialties '}
+                            {t('part7.other')}
                             </li>
                         </span>
                         {
@@ -138,7 +140,7 @@ export default function BigTab() {
                         onClick={(e) => prevDpts(e)}>
                             <i className='fas fa-arrow-right mx-2'></i>
                         </button>
-                        <span>{lang=='en'? 'صفحه' : 'Page '} {count}\3</span>
+                        <span>{t('part7.page')} {count}\3</span>
                         <button className={style.sliderBtn} 
                         onClick={(e) => nextDpts(e)}>
                             <i className='fas fa-arrow-left mx-2'></i>
@@ -150,11 +152,11 @@ export default function BigTab() {
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                    <h5>{lang=='en'? ' في محافظة' : 'In this city '}</h5>
+                    <h5>{t('part7.city')}</h5>
                     <h3>
                         <i className="fas fa-map-marker-alt"></i>
                         <span className="deptTitle">
-                        {selectedCity==''? (lang=='en'? ' اختار المحافظة' : 'Choose city ') : selectedCity}
+                        {selectedCity==''? (t('part7.city2')) : selectedCity}
                         </span>
                     </h3>
                 </button>
@@ -164,7 +166,7 @@ export default function BigTab() {
                         <div className="right">
                             <span>
                                 <li className='mx-3' id='sItem'>
-                                {lang=='en'? ' الاكثر اختيارا' : 'Most Popular '}
+                                {t('part7.popular')}
                                 </li>
                             </span>
                             {
@@ -182,7 +184,7 @@ export default function BigTab() {
                         <div className="left">
                             <span>
                                 <li  style={{width: 'max-content'}} className="mx-3">
-                                {lang=='en'? 'محافظات اخري' : 'Other cities '}
+                                    {t('part7.other2')}
                                 </li>
                             </span>
                             {
@@ -202,11 +204,11 @@ export default function BigTab() {
             <div className="dropdown">
                 <button className="btn dropdown-toggle" 
                 type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <h5>{lang=='en'? 'في منطقة' :'in this area'}</h5>
+                    <h5>{t('part7.area')}</h5>
                     <h3>
                         <i className="fas fa-map-marker-alt"></i>
                         <span className="deptTitle">
-                            {selectedArea==''?  (lang=='en'? 'اختار المنطقة ' :'Choose area') : selectedArea}
+                            {selectedArea==''?  (t('part7.area2')) : selectedArea}
                         </span>
                         {/* <!--here--> */}
                     </h3>
@@ -243,13 +245,12 @@ export default function BigTab() {
             </div>
             <div className={style.doc}>
                 <h5>
-                    {lang=='en'? 'او اكتب اسم الدكتور': 'Or search by name'}
+                    {t('part7.search')}
                 </h5>
                 <h3>
                     <i className="fas fa-user-md"></i>
                     {/* <span> الدكتور او المستشفى</span> */}
-                    <input type="text" placeholder={lang=='en'? 'الدكتور او المستشفي' :
-                    'Doctor name or hospital'}
+                    <input type="text" placeholder={t('part7.doctor')}
                     className={style.docInp} value={selectedDoctor} 
                     onChange={(e) => setDoctorName(e)} />
                 </h3>
@@ -257,7 +258,7 @@ export default function BigTab() {
             <div className="text-light  d-flex">
                 <button className='btn btn-danger' id={style.btn1} onClick={goToDoctorPage}>
                     {/* <i className="fas fa-search"></i> */}
-                    {lang=='en'? 'ابحث ' :'Search'}
+                    {t('part7.search2')}
                 </button>
             </div>
         </div>

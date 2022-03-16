@@ -1,0 +1,265 @@
+{
+    "citiesUI" : {
+        "saudi": "Saudi Arabia",
+        "egypt": "Egypt",
+        "jordan": "Jordan",
+        "lebanon": "Lebanon",
+        "nigeria": "Nigeria",
+        "kenya": "Kenya"
+    },
+    "notFound": {
+        "title1": "the requested url",
+        "title2": "was not found",
+        "back": "Back to the homepage"
+    },
+    "header": {
+        "country": "Egypt",
+        "contact":"Contact us",
+        "vezeeta": "vezeeta for doctor",
+        "login": "login",
+        "sign": "sign up"
+    },
+    "footer": {
+        "firstFooter": {
+            "one": "About Us",
+            "two": "Our Team",
+            "three": "Careers",
+            "four": "Press"
+        }, 
+        "secMenu":{
+            "one": "Speciality",
+            "two": "Area",
+            "three": "Insurance",
+            "four": "Hospital",
+            "five": "Center" 
+        },
+        "thirdMenu": "Join Vezeeta Doctors",
+        "fourthMenu": {
+            "one": "Contact Us",
+            "two": "Terms Of Use",
+            "three": "Privacy Policy",
+            "four": "Doctors Privacy Policy"
+        },
+        "search":"Search By",
+        "doctor": "Are You A Doctor ?",
+        "help": "Need Help?"
+    },
+    "homeSlider" : {
+        "sliderContent": {
+            "life": "Better Healthcare for a Better Life",
+            "book": "Book online or call",
+            "book2": "Book a doctor",
+            "examination": "Examination or procedure",
+            "telehealth": "Telehealth",
+            "consultaion": "call consultaion with doctor"
+        },
+        "mobile": {
+            "clinic": "Clinic Visit",
+            "order": "Order Medicine",
+            "call": "Doctor Call",
+            "tab1": {
+                "search": "Search for specialty, doctor, hospital or illness",
+                "area": "Choose the area",
+                "browse": "Browse Doctors",
+                "call" :"Or call"
+            }, 
+            "tab2": {
+                "search": "Search for a product",
+                "call": "Or call"
+            },
+            "tab3" : {
+                "call": "Or call",
+                "search": "Search for specialty, doctor, hospital or illness",
+                "browse": "Browse Doctors"
+            }
+        }
+    },
+    "part2": {
+        "title1": "Teleconsultation",
+        "body1": "Schedule a voice or video call with a specialized doctor.",
+        "title2": "Home Visit",
+        "body2": "Choose the specialty, and the doctor will visit you at home.",
+        "sol": "New services for better healthcare",
+        "pharmacy": "Pharmacy",
+        "needs": "Get your medicine and all your pharmacy needs",
+        "order": "Place Order"
+    },
+    "part3": {
+        "corona" : {
+            "corona": "Corona Symptoms?",
+            "details": "You can ask and consult an internist about corona symptoms through a free call, sponsored by the Ministry of Health and Population, from 8 am to 12 am.",
+            "call": "Call Doctor for free"
+        }, 
+        "offer": {
+            "firstSlider": [
+                {"discount": "75%", "title": "Teath Cleaning", "oldPrice": 400,
+                    "newPrice": 100, "offer": 772}, 
+                {"discount": "46%", "title": "Facial Cleansing", "oldPrice": 150,
+                    "newPrice": 81, "offer": 488
+                }, 
+                {"discount": "50%", "title": "Metal Braces", "oldPrice": 6400,
+                    "newPrice": 3200, "offer": 44}, 
+                {"discount": "46%", "title": "Face peeling", "oldPrice": 150,
+                    "newPrice": 81, "offer": 86}
+            ], 
+            "secSlider": [
+                {"discount": "74%", "title": "Vitamin D", "oldPrice": 777,
+                    "newPrice": 202, "offer": 2}, 
+                {"discount": "59%", "title": "Laser Hair Removal", "oldPrice": 2000,
+                    "newPrice": 820, "offer": 199
+                }, 
+                {"discount": "58%", "title": "Weight Loss", "oldPrice": 1800,
+                    "newPrice": 756, "offer": 79}, 
+                {"discount": "60%", "title": "Vision Correction", "oldPrice": 6000,
+                    "newPrice": 2400, "offer": 151}
+            ]
+        },
+        "offer2" : {
+            "title" : "Choose from top offers",
+            "offer" : "All Offers"
+        }
+    }, 
+    "part4": {
+        "firstSlider" : [
+            {"title": "Skin"}, {"title": "Teath"},
+            {"title": "Behavioral"}, {"title": "Child"} 
+        ],
+        "secSlider":  [
+            {"title": "Brain & Nerves"}, {"title": "Bones"},
+            {"title": "Gynaecology and Infertility"}, {"title": "Ear, Nose and Throat"} 
+        ],
+        "book": "Book from top specialties"
+    },
+    "part5": {
+        "arr": [
+            {"title": "All your healthcare needs",
+                "body": "Search and book a clinic visit, home visit, or a teleconsultation. Order your medicine and book a service or operation."
+            }, {
+                "title": "Verified patient reviews", 
+                "body": "Doctor ratings are from patients who booked and visited the doctor through Vezeeta."
+            }, {
+                "title": "Your booking is confirmed",
+                "body": "Your booking is automatically confirmed, as the doctor specifies his working hours and is notified of the booking details."
+            }, {
+                "title": "Book for free, and pay in the clinic",
+                "body": "The consultation fees stated on Vezeeta are the actual doctor's fees with no extra charges."
+            }
+        ], 
+        "download": "Download the Application",
+        "text": "Compare, choose, and book. Track your appointments with ease, rate your doctor's visit, and order your medicine online."
+    }, 
+    "part6": {
+        "docs": ["Dermatologist", "Dentist", "Psychiatrist", "Pediatrician",
+            "Neurologist", "Orthopedist", "Gynecologist", "ENT Doctor",
+            "Cardiologist", "View More ..."],
+        "cities" : ["Cairo", "Giza", "Alexandria", "North Coast", "Qalyubia",
+                    "Gharbia", "Menoufia", "Fayoum", "El-Dakahlia", "View More ..."],
+        "book": "Choose and book from top specialties",
+        "book2": "Choose and book from top cities"
+    },
+    "part7": {
+        "specialty": "Select a specialty",
+        "specialty2": "Choose specialty",
+        "popular": "Most popular",
+        "other": "Other specialties",
+        "page": "Page",
+        "city": "In this city",
+        "city2": "Choose city",
+        "other2": "Other cities ",
+        "area": "in this area",
+        "area2": "Choose area",
+        "search": "Or search by name",
+        "doctor": "Doctor name or hospital",
+        "search2": "Search",
+        "browse": "Browse doctors",
+        "doctor2": "Book a doctor",
+        "examination": "Examination or procedure",
+        "doctor3": "Telehealth",
+        "doctor4": "Call consultation with doctor"
+    }, 
+    "modal": [{"title":"Dermatology"},{"title": "Psychiatry"},{"title": "Pediatrics and New Born"},{"title":
+    "Neurology"},{"title": "Orthopedics"},{"title": "Ear,Nose and Throat"},{"title": "Cardiology and Vascular Disease"},{"title":
+    "Internal Medicine"},{"title": "Vascular Surgery"},{"title": "General Surgery"},{"title":
+    "Chest and Respiratory"},{"title": "Physiotherapy and Sport Injuries"}],
+    "Book_Call":"Book a Telehealth Consultation Call with the best Doctors in Egypt",
+    "Book_online":"Book online or call",
+    "No":"16676",
+    "alert":"Telehealth is for follow up only and not for in-person consultation",
+    "Vezeeta":"Vezeeta",
+    "Telehealth_in_Egypt":"Telehealth in Egypt",
+    "All_Specialities":"All Specialities",
+
+    "Doctor":"1664 Doctors",
+    "Sorting":"Sorting",
+    "Best_Match":"Best Match",
+    "Top_Rated":"Top Rated",
+    "Price_Low_High":"Price Low To High",
+    "Price_High_Low":"Price High To Low",
+
+    "doc":"Doctor",
+    "Overall_Rating_From":"Overall Rating From",
+    "Visitors":"Visitors",
+    "Price":"Fees :{{cash}} EGP",
+    "Promo_code":"Accept Promo Code",
+    "Cost":"Cost of regular call",
+    "Today":"Today",
+    "Tomorrow":"Tomorrow",
+    "Sun":"Sun",
+    "Book":"Book",
+    "More":"More",
+    "Call":"Appointment reservation",
+
+    "Qes":"FAQs",
+    "ask1":"How to Book a Telehealth Consultation Call with a Doctor?",
+    "asr1":"Vezeeta is a free booking service, that helps patients to easily book a telehealth consultation call with the best Doctor. Visit Vezeeta.com or download Vezeeta App, select “Telehealth”, choose the doctor’s specialty then click on “Search”, pick the day and the time that suits you the best and book your appointment immediately.",
+    "ask2":"How Can I Book a Telehealth Consultation Call with the Top Rated Doctors?",
+    "asr2":"Vezeeta helps you book a Telehealth Consultation Call with the best Doctor according to actual patients’ ratings and reviews. Each time a patient completes his/her telehealth consultation call through Vezeeta, he/she are invited to review and rate their whole experience. ",
+    "ask3":"Can I Book a Telehealth Consultation Call with a/an Doctor based on Gender?",
+    "asr3":"When you search for the best Doctor through Vezeeta, you can filter your search based on gender, besides many other search filters that you can use to get the results that best matches you.",
+    "ask4":"How Can I Book a Telehealth Consultation Call on the Same Day with the Best Doctor?",
+    "asr4":"Go to Vezeeta.com or Download Vezeeta App, where you can search for the best Doctor. To book your Telehealth Consultation Call on the same day, choose “Today” from the “Availability” filter and pick the time that best suits you to receive the call.",
+    "ask5":"Can I Book a Telehealth Consultation Call with a/an Doctor based on Doctor’s Title?",
+    "asr5":"When booking a Telehealth Consultation Call with a Doctor. You can specify the results by choosing the title and degree of the doctor from the “Title” filter. Your results would then be narrowed down according to your preferences.",
+   
+    "filter":"Filters",
+    "Appointment_Type":"Appointment Type",
+    "Phone":"Phone",
+    "Video":"Video",
+    "Title":"Title",
+    "Professor":"Professor",
+    "Lecturer":"Lecturer",
+    "Consultant":"Consultant",
+    "Specialist":"Specialist",
+    "Gender":"Gender",
+    "Female":"Female",
+    "Male":"Male",
+    "Availability":"Availability",
+    "any_Day":"Any Day",
+    "Promo_Codes":"Promo Codes",
+    "PromoCodes":"Accept Promo Codes",
+    "Examination_Fee":"Examination Fee",
+    "Any":"Any",
+    "Less_than50":"Less than 50",
+    "From50to100":"From 50 to 100",
+    "From100to200":"From 100 to 200",
+    "From200to300":"From 200 to 300",
+    "Greater_than300":"Greater than 300",
+
+    "Book_With_Doc":"Book now with Doctor",
+    "NO_DOC":"15000 Doctors - 9000 Professors and Consultants - More than 40 Specialties",
+
+    "Book_Info":"Booking Information",
+    "Book_Telehealth":"Book Telehealth",
+    "Connect_With_Doc":"We will connect you with doctor using phone call at specified time. Please keep your phone turned ON.",
+    "PM":"PM",
+
+    "view":"7,818 View(s)",
+    "Show_Review":" Show all reviews",
+    "Doc_Info":"About The Doctor",
+    "Patients_Reviews":"Patients’ Reviews",
+    "Overall_rate":"Overall Rating",
+    "From":"From",
+    "Assistant_Rating":"Assistant Rating",
+    "Clinic_Rating":"Clinic Rating",
+    "Doctor_Rating":"Doctor Rating"
+}

@@ -24,8 +24,9 @@ const FetchinCollectionsFromFireStoreAction = () => {
             let allData = []
             data.forEach(depts => {
                 allData.push(depts.data());
-                dispatch({type: 'Fetch', payload: allData})
+                
             })
+            dispatch({type: 'Fetch', payload: allData})
         })
         .catch(err => {
             console.log(err);

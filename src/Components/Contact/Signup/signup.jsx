@@ -31,7 +31,8 @@ export default function Auth() {
                 Phone: Phone,
                 DateBirth: DateBirth
             });
-
+            localStorage.setItem("Name", Name);
+            localStorage.setItem("Login", true);
             history.push('/home');
         } catch (err) {
             console.error(err);

@@ -25,6 +25,7 @@ export default function Signin() {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
+            localStorage.setItem("Login", true);
             history.push('/home');
 
             // console.log(user);

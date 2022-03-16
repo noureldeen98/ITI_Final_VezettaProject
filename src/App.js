@@ -52,7 +52,6 @@ function App() {
           <Route path='/Profile'>
           {login ? <Profile/> : <Redirect to='/Signin'/>}
         </Route>
-          
           <Provider store={storePharmacy}>
             
             <PayPalScriptProvider
@@ -67,6 +66,7 @@ function App() {
               <Route path="/checkout" component={CheckOut} />
             </PayPalScriptProvider>
           </Provider>
+
           <Route path="**" component={NotFound} />
         </Switch>
       </LangProvider>

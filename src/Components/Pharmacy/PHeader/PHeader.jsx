@@ -45,7 +45,7 @@ export default function PHeader() {
                         {t('NavBar_Call')}
                     </Nav.Link>
                     <Nav.Link className="me-5 text-light fs-6"
-                        onClick={() => i18next.changeLanguage(Languages.code === "ar" ? "en" : "ar")}>
+                        onClick={() => i18next.changeLanguage(currentLang.code === "ar" ? "en" : "ar")}>
                         {t('NavBar_Lang')}
                     </Nav.Link>
                     <Button className="btn-login" onClick={() => setBtn(!btn)}>

@@ -4,7 +4,6 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import { getAuth } from "firebase/auth";
 
-export const pharmacyAuth = getAuth(firebase.initializeApp(firebaseConfig));
 
 const firebaseConfig = {
   apiKey: "AIzaSyACcqVbcyts0Yzwdo_-6LeN_Pw_U_LA8Ng",
@@ -22,3 +21,5 @@ const auth = firebase.auth();
 const storage = firebase.storage();
 
 export { db, auth, storage };
+
+export const pharmacyAuth = getAuth(firebase.initializeApp(firebaseConfig));

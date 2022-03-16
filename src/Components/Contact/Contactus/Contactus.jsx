@@ -96,15 +96,15 @@ export default function ContactUS() {
                                 <p>customercare@vezeeta.com</p>
                                 <ul>
                                     <li className="col itemSec">
-                                        <a href="https://www.facebook.com/Vezeeta/"><i className="fab fa-facebook-f"></i></a>
+                                        <Link to="https://www.facebook.com/Vezeeta/"><i className="fab fa-facebook-f"></i></Link>
                                     </li>
                                     <li className="col itemSec ">
-                                        <a href="https://www.instagram.com/vezeeta/">
+                                        <Link to="https://www.instagram.com/vezeeta/">
                                             <i className="fab fa-instagram"></i>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="col itemSec">
-                                        <a href="https://twitter.com/VEZEETA_Egypt"><i className="fab fa-twitter"></i></a>
+                                        <Link to="https://twitter.com/VEZEETA_Egypt"><i className="fab fa-twitter"></i></Link>
                                     </li>
                                 </ul>
                             </div>

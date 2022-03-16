@@ -4,9 +4,12 @@ import Footer from '../../home/footer/Footer';
 import BigTab from '../../home/tabToggle/BigTab';
 import "../style/style.css";
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 //اتصل بنا 
 export default function ContactUS() {
+    const [t, i18n] = useTranslation();
+
     return (
         <>
             <NavbarComponent />
@@ -14,63 +17,62 @@ export default function ContactUS() {
             <div className="container-fluid">
                 <div className="row my-4" id="thirdDiv">
                     <div className="container col-lg-6 col-sm-12 my-3">
-                        <h2 style={{ color: "#0d6efd" }}>اتصل بنا</h2>
-                        <p> نحن سعداء لتلقي استفساراتكم واقتراحاتكم.</p>
+                        <h2 style={{ color: "#0d6efd" }}>{t('CotactUS')}</h2>
+                        <p> {t('pContactUs')}</p>
                         <form className="needs-validation" noValidate>
                             {/* first colome */}
 
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label htmlFor="validationCustom01">الاسم</label>
+                                    <label htmlFor="validationCustom01">{t('userName')}</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
 
                                 <div className="col-lg-9">
                                     <input type="text" className="form-control container-fluid" id="validationCustom01" required
-                                        placeholder="الاسم بالكامل" />
-                                    <div className="valid-feedback">يرجى ادخال الاسم</div>
+                                        placeholder={t('placeHolderName')}/>
+                                    <div className="valid-feedback">{t('validName')}</div>
                                 </div>
                             </div>
 
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label htmlFor="validationCustom01">رقم الموبايل</label>
+                                    <label htmlFor="validationCustom01">{t('phoneNumber')}</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
 
                                 <div className="col-lg-9">
                                     <input type="text" className="form-control container-fluid" id="validationCustom01" required
-                                        placeholder="الاسم بالكامل" />
-                                    <div className="valid-feedback">يرجى ادخال رقم الموبايل</div>
+                                        placeholder={t('placeHolderPhone')}/>
+                                    <div className="valid-feedback">{t('validPhone')}</div>
                                 </div>
                             </div>
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label htmlFor="validationCustomUsername">البريدالالكتروني</label>
+                                    <label htmlFor="validationCustomUsername">{t('Emaile')}</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
                                 <div className="col-lg-9">
                                     <input type="text" className="form-control container-fluid" id="validationCustomUsername"
-                                        aria-describedby="inputGroupPrepend" required placeholder="البريد الالكتروني" />
+                                        aria-describedby="inputGroupPrepend" required placeholder={t('Emaile')} />
                                     <div className="invalid-feedback">
-                                        يرجى ادخال البريدالالكتروني
+                                       {t('validEmail')}
                                     </div>
                                 </div>
                             </div>
                             <div className="row " style={{ margin: "auto", marginTop: "1rem" }}>
                                 <div className="col-lg-3  col-sm-12">
-                                    <label htmlFor="validationCustom05" className="form-label">تعليقات</label>
+                                    <label htmlFor="validationCustom05" className="form-label">{t('commit')}</label>
                                     <sup style={{ color: "red" }}> *</sup>
                                 </div>
                                 <div className="col-lg-9">
                                     <textarea type="text" className="form-control container-fluid" id="validationCustom05"
                                         required></textarea>
-                                    <div className="invalid-feedback">
-                                        يرجى كتابه تعليق
+                                    <div className="invalid-feedback">{t('validCommit')}
                                     </div>
 
                                     <Link to={"/home"}>
-                                        <button className="btn btn-danger my-2 " type="submit"> ارسال </button>
+                                        <button className="btn btn-danger my-2 " type="submit"> {t('Send')} </button>
                                     </Link>
                                 </div>
                             </div>
@@ -80,19 +82,19 @@ export default function ContactUS() {
                     <div className="col-lg-5 col-sm-12 my-3">
                         <div className="container" id="sec-col">
                             <div className="row">
-                                <h2 style={{ color: "#0d6efd" }}>اتصل بنا</h2>
-                                <p>١٦٦٧٦ سعر مكالمة عادية</p>
+                                <h2 style={{ color: "#0d6efd" }}>{t('CotactUS')}</h2>
+                                <p> {t('callSalary')}</p>
                             </div>
                             <div className="row">
-                                <p>من خارج مصر اتصل ب:</p>
+                                <p>{t('abroad')} </p>
                                 <p> +2 02 259 83 999</p>
                             </div>
                             <div className="row">
-                                <h3 style={{ color: "#0d6efd" }}>العنوان</h3>
-                                <p>١٢٤ شارع عثمان بن عفان خلف الكليه الحربيه - مصر الجديدة</p>
+                                <h3 style={{ color: "#0d6efd" }}>{t('Adress')}</h3>
+                                <p>{t('AdressContactus')}</p>
                             </div>
                             <div>
-                                <h3 style={{ color: "#0d6efd" }}>راسلنا على</h3>
+                                <h3 style={{ color: "#0d6efd" }}>{t('sendUs')}</h3>
                                 <p>customercare@vezeeta.com</p>
                                 <ul>
                                     <li className="col itemSec">

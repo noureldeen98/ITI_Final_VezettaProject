@@ -67,7 +67,7 @@ export default function Auth() {
                     {/* two */}
                     <div className="row iteam-form">
                         <div className="col-lg-3  col-sm-12">
-                            <label htmlFor="validationCustom02">{t('phoneNumberphoneNumber')}</label>
+                            <label htmlFor="validationCustom02">{t('phoneNumber')}</label>
                             <sup style={{ color: "red" }}> *</sup>
                         </div>
 

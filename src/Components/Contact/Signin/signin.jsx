@@ -58,12 +58,12 @@ export default function Signin() {
                     {/* one */}
                     <div className="row iteam-form ">
                         <div className="col-lg-3  col-sm-12">
-                            <label htmlFor="validationCustom01">{t('validEmail')}</label>
+                            <label htmlFor="validationCustom01">{t('Emaile')}</label>
                             <sup style={{ color: "red" }}> *</sup>
                         </div>
                         <div className="col-lg-9">
                             <input type="text" className="form-control container-fluid" id="Email" required
-                                placeholder={t('Emaile')}
+                                placeholder={t('placeHolderEmail')}
                                 onChange={(event) => { setUserEmaile(event.target.value); }}
                                 value={Emaile} />
                             <div className="valid-feedback">{t('validEmail')}</div>

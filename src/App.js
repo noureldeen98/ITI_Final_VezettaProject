@@ -43,7 +43,8 @@ function App() {
           <Provider store={storePharmacy}>
             <PayPalScriptProvider
               options={{
-                "client-id": "AfdOFt0aEuh0tM5PgZvbsXc_GVpgPxORYmFgiSe8ST2WyvpmSTa5UZnOo7T7sCiaS_it2FK7Gja1kurk", currency: "USD"
+                "client-id": "AfdOFt0aEuh0tM5PgZvbsXc_GVpgPxORYmFgiSe8ST2WyvpmSTa5UZnOo7T7sCiaS_it2FK7Gja1kurk",
+                currency: "USD"
               }}>
               <Route path="/pharmacy" component={Pharmacy} />
               <Route path="/cart" component={Cart} />

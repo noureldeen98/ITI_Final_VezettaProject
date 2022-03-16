@@ -48,7 +48,7 @@ const PayPalCheckOutButtons = ({ cart }) => {
 								description: 'Vezeeta pharmacy online store',
 								amount: {
 									currency_code: 'USD',
-									value: price,
+									value: (price / 15),
 								},
 							},
 						],

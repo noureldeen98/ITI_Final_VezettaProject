@@ -1,38 +1,10 @@
 .section2 {
-  padding: 20px 30px;
+  padding: 20px !important;
 }
 .section2 h2 {
   font-size: 20px;
   font-weight: 700;
   text-align: center;
-}
-.search-input {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.search-input input[type="search"] {
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 4px 0px;
-  border: 1px solid rgb(224, 224, 224);
-  font-size: 18px;
-  text-indent: 35px;
-  padding: 15px;
-  margin-top: 5px;
-}
-.fa-search {
-  position: absolute;
-  right: 5%;
-  bottom: 32%;
-  font-size: 20px;
-  color: rgba(128, 129, 132, 0.75);
-}
-.fa-times-circle {
-  position: absolute;
-  left: 5%;
-  bottom: 32%;
-  font-size: 20px;
-  color: rgb(128, 129, 132, 0.75);
 }
 .section2-icons {
   display: flex;
@@ -100,29 +72,14 @@
   .section2-icons {
     justify-content: space-around;
   }
-  .search-input {
-    width: 70%;
-  }
-  .search-input input[type="search"] {
-    width: 70%;
-    margin-top: 30px;
-  }
-  .fa-times-circle {
-    left: 17%;
-    bottom: 27%;
-  }
-  .fa-search {
-    right: 17%;
-    bottom: 27%;
-  }
   .icon-container {
     margin-top: 30px;
   }
   .icon-container:nth-child(1) {
-    margin-left: 250px;
+    margin-left: 200px;
   }
   .icon-container:nth-child(3) {
-    margin-right: 250px;
+    margin-right: 200px;
   }
   .icon-holder {
     height: 85px;

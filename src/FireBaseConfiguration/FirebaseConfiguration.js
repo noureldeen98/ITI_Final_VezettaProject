@@ -1,4 +1,3 @@
-// import firebase from "firebase"
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -6,6 +5,7 @@ import 'firebase/compat/storage';
 // import store from '../ReactRedux/Store/myStore'
 // import axios from "axios";
 // import { changeLoader } from '../ReactRedux/Actions/loaderAction'
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyACcqVbcyts0Yzwdo_-6LeN_Pw_U_LA8Ng",
@@ -57,3 +57,4 @@ const firebaseConfig = {
   //   }
   // )
   export {db,auth,storage};
+

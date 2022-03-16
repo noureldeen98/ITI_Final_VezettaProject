@@ -17,6 +17,10 @@
     #brcrumb {
       display: none;
     }
+    *{
+      overflow-x: hidden;
+      margin: auto;
+    }
   }
   .row {
     --bs-gutter-x: 0 !important;

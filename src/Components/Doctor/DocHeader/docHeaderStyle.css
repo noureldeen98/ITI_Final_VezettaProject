@@ -55,7 +55,7 @@
   @media screen and (min-width: 769px) {
     #img1 {
       background: url(./../../DoctorCall/headerImg/header1.jpg);
-      height: 210px;
+      height: 219px;
       padding-right: 4em;
       padding-top: 1em;
       background-size: cover;
@@ -183,8 +183,8 @@
   
   #btnGroupDrop1::after {
     display: inline-block;
-    margin-left: 0.255em;
-    vertical-align: 0.255em;
+    margin-left: 0.1em;
+    vertical-align: 0.1em;
     content: "";
     border-top: 0.3em solid;
     border-right: 0.3em solid transparent;
@@ -192,7 +192,7 @@
     border-left: 0.3em solid transparent;
     font-size: 2em;
     color: #aeaeac;
-    margin-right: 7em;
+    margin-right: 1em;
   }
   
   .ulContainer {

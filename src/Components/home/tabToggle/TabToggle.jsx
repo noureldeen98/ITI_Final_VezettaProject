@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
 export default function TabToggle() {
+    const [t, i18n] = useTranslation();
     const dispatch = useDispatch();
     const depts = useSelector((state) => state.deptRed);
     useEffect(() => {
@@ -18,26 +20,21 @@ export default function TabToggle() {
                             data-toggle="tab" href="#reserve">
                             <div><i className="far fa-calendar-check"></i></div>
                             <div>
-                                <h1>احجز دكتور</h1>
-                                <h4>الفحص او الاجراء</h4>
+                                <h1>{t('part7.doctor2')}</h1>
+                                <h4>{t('part7.examination')}</h4>
                             </div>
                         </a>
                         <a className="call col-6 d-flex align-items-center"
                         data-toggle="tab" href="#call">
                             <div> <i className="fas fa-headphones"></i></div>
                             <div>
-                                <h1> مكالمة دكتور</h1>
-                                <h4> المتابعة عبر مكالمة مع الدكتور </h4>
+                                <h1> {t('part7.doctor3')} </h1>
+                                <h4> {t('part7.doctor4')} </h4>
                             </div>
                         </a>
                     </div>
                 </div>
                 <div className="second tab-content">
-                    {/* da goz2 awel tab h7od component here bta3 labToggle*/}
-
-                    {/* wara b3d */}
-                    
-                    {/* da goz2 tani tab h7od component here bta3 smallToggle*/}
                     
                 </div>
             </div>
@@ -50,17 +47,17 @@ export default function TabToggle() {
                         align-items-center"
                         data-toggle="tab" href="#clinic">
                         <h4><i className="fas fa-clinic-medical"></i></h4>
-                        <h4>كشف عيادة</h4>
+                        <h4>{t('homeSlider.mobile.clinic')}</h4>
                     </a>
                     <a className="drug col-4 d-flex flex-column align-items-center"
                     data-toggle="tab" href="#drug">
                         <h4><i className="fas fa-pills"></i></h4>
-                        <h4> اطلب ادوية</h4>
+                        <h4>{t('homeSlider.mobile.order')}</h4>
                     </a>
                     <a className="calldoc col-4 d-flex flex-column align-items-center"
                     data-toggle="tab" href="#calldoc">
                         <h4><i className="fas fa-phone"></i></h4>
-                        <h4> مكالمة دكتور</h4>
+                        <h4>{t('homeSlider.mobile.call')}</h4>
                     </a>
                 </div>
                 <div className="secondMob row tab-content">
@@ -71,16 +68,16 @@ export default function TabToggle() {
                                 <div className="mb-3">
                                     <input type="text" 
                                     className="form-control" 
-                                    placeholder="ابحث بالتخصص, اسم الدكتور او المستشفى"/>
+                                    placeholder={t('homeSlider.mobile.tab1.search')}/>
                                 </div>
                                 <div className="mb-3">
                                     <input type="text" 
-                                    className="form-control" placeholder="اختار المنطقة"/>
+                                    className="form-control" placeholder={t('homeSlider.mobile.tab1.area')}/>
                                 </div>
                             </div>
                             <button type="submit" className="btn btn-danger mb-3"
-                            style="width: inherit;">ابحث عن دكتور</button>
-                            <h4>او اتصل علي <a>16676</a></h4>
+                            style="width: inherit;">{t('homeSlider.mobile.tab1.browse')}</button>
+                            <h4> {t('homeSlider.mobile.tab1.call')} <a>16676</a></h4>
                         </div>
                     </div>
                     <div className="drug1 col-12 d-flex flex-column align-items-center
@@ -88,23 +85,25 @@ export default function TabToggle() {
                         <div className="input-group flex-nowrap position-relative"
                         style="border:1px solid rgb(0, 112, 205)">
                             <input type="text" className="form-control" 
-                            placeholder="ابحث عن طلبك      ">
+                            placeholder={t('homeSlider.mobile.tab2.search')}>
                                 <i className="fas fa-search position-absolute" 
                                 style="top: 0.8em;
                                 z-index: 100;
                                 right: 0.5em;"></i>
                             </input>
                         </div>
-                        <h4>او اتصل علي <a>16676</a></h4>
+                        <h4>{t('homeSlider.mobile.tab2.call')} <a>16676</a></h4>
                     </div>
                     <div className="calldoc1 col-12 d-flex flex-column align-items-center
                     tab-pane fade" id="calldoc">
                         <div className="mb-3" style="width: inherit;border: 1px solid rgb(0, 112, 205);;">
                             <input type="text" 
-                            className="form-control" placeholder="ابحث بالتخصص, اسم الدكتور او المستشفى"/>
+                            className="form-control" placeholder={t('homeSlider.mobile.tab3.search')}/>
                         </div>
-                        <button type="submit" className="btn btn-danger mb-3" style="width: inherit;">ابحث عن دكتور</button>
-                        <h4>او اتصل علي <a>16676</a></h4>
+                        <button type="submit" className="btn btn-danger mb-3" style="width: inherit;">
+                        {t('homeSlider.mobile.tab3.browse')}
+                        </button>
+                        <h4> {t('homeSlider.mobile.tab3.call')} <a>16676</a></h4>
                     </div>
                 </div>
             </div>

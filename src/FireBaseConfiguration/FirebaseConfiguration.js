@@ -25,6 +25,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 const auth = firebase.auth();
-export { db, auth };
 
 export const pharmacyAuth = getAuth(firebase.initializeApp(firebaseConfig));
+
+export { db, auth };
+

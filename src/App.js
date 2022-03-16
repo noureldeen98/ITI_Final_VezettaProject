@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import ModalPage from "./pages/ModalPage";
 import NotFound from "./Components/ui/NotFound.jsx";
-
 import Pharmacy from "./Components/Pharmacy/Pharmacy";
 import Cart from "./Components/Pharmacy/Cart/Cart"
-import SingleItem from "./Components/Pharmacy/Cart/SingleItem"
+import SingleItem from "./Components/Pharmacy/Cart/SingleItem";
 import CheckOut from "./Components/Pharmacy/CheckOut/CheckOut";
 import ContactUS from "./Components/Contact/Contactus/Contactus";
 import Signup from "./Components/Contact/Signup/signup";
@@ -22,6 +21,7 @@ import { LangProvider } from "./Context/LangContext";
 import Success from "./Components/Success/Success";
 import "./App.css";
 import DeliveryInfo from "./Components/Pharmacy/CheckOut/DeliveryInfo";
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
@@ -30,6 +30,7 @@ function App() {
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
   localStorage.setItem('lang', lang);
+
   return (
     <Provider store={store}>
       <LangProvider value={{ lang, setLang }}>
@@ -40,11 +41,16 @@ function App() {
           <Route path="/home" component={HomePage} />
           <Route path="/visiting" component={ModalPage} />
           <Provider store={storePharmacy}>
-            <Route path="/pharmacy" component={Pharmacy} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/item/:id" component={SingleItem} />
-            <Route path="/deliveryinfo" component={DeliveryInfo} />
-            <Route path="/checkout" component={CheckOut} />
+            <PayPalScriptProvider
+              options={{
+                "client-id": "AfdOFt0aEuh0tM5PgZvbsXc_GVpgPxORYmFgiSe8ST2WyvpmSTa5UZnOo7T7sCiaS_it2FK7Gja1kurk", currency: "USD"
+              }}>
+              <Route path="/pharmacy" component={Pharmacy} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/item/:id" component={SingleItem} />
+              <Route path="/deliveryinfo" component={DeliveryInfo} />
+              <Route path="/checkout" component={CheckOut} />
+            </PayPalScriptProvider>
           </Provider>
           <Route path="/Contactus" component={ContactUS} />
           <Route path="/Signup" component={Signup} />

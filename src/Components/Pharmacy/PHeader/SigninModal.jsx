@@ -7,27 +7,26 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useFormik } from "formik";
 import OtpInput from "react-otp-input";
 import { db } from "../../../FireBaseConfiguration/FirebaseConfiguration";
+import userServices from "../userServices";
 import "./SigninModal.css";
 
 export default function SigninModal(props) {
+    const { t } = useTranslation();
     const [confirmation, setConfirmation] = useState(false);
     const [otp, setOtp] = useState("");
     const [disabled, setDisabled] = useState(true);
 
     useEffect(() => {
         const auth = getAuth();
-        const currentUser = auth.currentUser;
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                props.getUser(currentUser)
-                console.log(currentUser)
+                const uid = user.uid;
+                localStorage.setItem('authUserID', uid)
             } else {
-                console.log("null")
+                localStorage.removeItem('authUserID')
             }
         });
-    }, [])
-
-    const { t } = useTranslation();
+    }, [props])
 
     const validate = (values) => {
         const errors = {};
@@ -87,18 +86,25 @@ export default function SigninModal(props) {
         let confirmationResult = window.confirmationResult;
         confirmationResult
             .confirm(otp)
-            .then((result) => {
+            .then(async (result) => {
                 const user = result.user;
-                const userRef = db.doc(`PharmacyUsers/${user.uid}`);
-                userRef.set({
-                    phone: user.phoneNumber,
-                    Name: formik.values.userName,
-                    Street: "",
-                    Building: "",
-                    Flat: "",
-                    landmark: "",
-                    Label: "",
-                });
+                const userID = user.uid;
+                const exUser = await userServices.getUser(userID);
+                const exUserData = exUser.data();
+                if (exUserData.phone !== formik.values.phoneNumber) {
+                    const userRef = db.doc(`PharmacyUsers/${userID}`);
+                    userRef.set({
+                        phone: user.phoneNumber,
+                        Name: formik.values.userName,
+                        Street: "",
+                        Building: "",
+                        Flat: "",
+                        landmark: "",
+                        Label: "",
+                        LabelOther: "",
+                    })
+                }
+                localStorage.setItem('authUserID', userID)
                 setShow(false);
                 setConfirmation(false);
             })
@@ -114,7 +120,7 @@ export default function SigninModal(props) {
         setShow(props.btn);
     }, [props.btn]);
 
-    const [seconds, setSeconds] = useState(30);
+    const [seconds, setSeconds] = useState(59);
     useEffect(() => {
         let timer = setInterval(() => {
             if (seconds > 0) {

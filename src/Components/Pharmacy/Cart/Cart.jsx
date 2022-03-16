@@ -13,12 +13,8 @@ const Cart = ({ cart }) => {
 
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
-
-    useEffect(() => {
         setCartCount(cart.length);
     }, [cart, cartCount, setCartCount]);
-
 
     const { t } = useTranslation();
 

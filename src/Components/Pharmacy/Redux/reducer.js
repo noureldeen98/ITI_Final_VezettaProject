@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import medicineReducer from './medicine/medicineReducer';
-import userReducer from './user/userReducer';
+import userReducer from './medicine/medicineReducer';
 
 const reducer = combineReducers({
     medicine: medicineReducer,
-    user: userReducer
+    user: userReducer,
 });
 
 export default reducer;

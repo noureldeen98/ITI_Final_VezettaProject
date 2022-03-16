@@ -10,22 +10,25 @@ import "./PHeader.css";
 import { useHistory } from "react-router-dom";
 
 export default function PHeader() {
-    const [user, setUser] = useState(null);
-
-    const getUser = (user) => {
-        setUser(user);
-        console.log(user)
-    };
-
     const history = useHistory();
+    const [btn, setBtn] = useState(false);
+    const [user, setUser] = useState(null)
+
     const handleSignOut = () => {
         const auth = getAuth();
-        signOut(auth).then(() => {
-            history.push('/pharmacy')
-        }).catch((error) => {
-            console.log(error)
-        });
+        signOut(auth)
+            .then(() => {
+                localStorage.removeItem('authUserID')
+                history.push("/pharmacy");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
+
+    useEffect(() => {
+        setUser(localStorage.getItem('authUserID'))
+    }, [user])
 
     const Languages = [
         {
@@ -45,8 +48,6 @@ export default function PHeader() {
     useEffect(() => {
         document.body.dir = currentLang.dir || "rtl";
     }, [currentLang]);
-
-    const [btn, setBtn] = useState(false);
 
     return (
         <>
@@ -70,13 +71,13 @@ export default function PHeader() {
                     >
                         {t("NavBar_Lang")}
                     </Nav.Link>
-                    {user != null ? (
-                        <Button className="btn-login" onClick={handleSignOut}>
-                            {t("NavBar_Exit")}
-                        </Button>
-                    ) : (
+                    {user == null ? (
                         <Button className="btn-login" onClick={() => setBtn(!btn)}>
                             {t("NavBar_Enter")}
+                        </Button>
+                    ) : (
+                        <Button className="btn-login" onClick={handleSignOut}>
+                            {t("NavBar_Exit")}
                         </Button>
                     )}
                 </Nav>
@@ -96,25 +97,27 @@ export default function PHeader() {
                             >
                                 {t("NavBar_Lang")}
                             </Nav.Link>
-                            <Nav.Link
-                                className="offcanvas-links"
-                                onClick={() => setBtn(!btn)}
-                            >
-                                {user != null ? (
-                                    <Button className="btn-login" onClick={handleSignOut}>
-                                        {t("NavBar_Exit")}
-                                    </Button>
-                                ) : (
-                                    <Button className="btn-login" onClick={() => setBtn(!btn)}>
-                                        {t("NavBar_Enter")}
-                                    </Button>
-                                )}
-                            </Nav.Link>
+                            {user == null ? (
+                                <Nav.Link
+                                    className="offcanvas-links"
+                                    onClick={() => setBtn(!btn)}
+                                >
+                                    {t("NavBar_Enter")}
+                                </Nav.Link>
+                            ) : (
+                                <Nav.Link
+                                    className="offcanvas-links"
+                                    onClick={handleSignOut}
+                                    style={{ color: "white" }}
+                                >
+                                    {t("NavBar_Exit")}
+                                </Nav.Link>
+                            )}
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
             </Navbar>
-            <SigninModal btn={btn} getUser={getUser} />
+            <SigninModal btn={btn} />
         </>
     );
 }

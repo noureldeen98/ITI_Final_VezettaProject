@@ -1,19 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import PHeader from '../PHeader/PHeader';
+import PayPalCheckOutButtons from './PayPalCheckOutButtons';
 import './CheckOut.css';
 
 const CheckOut = () => {
-    const paypal = useRef();
-
-    useEffect(() => {
-        window.paypal.Buttons().render(paypal.current)
-    }, [paypal])
 
     return (
         <>
             <PHeader />
             <div className="checkout-container">
-                <div ref={paypal} className='checkout-details'>
+                <div className='checkout-details'>
+                    <PayPalCheckOutButtons />
                 </div>
             </div>
         </>

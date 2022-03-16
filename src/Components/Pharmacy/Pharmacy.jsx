@@ -7,13 +7,12 @@ import Section3 from "./Section3/Section3";
 import Map from './Map/Map';
 import PFooter from './PFooter/PFooter';
 import CartPanel from './Search/CartPanel';
-import { connect, Provider } from 'react-redux';
-import storePharmacy from './Redux/store';
+import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-// import DeliveryInfo from './CheckOut/DeliveryInfo'
-
 const Pharmacy = ({ cart }) => {
+    const { t } = useTranslation();
+
     const [showPanel, setShowPanel] = useState(0)
     useEffect(() => {
         let length = cart.length
@@ -24,11 +23,14 @@ const Pharmacy = ({ cart }) => {
         localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
 
-    const { t } = useTranslation();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        setUser(user);
+    }, [user]);
 
     return (
         <>
-            <Provider store={storePharmacy}>
                 <PHeader />
                 <PAlert message={t('Header_Msg')} />
                 <Section1 />
@@ -39,7 +41,6 @@ const Pharmacy = ({ cart }) => {
                 {showPanel > 0 ? (
                     <CartPanel />
                 ) : null}
-            </Provider>
         </>
     );
 }

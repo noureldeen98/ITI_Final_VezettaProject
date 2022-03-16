@@ -53,6 +53,7 @@ function App() {
           {login ? <Profile/> : <Redirect to='/Signin'/>}
         </Route>
           <Provider store={storePharmacy}>
+            
             <PayPalScriptProvider
               options={{
                 "client-id": "AfdOFt0aEuh0tM5PgZvbsXc_GVpgPxORYmFgiSe8ST2WyvpmSTa5UZnOo7T7sCiaS_it2FK7Gja1kurk",
@@ -65,7 +66,7 @@ function App() {
               <Route path="/checkout" component={CheckOut} />
             </PayPalScriptProvider>
           </Provider>
-          
+
           <Route path="**" component={NotFound} />
         </Switch>
       </LangProvider>

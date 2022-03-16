@@ -1,4 +1,4 @@
-import{getAllDoctorAction} from '../../../ReactRedux/Actions/DoctorCallAction'
+import{getAllDoctorAction,filterDoctor,clearDoctor} from '../../../ReactRedux/Actions/DoctorCallAction'
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -8,34 +8,34 @@ import './DoctorCards.css'
 import { useTranslation } from "react-i18next";
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
-
+import { useLocation } from "react-router-dom";
+import queryString from 'query-string';
+    
 const DoctorCards=(props)=>{
   
-  const [files, setFiles] = useState([]);
-
+  const location = useLocation();
+ console.log(location.search)
+  const value=queryString.parse(location.search);
+  // console.log(value)
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.getDoctors);
    const loader = useSelector((state) => state.loader.loader);
+
   useEffect(() =>{
-    dispatch(getAllDoctorAction())
- 
-    const fetchImages = async () => {
-      let result = await storage.ref().child("DoctorCall").listAll();
-      let urlPromises = result.items.map((imageRef) =>
-        imageRef.getDownloadURL()
-      );
+    if(location.search=='')
+    {
+      dispatch(getAllDoctorAction())
+    }
+    else{
+      dispatch(filterDoctor(value.dpt,value.city,value.area,value.doc))
+    }
 
-      return Promise.all(urlPromises);
-    };
+    console.log(doctors)
 
-    const loadImages = async () => {
-      const urls = await fetchImages();
-      setFiles(urls);
-      var httpsReference = storage.refFromURL(urls[2]);
-  let fileName = httpsReference.name;
- // console.log(fileName)
+
+    return () => {
+      dispatch(clearDoctor());
     };
-    loadImages();
 
    } ,[] );
    const { t } = useTranslation();
@@ -90,6 +90,7 @@ const DoctorCards=(props)=>{
         </div>
       )}
       <br/>
+
     {doctors.doctor.map((doc,index) => {
                   //  console.log(doc.Image)
                   let cash=doc.Price;
@@ -148,7 +149,6 @@ const DoctorCards=(props)=>{
                       )
                    })
                   }
-                 
         </div>
         </>
     )

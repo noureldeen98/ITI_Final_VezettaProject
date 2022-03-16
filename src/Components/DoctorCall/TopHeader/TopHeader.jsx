@@ -1,8 +1,6 @@
 import './Topheader.css'
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-// import {getDepts} from '../../../ReactRedux/Actions/DeparmentsAction';
-// import {getAllDepts} from '../../../ReactRedux/Actions/DeptsActionRedux'
 import {getCommonDept, getDepts, getOtherDept} from '../../../ReactRedux/Actions/DeparmentsAction';
 import style from './../../home/tabToggle/bigTab.module.css';
 import {useHistory} from 'react-router-dom'
@@ -15,7 +13,7 @@ const TopHeader=()=>{
   const depts = useSelector((state) => state.deptReducer);
   const [count, setCount] = useState(1);
   const [selectedDpts, setSelectedDpts] = useState('');
-
+  const history = useHistory();
   //for localizrion
   const {lang, setLang} = useContext(langContext);
 
@@ -42,7 +40,14 @@ const prevDpts = (e) => {
 const setDpts = (e) => {
   setSelectedDpts(e.target.outerText)
 } 
-const { t } = useTranslation();
+const goToDoctorPage = () => {
+  history.push({
+      pathname: '/DoctorCall',
+      search: `?dpt=${selectedDpts}&city=&area=&doc=`
+  });
+}
+const [t, i18n] = useTranslation();
+
 
 return(
     <>
@@ -53,7 +58,7 @@ return(
       {t('alert')}
       </div>
       <p className="text-secondary fs-4">{t('Book_online')}  &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; {t('No')}</p>
-      <div className="btn-group float-start ms-5  mt-0 d-none d-sm-none d-sm-none d-md-block" role="group" aria-label="Button group with nested dropdown" >                
+      <div className="btn-group float-start   mt-0 d-none d-sm-none d-sm-none d-md-block btnTogle" role="group" aria-label="Button group with nested dropdown" >                
         <div className="btn-group shadow-sm  bg-body rounded-3 " role="group">
           <div>
           <button id="btnGroupDrop7" type="button" className="btn btn-dark dropdown-toggle fw-bold text-end " data-bs-toggle="dropdown" aria-expanded="false">
@@ -137,7 +142,8 @@ return(
           </ul> */}
          
         </div>
-         <button type="button" className="btn btn-danger fw-bold " id="search"><p className="fs-3"> {lang=='en'? 'ابحث ' :'Search'}</p></button>
+         <button type="button" className="btn btn-danger fw-bold " id="search"
+         onClick={goToDoctorPage}><p className="fs-3"> {lang=='en'? 'ابحث ' :'Search'}</p></button>
       </div>
     </div></div>
         </div>

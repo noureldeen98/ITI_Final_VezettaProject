@@ -7,7 +7,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import{getSpecificDoc} from '../../../ReactRedux/Actions/DoctorCallAction'
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import { useContext } from 'react';
+import { langContext } from '../../../Context/LangContext';
 
 const  MiddlePart=()=>{
   
@@ -16,7 +17,8 @@ const  MiddlePart=()=>{
   const loader = useSelector((state) => state.loader.loader);
   const params=useParams();
   const location = useLocation();
-  console.log(location.state.fromCovid)
+  // console.log(location.state.fromCovid)
+  console.log(params.name)
    useEffect(() =>{
      if(location.state.fromCovid===true)
      {
@@ -34,6 +36,7 @@ const  MiddlePart=()=>{
   } ,[params.name] )
   
   const { t } = useTranslation();
+  const {lang, setLang} = useContext(langContext);
 
 return(
     <>
@@ -43,7 +46,7 @@ return(
         <nav aria-label="breadcrumb" id="brcrumb">
           <ol className="breadcrumb ">
             <li className="breadcrumb-item mt-2 me-5 ms-1"><Link to="/home" className="text-decoration-none">  {t('Vezeeta')}</Link></li>
-            <li className="breadcrumb-item active mt-2" aria-current="page">  {t('doc')} {params.name}</li>
+            <li className="breadcrumb-item active mt-2" aria-current="page">  {t('doc')} {lang=='en'? doctor.specificDoc.nameInArabic : doctor.specificDoc.Name}</li>
           </ol>
         </nav>
         {/* {loader && (

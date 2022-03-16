@@ -89,24 +89,27 @@ export default function Auth() {
                                 placeholder={t('Emaile')} id="Email" />
                             <div className="invalid-feedback">{t('validEmail')}</div>
                         </div>
+
+                    </div>
                         {/* four */}
-                        <div className="row iteam-form py-3">
+                        {/* <div className="row iteam-form py-3">
                             <div className="col-lg-3  col-sm-12 pt-2">
                                 <label htmlFor="validationCustomUsername">{t('Type')}</label>
                                 <sup style={{ color: "red" }}> *</sup>
                             </div>
                             <div className="col-lg-9 pt-3">
                                 <label style={{ paddingLeft: "2rem" }}>
-                                    {t('Female')}
+                                    {t('femal')}
                                     <input type="radio" name="type" id="male" autoComplete="off" />
                                 </label>
                                 <label style={{ paddingLeft: "2rem" }}>
-                                    {t('Male')}
+                                    {t('mal')}
                                     <input type="radio" name="type" id="female" autoComplete="off" />
                                 </label>
                             </div>
+                            
 
-                        </div>
+                        </div> */}
                         {/* five */}
                         <div className="row iteam-form">
                             <div className="col-lg-3  col-sm-12">
@@ -155,7 +158,7 @@ export default function Auth() {
                         <div className="row" style={{ textAlign: "center" }}>
                             <p>{t('AlredyLogin')}<Link to="/Signin" style={{ textDecoration: "underline" }}>{t('login')}</Link></p>
                         </div>
-                    </div>
+                    
                 </form>
             </div>
             <Footer />

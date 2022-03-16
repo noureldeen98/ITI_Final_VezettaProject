@@ -32,7 +32,7 @@ export default function Auth() {
                 DateBirth: DateBirth
             });
 
-            history.push('/home')
+            history.push('/home');
         } catch (err) {
             console.error(err);
         }

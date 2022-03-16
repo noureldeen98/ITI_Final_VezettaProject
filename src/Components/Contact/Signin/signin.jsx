@@ -35,7 +35,7 @@ export default function Signin() {
 
     const logout = async () => {
         await signOut(auth);
-        localStorage.removeItem("User")
+        localStorage.removeItem("UserEmail")
     };
 
     return (

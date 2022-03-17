@@ -375,6 +375,9 @@
     "From":" من ",
     "Assistant_Rating":"تقييم المساعد",
     "Clinic_Rating":"تقييم العيادة",
-    "Doctor_Rating":"تقييم الدكتور"
+    "Doctor_Rating":"تقييم الدكتور",
+    "logout":"تسجيل الخروج",
+    "Save":"حفظ",
+    "Usr_Data":"ادارة الملف الشخصي"
 }
 

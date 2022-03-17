@@ -412,5 +412,8 @@
     "From":"From",
     "Assistant_Rating":"Assistant Rating",
     "Clinic_Rating":"Clinic Rating",
-    "Doctor_Rating":"Doctor Rating"
+    "Doctor_Rating":"Doctor Rating",
+    "logout":"Logout",
+    "Save":"Save",
+    "Usr_Data":"Manage Profile"
 }

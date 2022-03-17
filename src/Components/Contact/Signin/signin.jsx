@@ -27,10 +27,11 @@ export default function Signin() {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
+            // localStorage.setItem("Name", user.user.reloadUserInfo.Name);
             localStorage.setItem("Login", true);
             history.push('/home');
 
-            // console.log(user);
+              console.log(user.uid);
         } catch (err) {
             console.log(err);
         }
@@ -40,6 +41,7 @@ export default function Signin() {
         await signOut(auth);
         localStorage.removeItem("UserEmail")
         localStorage.setItem("Login", false);
+        //  localStorage.removeItem("Name");
     };
 
     return (
@@ -105,14 +107,14 @@ export default function Signin() {
                         </div>
 
                         <div className="row py-4" style={{ textAlign: "center" }}>
-                            {user?.email}
+                            {/* {user?.email} */}
                             <p> {t('notLogin')}<Link to="/Signup" style={{ textDecoration: "underline" }}>{t('SiginUp')}</Link></p>
                         </div>
 
 
-                        <div>
+                        {/* <div>
                             <button onClick={logout}> Sign Out </button>
-                        </div>
+                        </div> */}
 
                     </div>
                 </form>

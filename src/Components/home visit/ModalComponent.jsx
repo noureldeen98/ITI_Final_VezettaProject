@@ -21,20 +21,22 @@ export default function ModalComponent() {
     const [t, i18n] = useTranslation();
     const pics = [pic1, pic2, pic3, pic4, pic5, pic6, pic7,
         pic8, pic9, pic10, pic11, pic12];
-    const dpts = t('modal', {returnObjects: true });
-   
+    const dpts = t('modal', { returnObjects: true });
+
     return <>
-    
-    <NavbarComponent />
-    <div className={`${style.content}`} style={{'width': '100%', 
-        'backgroundImage': `url(${bg})`, 'marginTop': '-7%', 'height': '53em'}}>
+
+        <NavbarComponent />
+        <div className={`${style.content}`} style={{
+            'width': '100%',
+            'backgroundImage': `url(${bg})`, 'marginTop': '-7%', 'height': '53.5em'
+        }}>
             {/* <!-- Modal --> */}
-            <div className={`${style.staticBackdrop}`} id="staticBackdrop" 
-            // data-bs-backdrop="static"
+            <div className={`${style.staticBackdrop}`} id="staticBackdrop"
+                // data-bs-backdrop="static"
                 data-bs-keyboard="false" tabIndex="-1">
                 <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                id={style.mod}>
-                    <div className="modal-content my-5 px-0" style={{'alignSelf': 'baseline'}}>
+                    id={style.mod}>
+                    <div className="modal-content my-5 px-0" style={{ 'alignSelf': 'baseline' }}>
                         <div className="modal-header" id={style.modalHeader}>
                             <h5 className="modal-title">
                                 {t('part7.specialty2')}
@@ -43,15 +45,15 @@ export default function ModalComponent() {
                         <div className="modal-body " id={style.modalBody}>
                             {/* <!-- hena l dynamic code --> */}
                             <div className="modal-body" id={style.modalBody}>
-                            {dpts.map((el, index) => (
-                                <SingleDept key={index} data={{...el, pic: pics[index]}} />
-                            ))}
-                        </div>
+                                {dpts.map((el, index) => (
+                                    <SingleDept key={index} data={{ ...el, pic: pics[index] }} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    <Footer />
+        <Footer />
     </>;
 }

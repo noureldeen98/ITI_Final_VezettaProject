@@ -14,21 +14,21 @@ export default function PHeader() {
     const [btn, setBtn] = useState(false);
     const [user, setUser] = useState(null)
 
+    useEffect(() => {
+        setUser(localStorage.getItem('authUserID'))
+    }, [user])
+
     const handleSignOut = () => {
         const auth = getAuth();
         signOut(auth)
             .then(() => {
-                localStorage.removeItem('authUserID')
-                history.push("/pharmacy");
+                localStorage.removeItem('authUserID');
+                localStorage.removeItem("cart");
             })
             .catch((error) => {
                 console.log(error);
             });
     };
-
-    useEffect(() => {
-        setUser(localStorage.getItem('authUserID'))
-    }, [user])
 
     const Languages = [
         {

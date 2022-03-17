@@ -48,7 +48,7 @@ const CartItem = ({ item, removeFromCart, adjustQty, loadCurrentItems }) => {
             </Link>
           </div>
           <div className="col-6 d-flex flex-column justify-content-between align-items-start">
-            <div className="fs-4">
+            <div className="fs-2">
               {item.nameAR} - {item.nameEN}
             </div>
             <div className="fs-5">{item.category}</div>

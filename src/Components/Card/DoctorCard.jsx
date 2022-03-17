@@ -1,14 +1,31 @@
 
 import { Link } from "react-router-dom";
-
+import React, { useState, useEffect } from 'react';
 import StarRating from '../StarRating/StarRatingCompo'
+import Mona from "../../Images/Doctors/mona.jpg";
+import Peter from "../../Images/Doctors/peter.jpg";
+import Eslam from "../../Images/Doctors/Islam.jpg";
+import Mostafa from "../../Images/Doctors/Mostafa.jpg";
+
 
 const Doctorcard = (props) => {
-  // Display the result on the page
-console.log(props.doctorData);
-   let theRecievedDta = props.doctorData;
+
+  const theDataAboutDoctors = [
+    { id: 1, Name: "منى عزت", Image: Mona },
+    { id: 2, Name: "بيتر كمال", Image: Peter },
+    { id: 3, Name: "اسلام", Image: Eslam },
+    { id: 4, Name: "مصطفى جمال", Image: Mostafa },
+  ];
+
+  console.log(props.doctorData);
+  let theRecievedDta = props.doctorData;
   console.log(theRecievedDta);
-  //  console.log(theRecievedDta.doctorData[0].id);
+  const [images] = useState(props.data)
+
+  useEffect(() => {
+    console.log(images)
+  }, [images, props.data])
+
   return (
     <>
       {theRecievedDta.map((theDoct) => {
@@ -39,8 +56,8 @@ console.log(props.doctorData);
                         >
                           دكتور{" "}
                           <span style={{ fontWeight: "bolder", color: "blue" }}>
-                          {/* <Link to={`/MergeDoctor/${theDoct.Name}`}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link> */}
-                          <Link to={{pathname:`/MergeDoctor/${theDoct.Name}`, state: { fromCovid: true}}}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link>
+                            {/* <Link to={`/MergeDoctor/${theDoct.Name}`}className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link> */}
+                            <Link to={{ pathname: `/MergeDoctor/${theDoct.Name}`, state: { fromCovid: true } }} className="fs-3 text-decoration-none"> {theDoct.Name}{" "}</Link>
                           </span>
                           <br />
                           {theDoct.Title}{" "}
@@ -63,7 +80,7 @@ console.log(props.doctorData);
                           </li>
                         </ul> */}
 
-                        <StarRating/>
+                        <StarRating />
                         <p className=" d-inline">
                           التقيم العام ٢٥ زاروا الدكتور
                         </p>
@@ -119,24 +136,24 @@ console.log(props.doctorData);
                         </div>
 
                         <div className="cols-md-4 timeTable">
-                         
-                            <p
-                              style={{
-                                color: "white",
-                                backgroundColor: "blue",
-                              }}
-                            >
-                              اليوم
-                            </p>
-                            <p style={{ color: "black" }}>٨:٠٠ ص</p>
-                            <p style={{ color: "black" }}>٨:٠٠ ص</p>
-                            <p style={{ color: "black" }}>٨:٠٠ ص</p>
-                            <input
-                              type="button"
-                              className="btn btn-danger row-cols-md-1"
-                              value="احجز الان"
-                            />
-                          
+
+                          <p
+                            style={{
+                              color: "white",
+                              backgroundColor: "blue",
+                            }}
+                          >
+                            اليوم
+                          </p>
+                          <p style={{ color: "black" }}>٨:٠٠ ص</p>
+                          <p style={{ color: "black" }}>٨:٠٠ ص</p>
+                          <p style={{ color: "black" }}>٨:٠٠ ص</p>
+                          <input
+                            type="button"
+                            className="btn btn-danger row-cols-md-1"
+                            value="احجز الان"
+                          />
+
                         </div>
 
                         <div

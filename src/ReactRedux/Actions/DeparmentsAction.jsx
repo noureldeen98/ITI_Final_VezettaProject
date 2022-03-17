@@ -58,6 +58,9 @@ const getOtherDept = (count) => {
         // Construct a new query starting at this document,
         // get the next 25 cities.
         const next = query(collection(db, "Departments2"),
+        where('common', '!=', true),
+        startAfter(lastVisible),
+        limit(2));
         where('common', '!=', true), 
         // startAfter(lastVisible),
         // limit(2)

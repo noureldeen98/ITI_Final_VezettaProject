@@ -68,6 +68,7 @@ function App() {
           </Provider>
 
           <Route path="**" component={NotFound} />
+
         </Switch>
       </LangProvider>
     </Provider>

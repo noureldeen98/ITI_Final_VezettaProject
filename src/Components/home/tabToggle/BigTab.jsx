@@ -135,7 +135,7 @@ export default function BigTab() {
                             {/* <!----awel part x el-t5sosat------> */}
                         </div>
                     </div>
-                    <div className={style.footer}>
+                    {/* <div className={style.footer}>
                         <button className={style.sliderBtn}
                         onClick={(e) => prevDpts(e)}>
                             <i className='fas fa-arrow-right mx-2'></i>
@@ -145,7 +145,7 @@ export default function BigTab() {
                         onClick={(e) => nextDpts(e)}>
                             <i className='fas fa-arrow-left mx-2'></i>
                         </button>
-                    </div>
+                    </div> */}
                 </ul>
             </div>
             <div className="dropdown">

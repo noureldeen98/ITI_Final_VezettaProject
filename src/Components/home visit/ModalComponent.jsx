@@ -27,7 +27,7 @@ export default function ModalComponent() {
     
     <NavbarComponent />
     <div className={`${style.content}`} style={{'width': '100%', 
-        'backgroundImage': `url(${bg})`, 'marginTop': '-7%', 'height': '31.5rem'}}>
+        'backgroundImage': `url(${bg})`, 'marginTop': '-7%', 'height': '53em'}}>
             {/* <!-- Modal --> */}
             <div className={`${style.staticBackdrop}`} id="staticBackdrop" 
             // data-bs-backdrop="static"

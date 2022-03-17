@@ -46,3 +46,7 @@
 #sItem:lang(ar) {
   width: max-content !important;
 }
+
+/* .visitForm:lang(ar) {
+  direction: rtl !important;
+} */

@@ -22,8 +22,8 @@ export default function PHeader() {
         const auth = getAuth();
         signOut(auth)
             .then(() => {
-                localStorage.removeItem('authUserID')
-                history.push("/home");
+                localStorage.removeItem('authUserID');
+                localStorage.removeItem("cart");
             })
             .catch((error) => {
                 console.log(error);

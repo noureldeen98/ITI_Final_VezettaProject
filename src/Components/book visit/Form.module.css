@@ -4,21 +4,21 @@
     direction: rtl;
     box-sizing: border-box;
 }
-#form {
+#myform {
     background-color: #f4f7fa;
     padding: 2em;
     margin: 4em;
     color: #6f7072;
     border-bottom-left-radius: 5em;
 }
-#form .dropdown div {
+#myform .dropdown div {
     background-color: white;
     width: 100%;
 }
-#form .dropdown div button::after {
+#myform .dropdown div button::after {
     margin-right: 18em;
 }
-#form > button {
+#myform > button {
     width: 100%;
 }
 .header {

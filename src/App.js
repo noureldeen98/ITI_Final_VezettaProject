@@ -27,7 +27,8 @@ import "./App.css";
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
   const [lang, setLang] = useState(myLang);
-  let [login, setLogin] = useState(true);
+  const logn=localStorage.getItem('Login')
+  const [login, setLogin] = useState(logn);
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
   localStorage.setItem('lang', lang);
@@ -50,8 +51,8 @@ function App() {
           <Route path="/MergeDoctor/:name" component={MergeDoctor} />
           <Route path="/done" component={Success} />
           <Route path='/Profile'>
-            {login ? <Profile /> : <Redirect to='/Signin' />}
-          </Route>
+          {login ? <Profile/> : <Redirect to='/Signin'/>}
+        </Route>
           <Provider store={storePharmacy}>
             <PayPalScriptProvider
               options={{
@@ -66,6 +67,7 @@ function App() {
             </PayPalScriptProvider>
           </Provider>
           <Route path="**" component={NotFound} />
+
         </Switch>
       </LangProvider>
     </Provider>

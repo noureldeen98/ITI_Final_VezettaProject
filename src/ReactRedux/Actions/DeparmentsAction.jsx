@@ -29,8 +29,9 @@ const getCommonDept = (count) => {
         // get the next 25 cities.
         const next = query(collection(db, "Departments2"),
         where('common', '==', true),
-        startAfter(lastVisible),
-        limit(count));
+        // startAfter(lastVisible),
+        // limit(count)
+        );
         getDocs(next)
         .then(data => {
             let allData = []
@@ -60,6 +61,10 @@ const getOtherDept = (count) => {
         where('common', '!=', true),
         startAfter(lastVisible),
         limit(2));
+        where('common', '!=', true), 
+        // startAfter(lastVisible),
+        // limit(2)
+        );
         getDocs(next)
         .then(data => {
             let allData = []

@@ -6,11 +6,13 @@ import "../style/style.css";
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 // الدخول
 export default function Signin() {
 
+    const [t, i18n] = useTranslation();
     const [Emaile, setUserEmaile] = useState("");
     const [pass, setPass] = useState("");
     const [user, setUser] = useState({});
@@ -25,10 +27,11 @@ export default function Signin() {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
+            // localStorage.setItem("Name", user.user.reloadUserInfo.Name);
             localStorage.setItem("Login", true);
             history.push('/home');
 
-            // console.log(user);
+              console.log(user.uid);
         } catch (err) {
             console.log(err);
         }
@@ -37,6 +40,8 @@ export default function Signin() {
     const logout = async () => {
         await signOut(auth);
         localStorage.removeItem("UserEmail")
+        localStorage.setItem("Login", false);
+        //  localStorage.removeItem("Name");
     };
 
     return (
@@ -45,7 +50,7 @@ export default function Signin() {
             <div className="row w-75 py-4" id="form">
                 <form className="needs-validation" noValidate>
                     <div id="one" className="row">
-                        <p style={{ marginBottom: " 0%" }} className="text-center">انضم الان</p>
+                        <p style={{ marginBottom: " 0%" }} className="text-center">{t('SiginUp')}</p>
                     </div>
                     {/* <div className="row">
                         <button type="submit" id="butt">
@@ -56,29 +61,29 @@ export default function Signin() {
                     {/* one */}
                     <div className="row iteam-form ">
                         <div className="col-lg-3  col-sm-12">
-                            <label htmlFor="validationCustom01">الموبايل او البريد الالكتروني</label>
+                            <label htmlFor="validationCustom01">{t('Emaile')}</label>
                             <sup style={{ color: "red" }}> *</sup>
                         </div>
                         <div className="col-lg-9">
                             <input type="text" className="form-control container-fluid" id="Email" required
-                                placeholder="الموبايل"
+                                placeholder={t('placeHolderEmail')}
                                 onChange={(event) => { setUserEmaile(event.target.value); }}
                                 value={Emaile} />
-                            <div className="valid-feedback">الموبايل او البريد الالكتروني</div>
+                            <div className="valid-feedback">{t('validEmail')}</div>
                         </div>
                     </div>
                     {/* two */}
                     <div className="row iteam-form">
                         <div className="col-lg-3  col-sm-12">
-                            <label htmlFor="validationCustom02">كلمة المرور</label>
+                            <label htmlFor="validationCustom02">{t('Password')}</label>
                             <sup style={{ color: "red" }}> *</sup>
                         </div>
 
                         <div className="col-lg-9">
-                            <input type="password" className="form-control container-fluid" placeholder="كلمة المرور" id="password" required
+                            <input type="password" className="form-control container-fluid" placeholder={t('Password')} id="password" required
                                 onChange={(event) => { setPass(event.target.value); }}
                                 value={pass} />
-                            <div className="valid-feedback">كلمة المرور</div>
+                            <div className="valid-feedback">{t('Password')}</div>
                         </div>
                     </div>
                     <hr className="mx-2" />
@@ -98,18 +103,18 @@ export default function Signin() {
 
                         <div className="row">
                             <button type="button" className="btn btn-danger"
-                                onClick={() => logInWithEmailAndPassword(Emaile, pass)} style={{ width: "150px" }}>دخول</button>
+                                onClick={() => logInWithEmailAndPassword(Emaile, pass)} style={{ width: "150px" }}>{t('login')}</button>
                         </div>
 
                         <div className="row py-4" style={{ textAlign: "center" }}>
-                            {user?.email}
-                            <p> لست مسجل في فيزيتا؟ <Link to="/Signup" style={{ textDecoration: "underline" }}>انضم الان</Link></p>
+                            {/* {user?.email} */}
+                            <p> {t('notLogin')}<Link to="/Signup" style={{ textDecoration: "underline" }}>{t('SiginUp')}</Link></p>
                         </div>
 
 
-                        <div>
+                        {/* <div>
                             <button onClick={logout}> Sign Out </button>
-                        </div>
+                        </div> */}
 
                     </div>
                 </form>

@@ -31,7 +31,7 @@ const Result = ({ data, cart, addToCart }) => {
                         className="d-flex flex-column justify-content-between"
                         style={{ width: "300px" }}
                     >
-                        <div className="d-flex align-items-start fw-bold">
+                        <div className="d-flex align-items-start fs-4 fw-bold">
                             {`${result.nameAR} | ${result.nameEN}`}
                         </div>
                         <div className="d-flex align-items-end">
@@ -49,7 +49,7 @@ const Result = ({ data, cart, addToCart }) => {
                             </div>
                         )}
                     </div> */}
-                    <div className="d-flex align-items-center fw-bold">
+                    <div className="d-flex align-items-center fs-4 fw-bold">
                         {result.price} {t("currency")}
                     </div>
                     <div className="d-flex align-items-center">

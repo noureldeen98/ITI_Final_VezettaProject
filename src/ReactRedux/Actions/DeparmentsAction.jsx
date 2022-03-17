@@ -2,7 +2,7 @@ import {db} from '../../FireBaseConfiguration/FirebaseConfiguration.js';
 import {query, collection, orderBy, limit, getDocs, startAfter, where} from 'firebase/firestore';
 const getDepts = () => {
     return (dispatch) => {
-        db.collection('Deparments').get()
+        db.collection('Departments2').get()
         .then(data => {
             let allData = []
             data.forEach(depts => {
@@ -19,7 +19,7 @@ const getDepts = () => {
 const getCommonDept = (count) => {
     return async (dispatch) => {
         // Query the first page of docs
-        const first = query(collection(db, 'Deparments'),
+        const first = query(collection(db, 'Departments2'),
         where('common', '!=', false), 
         limit(2));
         const firstHandler = await getDocs(first);
@@ -27,7 +27,7 @@ const getCommonDept = (count) => {
         const lastVisible = firstHandler.docs[firstHandler.docs.length-1];
         // Construct a new query starting at this document,
         // get the next 25 cities.
-        const next = query(collection(db, "Deparments"),
+        const next = query(collection(db, "Departments2"),
         where('common', '==', true),
         startAfter(lastVisible),
         limit(count));
@@ -48,7 +48,7 @@ const getCommonDept = (count) => {
 const getOtherDept = (count) => {
     return async (dispatch) => {
         // Query the first page of docs
-        const first = query(collection(db, 'Deparments'), 
+        const first = query(collection(db, 'Departments2'), 
         where('common', '!=', true), 
         limit(count));
         const firstHandler = await getDocs(first);
@@ -56,7 +56,7 @@ const getOtherDept = (count) => {
         const lastVisible = firstHandler.docs[firstHandler.docs.length-1];
         // Construct a new query starting at this document,
         // get the next 25 cities.
-        const next = query(collection(db, "Deparments"),
+        const next = query(collection(db, "Departments2"),
         where('common', '!=', true),
         startAfter(lastVisible),
         limit(2));

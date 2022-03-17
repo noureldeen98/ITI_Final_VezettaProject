@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from "react";
 import { Form, Row, Button, Modal, ModalTitle } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
@@ -7,6 +8,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useFormik } from "formik";
 import OtpInput from "react-otp-input";
 import { db } from "../../../FireBaseConfiguration/FirebaseConfiguration";
+import { useHistory } from 'react-router-dom';
 import userServices from "../userServices";
 import "./SigninModal.css";
 
@@ -15,6 +17,8 @@ export default function SigninModal(props) {
     const [confirmation, setConfirmation] = useState(false);
     const [otp, setOtp] = useState("");
     const [disabled, setDisabled] = useState(true);
+    const [userStatus, setUserStatus] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         const auth = getAuth();
@@ -22,8 +26,7 @@ export default function SigninModal(props) {
             if (user) {
                 const uid = user.uid;
                 localStorage.setItem('authUserID', uid)
-            } else {
-                localStorage.removeItem('authUserID')
+                setUserStatus(true);
             }
         });
     }, [props])
@@ -48,7 +51,7 @@ export default function SigninModal(props) {
             "recaptcha-container",
             {
                 size: "invisible",
-                callback: (response) => { },
+                callback: () => { },
             },
             pharmacyAuth
         );
@@ -82,38 +85,43 @@ export default function SigninModal(props) {
         }
     };
 
+    let phone = formik.values.phoneNumber;
+
     const verifyOTP = () => {
         let confirmationResult = window.confirmationResult;
         confirmationResult
             .confirm(otp)
-            .then(async (result) => {
+            .then((result) => {
                 const user = result.user;
                 const userID = user.uid;
-                const exUser = await userServices.getUser(userID);
-                const exUserData = exUser.data();
-                if (exUserData.phone !== formik.values.phoneNumber) {
-                    const userRef = db.doc(`PharmacyUsers/${userID}`);
-                    userRef.set({
-                        phone: user.phoneNumber,
-                        Name: formik.values.userName,
-                        Street: "",
-                        Building: "",
-                        Flat: "",
-                        landmark: "",
-                        Label: "",
-                        LabelOther: "",
-                    })
+                const checkUser = async () => {
+                    const user = await userServices.getUser(userID)
+                    const userData = user.data();
+                    const userPhone = userData.phone;
+                    if (userPhone === formik.values.phoneNumber) {
+                        history.push('/deliveryinfo')
+                    } else {
+                        const userRef = db.doc(`PharmacyUsers/${userID}`);
+                        userRef.set({
+                            phone: formik.values.phoneNumber,
+                            Name: formik.values.userName,
+                            Street: "",
+                            Building: "",
+                            Flat: "",
+                            landmark: "",
+                            Label: "",
+                            LabelOther: "",
+                        });
+                        setShow(false);
+                        setConfirmation(false);
+                    }
                 }
-                localStorage.setItem('authUserID', userID)
-                setShow(false);
-                setConfirmation(false);
+                checkUser()
             })
             .catch((error) => {
                 console.log(error.message);
             });
     };
-
-    let phone = formik.values.phoneNumber;
 
     const [show, setShow] = useState(props.btn);
     useEffect(() => {

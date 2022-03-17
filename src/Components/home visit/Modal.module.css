@@ -14,9 +14,11 @@
 .staticBackdrop {
     height: 28em;
     /* margin-top: 4em; */
+
 }
 .modalContent {
     padding: 0.7em;
+    height: 35em;
 }
 .modalContent img {
     width: 2em;

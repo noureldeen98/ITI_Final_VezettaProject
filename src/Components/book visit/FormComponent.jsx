@@ -80,8 +80,8 @@ export default function FormComponent() {
         history.push('/done');
     }
     return <>
-    <div className="col-lg-5 col-md-6 col-12 order-2 order-md-1">
-        <form onSubmit={(e) => submitHandler(e)} id="form">
+    <div className="col-lg-5 col-md-6 col-12 order-2 order-md-1" id="myForm2">
+        <form onSubmit={(e) => submitHandler(e)} id="myform">
             <div className={style.header} >
                 <h5>ادخل بياناتك وسيتم التواصل معك خلال دقائق </h5>
             </div>

@@ -61,10 +61,8 @@ const getOtherDept = (count) => {
         where('common', '!=', true),
         startAfter(lastVisible),
         limit(2));
-        where('common', '!=', true), 
         // startAfter(lastVisible),
         // limit(2)
-        );
         getDocs(next)
         .then(data => {
             let allData = []

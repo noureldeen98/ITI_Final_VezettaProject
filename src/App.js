@@ -27,7 +27,8 @@ import "./App.css";
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
   const [lang, setLang] = useState(myLang);
-  let [login, setLogin] = useState(true);
+  const logn=localStorage.getItem('Login')
+  const [login, setLogin] = useState(logn);
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
   localStorage.setItem('lang', lang);

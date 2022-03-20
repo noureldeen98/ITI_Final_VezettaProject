@@ -5,6 +5,7 @@
   .second {
     background-color: #e2e6ea;
     width:100%;
+    margin-top: 0 !important;
   }
   
   .breadcrumb-item + .breadcrumb-item::after {

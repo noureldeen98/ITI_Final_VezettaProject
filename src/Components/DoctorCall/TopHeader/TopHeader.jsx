@@ -45,6 +45,7 @@ const goToDoctorPage = () => {
       pathname: '/DoctorCall',
       search: `?dpt=${selectedDpts}&city=&area=&doc=`
   });
+  window.location.reload(false);
 }
 const [t, i18n] = useTranslation();
 

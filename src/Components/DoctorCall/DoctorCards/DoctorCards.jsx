@@ -14,7 +14,7 @@ import queryString from 'query-string';
 const DoctorCards=(props)=>{
   
   const location = useLocation();
- console.log(location.search)
+//  console.log(location.search)
   const value=queryString.parse(location.search);
   // console.log(value)
   const dispatch = useDispatch();
@@ -92,7 +92,7 @@ const DoctorCards=(props)=>{
       <br/>
 
     {doctors.doctor.map((doc,index) => {
-                  //  console.log(doc.Image)
+                    console.log(doc.timeTables)
                   let cash=doc.Price;
                    return (
                     <div className=" shadow-lg p-3 mb-5 bg-body rounded m-4  d-block " key={index}>
@@ -116,15 +116,30 @@ const DoctorCards=(props)=>{
                           <span>{t('No')} - {t('Cost')}  </span>
                            </div>
                           <div className="col-lg-4  col-sm-6 d-none d-md-flex  flex-row bd-highlight mt-4 me-1 text-center overflow-hidden">
-                            <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}}>
+                          {doc.timeTables&&doc.timeTables.map((tm,indx)=>{
+                            return(
+                            <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}} key={indx}>                        
+                              <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{tm.day}</span>
+                              <p>{tm.date}</p>
+                              {tm.hours.map((h,i)=>{
+                                // {h.status&&h.status=='empty'}
+                                return(
+                                  
+                                  <span className="px-3 py-2 text-center" key={i}>{h.hour} {t('PM')}</span>
+                                )
+                              })}
+                              <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
+                          </div>)
+                          })   }
+                            {/* <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}}>
                               <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{t('Today' )}</span>
                               <span className="px-3 py-2 text-center">10:00 {t('PM')}</span>
                               <span className="px-3 py-2 text-center">10:30 {t('PM')}</span>
                               <span className="px-3 py-2 text-center">11:00 {t('PM')}</span>
                               <span className="px-3 py-2 text-center">{t('More' )}</span>
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
-                          </div>
-                            <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center overflow-hidden" style={{"width": "250px"}}>
+                          </div> */}
+                            {/* <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center overflow-hidden" style={{"width": "250px"}}>
                               <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{t('Sun' )} </span>
                               <span className="px-3 py-2 text-center">10:00 {t('PM')}</span>
                               <span className="px-3 py-2 text-center">10:30 {t('PM')}</span>
@@ -139,7 +154,7 @@ const DoctorCards=(props)=>{
                                 <span className="px-3 py-2 text-center">11:00 {t('PM')}</span>
                                 <span className="px-3 py-2 text-center">{t('More' )}</span>
                                 <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
-                            </div>
+                            </div> */}
                            
                           </div> 
                           <p className="text-center ms-5">{t('Call' )}</p>

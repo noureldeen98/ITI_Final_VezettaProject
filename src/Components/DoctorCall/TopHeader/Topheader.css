@@ -4,7 +4,7 @@
       height: 180px;
       padding-right: 4em;
       padding-top: 1em;
-      overflow: hidden;
+      /* overflow: hidden; */
     }
 
     #img11:lang(ar){
@@ -20,7 +20,7 @@
         height: 89.5px;
       background-size: cover;
       width: 100%;
-      overflow-y: hidden;
+      /* overflow-y: hidden; */
     }
   
     #aside1 {

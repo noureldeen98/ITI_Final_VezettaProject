@@ -49,7 +49,7 @@ export default function NavbarComponent() {
     };
 
 
-return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0'>
+return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0 mb-0'>
     <nav className={`navbar navbar-expand-lg ${style.nav}`} >
         <div className="container" id="navBar">
             <button className={`navbar-toggler ${style['navbar-toggler']}`} 

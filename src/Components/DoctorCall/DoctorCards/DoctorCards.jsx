@@ -2,15 +2,16 @@ import{getAllDoctorAction,filterDoctor,clearDoctor} from '../../../ReactRedux/Ac
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {storage} from '../../../FireBaseConfiguration/FirebaseConfiguration'
+import {storage,db} from '../../../FireBaseConfiguration/FirebaseConfiguration'
 import { ref, getDownloadURL } from "firebase/storage";
 import './DoctorCards.css'
 import { useTranslation } from "react-i18next";
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
-import { useLocation } from "react-router-dom";
+import { useLocation ,useHistory} from "react-router-dom";
 import queryString from 'query-string';
-    
+import { query, collection, getDocs, where, arrayUnion, arrayRemove,updateDoc } from 'firebase/firestore';
+
 const DoctorCards=(props)=>{
   
   const location = useLocation();
@@ -20,6 +21,10 @@ const DoctorCards=(props)=>{
   const dispatch = useDispatch();
   const doctors = useSelector((state) => state.getDoctors);
    const loader = useSelector((state) => state.loader.loader);
+
+   const login=localStorage.getItem('Login')
+   const usrID = localStorage.getItem('usrID')
+   const history = useHistory();
 
   useEffect(() =>{
     if(location.search=='')
@@ -41,6 +46,46 @@ const DoctorCards=(props)=>{
    const { t } = useTranslation();
    const {lang, setLang} = useContext(langContext);
 
+  const addAppointment=async(hour,day,date,tableIndx,hourIndx,doc)=>{
+
+    if(login===false)
+    {
+      history.push('/Signin');
+      console.log(login)
+    }else
+    {
+      db.collection('Users').doc(usrID).update({
+        appointment:{date:date,day:day,hour:hour}
+      })
+      const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
+            where('Name','==',doc.Name));
+            const details = await getDocs(docts)
+            
+            details.forEach((doc) => {
+              console.log(doc.data())
+              
+            //    updateDoc(db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id), {
+            //     stuts: arrayRemove("busy")
+            // });
+            
+              // console.log(doc.id, " => ", doc.data());
+                // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id).update({
+                //   // timeTables:{0:{hours:{0:{stuts:'busy'}}}}
+                //   timeTables:object
+                //   //timeTables:{hours:{status:'busy'}}
+                //   // timeTables[tableIndx].hours[hourIndx].status:'busy'
+                // })
+
+            })
+        
+      // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc).update({
+      //   status:'busy'
+      // })
+      console.log(doc.timeTables.day)
+    }
+    // history.push('/Signin');
+ console.log(login)
+  }
     return(
         <>
 
@@ -92,7 +137,7 @@ const DoctorCards=(props)=>{
       <br/>
 
     {doctors.doctor.map((doc,index) => {
-                    console.log(doc.timeTables)
+                     console.log(doc)
                   let cash=doc.Price;
                    return (
                     <div className=" shadow-lg p-3 mb-5 bg-body rounded m-4  d-block " key={index}>
@@ -125,7 +170,8 @@ const DoctorCards=(props)=>{
                                 // {h.status&&h.status=='empty'}
                                 return(
                                   
-                                  <span className="px-3 py-2 text-center" key={i}>{h.hour} {t('PM')}</span>
+                                  <button type="button" className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light' } key={i}
+                                  onClick={()=>addAppointment(h.hour,tm.day,tm.date,indx,i,doc)}>{h.hour} {t('PM')}</button>
                                 )
                               })}
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>

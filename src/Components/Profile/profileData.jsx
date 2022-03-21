@@ -22,6 +22,7 @@ const ProfileData=()=>{
     const logout = async () => {
         await signOut(auth);
         localStorage.removeItem("UserEmail")
+        localStorage.removeItem("usrID")
         localStorage.setItem("Login", false);
         setlogin(login)
         history.push('/home');
@@ -40,8 +41,11 @@ const ProfileData=()=>{
                 setEmail(doc.data().Emaile)
                 setPhone(doc.data().Phone)
                 setDateBirth(doc.data().DateBirth)
+                localStorage.setItem('usrID',doc.id)
                
             })
+            // localStorage.setItem('usrID',ID)
+
     }
     getUer(usrEmail);
 },[])

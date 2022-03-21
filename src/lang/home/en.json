@@ -406,6 +406,7 @@
     "cart_header": "Order List",
     "cart_items_number": "Number Of Items",
     "cart_btn": "continue",
+    "cart_btn2": "payment",
     "Payment_Modal_Title": "Order Total",
     "Payment_Modal_Row1": "Items",
     "Payment_Modal_Row2": "Delivery charge",
@@ -451,7 +452,7 @@
     "Qty": "piece",
     "SiginUp": "sign up",
     "userName": "Your Name",
-    "placeHolderName": "First ame and Last name",
+    "placeHolderName": "First name and Last name",
     "validName": "Full Name is required ",
     "phoneNumber": "Mobile Number",
     "placeHolderPhone": "please enter your phone",
@@ -483,5 +484,6 @@
     "sendUs": "Mail Us",
     "logout": "Logout",
     "Save": "Save",
-    "Usr_Data": "Manage Profile"
+    "Usr_Data": "Manage Profile",
+    "Purchases":"Previous purchaese"
 }

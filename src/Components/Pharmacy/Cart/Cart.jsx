@@ -22,11 +22,11 @@ const Cart = ({ cart }) => {
         <>
             <PHeader />
 
-            <div className="search-cart">
+            <div className="search-cart" style={{ marginTop: '-30px' }}>
                 <Search />
             </div>
 
-            <div className="cart">
+            <div className="cart p-1">
                 <div className="cart-header">
                     <div className="fs-2 fw-bold" style={{ color: "#58595B" }}>
                         {t("cart_header")}
@@ -37,13 +37,15 @@ const Cart = ({ cart }) => {
                     </div>
                 </div>
 
-                <div className="cart-body">
+                <div className="cart-body pt-2 p-5">
                     {cart.map((item) => {
                         return <CartItem key={item.id} item={item} />;
                     })}
                 </div>
             </div>
-            <CartFooter />
+            <div style={{ marginTop: '50px' }}>
+                <CartFooter />
+            </div>
         </>
     );
 };

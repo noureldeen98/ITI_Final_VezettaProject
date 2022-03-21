@@ -437,6 +437,7 @@
     "cart_header": "قائمة الطلبات",
     "cart_items_number": "عدد الأصناف :",
     "cart_btn": "استمرار",
+    "cart_btn2": "الدفع",
     "Payment_Modal_Title": "الحساب الكلي",
     "Payment_Modal_Row1": "مكونات الطلب",
     "Payment_Modal_Row2": "تكلفة التوصيل",
@@ -482,5 +483,6 @@
     "Qty": "قطعة",
     "logout": "تسجيل الخروج",
     "Save": "حفظ",
-    "Usr_Data": "ادارة الملف الشخصي"
+    "Usr_Data": "ادارة الملف الشخصي",
+    "Purchases":"المشتريات السابقة"
 }

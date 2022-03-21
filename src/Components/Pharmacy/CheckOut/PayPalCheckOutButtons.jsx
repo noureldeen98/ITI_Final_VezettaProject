@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useHistory } from "react-router-dom";
+import { updateDoc, doc, arrayUnion } from "firebase/firestore";
+import { db } from '../../../FireBaseConfiguration/FirebaseConfiguration';
+
 
 const PayPalCheckOutButtons = ({ cart }) => {
-	const [products] = useState(cart);
-	const [amount] = useState(cart.length);
 	const [price, setPrice] = useState(0);
 	const history = useHistory();
 
@@ -17,18 +18,24 @@ const PayPalCheckOutButtons = ({ cart }) => {
 		setPrice(price);
 	}, [cart]);
 
-	const [error, setError] = useState(null);
+	const [user] = useState(localStorage.getItem("authUserID"));
 	const [paid, setPaid] = useState(false);
+	// const [date] = useState(new Date().toLocaleDateString())
+
 	const handleApprove = (orderID) => {
 		setPaid(true);
 	}
 
 	if (paid) {
-		alert("Purchased Succefully!");
+		history.push('/deliveryinfo')
 	}
 
-	if (error) {
-		alert("Error! try again later");
+
+	const addToPurchased = async () => {
+		const userDoc = doc(db, "PharmacyUsers", user);
+		await updateDoc(userDoc, {
+			purchases: arrayUnion(...cart)
+		});
 	}
 
 	return (
@@ -48,7 +55,7 @@ const PayPalCheckOutButtons = ({ cart }) => {
 								description: 'Vezeeta pharmacy online store',
 								amount: {
 									currency_code: 'USD',
-									value: (price / 15),
+									value: price,
 								},
 							},
 						],
@@ -58,12 +65,13 @@ const PayPalCheckOutButtons = ({ cart }) => {
 					const order = await actions.order.capture();
 					console.log("order", order);
 					handleApprove(data.orderID);
+					addToPurchased();
 				}}
 				onCancel={() => {
 					history.push("/cart");
 				}}
 				onError={(error) => {
-					setError(error);
+					console.log(error)
 				}}
 			/>
 		</>

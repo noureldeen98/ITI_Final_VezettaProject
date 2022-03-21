@@ -1,4 +1,6 @@
 import './FirstCardReservStyle.css'
+
+
 const FirstCardReserve=()=>{
 
     return(

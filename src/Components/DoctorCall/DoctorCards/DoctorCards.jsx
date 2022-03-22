@@ -1,14 +1,12 @@
 import{getAllDoctorAction,filterDoctor,clearDoctor} from '../../../ReactRedux/Actions/DoctorCallAction'
 import {useDispatch, useSelector} from 'react-redux';
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import {storage,db} from '../../../FireBaseConfiguration/FirebaseConfiguration'
-import { ref, getDownloadURL } from "firebase/storage";
+import {db} from '../../../FireBaseConfiguration/FirebaseConfiguration'
 import './DoctorCards.css'
 import { useTranslation } from "react-i18next";
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
-import { useLocation ,useHistory} from "react-router-dom";
+import { useLocation ,useHistory ,Link , Route, Redirect} from "react-router-dom";
 import queryString from 'query-string';
 import { query, collection, getDocs, where, arrayUnion, arrayRemove,updateDoc } from 'firebase/firestore';
 
@@ -48,11 +46,16 @@ const DoctorCards=(props)=>{
 
   const addAppointment=async(hour,day,date,tableIndx,hourIndx,doc)=>{
 
+
+    // login ? null : <Redirect to='/Signin'/>
     if(login===false)
     {
-      history.push('/Signin');
+      //  <Redirect to='/Signin'/>
+      //history.replace('/Signin');
+      // history.push('/Signin');
       console.log(login)
-    }else
+     }
+    else
     {
       db.collection('Users').doc(usrID).update({
         appointment:{date:date,day:day,hour:hour}
@@ -62,7 +65,7 @@ const DoctorCards=(props)=>{
             const details = await getDocs(docts)
             
             details.forEach((doc) => {
-              console.log(doc.data())
+              console.log(doc.data().timeTables)
               
             //    updateDoc(db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id), {
             //     stuts: arrayRemove("busy")
@@ -81,10 +84,10 @@ const DoctorCards=(props)=>{
       // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc).update({
       //   status:'busy'
       // })
-      console.log(doc.timeTables.day)
+      // console.log(doc.timeTables.day)
     }
     // history.push('/Signin');
- console.log(login)
+//  console.log(login)
   }
     return(
         <>
@@ -137,7 +140,7 @@ const DoctorCards=(props)=>{
       <br/>
 
     {doctors.doctor.map((doc,index) => {
-                     console.log(doc)
+                      console.log(doc.timeTables)
                   let cash=doc.Price;
                    return (
                     <div className=" shadow-lg p-3 mb-5 bg-body rounded m-4  d-block " key={index}>

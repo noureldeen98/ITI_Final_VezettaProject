@@ -10,10 +10,9 @@ import { useLocation ,useHistory ,Link , Route, Redirect} from "react-router-dom
 import queryString from 'query-string';
 import { query, collection, getDocs, where, arrayUnion, arrayRemove,updateDoc } from 'firebase/firestore';
 
-const DoctorCards=(props)=>{
+const DoctorCards=()=>{
   
   const location = useLocation();
-//  console.log(location.search)
   const value=queryString.parse(location.search);
   // console.log(value)
   const dispatch = useDispatch();
@@ -24,6 +23,7 @@ const DoctorCards=(props)=>{
    const usrID = localStorage.getItem('usrID')
    const history = useHistory();
    const newTimeTabes = [];
+   const usrAppointment=[];
 
   useEffect(() =>{
     if(location.search=='')
@@ -36,17 +36,14 @@ const DoctorCards=(props)=>{
 
     console.log(doctors)
 
-
     return () => {
       dispatch(clearDoctor());
     };
 
    } ,[] );
+
    const { t } = useTranslation();
-   const {lang, setLang} = useContext(langContext);
-
-
-    
+   const {lang, setLang} = useContext(langContext);   
 
   const addAppointment=async(e, hour,day,date,tableIndx,hourIndx,doc)=>{
     const datee = e.target.id
@@ -63,11 +60,16 @@ const DoctorCards=(props)=>{
     else
     {
       // db.collection('Users').doc(usrID).update({
-      //   appointment:{date:date,day:day,hour:hour}
+      //   appointment:{date:date,day:day,hour:hour,DoctorName:doc.Name}
+      // })
+      // db.collection('Users').doc(usrID).get().then(doc => {
+      //   console.log(doc.data().appointment);
+      //   usrAppointment=doc.data().appointment
+      //   console.log('usrAppointment',usrAppointment)
       // })
       const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
             where('Name','==',doc.Name));
-            
+
             const details = await getDocs(docts)
             details.forEach((doc) => {
               console.log(doc.data().timeTables)
@@ -102,6 +104,22 @@ const DoctorCards=(props)=>{
                       }
 
                       console.log('new',newObj2);
+                      // const mapped = newObj2.hours.map((obj, index) => obj.hour);
+                      // const filtered = mapped.filter((hour, index) =>  mapped.indexOf(hour) === index  )
+                      // console.log('filtered',mapped)
+                      // let deleteIndx=newObj2.hours.find(el=>el.hour==el.hour&&el.status!=el.status)
+                      let test = newObj2.hours.filter( (ele, ind) => ind === newObj2.hours.findLastIndex( elem => elem.hour === ele.hour ))
+                       console.log('after filter test ',test)
+
+                       var newObj3 = {
+                        date: time.date,
+                        day: time.day,
+                        hours:test
+                      }
+                      console.log('newObj3 ',newObj3)
+                      newTimeTabes.push(newObj3);
+                      console.log('add newObj3', newTimeTabes);
+                     
                     }
                   })
                 } else {
@@ -111,6 +129,9 @@ const DoctorCards=(props)=>{
               }) 
 
               console.log('new time', newTimeTabes);
+              db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id).update({
+                timeTables:newTimeTabes
+             })
 
               
             //    updateDoc(db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id), {
@@ -127,22 +148,16 @@ const DoctorCards=(props)=>{
 
             })
 
-      // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc).update({
-      //   status:'busy'
-      // })
-      // console.log(doc.timeTables.day)
     }
     // history.push('/Signin');
 //  console.log(login)
 
 
-            // console.log('my data', docts);
     }
   
     return(
         <>
-
-       
+      
         <div className="col-md-9 overflow-hidden col-sm-11 align-self-center name" >
         <span className="fs-4 text-secondary fw-bold"> {t('All_Specialities')} </span>
        <span className="fs-5 text-secondary fw-light">	&nbsp; {t('Doctor')}</span>
@@ -196,11 +211,9 @@ const DoctorCards=(props)=>{
                     <div className=" shadow-lg p-3 mb-5 bg-body rounded m-4  d-block " key={index}>
                     <div className="row justify-content-center">
                         <div className="col-2">
-                          {/* <img src={files[index]} className="card-img rounded   rounded-circle  mt-5 me-2 " alt="imge" /> */}
                          <img src={doc.Image} className="card-img rounded   rounded-circle  mt-5 me-2 " alt="imge" />
                         </div>
                         <div className="card-text col-lg-5 col-md-9 col-sm-8 me-4 overflow-hidden align-self-center">
-                          {/* <span className="text-primary fs-5 overflow-hidden">دكتور  <Link to={`/MergeDoctor/${doc.Name}`}className="fs-3 text-decoration-none"> {doc.Name} </Link> </span><i className="fas fa-phone-alt text-primary fs-5 mx-2"></i><i className="fas fa-video text-primary fs-5 mx-2"></i> */}
                           <span className="text-primary fs-5 overflow-hidden">{t('doc')}  <Link to={{pathname:`/MergeDoctor/${doc.Name}`, state: { fromCovid: false}}}className="fs-3 text-decoration-none"> {lang=='en'? doc.nameInArabic : doc.Name} </Link> </span><i className="fas fa-phone-alt text-primary fs-5 mx-2"></i><i className="fas fa-video text-primary fs-5 mx-2"></i>
                           <p>{lang=='en'? doc.departmentInArabic : doc.Department}  </p>
                           <i className="fas fa-star text-warning"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i>
@@ -220,41 +233,16 @@ const DoctorCards=(props)=>{
                               <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{tm.day}</span>
                               <p>{tm.date}</p>
                               {tm.hours.map((h,i)=>{
-                                // {h.status&&h.status=='empty'}
                                 return(
                                   
                                   <button type="button"
-                                  id={tm.date} className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light' } key={i}
+                                  id={tm.date} className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light disabled' } key={i}
                                   onClick={(e)=>addAppointment(e,h.hour,tm.day,tm.date,indx,i,doc)}>{h.hour} </button>
                                 )
                               })}
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
                           </div>)
                           })   }
-                            {/* <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}}>
-                              <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{t('Today' )}</span>
-                              <span className="px-3 py-2 text-center">10:00 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">10:30 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">11:00 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">{t('More' )}</span>
-                              <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
-                          </div> */}
-                            {/* <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center overflow-hidden" style={{"width": "250px"}}>
-                              <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{t('Sun' )} </span>
-                              <span className="px-3 py-2 text-center">10:00 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">10:30 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">11:00 {t('PM')}</span>
-                              <span className="px-3 py-2 text-center">{t('More' )}</span>
-                              <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
-                          </div>
-                            <div className="   bg-body mx-auto   px-2 d-flex flex-column text-center overflow-hidden" style={{"width": "250px"}}>
-                                <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{t('Tomorrow' )}</span>
-                                <span className="px-3 py-2 text-center">10:00 {t('PM')}</span>
-                                <span className="px-3 py-2 text-center">10:30 {t('PM')}</span>
-                                <span className="px-3 py-2 text-center">11:00 {t('PM')}</span>
-                                <span className="px-3 py-2 text-center">{t('More' )}</span>
-                                <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
-                            </div> */}
                            
                           </div> 
                           <p className="text-center ms-5">{t('Call' )}</p>

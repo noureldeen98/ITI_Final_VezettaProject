@@ -23,10 +23,11 @@ const ProfileData=()=>{
         await signOut(auth);
         localStorage.removeItem("UserEmail")
         localStorage.removeItem("usrID")
+        localStorage.removeItem("Name")
         localStorage.setItem("Login", false);
         setlogin(login)
         history.push('/home');
-        //  localStorage.removeItem("Name");
+
     };
     useEffect(()=>{
     const getUer=async()=>{

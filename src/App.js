@@ -52,6 +52,7 @@ function App() {
           <Route path="/MergeDoctor/:name" component={MergeDoctor} />
           <Route path="/done" component={Success} />
           <Route path="/Reservation" component={Reservation} />
+          {/* <Route path="/Profile" render = {() => (logn ?  (<Profile />) : (<Redirect to="/Signin" />))}/> */}
           <Route path='/Profile'>
           {login ? <Profile/> : <Redirect to='/Signin'/>}
         </Route>

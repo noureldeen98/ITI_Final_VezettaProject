@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../../../FireBaseConfiguration/FirebaseConfiguration";
+import { auth ,db} from "../../../FireBaseConfiguration/FirebaseConfiguration";
 import NavbarComponent from "../../home/header/NavbarComponent";
 import Footer from "../../home/footer/Footer";
 import "../style/style.css";
-import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
+import { query, collection, getDocs, where } from 'firebase/firestore';
 
 // الدخول
 export default function Signin() {
@@ -18,7 +18,6 @@ export default function Signin() {
     const [user, setUser] = useState({});
     const history = useHistory();
 
-
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
@@ -27,22 +26,25 @@ export default function Signin() {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
-            // localStorage.setItem("Name", user.user.reloadUserInfo.Name);
+            const Usr = query(collection(db,'/Users'),where('Emaile', '==', user.user.reloadUserInfo.email));
+    
+                const details = await getDocs(Usr)
+                details.forEach((doc) => {
+                    console.log(doc.id, " => ", doc.data());
+                    localStorage.setItem('usrID',doc.id)
+                    localStorage.setItem("Name", doc.data().Name);
+                   
+                })
             localStorage.setItem("Login", true);
             history.push('/home');
-
-              console.log(user.uid);
+            
+              console.log(user._tokenResponse.registered);
         } catch (err) {
             console.log(err);
         }
     };
 
-    const logout = async () => {
-        await signOut(auth);
-        localStorage.removeItem("UserEmail")
-        localStorage.setItem("Login", false);
-        //  localStorage.removeItem("Name");
-    };
+
 
     return (
         <>

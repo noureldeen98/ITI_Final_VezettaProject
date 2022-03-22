@@ -52,9 +52,15 @@ const DeliveryInfo = ({ cart }) => {
         getUserDate();
     }, [user]);
 
-    const handleDelete = async (id) => {
-        await userServices.deleteUser(user);
-        setEdit(true);
+    const handleDelete = async () => {
+        userServices.updateUser(user, {
+            Street: "",
+            Building: "",
+            Flat: "",
+            landmark: "",
+            Label: "",
+            LabelOther: "",
+        }).then(window.location.reload());
     };
 
     return (

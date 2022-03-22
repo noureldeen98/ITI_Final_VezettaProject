@@ -6,24 +6,33 @@ import PHeader from "../PHeader/PHeader";
 import Search from "../Search/Search";
 import CartItem from "./CartItem";
 import CartFooter from './CartFooter';
+import { useHistory } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = ({ cart }) => {
     const [cartCount, setCartCount] = useState(cart.length);
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart));
         setCartCount(cart.length);
     }, [cart, cartCount, setCartCount]);
 
     const { t } = useTranslation();
 
+    const history = useHistory();
+    const clear = () => {
+        localStorage.removeItem('Cart')
+        history.push('/pharmacy')
+    }
+
     return (
         <>
             <PHeader />
 
-            <div className="search-cart" style={{ marginTop: '-30px' }}>
-                <Search />
+            <div className="search-cart d-flex">
+                <Search style={{ marginTop: '-30px' }} />
+                <button className="clear-btn" onClick={clear}>
+                    Clear
+                </button>
             </div>
 
             <div className="cart p-1">

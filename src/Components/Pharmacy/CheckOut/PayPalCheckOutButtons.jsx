@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useHistory } from "react-router-dom";
-import { updateDoc, doc, arrayUnion } from "firebase/firestore";
+import { getDoc, updateDoc, doc } from "firebase/firestore";
 import { db } from '../../../FireBaseConfiguration/FirebaseConfiguration';
 
 
@@ -20,7 +20,7 @@ const PayPalCheckOutButtons = ({ cart }) => {
 
 	const [user] = useState(localStorage.getItem("authUserID"));
 	const [paid, setPaid] = useState(false);
-	// const [date] = useState(new Date().toLocaleDateString())
+	const [date] = useState(new Date().toLocaleDateString())
 
 	const handleApprove = (orderID) => {
 		setPaid(true);
@@ -30,11 +30,14 @@ const PayPalCheckOutButtons = ({ cart }) => {
 		history.push('/deliveryinfo')
 	}
 
-
 	const addToPurchased = async () => {
 		const userDoc = doc(db, "PharmacyUsers", user);
+		const userSnap = await getDoc(userDoc);
+		const userData = userSnap.data();
+		const prev = userData.purchases;
+		console.log(prev)
 		await updateDoc(userDoc, {
-			purchases: arrayUnion(...cart)
+			purchases: [...cart, ...prev]
 		});
 	}
 

@@ -14,6 +14,7 @@ export default function DeliveryModal(props) {
     const [validated, setValidated] = useState(false);
 
     const [user] = useState(localStorage.getItem("authUserID"));
+
     const [phone, setPhone] = useState("");
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
@@ -24,7 +25,7 @@ export default function DeliveryModal(props) {
     const [labelOther, setLabelOther] = useState("");
 
     useEffect(() => {
-        const getUserDate = async () => {
+        const getUserData = async () => {
             const userData = await userServices.getUser(user);
             const userAdress = userData.data();
             setPhone(userAdress.phone)
@@ -36,7 +37,7 @@ export default function DeliveryModal(props) {
             setLabel(userAdress.Label)
             setLabelOther(userAdress.LabelOther)
         }
-        getUserDate()
+        getUserData()
     }, [user])
 
     const [address, setAddress] = useState(props.show);
@@ -50,17 +51,16 @@ export default function DeliveryModal(props) {
             event.preventDefault();
             event.stopPropagation();
             setValidated(true);
-        } else {
-            userServices.updateUser(user, {
-                Street: street,
-                Building: building,
-                Flat: flat,
-                landmark: landmark,
-                Label: label,
-                LabelOther: labelOther,
-            });
-            history.push("/deliveryinfo");
         }
+        userServices.updateUser(user, {
+            Street: street,
+            Building: building,
+            Flat: flat,
+            landmark: landmark,
+            Label: label,
+            LabelOther: labelOther,
+        });
+        history.push("/deliveryinfo");
     };
 
     const { t } = useTranslation();

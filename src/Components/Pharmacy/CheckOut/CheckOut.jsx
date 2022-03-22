@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PHeader from '../PHeader/PHeader';
 import PayPalCheckOutButtons from './PayPalCheckOutButtons';
 import './CheckOut.css';

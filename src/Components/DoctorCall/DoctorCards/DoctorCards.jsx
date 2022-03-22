@@ -25,6 +25,7 @@ const DoctorCards=(props)=>{
    const login=localStorage.getItem('Login')
    const usrID = localStorage.getItem('usrID')
    const history = useHistory();
+   const newTimeTabes = [];
 
   useEffect(() =>{
     if(location.search=='')
@@ -46,23 +47,61 @@ const DoctorCards=(props)=>{
    const { t } = useTranslation();
    const {lang, setLang} = useContext(langContext);
 
-  const addAppointment=async(hour,day,date,tableIndx,hourIndx,doc)=>{
-
+  const addAppointment=async(e, hour,day,date,tableIndx,hourIndx,doc)=>{
+    const datee = e.target.id
+    const currentTime = e.target.innerHTML;
     if(login===false)
     {
       history.push('/Signin');
       console.log(login)
     }else
     {
-      db.collection('Users').doc(usrID).update({
-        appointment:{date:date,day:day,hour:hour}
-      })
+      // db.collection('Users').doc(usrID).update({
+      //   appointment:{date:date,day:day,hour:hour}
+      // })
       const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
             where('Name','==',doc.Name));
             const details = await getDocs(docts)
-            
             details.forEach((doc) => {
-              console.log(doc.data())
+              const myTimes = doc.data().timeTables;
+              myTimes && myTimes.map(time => {
+                if(time.date == datee ) { //
+                  // console.log('one',time);//get complete object
+                  //loop on hours to edit status
+                  time.hours.map(hour => {
+                    // console.log('one', hour.hour, 'two', currentTime, 'three', 
+                    // (hour.hour.split(":")[0] === currentTime.split(":")[0]) && 
+                    // (hour.hour.split(":")[1] == currentTime.split(":")[1]));
+                    console.log('before hour', time);
+                    if((hour.hour.split(":")[0] === currentTime.split(":")[0]) && 
+                    Number.parseInt(hour.hour.split(":")[1]) == Number.parseInt(currentTime.split(":")[1])) {
+                      // console.log('hey', hour.hour, 'and', currentTime);
+                      // console.log('hello time', hour);
+                      const hoursOld = [...time.hours, {hour: hour.hour, status: 'busy'}];
+                      const crntTime = hoursOld.find(hour => (hour.hour.split(":")[0] == currentTime.split(":")[0]) && 
+                      Number.parseInt(hour.hour.split(":")[1]) == Number.parseInt(currentTime.split(":")[1]));
+                      const index = hoursOld.indexOf(crntTime);
+
+                      const newObj = hoursOld.pop(index);
+                
+                      console.log('hoursOd', hoursOld);
+                      console.log('newObj', newObj);
+                      var newObj2 = {
+                        date: time.date,
+                        day: time.day,
+                        hours: [...time.hours, {hour: hour.hour, status: 'busy'}]
+                      }
+
+                      console.log('new',newObj2);
+                    }
+                  })
+                } else {
+                  console.log('two', time);
+                  newTimeTabes.push(time);
+                }
+              }) 
+
+              console.log('new time', newTimeTabes);
               
             //    updateDoc(db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id), {
             //     stuts: arrayRemove("busy")
@@ -77,14 +116,9 @@ const DoctorCards=(props)=>{
                 // })
 
             })
-        
-      // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc).update({
-      //   status:'busy'
-      // })
-      console.log(doc.timeTables.day)
+
+            // console.log('my data', docts);
     }
-    // history.push('/Signin');
- console.log(login)
   }
     return(
         <>
@@ -170,8 +204,9 @@ const DoctorCards=(props)=>{
                                 // {h.status&&h.status=='empty'}
                                 return(
                                   
-                                  <button type="button" className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light' } key={i}
-                                  onClick={()=>addAppointment(h.hour,tm.day,tm.date,indx,i,doc)}>{h.hour} {t('PM')}</button>
+                                  <button type="button"
+                                  id={tm.date} className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light' } key={i}
+                                  onClick={(e)=>addAppointment(e,h.hour,tm.day,tm.date,indx,i,doc)}>{h.hour} </button>
                                 )
                               })}
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>

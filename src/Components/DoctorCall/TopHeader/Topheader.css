@@ -150,7 +150,7 @@
     width: 12em;
     text-align: center;
     border: none;
-    z-index: 1200;
+    z-index: 1040;
   }
   #alert:lang(ar){
     background-color: #0170ce;
@@ -160,7 +160,7 @@
     width: 12em;
     text-align: center;
     border: none;
-    z-index: 1200;
+    z-index: 1040;
     right: 53px;
   }
   

@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
 import { useLocation ,useHistory ,Link , Route, Redirect} from "react-router-dom";
 import queryString from 'query-string';
-import { query, collection, getDocs, where, arrayUnion, arrayRemove,updateDoc } from 'firebase/firestore';
+import { query, collection, getDocs, where } from 'firebase/firestore';
 
 const DoctorCards=()=>{
   
@@ -23,8 +23,9 @@ const DoctorCards=()=>{
    const usrID = localStorage.getItem('usrID')
    const history = useHistory();
    const newTimeTabes = [];
-   const usrAppointment=[];
+   let usrAppointment=[];
 
+   
   useEffect(() =>{
     if(location.search=='')
     {
@@ -45,36 +46,51 @@ const DoctorCards=()=>{
    const { t } = useTranslation();
    const {lang, setLang} = useContext(langContext);   
 
-  const addAppointment=async(e, hour,day,date,tableIndx,hourIndx,doc)=>{
-    const datee = e.target.id
-    const currentTime = e.target.innerHTML;
-// login ? null : <Redirect to='/Signin'/>
-    if(login===false)
+  const addAppointment=async()=>{
+    // const datee = e.target.id
+    // const currentTime = e.target.innerHTML;
+
+    if(!login)
     {
       
-      //  <Redirect to='/Signin'/>
-      //history.replace('/Signin');
        history.push('/Signin');
       console.log(login)
      }
     else
     {
-      // db.collection('Users').doc(usrID).update({
-      //   appointment:{date:date,day:day,hour:hour,DoctorName:doc.Name}
-      // })
-      // db.collection('Users').doc(usrID).get().then(doc => {
-      //   console.log(doc.data().appointment);
-      //   usrAppointment=doc.data().appointment
-      //   console.log('usrAppointment',usrAppointment)
-      // })
+    const hour=localStorage.getItem('AppHour')
+    const day=localStorage.getItem('AppDay')
+    const date=localStorage.getItem('AppDate')
+    const doc=localStorage.getItem('AppDoc')
+    const datee=localStorage.getItem('datee')
+    const currentTime=localStorage.getItem('currentTime')
+
+      console.log(hour,date,day,datee,doc,currentTime,'else')
+     const usrObj={
+      date: date,
+      day: day,
+      hour: hour,
+      DoctorName:doc
+    }
+      db.collection('Users').doc(usrID).get().then(doc => {
+        console.log(doc.data().appointment);
+        usrAppointment=doc.data().appointment
+        console.log('usrAppointment',usrAppointment)
+        usrAppointment.push(usrObj)
+      })
+
+      console.log('usrAppointment after add new appointment',usrAppointment)
+     
       const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
-            where('Name','==',doc.Name));
+            where('Name','==',doc));
 
             const details = await getDocs(docts)
             details.forEach((doc) => {
               console.log(doc.data().timeTables)
 
               const myTimes = doc.data().timeTables;
+              console.log('myTimes',myTimes)
+              console.log('datee',datee)
               myTimes && myTimes.map(time => {
                 if(time.date == datee ) { //
                   // console.log('one',time);//get complete object
@@ -104,10 +120,6 @@ const DoctorCards=()=>{
                       }
 
                       console.log('new',newObj2);
-                      // const mapped = newObj2.hours.map((obj, index) => obj.hour);
-                      // const filtered = mapped.filter((hour, index) =>  mapped.indexOf(hour) === index  )
-                      // console.log('filtered',mapped)
-                      // let deleteIndx=newObj2.hours.find(el=>el.hour==el.hour&&el.status!=el.status)
                       let test = newObj2.hours.filter( (ele, ind) => ind === newObj2.hours.findLastIndex( elem => elem.hour === ele.hour ))
                        console.log('after filter test ',test)
 
@@ -119,7 +131,11 @@ const DoctorCards=()=>{
                       console.log('newObj3 ',newObj3)
                       newTimeTabes.push(newObj3);
                       console.log('add newObj3', newTimeTabes);
-                     
+                      console.log('usrAppointment after new obj3',usrAppointment)
+
+                      db.collection('Users').doc(usrID).update({
+                        appointment: usrAppointment
+                      })
                     }
                   })
                 } else {
@@ -137,20 +153,26 @@ const DoctorCards=()=>{
             //    updateDoc(db.collection('Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id), {
             //     stuts: arrayRemove("busy")
             // });
-            
-              // console.log(doc.id, " => ", doc.data());
-                // db.collection('/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors').doc(doc.id).update({
-                //   // timeTables:{0:{hours:{0:{stuts:'busy'}}}}
-                //   timeTables:object
-                //   //timeTables:{hours:{status:'busy'}}
-                //   // timeTables[tableIndx].hours[hourIndx].status:'busy'
-                // })
 
+                history.push('/Reservation');
             })
 
     }
-    // history.push('/Signin');
-//  console.log(login)
+
+
+    }
+
+    const openModal=(e, hour,day,date,doc)=>{
+
+       localStorage.setItem('AppDate',date)
+       localStorage.setItem('AppDay',day)
+       localStorage.setItem('AppHour',hour)
+       localStorage.setItem('AppDoc',doc.Name)
+       localStorage.setItem('datee',e.target.id)
+       localStorage.setItem('currentTime',e.target.innerHTML)
+
+
+       console.log(hour,day,date,doc,e)
 
 
     }
@@ -213,7 +235,7 @@ const DoctorCards=()=>{
                         <div className="col-2">
                          <img src={doc.Image} className="card-img rounded   rounded-circle  mt-5 me-2 " alt="imge" />
                         </div>
-                        <div className="card-text col-lg-5 col-md-9 col-sm-8 me-4 overflow-hidden align-self-center">
+                        <div className="card-text col-lg-4 col-md-9 col-sm-8 me-4 overflow-hidden align-self-center">
                           <span className="text-primary fs-5 overflow-hidden">{t('doc')}  <Link to={{pathname:`/MergeDoctor/${doc.Name}`, state: { fromCovid: false}}}className="fs-3 text-decoration-none"> {lang=='en'? doc.nameInArabic : doc.Name} </Link> </span><i className="fas fa-phone-alt text-primary fs-5 mx-2"></i><i className="fas fa-video text-primary fs-5 mx-2"></i>
                           <p>{lang=='en'? doc.departmentInArabic : doc.Department}  </p>
                           <i className="fas fa-star text-warning"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i><i className="fas fa-star text-warning me-2"></i>
@@ -226,20 +248,61 @@ const DoctorCards=()=>{
                           <i className="fas fa-phone-alt text-primary border-bottom border-danger me-2 ms-3 pb-1 fs-5"></i>
                           <span>{t('No')} - {t('Cost')}  </span>
                            </div>
-                          <div className="col-lg-4  col-sm-6 d-none d-md-flex  flex-row bd-highlight mt-4 me-1 text-center overflow-hidden">
+                          <div className="col-lg-5  col-sm-6 d-none d-md-flex  flex-row bd-highlight  mt-4 me-1 text-center overflow-hidden">
                           {doc.timeTables&&doc.timeTables.map((tm,indx)=>{
                             return(
-                            <div className="   bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}} key={indx}>                        
-                              <span className=" bg-primary text-light px-3 py-2 rounded-top text-center">{tm.day}</span>
-                              <p>{tm.date}</p>
+                            <div className="bg-body   mx-auto   px-2 d-flex flex-column text-center" style={{"width": "250px"}} key={indx}>                        
+                              <span className="bg-primary text-light px-3 py-2 rounded-top text-center">{tm.day}</span>
+                              <p className="bg-primary text-light px-3 py-1 text-center">{tm.date}</p>
                               {tm.hours.map((h,i)=>{
                                 return(
-                                  
-                                  <button type="button"
+                                  <>
+                                  <button type="button" key={i} data-bs-toggle="modal" data-bs-target="#examplModal"
+                                  id={tm.date} className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light disabled' } 
+                                  onClick={(e)=>openModal(e,h.hour,tm.day,tm.date,doc)}>{h.hour} </button>
+
+                                {/* <button type="button" data-bs-toggle="modal" data-bs-target="#examplModal"
                                   id={tm.date} className={h.status==='empty' ?  "btn btn-light" :'text-decoration-line-through btn btn-light disabled' } key={i}
-                                  onClick={(e)=>addAppointment(e,h.hour,tm.day,tm.date,indx,i,doc)}>{h.hour} </button>
+                                  >{h.hour} </button>
+                                  <div className="modal fade" id="examplModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                  <div className="modal-dialog">
+                                    <div className="modal-content">
+                                      <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div className="modal-body">
+                                        Are You Sure to Reserve this appointment?
+                                      </div>
+                                      <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
+                                        onClick={()=>addAppointment()}>Yes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> */}
+</>
                                 )
                               })}
+                              <div className="modal fade" id="examplModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                  <div className="modal-dialog">
+                                    <div className="modal-content">
+                                      <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div className="modal-body">
+                                        Are You Sure to Reserve this appointment?
+                                      </div>
+                                      <div className="modal-footer">
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
+                                        onClick={()=>addAppointment()}>Yes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
                           </div>)
                           })   }

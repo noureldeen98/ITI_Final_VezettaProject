@@ -2,14 +2,26 @@ import NavbarComponent from './../home/header/NavbarComponent'
 import FirstCardReserve from './FirstCardReserve'
 import SecCardReserve from './SecCardReserve'
 import '../DoctorCall/DoctorPartMerge/DoctorpartMerge.css'
+import { useEffect } from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import{getSpecificDoc} from '../../ReactRedux/Actions/DoctorCallAction'
+
 const Reservation=()=>{
+
+    const AppDoc = localStorage.getItem('AppDoc')
+    const dispatch = useDispatch();
+    const doctor = useSelector((state) => state.getDoctors);
+    useEffect(() =>{
+        dispatch( getSpecificDoc(AppDoc,false))
+        console.log(doctor.getSpecificDoc)
+    },[])
 
     return(
         <>
         <NavbarComponent />
         <div className='row second mt-0'>
             <div className='col'>
-            <FirstCardReserve />
+            <FirstCardReserve doc={doctor.specificDoc}/>
            </div>
            <div className='col'>
            <SecCardReserve />

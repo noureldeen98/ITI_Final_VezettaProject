@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import PHeader from "../PHeader/PHeader";
-import PaymentModal from '../Cart/PaymentModal'
-import CartModal from './CartModal'
+import PaymentModal from "../Cart/PaymentModal";
+import CartModal from "./CartModal";
 import DeliveryModal from "../Cart/DeliveryModal";
 import userServices from "../userServices";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 import "./DeliveryInfo.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -52,19 +52,31 @@ const DeliveryInfo = ({ cart }) => {
         getUserDate();
     }, [user]);
 
-    const handleDelete = async (id) => {
-        await userServices.deleteUser(user);
-        setEdit(true);
+    const handleDelete = async () => {
+        userServices.updateUser(user, {
+            Street: "",
+            Building: "",
+            Flat: "",
+            landmark: "",
+            Label: "",
+            LabelOther: "",
+        }).then(window.location.reload());
     };
 
     return (
         <>
             <PHeader />
             <div className="container-fluid">
-                <div className="row">
+                <div className="row p-5">
                     <div className="col-8">
                         <div className="deliveryinfo-container">
-                            <h1 style={{ color: "#67686A", fontWeight: "600", fontSize: "25px" }}>
+                            <h1
+                                style={{
+                                    color: "#67686A",
+                                    fontWeight: "600",
+                                    fontSize: "25px",
+                                }}
+                            >
                                 {t("Delivery_Data")}
                             </h1>
                             <div className="data-container">
@@ -74,7 +86,10 @@ const DeliveryInfo = ({ cart }) => {
                                         <span>{labelOther ? labelOther : label}</span>
                                     </div>
                                     <div className="d-flex justify-content-center">
-                                        <div onClick={() => setEdit(!edit)} style={{ cursor: "pointer" }}>
+                                        <div
+                                            onClick={() => setEdit(!edit)}
+                                            style={{ cursor: "pointer" }}
+                                        >
                                             <i className="fas fa-pencil-alt"></i>
                                             <span>{t("Edit")}</span>
                                         </div>
@@ -99,7 +114,7 @@ const DeliveryInfo = ({ cart }) => {
                                         <div>
                                             <span>{t("Address_Data")} : </span>
                                             <span>
-                                                {street}  {building}  {flat}  {landmark}
+                                                {street} {building} {flat} {landmark}
                                             </span>
                                         </div>
                                     </div>
@@ -107,7 +122,7 @@ const DeliveryInfo = ({ cart }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-4 d-flex flex-column justify-content-between p-5">
+                    <div className="col-4 d-flex flex-column justify-content-between">
                         <button
                             className="delivery-btn"
                             onClick={() => setPaymentBtn(!paymentBtn)}
@@ -124,10 +139,17 @@ const DeliveryInfo = ({ cart }) => {
                         </button>
                         <button
                             className="delivery-btn"
-                            onClick={() => history.push('/checkout')}
+                            onClick={() => history.push("/checkout")}
                         >
-                            {t("cart_btn")}
+                            {t("cart_btn2")}
                             <i className="fab fa-cc-paypal"></i>
+                        </button>
+                        <button
+                            className="delivery-btn"
+                            onClick={() => history.push("/history")}
+                        >
+                            {t("Purchases")}
+                            <i className="fas fa-history"></i>{" "}
                         </button>
                     </div>
                 </div>
@@ -136,7 +158,7 @@ const DeliveryInfo = ({ cart }) => {
             <CartModal cartBtn={cartBtn} />
         </>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {

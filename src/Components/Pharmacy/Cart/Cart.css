@@ -34,6 +34,22 @@
   padding: 0 10px;
   background-color: white;
 }
+.clear-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px;
+  width: 125px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: rgb(1, 112, 206);
+  padding: 10px;
+  font-weight: 700;
+  border: 0;
+  color: white;
+  outline: none;
+  font-size: 25px;
+}
 .payment-btn {
   margin: 0px 5px;
   display: inline-flex;

@@ -11,7 +11,6 @@ const CartModal = ({ cartBtn, cart }) => {
     const history = useHistory();
     useEffect(() => {
         setShow(cartBtn);
-        console.log(cart);
     }, [cart, cartBtn]);
 
     const [cartCount] = useState(cart.length);

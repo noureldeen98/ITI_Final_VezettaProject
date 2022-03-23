@@ -13,7 +13,7 @@ db.collection("Pharmacy")
 
 const INITIAL_STATE = {
     data: medicines,
-    cart: JSON.parse(localStorage.getItem("cart")) || [],
+    cart: JSON.parse(localStorage.getItem("Cart")) || [],
     currentItem: null,
 };
 

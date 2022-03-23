@@ -5,7 +5,7 @@ import "../style/style.css"
 import { Link } from 'react-router-dom'
 import { db, auth } from '../../../FireBaseConfiguration/FirebaseConfiguration'
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { collection, getDocs, addDoc } from 'firebase/firestore'
+import { collection, getDocs, addDoc,query, where } from 'firebase/firestore'
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -33,6 +33,15 @@ export default function Auth() {
                 Phone: Phone,
                 DateBirth: DateBirth
             });
+            const Usr = query(collection(db,'/Users'),where('Emaile', '==',email));
+    
+                const details = await getDocs(Usr)
+                details.forEach((doc) => {
+                    console.log(doc.id, " => ", doc.data());
+                    localStorage.setItem('usrID',doc.id)
+                    localStorage.setItem('UserEmail',doc.data().Emaile)
+                   
+                })
             localStorage.setItem("Name", Name);
             localStorage.setItem("Login", true);
             history.push('/home');

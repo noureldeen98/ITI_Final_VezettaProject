@@ -23,6 +23,7 @@ import Success from "./Components/Success/Success";
 import DeliveryInfo from "./Components/Pharmacy/CheckOut/DeliveryInfo";
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import Profile from './Components/Profile/Profile'
+import Reservation from './Components/Reservation/Reservation'
 import "./App.css";
 
 function App() {
@@ -51,6 +52,10 @@ function App() {
           <Route path="/DoctorCall" component={DoctorCallPage} />
           <Route path="/MergeDoctor/:name" component={MergeDoctor} />
           <Route path="/done" component={Success} />
+          {/* <Route path="/Reservation" component={Reservation} /> */}
+          <Route path='/Reservation'>
+          {login ? <Reservation/> : <Redirect to='/Signin'/>}
+        </Route>
           <Route path='/Profile'>
             {login ? <Profile /> : <Redirect to='/Signin' />}
           </Route>

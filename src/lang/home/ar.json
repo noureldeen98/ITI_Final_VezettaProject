@@ -485,4 +485,21 @@
     "Save": "حفظ",
     "Usr_Data": "ادارة الملف الشخصي",
     "Purchases":"المشتريات السابقة"
+    "Modal_Serve":" هل متأكد أنت من حجز هذا المعاد ؟",
+    "Yes":"تأكيد",
+    "Cancle":"إلغاء",
+    "Thank_Vezeeta":"شكراً لاستخدامك فيزيتا ,نتمنى لك دوام الصحة",
+    "Resevive_ASk":"يسعدنا تلقي استفساراتكم على",
+    "Book_Appointment":"لقد تم حجز ميعادك بنجاح",
+    "Doc_Told":"أبلغنا دكتور",
+    "book_you":"بحجزك",
+    "Session_Price":"سعر الكشف",
+    "Pound":"جنيه",
+    "Clinic_NO":"رقم تليفون العيادة",
+    "Booking_details":"تفاصيل الحجز",
+    "booking_date":"تاريخ الحجز",
+    "doctor_name":"اسم الدكتور",
+    "Patient_name":"اسم المريض",
+    "Clinic_address":"عنوان العيادة",
+    "my_appointments":"مواعيدي"
 }

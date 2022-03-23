@@ -19,7 +19,9 @@ const ProfileData=()=>{
     const [Phone,setPhone]=useState('')
     const [DateBirth,setDateBirth]=useState('')
     const [ID,setID]=useState('')
+
     const logout = async () => {
+        
         await signOut(auth);
         localStorage.removeItem("UserEmail")
         localStorage.removeItem("usrID")
@@ -29,7 +31,9 @@ const ProfileData=()=>{
         localStorage.removeItem("AppDay")
         localStorage.removeItem("AppHour")
         localStorage.removeItem("AppDoc")
-        //localStorage.setItem("Login", false);
+        localStorage.removeItem("currentTime")
+        localStorage.removeItem("datee")
+
         setlogin(login)
         history.push('/home');
 

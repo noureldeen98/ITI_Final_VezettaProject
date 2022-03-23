@@ -30,14 +30,6 @@ export default function NavbarComponent() {
         setLang(newLang)
     }
 
-    // useEffect(()=>{
-    //     if(login===true)
-    //     {
-    //         setUserName(usrNme)
-    //         console.log(userName)
-    //     }
-    // },[login])
-    // console.log(usrNme)
      
     const logout = async () => {
         await signOut(auth);
@@ -81,17 +73,17 @@ return <div style={{'width': '100%', 'overflowX': 'hidden'}} className='row g-0 
                     <Link className="nav-link" to="#">
                     {t('header.vezeeta')} &nbsp; |</Link>
                 </li>
-                
+                {!login&&
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link" to="/Signin">
                     {t('header.login')} &nbsp; |</Link>
-                </li>
-
+                </li>}
+                {!login&& 
                 <li className={`${style['nav-item']}`}>
                     <Link className="nav-link active" to="/Signup"> 
                     {t('header.sign')}
                     </Link>
-                </li>
+                </li>}
                 {login&& 
                  <li className={`${style['nav-item']} border-0`} >
                     <Link className="nav-link"  to="/Profile">

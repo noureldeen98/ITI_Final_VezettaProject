@@ -16,6 +16,7 @@ const PayPalCheckOutButtons = ({ cart }) => {
 			price += item.qty * item.price;
 		});
 		setPrice(price);
+		console.log(price)
 	}, [cart]);
 
 	const [user] = useState(localStorage.getItem("authUserID"));
@@ -35,10 +36,10 @@ const PayPalCheckOutButtons = ({ cart }) => {
 		const userSnap = await getDoc(userDoc);
 		const userData = userSnap.data();
 		const prev = userData.purchases;
-		console.log(prev)
 		await updateDoc(userDoc, {
-			purchases: [...cart, ...prev]
+			purchases: [{ ...cart, date }, ...prev]
 		});
+		localStorage.removeItem('Cart');
 	}
 
 	return (

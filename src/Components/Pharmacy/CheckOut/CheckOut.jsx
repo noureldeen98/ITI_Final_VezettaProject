@@ -1,7 +1,8 @@
-import React from 'react';
-import PHeader from '../PHeader/PHeader';
-import PayPalCheckOutButtons from './PayPalCheckOutButtons';
-import './CheckOut.css';
+import React, { useState, useEffect } from "react";
+import PHeader from "../PHeader/PHeader";
+import PayPalCheckOutButtons from "./PayPalCheckOutButtons";
+
+import "./CheckOut.css";
 
 const CheckOut = () => {
 
@@ -9,12 +10,12 @@ const CheckOut = () => {
         <>
             <PHeader />
             <div className="checkout-container">
-                <div className='checkout-details'>
+                <div className="checkout-details">
                     <PayPalCheckOutButtons />
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default CheckOut;

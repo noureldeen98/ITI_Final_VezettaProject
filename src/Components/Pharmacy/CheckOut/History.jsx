@@ -20,6 +20,7 @@ const History = ({ cart }) => {
 			setPurchases(userPurchases.purchases);
 		};
 		getUserDate();
+		// console.log(purchases)
 	}, [purchases, user]);
 
 	return (
@@ -45,7 +46,8 @@ const History = ({ cart }) => {
 									</tr>
 								</thead>
 								<tbody>
-									{purchases.map((e, index) => {
+									{/* {purchases.map((e, index) => {
+										console.log(e)
 										return (
 											<>
 												<tr>
@@ -53,19 +55,19 @@ const History = ({ cart }) => {
 														{index + 1}
 													</th>
 													<td>
-														<img src={e.url} alt="medicine" width="50" height="50" />
+														<img src={e[index].url} alt="medicine" width="50" height="50" />
 													</td>
 													<td>
-														{e.nameAR} - {e.nameEN}
+														{e[index].nameAR} - {e[index].nameEN}
 													</td>
 													<td>
-														{e.qty} {t("Qty")}
+														{e[index].qty} {t("Qty")}
 													</td>
 													<td>
-														{e.price} {t("currency")}
+														{e[index].price} {t("currency")}
 													</td>
 													<td>
-														{e.price * e.qty} {t("currency")}
+														{e[index].price * e[index].qty} {t("currency")}
 													</td>
 													<td>
 														{e.date}
@@ -73,7 +75,7 @@ const History = ({ cart }) => {
 												</tr>
 											</>
 										)
-									})}
+									})} */}
 								</tbody>
 							</table>
 						</div>

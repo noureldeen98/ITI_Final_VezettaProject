@@ -64,13 +64,15 @@ const DoctorCards=()=>{
     const doc=localStorage.getItem('AppDoc')
     const datee=localStorage.getItem('datee')
     const currentTime=localStorage.getItem('currentTime')
+    const clincAddrs=localStorage.getItem('clincAddrs')
 
       console.log(hour,date,day,datee,doc,currentTime,'else')
      const usrObj={
       date: date,
       day: day,
       hour: hour,
-      DoctorName:doc
+      DoctorName:doc,
+      ClincAddrs:clincAddrs
     }
       db.collection('Users').doc(usrID).get().then(doc => {
         console.log(doc.data().appointment);
@@ -170,6 +172,8 @@ const DoctorCards=()=>{
        localStorage.setItem('AppDoc',doc.Name)
        localStorage.setItem('datee',e.target.id)
        localStorage.setItem('currentTime',e.target.innerHTML)
+       localStorage.setItem('clincAddrs',doc.Clinic_Address)
+       
 
 
        console.log(hour,day,date,doc,e)

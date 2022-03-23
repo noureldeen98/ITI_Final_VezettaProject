@@ -4,12 +4,14 @@ import { useTranslation } from "react-i18next";
 
 const FirstCardReserve=(data)=>{
 
+    let doctor=data.doc
     const AppDate = localStorage.getItem('AppDate')
     const AppDay = localStorage.getItem('AppDay')
     const AppHour = localStorage.getItem('AppHour')
     const AppDoc = localStorage.getItem('AppDoc')
     const UsrName = localStorage.getItem('Name')
-   let doctor=data.doc
+
+  
    const { t } = useTranslation();
 
     return(
@@ -44,7 +46,7 @@ const FirstCardReserve=(data)=>{
                        <hr/>
                        <div className='d-flex justify-content-start mb-2'>
                        <span className='text-secondary me-3 ms-3'> {t('booking_date')}</span> 
-                       <span  className='text-secondary me-5'>  {AppHour}  {AppDate} {AppDay} {t('Clinic_NO')}</span>
+                       <span  className='text-secondary me-5'>{AppDay}  {AppHour}  {AppDate}  {t('Clinic_NO')}</span>
                        </div>
                        <hr/>
                        <div className='d-flex justify-content-start mb-2'>

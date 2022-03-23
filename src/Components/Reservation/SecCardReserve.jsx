@@ -25,7 +25,7 @@ const SecCardReserve = () => {
                     <div className="col me-4 ms-4 text-secondary">
     <label htmlFor="validationDefault04" className="form-label fw-bold fs-5">النوع</label>
     <select className="form-select" id="validationDefault04" required>
-      <option selected disabled value="">اختار...</option>
+      <option defaultValue disabled value="">اختار...</option>
       <option value="male">ذكر</option>
                             <option value="female">أنثى</option>
     </select>

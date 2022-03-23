@@ -24,6 +24,8 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import Profile from './Components/Profile/Profile'
 import Reservation from './Components/Reservation/Reservation'
 import "./App.css";
+import Appointment from "./Components/Appointements/Appointment";
+import AppointmentsPages from "./pages/AppointmentsPages";
 
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
@@ -56,6 +58,7 @@ function App() {
           <Route path='/Profile'>
           {login ? <Profile/> : <Redirect to='/Signin'/>}
         </Route>
+        <Route path='/app' component={AppointmentsPages}/>
           <Provider store={storePharmacy}>
             <PayPalScriptProvider
               options={{

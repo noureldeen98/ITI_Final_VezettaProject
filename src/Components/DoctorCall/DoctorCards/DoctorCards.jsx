@@ -6,7 +6,7 @@ import './DoctorCards.css'
 import { useTranslation } from "react-i18next";
 import { useContext } from 'react';
 import { langContext } from '../../../Context/LangContext';
-import { useLocation ,useHistory ,Link , Route, Redirect} from "react-router-dom";
+import { useLocation ,useHistory ,Link } from "react-router-dom";
 import queryString from 'query-string';
 import { query, collection, getDocs, where } from 'firebase/firestore';
 
@@ -293,12 +293,12 @@ const DoctorCards=()=>{
                                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                       </div>
                                       <div className="modal-body">
-                                        Are You Sure to Reserve this appointment?
+                                      {t('Modal_Serve' )}
                                       </div>
                                       <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{t('Cancle' )}</button>
                                         <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
-                                        onClick={()=>addAppointment()}>Yes</button>
+                                        onClick={()=>addAppointment()}>{t('Yes' )}</button>
                                       </div>
                                     </div>
                                   </div>

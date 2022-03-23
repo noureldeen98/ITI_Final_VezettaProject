@@ -33,6 +33,7 @@ const ProfileData=()=>{
         localStorage.removeItem("AppDoc")
         localStorage.removeItem("currentTime")
         localStorage.removeItem("datee")
+        localStorage.removeItem("clincAddrs")
 
         setlogin(login)
         history.push('/home');

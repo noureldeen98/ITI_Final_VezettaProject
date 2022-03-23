@@ -170,6 +170,8 @@ const DoctorCards=()=>{
        localStorage.setItem('AppDoc',doc.Name)
        localStorage.setItem('datee',e.target.id)
        localStorage.setItem('currentTime',e.target.innerHTML)
+       localStorage.setItem('clincAddrs',doc.Clinic_Address)
+       
 
 
        console.log(hour,day,date,doc,e)

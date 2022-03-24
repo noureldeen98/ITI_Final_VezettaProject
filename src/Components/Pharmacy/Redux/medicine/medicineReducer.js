@@ -32,7 +32,7 @@ const medicineReducer = (state = INITIAL_STATE, action) => {
                             ? { ...item, qty: item.qty + 1 }
                             : item
                     )
-                    : [...state.cart, { ...item, qty: 1 }]
+                    : [...state.cart, { ...item, qty: 1, date: new Date().toLocaleDateString() }]
             }
 
         case actionTypes.REMOVE_FROM_CART:

@@ -24,8 +24,8 @@ export default function PHeader() {
             .then(() => {
                 localStorage.removeItem('Cart');
                 localStorage.removeItem('authUserID');
-                history.push('/pharmacy');
                 window.location.reload();
+                history.push('/pharmacy');
             })
             .catch((error) => {
                 console.log(error);

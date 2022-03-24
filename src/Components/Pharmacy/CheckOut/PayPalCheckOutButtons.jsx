@@ -20,7 +20,6 @@ const PayPalCheckOutButtons = ({ cart }) => {
 
 	const [user] = useState(localStorage.getItem("authUserID"));
 	const [paid, setPaid] = useState(false);
-	// const [date] = useState(new Date().toLocaleDateString())
 
 	const handleApprove = (orderID) => {
 		setPaid(true);

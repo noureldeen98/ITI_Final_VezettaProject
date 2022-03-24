@@ -1,9 +1,10 @@
 import React, {useState,useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
 import { auth ,db} from "../../FireBaseConfiguration/FirebaseConfiguration";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useHistory } from 'react-router-dom';
+import {  signOut } from "firebase/auth";
+import { useHistory,Link } from 'react-router-dom';
 import { query, collection, getDocs, where } from 'firebase/firestore';
+
 
 const ProfileData=()=>{
 
@@ -132,12 +133,15 @@ const ProfileData=()=>{
                                    onChange={(e) => setDateBirth(e.target.value)} />
                             </div>
                         </div>
+                        <hr/><br/>
                         <div className="d-flex justify-content-around">
-                            <button type="button" className="btn btn-danger me-5"
-                                 style={{ width: "150px" }} onClick={logout}>{t('logout')}</button>
-                        
-                            <button type="button" className="btn btn-primary ms-5"
-                                 style={{ width: "150px" }} onClick={()=>UpdateUstDate(name,Email,Phone,DateBirth)}
+                            <button type="button" className="btn btn-danger me-5 col-2"
+                                  onClick={logout}>{t('logout')}</button>
+
+                         <button type="button" className="btn btn-success btn-lg  col-2 mx-auto"><Link className=" text-light" to="/app">{t('my_appointments')}</Link></button>
+                            
+                            <button type="button" className="btn btn-primary ms-5 col-2"
+                                  onClick={()=>UpdateUstDate(name,Email,Phone,DateBirth)}
                                  >{t('Save')}</button>
                         </div>
                     </form>

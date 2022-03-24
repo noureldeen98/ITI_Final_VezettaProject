@@ -59,6 +59,7 @@ function App() {
           {login ? <Reservation/> : <Redirect to='/Signin'/>}
         </Route>
         <Route path='/app' component={AppointmentsPages}/>
+        {/* <Route path="/Profile" component={Profile} /> */}
           <Route path='/Profile'>
             {login ? <Profile /> : <Redirect to='/Signin' />}
           </Route>

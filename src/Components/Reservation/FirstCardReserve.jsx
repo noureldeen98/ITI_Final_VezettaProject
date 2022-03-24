@@ -1,5 +1,6 @@
 import './FirstCardReservStyle.css'
 import { useTranslation } from "react-i18next";
+import {Link} from 'react-router-dom'
 
 
 const FirstCardReserve=(data)=>{
@@ -59,7 +60,9 @@ const FirstCardReserve=(data)=>{
                        <span  className='text-secondary me-5'>{doctor.Clinic_Address}</span>
                        </div>
                        <hr/>
-                       <button type="button" className="btn btn-primary btn-lg  col-3 mx-auto ">{t('my_appointments')}</button>
+                       
+                       <button type="button" className="btn btn-primary btn-lg  col-3 mx-auto"><Link className=" text-light" to="/app">{t('my_appointments')}</Link></button>
+                       
                            </div>
                           
                       </div>

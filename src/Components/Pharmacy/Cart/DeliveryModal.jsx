@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, Form, Row, Col, InputGroup } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import userServices from "../userServices";
 import "./DeliveryModal.css";
 
 export default function DeliveryModal(props) {
     const history = useHistory();
+    const location = useLocation();
 
     const [other, setOther] = useState(false);
     const [landmarkInput, setLandmarkInput] = useState(false);
@@ -59,8 +60,12 @@ export default function DeliveryModal(props) {
             landmark: landmark,
             Label: label,
             LabelOther: labelOther,
-        });
-        history.push("/deliveryinfo");
+        })
+        if (location.pathname === '/deliveryinfo') {
+            window.location.reload();
+        } else {
+            history.push("/deliveryinfo");
+        }
     };
 
     const { t } = useTranslation();

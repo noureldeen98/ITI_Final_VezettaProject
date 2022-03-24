@@ -16,12 +16,11 @@ const PayPalCheckOutButtons = ({ cart }) => {
 			price += item.qty * item.price;
 		});
 		setPrice(price);
-		console.log(price)
-	}, [cart]);
+	}, [cart, price]);
 
 	const [user] = useState(localStorage.getItem("authUserID"));
 	const [paid, setPaid] = useState(false);
-	const [date] = useState(new Date().toLocaleDateString())
+	// const [date] = useState(new Date().toLocaleDateString())
 
 	const handleApprove = (orderID) => {
 		setPaid(true);
@@ -37,9 +36,10 @@ const PayPalCheckOutButtons = ({ cart }) => {
 		const userData = userSnap.data();
 		const prev = userData.purchases;
 		await updateDoc(userDoc, {
-			purchases: [{ ...cart, date }, ...prev]
+			purchases: [...cart, ...prev]
 		});
 		localStorage.removeItem('Cart');
+		window.location.reload();
 	}
 
 	return (
@@ -54,6 +54,14 @@ const PayPalCheckOutButtons = ({ cart }) => {
 				createOrder={(data, actions) => {
 					return actions.order.create({
 						intent: 'CAPTURE',
+						application_context: {
+							shipping_preference: "NO_SHIPPING",
+							brand_name: "VEZEETA",
+							user_action: 'PAY_NOW',
+							payment_method: {
+								payee_preferred: 'IMMEDIATE_PAYMENT_REQUIRED'
+							}
+						},
 						purchase_units: [
 							{
 								description: 'Vezeeta pharmacy online store',

@@ -1,0 +1,11 @@
+#app {
+    background-color: rgb(226, 230, 234);
+    margin: -1em 0em;
+    padding: 3em;
+}
+thead th {
+    color: #0070CD;
+}
+thead tr {
+    border: none !important;
+}

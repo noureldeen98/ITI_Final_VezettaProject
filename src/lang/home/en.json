@@ -485,7 +485,16 @@
     "logout": "Logout",
     "Save": "Save",
     "Usr_Data": "Manage Profile",
-    "Purchases":"Previous purchaese",
+    "appointment": {
+        "vezeeta": "vezeeta",
+        "mytimetable": "my timetables",
+        "doctorName": "Doctor name",
+        "where": "Where",
+        "app": "Book appointments",
+        "info": "Details",
+        "sign": "Login and start booking with best doctors"
+    },
+        "Purchases":"Previous purchaese",
     "Modal_Serve":"Are You Sure to Reserve this appointment?",
     "Yes":"Yes",
     "Cancle":"Cancle",

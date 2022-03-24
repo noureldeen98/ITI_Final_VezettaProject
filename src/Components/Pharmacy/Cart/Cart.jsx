@@ -22,6 +22,7 @@ const Cart = ({ cart }) => {
     const clear = () => {
         localStorage.removeItem('Cart')
         history.push('/pharmacy')
+        window.location.reload();
     }
 
     return (

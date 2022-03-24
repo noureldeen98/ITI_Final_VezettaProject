@@ -20,7 +20,6 @@ const History = ({ cart }) => {
 			setPurchases(userPurchases.purchases);
 		};
 		getUserDate();
-		// console.log(purchases)
 	}, [purchases, user]);
 
 	return (
@@ -33,7 +32,7 @@ const History = ({ cart }) => {
 							{t("Purchases")}
 						</h1>
 						<div className="history-data-container">
-							<table class="table table-hover">
+							<table className="table table-hover">
 								<thead>
 									<tr>
 										<th scope="col">#</th>
@@ -46,8 +45,8 @@ const History = ({ cart }) => {
 									</tr>
 								</thead>
 								<tbody>
-									{/* {purchases.map((e, index) => {
-										console.log(e)
+									{purchases.map((e, index) => {
+										console.log(purchases)
 										return (
 											<>
 												<tr>
@@ -55,19 +54,19 @@ const History = ({ cart }) => {
 														{index + 1}
 													</th>
 													<td>
-														<img src={e[index].url} alt="medicine" width="50" height="50" />
+														<img src={e.url} alt="medicine" width="50" height="50" />
 													</td>
 													<td>
-														{e[index].nameAR} - {e[index].nameEN}
+														{e.nameAR} - {e.nameEN}
 													</td>
 													<td>
-														{e[index].qty} {t("Qty")}
+														{e.qty} {t("Qty")}
 													</td>
 													<td>
-														{e[index].price} {t("currency")}
+														{e.price} {t("currency")}
 													</td>
 													<td>
-														{e[index].price * e[index].qty} {t("currency")}
+														{e.price * e.qty} {t("currency")}
 													</td>
 													<td>
 														{e.date}
@@ -75,7 +74,7 @@ const History = ({ cart }) => {
 												</tr>
 											</>
 										)
-									})} */}
+									})}
 								</tbody>
 							</table>
 						</div>

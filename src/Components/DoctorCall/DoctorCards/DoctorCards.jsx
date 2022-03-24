@@ -50,14 +50,7 @@ const DoctorCards=()=>{
     // const datee = e.target.id
     // const currentTime = e.target.innerHTML;
 
-    if(!login)
-    {
-      
-       history.push('/Signin');
-      console.log(login)
-     }
-    else
-    {
+
     const hour=localStorage.getItem('AppHour')
     const day=localStorage.getItem('AppDay')
     const date=localStorage.getItem('AppDate')
@@ -65,6 +58,7 @@ const DoctorCards=()=>{
     const datee=localStorage.getItem('datee')
     const currentTime=localStorage.getItem('currentTime')
     const clincAddrs=localStorage.getItem('clincAddrs')
+    const UsrName = localStorage.getItem('Name')
 
       console.log(hour,date,day,datee,doc,currentTime,'else')
      const usrObj={
@@ -118,7 +112,7 @@ const DoctorCards=()=>{
                       var newObj2 = {
                         date: time.date,
                         day: time.day,
-                        hours: [...time.hours, {hour: hour.hour, status: 'busy'}]
+                        hours: [...time.hours, {hour: hour.hour, status: UsrName}]
                       }
 
                       console.log('new',newObj2);
@@ -159,12 +153,19 @@ const DoctorCards=()=>{
                 history.push('/Reservation');
             })
 
-    }
+    
 
 
     }
 
     const openModal=(e, hour,day,date,doc)=>{
+
+      if(!login)
+    {
+      
+       history.push('/Signin');
+       }
+       else{
 
        localStorage.setItem('AppDate',date)
        localStorage.setItem('AppDay',day)
@@ -177,7 +178,7 @@ const DoctorCards=()=>{
 
 
        console.log(hour,day,date,doc,e)
-
+      }
 
     }
   
@@ -289,7 +290,7 @@ const DoctorCards=()=>{
 </>
                                 )
                               })}
-                              <div className="modal fade" id="examplModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                             {login && <div className="modal fade" id="examplModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                   <div className="modal-dialog">
                                     <div className="modal-content">
                                       <div className="modal-header">
@@ -306,7 +307,7 @@ const DoctorCards=()=>{
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                </div>}
                               <span className=" bg-danger text-light px-3 py-2 rounded-bottom text-center">{t('Book' )}</span>
                           </div>)
                           })   }

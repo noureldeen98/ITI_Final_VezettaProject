@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import reducer from "./reducer";
@@ -9,6 +9,5 @@ if (process.env.NODE_ENV === 'development') {
 	middleware.push(logger)
 }
 
-const composedEnhancer = compose(applyMiddleware(...middleware), composeWithDevTools())
-const storePharmacy = createStore(reducer, composedEnhancer);
+const storePharmacy = createStore(reducer, composeWithDevTools(applyMiddleware(...middleware)));
 export default storePharmacy;

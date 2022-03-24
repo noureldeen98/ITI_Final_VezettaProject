@@ -9,7 +9,7 @@ const Result = ({ data, cart, addToCart }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
+        localStorage.setItem("Cart", JSON.stringify(cart))
     }, [cart])
 
     return data.map((result) => {

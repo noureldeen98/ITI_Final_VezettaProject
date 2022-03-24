@@ -2,18 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Button, Modal, Form, Row, Col, InputGroup } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import userServices from "../userServices";
 import "./DeliveryModal.css";
 
 export default function DeliveryModal(props) {
     const history = useHistory();
+    const location = useLocation();
 
     const [other, setOther] = useState(false);
     const [landmarkInput, setLandmarkInput] = useState(false);
     const [validated, setValidated] = useState(false);
 
     const [user] = useState(localStorage.getItem("authUserID"));
+
     const [phone, setPhone] = useState("");
     const [name, setName] = useState("");
     const [street, setStreet] = useState("");
@@ -24,7 +26,7 @@ export default function DeliveryModal(props) {
     const [labelOther, setLabelOther] = useState("");
 
     useEffect(() => {
-        const getUserDate = async () => {
+        const getUserData = async () => {
             const userData = await userServices.getUser(user);
             const userAdress = userData.data();
             setPhone(userAdress.phone)
@@ -36,7 +38,7 @@ export default function DeliveryModal(props) {
             setLabel(userAdress.Label)
             setLabelOther(userAdress.LabelOther)
         }
-        getUserDate()
+        getUserData()
     }, [user])
 
     const [address, setAddress] = useState(props.show);
@@ -50,15 +52,18 @@ export default function DeliveryModal(props) {
             event.preventDefault();
             event.stopPropagation();
             setValidated(true);
+        }
+        userServices.updateUser(user, {
+            Street: street,
+            Building: building,
+            Flat: flat,
+            landmark: landmark,
+            Label: label,
+            LabelOther: labelOther,
+        })
+        if (location.pathname === '/deliveryinfo') {
+            window.location.reload();
         } else {
-            userServices.updateUser(user, {
-                Street: street,
-                Building: building,
-                Flat: flat,
-                landmark: landmark,
-                Label: label,
-                LabelOther: labelOther,
-            });
             history.push("/deliveryinfo");
         }
     };

@@ -6,27 +6,37 @@ import PHeader from "../PHeader/PHeader";
 import Search from "../Search/Search";
 import CartItem from "./CartItem";
 import CartFooter from './CartFooter';
+import { useHistory } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = ({ cart }) => {
     const [cartCount, setCartCount] = useState(cart.length);
 
     useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart));
         setCartCount(cart.length);
     }, [cart, cartCount, setCartCount]);
 
     const { t } = useTranslation();
 
+    const history = useHistory();
+    const clear = () => {
+        localStorage.removeItem('Cart')
+        history.push('/pharmacy')
+        window.location.reload();
+    }
+
     return (
         <>
             <PHeader />
 
-            <div className="search-cart">
-                <Search />
+            <div className="search-cart d-flex">
+                <Search style={{ marginTop: '-30px' }} />
+                <button className="clear-btn" onClick={clear}>
+                    Clear
+                </button>
             </div>
 
-            <div className="cart">
+            <div className="cart p-1">
                 <div className="cart-header">
                     <div className="fs-2 fw-bold" style={{ color: "#58595B" }}>
                         {t("cart_header")}
@@ -37,13 +47,15 @@ const Cart = ({ cart }) => {
                     </div>
                 </div>
 
-                <div className="cart-body">
+                <div className="cart-body pt-2 p-5">
                     {cart.map((item) => {
                         return <CartItem key={item.id} item={item} />;
                     })}
                 </div>
             </div>
-            <CartFooter />
+            <div style={{ marginTop: '50px' }}>
+                <CartFooter />
+            </div>
         </>
     );
 };

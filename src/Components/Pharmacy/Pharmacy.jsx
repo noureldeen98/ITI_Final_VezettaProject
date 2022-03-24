@@ -19,10 +19,6 @@ const Pharmacy = ({ cart }) => {
         setShowPanel(length)
     }, [cart])
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
-    }, [cart])
-
     const [user, setUser] = useState(null);
 
     useEffect(() => {

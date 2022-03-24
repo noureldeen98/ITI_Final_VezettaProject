@@ -406,6 +406,7 @@
     "cart_header": "Order List",
     "cart_items_number": "Number Of Items",
     "cart_btn": "continue",
+    "cart_btn2": "payment",
     "Payment_Modal_Title": "Order Total",
     "Payment_Modal_Row1": "Items",
     "Payment_Modal_Row2": "Delivery charge",
@@ -451,7 +452,7 @@
     "Qty": "piece",
     "SiginUp": "sign up",
     "userName": "Your Name",
-    "placeHolderName": "First ame and Last name",
+    "placeHolderName": "First name and Last name",
     "validName": "Full Name is required ",
     "phoneNumber": "Mobile Number",
     "placeHolderPhone": "please enter your phone",
@@ -492,6 +493,23 @@
         "app": "Book appointments",
         "info": "Details",
         "sign": "Login and start booking with best doctors"
-    }
-    
+    },
+        "Purchases":"Previous purchaese",
+    "Modal_Serve":"Are You Sure to Reserve this appointment?",
+    "Yes":"Yes",
+    "Cancle":"Cancle",
+    "Thank_Vezeeta":"Thank you for using Vezeeta, we wish you good health",
+    "Resevive_ASk":"We are pleased to receive your inquiries on",
+    "Book_Appointment":"Your appointment has been successfully booked",
+    "Doc_Told":"Doctor told us",
+    "book_you":"your book ",
+    "Session_Price":"Detection price",
+    "Pound":"Pound",
+    "Clinic_NO":"Clinic phone number",
+    "Booking_details":"Booking details",
+    "booking_date":"booking date",
+    "doctor_name":"Doctor name",
+    "Patient_name":"Patient name",
+    "Clinic_address":"Clinic address",
+    "my_appointments":"my appointments"
 }

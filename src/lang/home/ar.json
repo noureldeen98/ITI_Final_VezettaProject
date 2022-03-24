@@ -437,6 +437,7 @@
     "cart_header": "قائمة الطلبات",
     "cart_items_number": "عدد الأصناف :",
     "cart_btn": "استمرار",
+    "cart_btn2": "الدفع",
     "Payment_Modal_Title": "الحساب الكلي",
     "Payment_Modal_Row1": "مكونات الطلب",
     "Payment_Modal_Row2": "تكلفة التوصيل",
@@ -491,5 +492,23 @@
         "app": "موعد الحجز",
         "info": "تفاصيل",
         "sign": "قم بتسجيل الدخول واحجز مع افضل الدكاترة"
-    }
+    },
+    "Purchases":"المشتريات السابقة",
+    "Modal_Serve":" هل متأكد أنت من حجز هذا المعاد ؟",
+    "Yes":"تأكيد",
+    "Cancle":"إلغاء",
+    "Thank_Vezeeta":"شكراً لاستخدامك فيزيتا ,نتمنى لك دوام الصحة",
+    "Resevive_ASk":"يسعدنا تلقي استفساراتكم على",
+    "Book_Appointment":"لقد تم حجز ميعادك بنجاح",
+    "Doc_Told":"أبلغنا دكتور",
+    "book_you":"بحجزك",
+    "Session_Price":"سعر الكشف",
+    "Pound":"جنيه",
+    "Clinic_NO":"رقم تليفون العيادة",
+    "Booking_details":"تفاصيل الحجز",
+    "booking_date":"تاريخ الحجز",
+    "doctor_name":"اسم الدكتور",
+    "Patient_name":"اسم المريض",
+    "Clinic_address":"عنوان العيادة",
+    "my_appointments":"مواعيدي"
 }

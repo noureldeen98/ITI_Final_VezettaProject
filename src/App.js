@@ -7,6 +7,7 @@ import Pharmacy from "./Components/Pharmacy/Pharmacy";
 import Cart from "./Components/Pharmacy/Cart/Cart"
 import SingleItem from "./Components/Pharmacy/Cart/SingleItem";
 import CheckOut from "./Components/Pharmacy/CheckOut/CheckOut";
+import History from "./Components/Pharmacy/CheckOut/History";
 import ContactUS from "./Components/Contact/Contactus/Contactus";
 import Signup from "./Components/Contact/Signup/signup";
 import Signin from "./Components/Contact/Signin/signin";
@@ -30,7 +31,7 @@ import AppointmentsPages from "./pages/AppointmentsPages";
 function App() {
   const myLang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en';
   const [lang, setLang] = useState(myLang);
-  const logn=localStorage.getItem('Login')
+  const logn = localStorage.getItem('Login')
   const [login, setLogin] = useState(logn);
   //change lang handler 
   document.getElementsByTagName('html')[0].setAttribute('lang', lang);
@@ -53,12 +54,14 @@ function App() {
           <Route path="/DoctorCall" component={DoctorCallPage} />
           <Route path="/MergeDoctor/:name" component={MergeDoctor} />
           <Route path="/done" component={Success} />
-          <Route path="/Reservation" component={Reservation} />
-          {/* <Route path="/Profile" render = {() => (logn ?  (<Profile />) : (<Redirect to="/Signin" />))}/> */}
-          <Route path='/Profile'>
-          {login ? <Profile/> : <Redirect to='/Signin'/>}
+          {/* <Route path="/Reservation" component={Reservation} /> */}
+          <Route path='/Reservation'>
+          {login ? <Reservation/> : <Redirect to='/Signin'/>}
         </Route>
         <Route path='/app' component={AppointmentsPages}/>
+          <Route path='/Profile'>
+            {login ? <Profile /> : <Redirect to='/Signin' />}
+          </Route>
           <Provider store={storePharmacy}>
             <PayPalScriptProvider
               options={{
@@ -70,6 +73,7 @@ function App() {
               <Route path="/item/:id" component={SingleItem} />
               <Route path="/deliveryinfo" component={DeliveryInfo} />
               <Route path="/checkout" component={CheckOut} />
+              <Route path="/history" component={History} />
             </PayPalScriptProvider>
           </Provider>
           <Route path="**" component={NotFound} />

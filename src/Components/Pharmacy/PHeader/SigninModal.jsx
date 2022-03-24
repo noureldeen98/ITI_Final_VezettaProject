@@ -91,36 +91,33 @@ export default function SigninModal(props) {
         let confirmationResult = window.confirmationResult;
         confirmationResult
             .confirm(otp)
-            .then((result) => {
+            .then(async (result) => {
                 const user = result.user;
                 const userID = user.uid;
-                const checkUser = async () => {
-                    const user = await userServices.getUser(userID)
-                    const userData = user.data();
-                    const userPhone = userData.phone;
-                    if (userPhone === formik.values.phoneNumber) {
-                        history.push('/deliveryinfo')
-                    } else {
-                        const userRef = db.doc(`PharmacyUsers/${userID}`);
-                        userRef.set({
-                            phone: formik.values.phoneNumber,
-                            Name: formik.values.userName,
-                            Street: "",
-                            Building: "",
-                            Flat: "",
-                            landmark: "",
-                            Label: "",
-                            LabelOther: "",
-                        });
-                        setShow(false);
-                        setConfirmation(false);
-                    }
+                const checkUser = await userServices.getUser(userID)
+                const userData = checkUser.data();
+                if (userData === undefined) {
+                    const userRef = db.doc(`PharmacyUsers/${userID}`);
+                    userRef.set({
+                        phone: formik.values.phoneNumber,
+                        Name: formik.values.userName,
+                        Street: "",
+                        Building: "",
+                        Flat: "",
+                        landmark: "",
+                        Label: "",
+                        LabelOther: "",
+                        purchases: [],
+                    });
+                } else {
+                    history.push('/deliveryinfo')
                 }
-                checkUser()
             })
             .catch((error) => {
                 console.log(error.message);
             });
+        setShow(false);
+        setConfirmation(false);
     };
 
     const [show, setShow] = useState(props.btn);

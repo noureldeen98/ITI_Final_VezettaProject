@@ -39,11 +39,13 @@ export default function Auth() {
                 details.forEach((doc) => {
                     console.log(doc.id, " => ", doc.data());
                     localStorage.setItem('usrID',doc.id)
-                    localStorage.setItem('UserEmail',doc.data().Emaile)
+                    
                    
                 })
+                localStorage.setItem('UserEmail',email)
             localStorage.setItem("Name", Name);
             localStorage.setItem("Login", true);
+            
             history.push('/home');
         } catch (err) {
             console.error(err);

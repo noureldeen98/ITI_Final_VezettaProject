@@ -21,7 +21,7 @@ export default function Signin() {
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
-
+   
     const logInWithEmailAndPassword = async () => {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);

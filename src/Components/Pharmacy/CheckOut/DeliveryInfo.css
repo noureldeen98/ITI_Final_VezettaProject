@@ -36,3 +36,7 @@
   font-size: 20px;
   margin: 5px;
 }
+.delivery-btn:disabled {
+  background-color: #0173cb4d;
+  cursor: default;
+}

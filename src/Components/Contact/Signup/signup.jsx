@@ -5,7 +5,7 @@ import "../style/style.css"
 import { Link } from 'react-router-dom'
 import { db, auth } from '../../../FireBaseConfiguration/FirebaseConfiguration'
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { collection, getDocs, addDoc,query, where } from 'firebase/firestore'
+import { collection, getDocs, addDoc, query, where } from 'firebase/firestore'
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -21,7 +21,6 @@ export default function Auth() {
 
     // signup
     const registerWithEmailAndPassword = async (email, password) => {
-
         try {
             const auth2 = getAuth();
             const res = await createUserWithEmailAndPassword(auth2, email, password);
@@ -33,15 +32,13 @@ export default function Auth() {
                 Phone: Phone,
                 DateBirth: DateBirth
             });
-            const Usr = query(collection(db,'/Users'),where('Emaile', '==',email));
-    
-                const details = await getDocs(Usr)
-                details.forEach((doc) => {
-                    console.log(doc.id, " => ", doc.data());
-                    localStorage.setItem('usrID',doc.id)
-                    localStorage.setItem('UserEmail',doc.data().Emaile)
-                   
-                })
+            const Usr = query(collection(db, '/Users'), where('Emaile', '==', email));
+            const details = await getDocs(Usr)
+            details.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                localStorage.setItem('usrID', doc.id)
+                localStorage.setItem('UserEmail', doc.data().Emaile)
+            })
             localStorage.setItem("Name", Name);
             localStorage.setItem("Login", true);
             history.push('/home');
@@ -59,7 +56,6 @@ export default function Auth() {
                     <div id="one" className="row">
                         <p style={{ marginBottom: " 0%" }} className="text-center"> {t('SiginUp')}</p>
                     </div>
-                  
                     <hr />
                     {/* one */}
                     <div className="row iteam-form">
@@ -100,8 +96,8 @@ export default function Auth() {
                         </div>
 
                     </div>
-                        {/* four */}
-                        {/* <div className="row iteam-form py-3">
+                    {/* four */}
+                    {/* <div className="row iteam-form py-3">
                             <div className="col-lg-3  col-sm-12 pt-2">
                                 <label htmlFor="validationCustomUsername">{t('Type')}</label>
                                 <sup style={{ color: "red" }}> *</sup>
@@ -119,55 +115,55 @@ export default function Auth() {
                             
 
                         </div> */}
-                        {/* five */}
-                        <div className="row iteam-form">
-                            <div className="col-lg-3  col-sm-12">
-                                <label htmlFor="validationCustom01"> {t('DateOfBirth')} </label>
-                            </div>
-
-                            <div className="col-lg-9">
-                                <input type="text" className="form-control container-fluid" placeholder={t('DateOfBirth')} id="DateBirth"
-                                    onChange={(event) => { setUserDateBirth(event.target.value); }} />
-                            </div>
+                    {/* five */}
+                    <div className="row iteam-form">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom01"> {t('DateOfBirth')} </label>
                         </div>
-                        {/* six */}
-                        <div className="row iteam-form">
-                            <div className="col-lg-3  col-sm-12">
-                                <label htmlFor="validationCustom01">{t('Password')} </label>
-                                <sup style={{ color: "red" }}> *</sup>
-                            </div>
 
-                            <div className="col-lg-9">
-                                <input type="password" className="form-control container-fluid"
-                                    required placeholder={t('placeHolderPass')} id="Password"
-                                    onChange={(event) => { setPass(event.target.value); }}
-                                    value={pass}
-                                />
-                                <div className="valid-feedback">{t('validPass')}</div>
-                            </div>
+                        <div className="col-lg-9">
+                            <input type="text" className="form-control container-fluid" placeholder={t('DateOfBirth')} id="DateBirth"
+                                onChange={(event) => { setUserDateBirth(event.target.value); }} />
                         </div>
-                        {/* seven */}
-                        <div className="row iteam-form">
-                            <div className="col-lg-3 col-md-12"></div>
-                            <div className="form-check form-switch col-lg-9 col-md-12">
-                                {/* <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+                    </div>
+                    {/* six */}
+                    <div className="row iteam-form">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom01">{t('Password')} </label>
+                            <sup style={{ color: "red" }}> *</sup>
+                        </div>
+
+                        <div className="col-lg-9">
+                            <input type="password" className="form-control container-fluid"
+                                required placeholder={t('placeHolderPass')} id="Password"
+                                onChange={(event) => { setPass(event.target.value); }}
+                                value={pass}
+                            />
+                            <div className="valid-feedback">{t('validPass')}</div>
+                        </div>
+                    </div>
+                    {/* seven */}
+                    <div className="row iteam-form">
+                        <div className="col-lg-3 col-md-12"></div>
+                        <div className="form-check form-switch col-lg-9 col-md-12">
+                            {/* <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
                                     <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
                                     إضافة التأمين الطبي
                                 </label> */}
-                                <p>{t('rule')}</p>
+                            <p>{t('rule')}</p>
 
-                                <button type='button' className="btn btn-danger" id="sign-up"
-                                    onClick={() => registerWithEmailAndPassword(Emaile, pass)}>{t('btnSignup')} </button>
-                            </div>
-
+                            <button type='button' className="btn btn-danger" id="sign-up"
+                                onClick={() => registerWithEmailAndPassword(Emaile, pass)}>{t('btnSignup')} </button>
                         </div>
 
-                        <div style={{ clear: "both", margin: "0%" }}></div>
-                        <hr className="mx-2" />
-                        <div className="row" style={{ textAlign: "center" }}>
-                            <p>{t('AlredyLogin')}<Link to="/Signin" style={{ textDecoration: "underline" }}>{t('login')}</Link></p>
-                        </div>
-                    
+                    </div>
+
+                    <div style={{ clear: "both", margin: "0%" }}></div>
+                    <hr className="mx-2" />
+                    <div className="row" style={{ textAlign: "center" }}>
+                        <p>{t('AlredyLogin')}<Link to="/Signin" style={{ textDecoration: "underline" }}>{t('login')}</Link></p>
+                    </div>
+
                 </form>
             </div>
             <Footer />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { auth ,db} from "../../../FireBaseConfiguration/FirebaseConfiguration";
+import { auth, db } from "../../../FireBaseConfiguration/FirebaseConfiguration";
 import NavbarComponent from "../../home/header/NavbarComponent";
 import Footer from "../../home/footer/Footer";
 import "../style/style.css";
@@ -26,19 +26,17 @@ export default function Signin() {
         try {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
-            const Usr = query(collection(db,'/Users'),where('Emaile', '==', user.user.reloadUserInfo.email));
-    
-                const details = await getDocs(Usr)
-                details.forEach((doc) => {
-                    console.log(doc.id, " => ", doc.data());
-                    localStorage.setItem('usrID',doc.id)
-                    localStorage.setItem("Name", doc.data().Name);
-                   
-                })
+            const Usr = query(collection(db, '/Users'), where('Emaile', '==', user.user.reloadUserInfo.email));
+            const details = await getDocs(Usr)
+            details.forEach((doc) => {
+                console.log(doc.id, " => ", doc.data());
+                localStorage.setItem('usrID', doc.id)
+                localStorage.setItem("Name", doc.data().Name);
+            })
             localStorage.setItem("Login", true);
             history.push('/home');
-            
-              console.log(user._tokenResponse.registered);
+            window.location.reload();
+            console.log(user._tokenResponse.registered);
         } catch (err) {
             console.log(err);
         }

@@ -53,15 +53,25 @@ const DeliveryInfo = ({ cart }) => {
     }, [user]);
 
     const handleDelete = async () => {
-        userServices.updateUser(user, {
+        await userServices.updateUser(user, {
             Street: "",
             Building: "",
             Flat: "",
             landmark: "",
             Label: "",
             LabelOther: "",
-        }).then(window.location.reload());
+        });
+        window.location.reload();
     };
+
+    const [disabled, setDisabled] = useState(false)
+    useEffect(() => {
+        if (street === '') {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }, [street])
 
     return (
         <>
@@ -140,6 +150,7 @@ const DeliveryInfo = ({ cart }) => {
                         <button
                             className="delivery-btn"
                             onClick={() => history.push("/checkout")}
+                            disabled={disabled}
                         >
                             {t("cart_btn2")}
                             <i className="fab fa-cc-paypal"></i>

@@ -82,12 +82,12 @@ const DocHeader = () => {
 
     return (
         <>
-            <div className="row">
+            <div className="row mb-0">
                 <div className="col-12">
                     <div className="img-fluid " id="img1" >
-                        <p className="text-secondary fs-4 fw-bold">{t('Book_With_Doc')} {params.name}</p>
-                        <p className="text-secondary fs-4"> {t('Book_online')} &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; {t('No')}</p>
-                        <p className="text-secondary fs-5">{t('NO_DOC')}</p>
+                        <p className="text-secondary fs-4 fw-bold ms-3">{t('Book_With_Doc')} {params.name}</p>
+                        <p className="text-secondary fs-4 ms-3"> {t('Book_online')} &nbsp;<i className="fas fa-phone text-danger fs-5"></i>&nbsp; {t('No')}</p>
+                        <p className="text-secondary fs-5 ms-3">{t('NO_DOC')}</p>
                         <div className="btn-group float-start ms-5  mt-0 mb-0 d-none d-sm-none d-sm-none d-md-block "
                             role="group" aria-label="Button group with nested dropdown">
                             <div className="btn-group shadow-sm  bg-body rounded-3 mt-0" role="group">

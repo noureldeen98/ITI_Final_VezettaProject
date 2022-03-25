@@ -8,22 +8,11 @@ import { langContext } from '../../../Context/LangContext';
 
 const DctorInfo=(c)=>{
 
-//  let [getDocInfo]=useState(c.info)
+
   let getDocInfo=c.info
-//const[img,setImg]=useState()
 const loader = useSelector((state) => state.loader.loader);
 const {lang, setLang} = useContext(langContext);
 
- // const storageRef = ref(storage, `DoctorCall/${getDocInfo.Image}.jpg`);
-
-    // getDownloadURL(storageRef)
-    // .then((url) => {
-    //   console.log(url)
-    //    setImg(url)
-     
-    // })
-    // .catch((error) => {
-    //   console.log(error)})
 
   const { t } = useTranslation();
 

@@ -511,7 +511,20 @@
     "doctor_name":"Doctor name",
     "Patient_name":"Patient name",
     "Clinic_address":"Clinic address",
-    "my_appointments":"my appointments"
+    "my_appointments":"my appointments",
+    "Yess":"Yes",
+    "Noo":"No",
+    "Cancele_Reserv":"Do you really want to cancel the reservation ?",
+    "delete":"Delete",
+    "Booking_canceled":"Booking canceled successfully",
+    "add_Info":"Additional information for the doctor (optional)",
+    "send_Info":"You can send information about your health condition to Doctor",
+    "Age":"Age",
+    "Enter_Age":"Enter the Age",
+    "Select":"Select....",
+    "Symptoms":"Symptoms",
+    "Send_to_Dr":"Send to Dr"
+    
 
 
 }

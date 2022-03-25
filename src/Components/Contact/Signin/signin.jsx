@@ -27,16 +27,19 @@ export default function Signin() {
             const user = await signInWithEmailAndPassword(auth, Emaile, pass);
             localStorage.setItem("UserEmail", user.user.reloadUserInfo.email);
             const Usr = query(collection(db, '/Users'), where('Emaile', '==', user.user.reloadUserInfo.email));
+
             const details = await getDocs(Usr)
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 localStorage.setItem('usrID', doc.id)
                 localStorage.setItem("Name", doc.data().Name);
+
             })
             localStorage.setItem("Login", true);
+            // window.location.reload();
             history.push('/home');
-            window.location.reload();
-            console.log(user._tokenResponse.registered);
+
+            //   console.log(user._tokenResponse.registered);
         } catch (err) {
             console.log(err);
         }

@@ -55,7 +55,7 @@
   @media screen and (min-width: 769px) {
     #img1 {
       background: url(./../../DoctorCall/headerImg/header1.jpg);
-      height: 219px;
+      height: 222px;
       padding-right: 4em;
       padding-top: 1em;
       background-size: cover;
@@ -179,7 +179,17 @@
     width: 12em;
     height: 5em;
     background-color: #ef0f0f;
-  }
+}
+#search:lang(ar) {
+  border-radius:0 10px  10px 0;
+  -webkit-border-radius:0 10px  10px 0;
+  -moz-border-radius:0 10px  10px 0;
+  -ms-border-radius:0 10px  10px 0;
+  -o-border-radius:0 10px  10px 0;
+  width: 12em;
+  height: 5em;
+  background-color: #ef0f0f;
+}
   
   #btnGroupDrop1::after {
     display: inline-block;

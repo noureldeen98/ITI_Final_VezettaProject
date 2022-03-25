@@ -1,7 +1,8 @@
 import './FirstCardReservStyle.css'
 import { useTranslation } from "react-i18next";
 import {Link} from 'react-router-dom'
-
+import { useContext } from 'react';
+import { langContext } from '../../Context/LangContext';
 
 const FirstCardReserve=(data)=>{
 
@@ -11,7 +12,7 @@ const FirstCardReserve=(data)=>{
     const AppHour = localStorage.getItem('AppHour')
     const AppDoc = localStorage.getItem('AppDoc')
     const UsrName = localStorage.getItem('Name')
-
+    const {lang, setLang} = useContext(langContext);  
   
    const { t } = useTranslation();
 
@@ -24,7 +25,7 @@ const FirstCardReserve=(data)=>{
                         <div className="card-text row pb-4">
                         <div className='d-flex justify-content-start mb-2'>
                         <span><i className="fas fa-envelope text-primary border-bottom border-danger border-2 fs-4 ms-3 me-3 pb-1 mb-3"></i></span>
-                        <span  className='text-secondary me-5'>{t('Doc_Told')} {AppDoc} {t('book_you')}</span>
+                        <span  className='text-secondary me-5'>{t('Doc_Told')} {lang==='en'? doctor.nameInArabic : doctor.Name} {t('book_you')}</span>
                         </div>
                          <div className='d-flex justify-content-start mb-2'>
                         <span><i className="fas fa-money-bill-wave-alt text-primary border-bottom border-danger ms-3 border-2 fs-4  me-3 pb-1 mb-3"></i></span>
@@ -47,12 +48,12 @@ const FirstCardReserve=(data)=>{
                        <hr/>
                        <div className='d-flex justify-content-start mb-2'>
                        <span className='text-secondary me-3 ms-3'> {t('booking_date')}</span> 
-                       <span  className='text-secondary me-5'>{AppDay}  {AppHour}  {AppDate}  {t('Clinic_NO')}</span>
+                       <span  className='text-secondary me-5'>{AppDay}  {AppHour}  {AppDate}  {t('Call')}</span>
                        </div>
                        <hr/>
                        <div className='d-flex justify-content-start mb-2'>
                        <span className='text-secondary me-3 ms-3'> {t('doctor_name')}</span> 
-                       <span  className='text-secondary me-5'>{AppDoc}</span>
+                       <span  className='text-secondary me-5'>{lang==='en'? doctor.nameInArabic : doctor.Name}</span>
                        </div>
                        <hr/>
                        <div className='d-flex justify-content-start mb-2'>

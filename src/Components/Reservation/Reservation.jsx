@@ -16,7 +16,7 @@ const Reservation=()=>{
     const doctor = useSelector((state) => state.getDoctors);
     useEffect(() =>{
         dispatch( getSpecificDoc(AppDoc,false))
-        console.log(doctor.getSpecificDoc)
+        // console.log(doctor.getSpecificDoc)
     },[])
 
     return(

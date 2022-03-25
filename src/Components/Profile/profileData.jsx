@@ -35,6 +35,10 @@ const ProfileData=()=>{
         localStorage.removeItem("currentTime")
         localStorage.removeItem("datee")
         localStorage.removeItem("clincAddrs")
+        localStorage.removeItem("DeletDoc")
+        localStorage.removeItem("DeletAdrs")
+        localStorage.removeItem("DeletAPPointment")
+
 
         setlogin(login)
         history.push('/home');
@@ -47,7 +51,7 @@ const ProfileData=()=>{
 
             const details = await getDocs(Usr)
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 setID(doc.id)
                 setNme(doc.data().Name)
                 setEmail(doc.data().Emaile)
@@ -73,6 +77,10 @@ const ProfileData=()=>{
     history.push('/home');
     }
  
+    const gotoMyAppointment=()=>{
+    
+        history.push('/app');      
+    }
     return(
         <>
         <div className="row w-75 py-4" id="form">
@@ -104,7 +112,7 @@ const ProfileData=()=>{
                             <input type="text" className="form-control container-fluid" id="Email" required
                                 placeholder={t('placeHolderEmail')}                            
                                 value={Email}
-                                onChange={(e) => setEmail(e.target.value)}/>
+                                onChange={(e) => setEmail(e.target.value)} disabled/>
                             <div className="valid-feedback">{t('validEmail')}</div>
                         </div>
                     </div>
@@ -138,7 +146,8 @@ const ProfileData=()=>{
                             <button type="button" className="btn btn-danger me-5 col-2"
                                   onClick={logout}>{t('logout')}</button>
 
-                         <button type="button" className="btn btn-success btn-lg  col-2 mx-auto"><Link className=" text-light" to="/app">{t('my_appointments')}</Link></button>
+                         <button type="button" className="btn btn-success btn-lg  col-2 mx-auto"
+                         onClick={gotoMyAppointment}>{t('my_appointments')}</button>
                             
                             <button type="button" className="btn btn-primary ms-5 col-2"
                                   onClick={()=>UpdateUstDate(name,Email,Phone,DateBirth)}

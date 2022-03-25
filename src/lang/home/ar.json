@@ -510,5 +510,19 @@
     "doctor_name":"اسم الدكتور",
     "Patient_name":"اسم المريض",
     "Clinic_address":"عنوان العيادة",
-    "my_appointments":"مواعيدي"
+    "my_appointments":"مواعيدي",
+    "Yess":"نعم",
+    "Noo":"لا",
+    "Cancele_Reserv":"هل فعلاً تريد إلغاء الحجز ؟",
+    "delete":"حذف",
+    "Booking_canceled":"تم إلغاء الحجز بنجاح",
+    "add_Info":"معلومات إضافية للدكتور (إختيارى)",
+    "send_Info":"يمكنك إرسال معلومات عن حالتك الصحية للدكتور",
+    "Age":"السن",
+    "Enter_Age":"ادخل السن",
+    "Select":"اختار....",
+    "Symptoms":"الأعراض",
+    "Send_to_Dr":"أرسل للدكتور"
+
+
 }

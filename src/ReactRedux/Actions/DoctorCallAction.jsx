@@ -31,9 +31,9 @@ export const filterDoctor = (dpt, city, area, doc) => {
             const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -47,9 +47,9 @@ export const filterDoctor = (dpt, city, area, doc) => {
              const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -62,9 +62,9 @@ export const filterDoctor = (dpt, city, area, doc) => {
             const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -74,13 +74,13 @@ export const filterDoctor = (dpt, city, area, doc) => {
           
             const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
             where('nameInArabic','==',doc));
-            console.log(docts)
+            // console.log(docts)
             const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -90,13 +90,13 @@ export const filterDoctor = (dpt, city, area, doc) => {
           
             const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
              where('dpt','==',dpt),where('city','==',city),where('area','==',area));
-             console.log(docts)
+            //  console.log(docts)
              const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -105,13 +105,13 @@ export const filterDoctor = (dpt, city, area, doc) => {
           
             const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
              where('dpt','==',dpt),where('city','==',city));
-             console.log(docts)
+            //  console.log(docts)
              const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -120,13 +120,13 @@ export const filterDoctor = (dpt, city, area, doc) => {
           
             const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
              where('city','==',city),where('area','==',area));
-             console.log(docts)
+            //  console.log(docts)
              const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -136,13 +136,13 @@ export const filterDoctor = (dpt, city, area, doc) => {
             const docts=query(collection(db,'/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/GeneralDoctors'),
              where('dpt','==',dpt),where('city','==',city),where('area','==',area)
              ,where('nameInArabic','==',doc));
-             console.log(docts)
+            //  console.log(docts)
              const details = await getDocs(docts)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
-                console.log(doc.data())
-                console.log("From Filter")
+                // console.log(doc.id, " => ", doc.data());
+                // console.log(doc.data())
+                // console.log("From Filter")
                 dispatch({ type: 'FilterDoctors', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -165,7 +165,7 @@ export const getSpecificDoc = (name, covid) => {
             const details = await getDocs(doct)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 dispatch({ type: 'getSpecificDoctor', payload: doc.data() });
                 dispatch(changeLoader(false));
             })
@@ -179,11 +179,11 @@ export const getSpecificDoc = (name, covid) => {
             const doct = query(collection(db, '/Doctors_Collection/WOB3F9GigX8UX0O1v8zE/General_internal_medicine_specialist'),
                 where('Name', '==', name));
 
-            console.log(doct)
+            // console.log(doct)
             const details = await getDocs(doct)
 
             details.forEach((doc) => {
-                console.log(doc.id, " => ", doc.data());
+                // console.log(doc.id, " => ", doc.data());
                 // console.log(doc.data())
                 dispatch({ type: 'getSpecificDoctor', payload: doc.data() });
                 dispatch(changeLoader(false));

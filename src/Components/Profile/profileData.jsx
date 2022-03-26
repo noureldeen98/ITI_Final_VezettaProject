@@ -11,6 +11,7 @@ const ProfileData = () => {
     const [t, i18n] = useTranslation();
     const history = useHistory();
     // const [userName,setUserName]=useState()
+
     const usrEmail = localStorage.getItem('UserEmail')
     const login = localStorage.getItem('Login')
     const [lgin, setlogin] = useState(login)
@@ -21,6 +22,7 @@ const ProfileData = () => {
     const [ID, setID] = useState('')
 
     const logout = async () => {
+
         await signOut(auth);
         localStorage.removeItem("UserEmail")
         localStorage.removeItem("usrID")
@@ -36,13 +38,17 @@ const ProfileData = () => {
         localStorage.removeItem("DeletDoc")
         localStorage.removeItem("DeletAdrs")
         localStorage.removeItem("DeletAPPointment")
+
+
         setlogin(login)
         history.push('/home');
-    };
 
+    };
     useEffect(() => {
         const getUer = async () => {
+
             const Usr = query(collection(db, '/Users'), where('Emaile', '==', usrEmail));
+
             const details = await getDocs(Usr)
             details.forEach((doc) => {
                 // console.log(doc.id, " => ", doc.data());
@@ -52,78 +58,88 @@ const ProfileData = () => {
                 setPhone(doc.data().Phone)
                 setDateBirth(doc.data().DateBirth)
                 localStorage.setItem('usrID', doc.id)
+
             })
             // localStorage.setItem('usrID',ID)
+
         }
         getUer(usrEmail);
     }, [])
 
-const UpdateUstDate = async (nme, emil, phne, BD) => {
-    db.collection('/Users').doc(ID).update({
-        Name: nme,
-        Emaile: emil,
-        Phone: phne,
-        DateBirth: BD
-    })
-    history.push('/home');
-}
+    const UpdateUstDate = async (nme, emil, phne, BD) => {
 
-const gotoMyAppointment = () => {
+        db.collection('/Users').doc(ID).update({
+            Name: nme,
+            Emaile: emil,
+            Phone: phne,
+            DateBirth: BD
+        })
+        history.push('/home');
+    }
 
-    history.push('/app');
-}
-return (
-    <>
-        <div className="row w-75 py-4" id="form">
-            <form className="needs-validation" noValidate>
-                <div id="one" className="row">
-                    <p style={{ marginBottom: " 0%" }} className="text-center">{t('Usr_Data')}</p>
-                </div>
-                <hr />
-                <div className="row iteam-form">
-                    <div className="col-lg-3  col-sm-12">
-                        <label htmlFor="validationCustom01">{t('userName')}</label>
-                        <sup style={{ color: "red" }}> *</sup>
-                    </div>
-                    <div className="col-9">
-                        <input type="text" className="form-control container-fluid" id="FullName"
-                            required placeholder={t('placeHolderName')}
-                            value={name}
-                            onChange={(e) => setNme(e.target.value)} />
-                        <div className="valid-feedback">{t('validName')}</div>
-                    </div>
-                </div>
-                {/* one */}
-                <div className="row iteam-form ">
-                    <div className="col-lg-3  col-sm-12">
-                        <label htmlFor="validationCustom01">{t('Emaile')}</label>
-                        <sup style={{ color: "red" }}> *</sup>
-                    </div>
-                    <div className="col-lg-9">
-                        <input type="text" className="form-control container-fluid" id="Email" required
-                            placeholder={t('placeHolderEmail')}
-                            value={Email}
-                            onChange={(e) => setEmail(e.target.value)} disabled />
-                        <div className="valid-feedback">{t('validEmail')}</div>
-                    </div>
-                </div>
-                {/* two */}
-                <div className="row iteam-form">
-                    <div className="col-lg-3  col-sm-12">
-                        <label htmlFor="validationCustom02">{t('phoneNumber')}</label>
-                        <sup style={{ color: "red" }}> *</sup>
-                    </div>
+    const gotoMyAppointment = () => {
 
-                    <div className="col-lg-9">
-                        <input type="text" className="form-control container-fluid" required placeholder={t('placeHolderPhone')} id="Phone"
-                            value={Phone}
-                            onChange={(e) => setPhone(e.target.value)} />
-                        <div className="valid-feedback">{t('validPhone')}</div>
+        history.push('/app');
+    }
+    return (
+        <>
+            <div className="row w-75 py-4" id="form">
+                <form className="needs-validation" noValidate>
+                    <div id="one" className="row">
+                        <p style={{ marginBottom: " 0%" }} className="text-center">{t('Usr_Data')}</p>
                     </div>
-                </div>
-                <div className="row iteam-form">
-                    <div className="col-lg-3  col-sm-12">
-                        <label htmlFor="validationCustom01"> {t('DateOfBirth')} </label>
+                    <hr />
+                    <div className="row iteam-form">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom01">{t('userName')}</label>
+                            <sup style={{ color: "red" }}> *</sup>
+                        </div>
+                        <div className="col-9">
+                            <input type="text" className="form-control container-fluid" id="FullName"
+                                required placeholder={t('placeHolderName')}
+                                value={name}
+                                onChange={(e) => setNme(e.target.value)} />
+                            <div className="valid-feedback">{t('validName')}</div>
+                        </div>
+                    </div>
+                    {/* one */}
+                    <div className="row iteam-form ">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom01">{t('Emaile')}</label>
+                            <sup style={{ color: "red" }}> *</sup>
+                        </div>
+                        <div className="col-lg-9">
+                            <input type="text" className="form-control container-fluid" id="Email" required
+                                placeholder={t('placeHolderEmail')}
+                                value={Email}
+                                onChange={(e) => setEmail(e.target.value)} disabled />
+                            <div className="valid-feedback">{t('validEmail')}</div>
+                        </div>
+                    </div>
+                    {/* two */}
+                    <div className="row iteam-form">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom02">{t('phoneNumber')}</label>
+                            <sup style={{ color: "red" }}> *</sup>
+                        </div>
+
+                        <div className="col-lg-9">
+                            <input type="text" className="form-control container-fluid" required placeholder={t('placeHolderPhone')} id="Phone"
+                                value={Phone}
+                                onChange={(e) => setPhone(e.target.value)} />
+                            <div className="valid-feedback">{t('validPhone')}</div>
+                        </div>
+                    </div>
+                    <div className="row iteam-form">
+                        <div className="col-lg-3  col-sm-12">
+                            <label htmlFor="validationCustom01"> {t('DateOfBirth')} </label>
+                        </div>
+
+                        <div className="col-lg-9">
+                            <input type="text" className="form-control container-fluid" placeholder={t('DateOfBirth')} id="DateBirth"
+                                value={DateBirth}
+                                onChange={(e) => setDateBirth(e.target.value)} />
+                        </div>
                     </div>
                     <hr /><br />
                     <div className="d-flex justify-content-around">
@@ -137,22 +153,10 @@ return (
                             onClick={() => UpdateUstDate(name, Email, Phone, DateBirth)}
                         >{t('Save')}</button>
                     </div>
-                </div>
-                <hr /><br />
-                <div className="d-flex justify-content-around">
-                    <button type="button" className="btn btn-danger me-5 col-2"
-                        onClick={logout}>{t('logout')}</button>
-
-                    <button type="button" className="btn btn-success btn-lg  col-2 mx-auto"><Link className=" text-light" to="/app">{t('my_appointments')}</Link></button>
-
-                    <button type="button" className="btn btn-primary ms-5 col-2"
-                        onClick={() => UpdateUstDate(name, Email, Phone, DateBirth)}
-                    >{t('Save')}</button>
-                </div>
-            </form >
-        </div >
-    </>
-)
+                </form>
+            </div>
+        </>
+    )
 }
 
-export default ProfileData;
+export default ProfileData

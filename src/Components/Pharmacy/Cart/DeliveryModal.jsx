@@ -53,25 +53,24 @@ export default function DeliveryModal(props) {
             event.stopPropagation();
             setValidated(true);
         }
-        updateAddress();
-    };
-
-    const updateAddress = async () => {
-        await userServices.updateUser(user, {
+        userServices.updateUser(user, {
             Street: street,
             Building: building,
             Flat: flat,
             landmark: landmark,
             Label: label,
             LabelOther: labelOther,
-        }).then(() => {
-            if (location.pathname === '/deliveryinfo') {
-                window.location.reload();
-            } else {
-                history.push("/deliveryinfo");
-            }
         })
-    }
+        history.push("/deliveryinfo");
+        // .then(
+        //     () => {
+        //         if (location.pathname === '/deliveryinfo') {
+        //             window.location.reload()
+        //         } else {
+        //         }
+        //     }
+        // )
+    };
 
     const { t } = useTranslation();
 

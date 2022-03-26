@@ -50,3 +50,7 @@
 /* .visitForm:lang(ar) {
   direction: rtl !important;
 } */
+
+.modal-backdrop {
+  z-index: 1019 !important;
+}

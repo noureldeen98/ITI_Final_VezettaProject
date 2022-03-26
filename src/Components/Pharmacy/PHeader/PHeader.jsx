@@ -24,12 +24,12 @@ export default function PHeader() {
             .then(() => {
                 localStorage.removeItem('Cart');
                 localStorage.removeItem('authUserID');
-                window.location.reload();
                 history.push('/pharmacy');
             })
             .catch((error) => {
                 console.log(error);
             });
+        window.location.reload();
     };
 
     const Languages = [

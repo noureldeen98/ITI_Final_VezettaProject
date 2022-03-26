@@ -4,10 +4,10 @@
     margin: auto;
     overflow-x: hidden;
 }
-.modal-backdrop{
+/* .modal-backdrop{
     z-index: -100 !important;
-  }
+  } */
 
-  .modal{
+  /* .modal{
     z-index: 1500 !important;
-  }
+  } */

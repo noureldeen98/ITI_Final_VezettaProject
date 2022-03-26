@@ -8,7 +8,7 @@ import "./DeliveryModal.css";
 
 export default function DeliveryModal(props) {
     const history = useHistory();
-    const location = useLocation();
+    // const location = useLocation();
 
     const [other, setOther] = useState(false);
     const [landmarkInput, setLandmarkInput] = useState(false);

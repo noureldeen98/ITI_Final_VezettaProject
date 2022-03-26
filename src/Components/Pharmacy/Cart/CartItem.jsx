@@ -11,12 +11,15 @@ import { Link } from "react-router-dom";
 
 const CartItem = ({ item, removeFromCart, adjustQty, loadCurrentItems }) => {
   const { t } = useTranslation();
-
   const [qty, setQty] = useState(item.qty);
 
   const qtyChange = (e) => {
     setQty(e.target.value);
   };
+
+  // if (item.qty !== qty) {
+  //   setQty(item.qty)
+  // }
 
   useEffect(() => {
     adjustQty(item.id, qty);

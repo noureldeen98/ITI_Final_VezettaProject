@@ -12,24 +12,24 @@ const Result = ({ data, cart, addToCart }) => {
         localStorage.setItem("Cart", JSON.stringify(cart))
     }, [cart])
 
-    return data.map((result) => {
+    return data.map((result, index) => {
         return (
             <>
                 <div
                     className="d-flex justify-content-between result-style"
-                    key={result.id}
+                    key={index}
                 >
                     <div className="d-flex align-items-center">
                         <img
                             src={result.url}
                             alt="medicine"
-                            width="95%"
-                            height="95%"
+                            width="100"
+                            height="auto"
                         />
                     </div>
                     <div
                         className="d-flex flex-column justify-content-between"
-                        style={{ width: "300px" }}
+                        style={{ width: "600px" }}
                     >
                         <div className="d-flex align-items-start fs-4 fw-bold">
                             {`${result.nameAR} | ${result.nameEN}`}
@@ -38,17 +38,6 @@ const Result = ({ data, cart, addToCart }) => {
                             {`${result.category}`}
                         </div>
                     </div>
-                    {/* <div>
-                        {result.category === "Tablet - حبوب" ? (
-                            <div className="d-flex align-items-start">
-                                {result.molarity} {t("molarity1")} {result.size} {t("size1")}
-                            </div>
-                        ) : (
-                            <div className="d-flex align-items-start">
-                                {result.molarity} {t("molarity2")} {result.size} {t("size2")}
-                            </div>
-                        )}
-                    </div> */}
                     <div className="d-flex align-items-center fs-4 fw-bold">
                         {result.price} {t("currency")}
                     </div>

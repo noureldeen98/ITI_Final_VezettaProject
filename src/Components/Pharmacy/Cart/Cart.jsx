@@ -29,8 +29,10 @@ const Cart = ({ cart }) => {
         <>
             <PHeader />
 
-            <div className="search-cart d-flex">
-                <Search style={{ marginTop: '-30px' }} />
+            <div className="search-cart d-flex justify-content-center align-items-center" >
+                <div className="search-cart-container">
+                <Search />
+                </div>
                 <button className="clear-btn" onClick={clear}>
                     Clear
                 </button>

@@ -1,0 +1,27 @@
+{
+  "name": "Vezeeta",
+  "short_name": "Vezeeta",
+  "description":	"Book the best Doctor",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/8861/_next/static/images/android-icon-192x192.png",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    },
+    {
+      "src": "https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/8861/_next/static/images/android-icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "prefer_related_applications":false,
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0070cd",
+  "background_color": "#ffffff"
+}
